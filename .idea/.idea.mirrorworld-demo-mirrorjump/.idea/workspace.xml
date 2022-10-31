@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b963e01e-838e-41d2-af35-f0f70559ba8b" name="Changes" comment="">
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/NftTrade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/NftTrade.cs" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorjump/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorjump/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/MirrorSDK.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/MirrorSDK.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityDebug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityDebug.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameEntrance.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameEntrance.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/UIManager.cs" afterDir="false" />
+>>>>>>> develop
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/066b41adfd1c4a3b90759d491f1499e8157a00/1c/6cd6f96b/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/066b41adfd1c4a3b90759d491f1499e8157a00/2a/ed2fcc9f/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/066b41adfd1c4a3b90759d491f1499e8157a00/2c/d80bf8e7/Quaternion.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/066b41adfd1c4a3b90759d491f1499e8157a00/47/3deee62b/Vector2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/066b41adfd1c4a3b90759d491f1499e8157a00/9a/773d2de0/PlayerPrefs.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/066b41adfd1c4a3b90759d491f1499e8157a00/ac/4d052d28/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/066b41adfd1c4a3b90759d491f1499e8157a00/b4/7a72308e/AsyncOperation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/066b41adfd1c4a3b90759d491f1499e8157a00/c4/99585c81/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/066b41adfd1c4a3b90759d491f1499e8157a00/e1/053c0008/RectTransform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/066b41adfd1c4a3b90759d491f1499e8157a00/e9/6d709508/Random.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/066b41adfd1c4a3b90759d491f1499e8157a00/f7/8a89b7c3/Rect.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/066b41adfd1c4a3b90759d491f1499e8157a00/fb/c9b33a16/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/346ac9fea009459c82f8edd64906ff6a3a00/50/b75638ed/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3d3c2ee7bd9049e49660c19ac0086eca128c00/cb/99c325fd/Button.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/b7/c23faf75/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6073cf49ed704e958b8a66d540dea94846a800/9c/a5e40348/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6eb22e19d14e41f28b6e3398a17360587400/2a/e13a81e4/Input.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/81426fb2f082419eb14e96c5244705f02aa00/f9/c26f9230/ShortcutExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/Stairs/DisappearStairs.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/NftTrade.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/ScrollRect.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2EW1JTVu2HQ4sKVaouHYjHwGRJp" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.04475043&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;rider.run.widget.enabled.cache&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="D:\edit\2021.3.3f1c1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorjump&quot; -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorjump" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b963e01e-838e-41d2-af35-f0f70559ba8b" name="Changes" comment="" />
+      <created>1662696458443</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1662696458443</updated>
+      <workItem from="1662696468767" duration="6388000" />
+      <workItem from="1662727522795" duration="10326000" />
+      <workItem from="1662771469536" duration="4039000" />
+      <workItem from="1662775642219" duration="2413000" />
+      <workItem from="1662794858842" duration="3972000" />
+      <workItem from="1662817866171" duration="1473000" />
+      <workItem from="1662857908354" duration="11267000" />
+      <workItem from="1662884506225" duration="5394000" />
+      <workItem from="1662899920772" duration="12955000" />
+      <workItem from="1662952152526" duration="7016000" />
+      <workItem from="1662973075141" duration="9666000" />
+      <workItem from="1662983025192" duration="1364000" />
+      <workItem from="1662990549153" duration="10206000" />
+      <workItem from="1663028383037" duration="6292000" />
+      <workItem from="1663037551687" duration="19966000" />
+      <workItem from="1663073558948" duration="9354000" />
+      <workItem from="1663135704344" duration="3372000" />
+      <workItem from="1663220222873" duration="18622000" />
+      <workItem from="1663305834366" duration="9817000" />
+      <workItem from="1663321878334" duration="523000" />
+      <workItem from="1663322864411" duration="2636000" />
+      <workItem from="1663326051255" duration="1327000" />
+      <workItem from="1663375262915" duration="18919000" />
+      <workItem from="1663403772035" duration="5458000" />
+      <workItem from="1663419467187" duration="10500000" />
+      <workItem from="1663460135912" duration="11528000" />
+      <workItem from="1663475253013" duration="5472000" />
+      <workItem from="1663480788378" duration="173000" />
+      <workItem from="1663488208170" duration="5050000" />
+      <workItem from="1663504979061" duration="9481000" />
+      <workItem from="1663519629396" duration="429000" />
+      <workItem from="1663546302595" duration="3236000" />
+      <workItem from="1663561493351" duration="13485000" />
+      <workItem from="1663581432413" duration="2413000" />
+      <workItem from="1663584260365" duration="776000" />
+      <workItem from="1663596287708" duration="3857000" />
+      <workItem from="1663633470517" duration="14006000" />
+      <workItem from="1663678400395" duration="5244000" />
+      <workItem from="1663716971910" duration="10803000" />
+      <workItem from="1663739636759" duration="19901000" />
+      <workItem from="1663767035151" duration="1929000" />
+      <workItem from="1663802294113" duration="12399000" />
+      <workItem from="1663819304446" duration="668000" />
+      <workItem from="1664423346678" duration="3208000" />
+      <workItem from="1664443710191" duration="2298000" />
+      <workItem from="1664500030569" duration="9220000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/ECS/script/MirrorList/ListViewManager.cs</url>
+          <line>127</line>
+          <properties documentPath="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorjump\Assets\Scripts\ECS\script\MirrorList\ListViewManager.cs" initialLine="125" containingFunctionPresentation="method 'OnButtonClick'">
+            <startOffsets>
+              <option value="4048" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4095" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/ECS/script/MirrorList/PackageManager.cs</url>
+          <line>81</line>
+          <properties documentPath="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorjump\Assets\Scripts\ECS\script\MirrorList\PackageManager.cs" initialLine="70" containingFunctionPresentation="method 'GenerateRandomCellData'">
+            <startOffsets>
+              <option value="2526" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2527" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/GameController.cs</url>
+          <line>142</line>
+          <properties documentPath="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorjump\Assets\Scripts\ECS\script\Game\GameController.cs" initialLine="136" containingFunctionPresentation="method 'OnGameStart'">
+            <startOffsets>
+              <option value="3176" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3275" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Test.cs</url>
+          <line>19</line>
+          <properties documentPath="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorjump\Assets\Scripts\ECS\script\Test.cs" initialLine="14" containingFunctionPresentation="method 'Testd'">
+            <startOffsets>
+              <option value="283" />
+            </startOffsets>
+            <endOffsets>
+              <option value="381" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Test.cs</url>
+          <line>20</line>
+          <properties documentPath="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorjump\Assets\Scripts\ECS\script\Test.cs" initialLine="15" containingFunctionPresentation="method 'Testd'">
+            <startOffsets>
+              <option value="393" />
+            </startOffsets>
+            <endOffsets>
+              <option value="444" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityDebug.cs</url>
+          <line>31</line>
+          <properties documentPath="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorjump\Assets\MirrorMarketSDK\Runtime\Services\Implementations\Unity\MirrorWrapperUnityDebug.cs" initialLine="31" containingFunctionPresentation="method 'CompleteLoginWithSession'">
+            <startOffsets>
+              <option value="1009" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1076" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityDebug.cs</url>
+          <line>36</line>
+          <properties documentPath="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorjump\Assets\MirrorMarketSDK\Runtime\Services\Implementations\Unity\MirrorWrapperUnityDebug.cs" initialLine="35" containingFunctionPresentation="lambda expression inside method 'CompleteLoginWithSession'">
+            <startOffsets>
+              <option value="1207" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1330" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
