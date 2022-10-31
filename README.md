@@ -36,7 +36,7 @@ To make it easier for developers to test features or to co-create, Mirror World 
 ## How to start
    1.Download the project and open the 'GameEntrance' scene in Unity
 
-![StepOne](C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorsjump\Images\StepOne.png)
+<img src="Images\StepOne.png" alt="StepOne" style="zoom: 25%;" />
 
 
 
@@ -45,7 +45,7 @@ To make it easier for developers to test features or to co-create, Mirror World 
 
    2.Select the MirrorSDK node in the GameEntrance scene to set your project's api key and debug email address
 
-![StepTwo](C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorsjump\Images\StepTwo.png)
+<img src="Images\StepTwo.png" alt="StepTwo" style="zoom:25%;" />
 
 
 
@@ -56,25 +56,25 @@ To make it easier for developers to test features or to co-create, Mirror World 
 
 
 
-![StepThree](C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorsjump\Images\StepThree.png)
+<img src="Images\StepThree.png" alt="StepThree" style="zoom:25%;" />
 
 
 
 
 
-![StepFour](C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorsjump\Images\StepFour.png)
+<img src="Images\StepFour.png" alt="StepFour" style="zoom:25%;" />
 
 
 
 
 
-![StepSix](C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorsjump\Images\StepSix.png)
+<img src="Images\StepSix.png" alt="StepSix" style="zoom:25%;" />
 
 
 
 
 
-![StepSeven](C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorsjump\Images\StepSeven.png)
+<img src="Images\StepSeven.png" alt="StepSeven" style="zoom:25%;" />
 
 
 
