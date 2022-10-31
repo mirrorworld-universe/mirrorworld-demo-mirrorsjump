@@ -28,7 +28,7 @@ To make it easier for developers to test features or to co-create, Mirror World 
     - NFT List
     - NFT List Update
     - NFT List Cancel
-    - Mint New NFT on Collection
+    - Mint New NFT to Collection
     - Fetch multiple NFTs data by owner addresses
 
 
