@@ -17,7 +17,8 @@ To make it easier for developers to test features or to co-create, Mirror World 
     - Email Login
     - Twitter Login
     - Discord Login
-
+    - Facebook Login
+    
   - **In-APP Wallet**
     - Token Transfer
     - Get wallet Transactions
