@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="510429f0-be6a-42b7-ba45-15543685d641" name="Changes" comment="" />
+    <list default="true" id="510429f0-be6a-42b7-ba45-15543685d641" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +23,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
     "rider.run.widget.enabled.cache": "false",
     "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
@@ -64,7 +67,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667201963082</updated>
-      <workItem from="1667201970274" duration="79000" />
+      <workItem from="1667201970274" duration="1092000" />
     </task>
     <servers />
   </component>

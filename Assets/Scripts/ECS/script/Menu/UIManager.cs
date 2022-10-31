@@ -15,7 +15,8 @@ public class UIManager : MonoBehaviour
     
 
     private void Start()
-    {
+    {   
+        
         SoundManager.Instance.GetAudioSource().clip = SoundManager.Instance.Clips[5];
         SoundManager.Instance.GetAudioSource().mute = SoundManager.Instance.GetSoundState();
         SoundManager.Instance.GetAudioSource().Play();
