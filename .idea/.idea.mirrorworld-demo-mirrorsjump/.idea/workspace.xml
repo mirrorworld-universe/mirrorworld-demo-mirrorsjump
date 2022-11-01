@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="510429f0-be6a-42b7-ba45-15543685d641" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Constant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Constant.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Login/TokenGuidance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Login/TokenGuidance.cs" afterDir="false" />
-    </list>
+    <list default="true" id="510429f0-be6a-42b7-ba45-15543685d641" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1667201963082</updated>
       <workItem from="1667201970274" duration="3867000" />
-      <workItem from="1667290669111" duration="260000" />
+      <workItem from="1667290669111" duration="574000" />
     </task>
     <servers />
   </component>
