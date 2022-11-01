@@ -7,7 +7,7 @@
         public static bool shushuSDKOpen = true;
         public static string shushuAppID = "b9e2c7f496e94936a3896728f7cf5617";
         public static string shushuReportUrl = "https://global-receiver-ta.mirrorworld.fun";
-        public static string AppID = "MRJ";
+        public static string AppID = "MRJ_dev";
 
         public static string NotSufficientFunds =
             "the wallet balance is sufficient.";

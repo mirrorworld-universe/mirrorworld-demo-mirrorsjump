@@ -50,9 +50,6 @@ public class TokenGuidance : MonoBehaviour
             
         }
         
-        
-        
-        
        isAirDropping = false;
         
        
@@ -69,11 +66,6 @@ public class TokenGuidance : MonoBehaviour
         }
         
         
-        // if ("false" == PlayerPrefs.GetString("HasGuidence", "false"))
-        // {
-        //     Guidence.OnFirstStep();
-        // }
-        //
     }
 
     private void Update()
