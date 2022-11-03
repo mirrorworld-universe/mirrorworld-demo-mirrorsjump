@@ -161,7 +161,6 @@ public class CallSDK : MonoBehaviour
         
         if (LoginState.HasLogin)
         {
-
             if ("true" == PlayerPrefs.GetString("HasTransferSol", "false"))
             {
                 // 直接 mint 
@@ -169,6 +168,7 @@ public class CallSDK : MonoBehaviour
                 {
                     return;
                 }
+                
                 string name = "Mirrors Jump " + "#" +PlayerPrefs.GetString("TokenId");
             
                 if (ApiCallLimit.MintLimit() == false)
