@@ -6,7 +6,7 @@
 
 Mirrors Jump is a mini-game that fully utilizes the Mirror World Smart SDK and is dedicated to helping more developers understand the features of the Smart SDK. All features can be integrated in 30 minutes.
 
-To make it easier for developers to test features or to co-create, Mirror World offers a Devnet version and open-sources the game code on GitHub.
+To make it easier for developers to test features or to co-create, Mirror World offers a solana Devnet version and open-sources the game code on GitHub.
 
 
 
