@@ -85,7 +85,7 @@ namespace MirrorworldSDK.Wrapper
             string rawResponseBody = request.downloadHandler.text;
 
             request.Dispose();
-            Debug.Log("rawResponseBody: "+rawResponseBody);
+
             callBack(rawResponseBody);
         }
 
