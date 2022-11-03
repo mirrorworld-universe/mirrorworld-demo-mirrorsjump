@@ -166,6 +166,11 @@ public class UIManager : MonoBehaviour
             TAManager.Instance.LoginEvent(LoginState.Email);   
             TAManager.Instance.UserSet(LoginState.Email);
         }
+        else
+        {
+            TAManager.Instance.LoginEvent();   
+            TAManager.Instance.UserSet();
+        }
 
         SceneManager.LoadScene("Menu");
     }

@@ -248,7 +248,7 @@ public class TAManager :Singleton<TAManager>
         ThinkingAnalyticsAPI.Track("cancel_list_start",properties);
     }
     
-    public void UserSet(string  userEmail)
+    public void UserSet(string  userEmail = "")
     {
         ThinkingAnalyticsAPI.UserSet(new Dictionary<string, object>()
             {
@@ -260,7 +260,7 @@ public class TAManager :Singleton<TAManager>
     
     //login  email_address
 
-    public void LoginEvent(string emailAddress)
+    public void LoginEvent(string emailAddress = "")
     {
         Dictionary<string, object> properties = new Dictionary<string, object>(){
             {"email_address",emailAddress}
