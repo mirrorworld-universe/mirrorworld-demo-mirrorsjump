@@ -10,10 +10,9 @@ public class CallSDK : MonoBehaviour
 {
 
     private string ParentCollection = "7Vv68CarFpqn291aTeeUz65Uxk1tp8X7gfR8CDMZo2gw";
-   //private string ParentCollection = "7Vv68CarFpqn291aTeeUz65Uxk1tp8X7g";
-    
-    
-    
+
+
+
     public MessageAdvice MessageAdvice;
 
 
