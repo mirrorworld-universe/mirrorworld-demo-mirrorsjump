@@ -102,25 +102,25 @@ public class CallSDK : MonoBehaviour
         }
     }
     
-    private void FinishedMint(bool IsSuccess)
+    private void  FinishedMint(bool IsSuccess)
     {
 
         if (IsSuccess)
         {
-            string name = null;
-            string rarity = null;
-            foreach (var item in NftCellData.DataParsingEntity.attribute)
-            {
-                if (item.trait_type == "Rarity")
-                {
-                    rarity = item.value;
-                    
-                }else if (item.trait_type == "Type")
-                {
-                    name = item.value;
-                }
-            } 
-            
+            // string name = null;
+            // string rarity = null;
+            // foreach (var item in NftCellData.DataParsingEntity.attribute)
+            // {
+            //     if (item.trait_type == "Rarity")
+            //     {
+            //         rarity = item.value;
+            //         
+            //     }else if (item.trait_type == "Type")
+            //     {
+            //         name = item.value;
+            //     }
+            // } 
+            //
            // RoleChange.OnRoleChange(name,rarity);
             
             PlayerPrefs.SetString("HasMintRandom", "true");
@@ -130,8 +130,6 @@ public class CallSDK : MonoBehaviour
             MessageAdvice.ConfrimCloseWaitPanel();
             MessageAdvice.OnSuccess("Mint Successful!");
             PackageManager.RefreshPackage();
-
-
             UpdateMintStatusReq req = new UpdateMintStatusReq();
             req.user_id = LoginState.WalletAddress;
             req.token_id = LoginState.mintableRoleData.token_id;
@@ -145,11 +143,6 @@ public class CallSDK : MonoBehaviour
             MessageAdvice.OnFailure();
         }
         
-        
-        //  todo 解锁  Mint Api 限制状态
-        ApiCallLimit.SetMintApiLimit(Constant.StopMint);
-        
-        
     }
     
     // todo SDK Call MintNFT
@@ -162,36 +155,17 @@ public class CallSDK : MonoBehaviour
         {
             if ("true" == PlayerPrefs.GetString("HasTransferSol", "false"))
             {
-                // 直接 mint 
+               
                 if (PlayerPrefs.GetString("TokenId", "empty") == "empty")
                 {
                     return;
-                }
-                
+                } 
                 string name = "Mirrors Jump " + "#" +PlayerPrefs.GetString("TokenId");
-            
-                if (ApiCallLimit.MintLimit() == false)
-                {
-                    MessageAdvice.OpenWaitPanel("Mint Now");
-                    return;
-                }
-            
-                ApiCallLimit.SetMintApiLimit(Constant.ExecuteMint);
-            
                 MessageAdvice.OpenWaitPanel("Mint Now");
-                        
                 TAManager.Instance.MintToNFTStart("random role");
-                // Debug.Log("MintNFTParentCollection:"+ParentCollection);
-                // Debug.Log("MintNFTName:"+name);
-                // Debug.Log("MintNFTSymbol:"+"MJNFT");
-                // Debug.Log("MintNFTUrl:"+PlayerPrefs.GetString("MintUrl"));
-                
-                //7Vv68CarFpqn291aTeeUz65Uxk1tp8X7gfR8CDMZo2gw
                 MirrorSDK.MintNFT(ParentCollection,name,"MJNFT",PlayerPrefs.GetString("MintUrl"),Confirmation.Confirmed,
-                    (result) =>
-                    {   
-                                
-                       // Debug.Log("MintNFTResult:" + result.message);
+                    PlayerPrefs.GetString("TokenId"),(result) =>
+                    {
                         if (result.status == "success")
                         {   
                             TAManager.Instance.MintToNft(result.data.name,0.1f);
@@ -203,15 +177,12 @@ public class CallSDK : MonoBehaviour
                         }
                    
                     });
-
-
                 return;
-
             }
             
-            // 2ge0
-            // transfer token
-                MirrorSDK.TransferSol(100000000,"qS6JW1CKQgpwZU6jG5JpXL3Q4EDMoDD5DWacPEsNZoe",Confirmation.Confirmed, (result) =>
+            
+            
+            MirrorSDK.TransferSol(100000000,"qS6JW1CKQgpwZU6jG5JpXL3Q4EDMoDD5DWacPEsNZoe",Confirmation.Confirmed, (result) =>
                 {
                     if (result.status == "success")
                     {
@@ -235,17 +206,12 @@ public class CallSDK : MonoBehaviour
                         MessageAdvice.OpenWaitPanel("Mint Now");
                         
                         TAManager.Instance.MintToNFTStart("random role");
-                        // Debug.Log("MintNFTParentCollection:"+ParentCollection);
-                        // Debug.Log("MintNFTName:"+name);
-                        // Debug.Log("MintNFTSymbol:"+"MJNFT");
-                        // Debug.Log("MintNFTUrl:"+PlayerPrefs.GetString("MintUrl"));
+                 
                         
-                        // 7Vv68CarFpqn291aTeeUz65Uxk1tp8X7gfR8CDMZo2gw
                         MirrorSDK.MintNFT(ParentCollection,name,"MJNFT",PlayerPrefs.GetString("MintUrl"),Confirmation.Confirmed,
-                            (result) =>
+                            PlayerPrefs.GetString("TokenId"),(result) =>
                             {   
                                 
-                              //  Debug.Log("MintNFTResult:" + result.message);
                                 if (result.status == "success")
                                 {   
                                     TAManager.Instance.MintToNft(result.data.name,0.1f);
@@ -275,11 +241,16 @@ public class CallSDK : MonoBehaviour
                             MessageAdvice.OnFailure();
                         }
                         
+                        
                     }
                 
                 });
                 
         }
+        
+        
+        
+        
     }
     
     
