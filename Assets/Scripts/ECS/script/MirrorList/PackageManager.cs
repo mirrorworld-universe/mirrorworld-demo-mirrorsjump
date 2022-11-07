@@ -97,7 +97,7 @@ public class PackageManager : MonoBehaviour
 
         // replaced default descripe
         nftCellData.DataParsingEntity.description =
-            "Mirror Jump is our tribute to Doodle Jump, powered by Mirror World SDK. We hope that this game will help players to better understand the fun aspects of Web3 games and help developers to better understand how to use the Mirror World SDK.";
+            "Mirrors Jump is our tribute to Doodle Jump, powered by Mirror World SDK. We hope that this game will help players to better understand the fun aspects of Web3 games and help developers to better understand how to use the Mirror World SDK.";
         nftCellData.DataParsingEntity.attribute = new List<AttributeItem>();
         AttributeItem attributeItemRare = new AttributeItem();
         attributeItemRare.trait_type = "Rarity";
@@ -123,7 +123,7 @@ public class PackageManager : MonoBehaviour
             nftCellData.DataParsingEntity = dataParsingEntity;
 
             nftCellData.DataParsingEntity.description =
-                "Mirror Jump is our tribute to Doodle Jump, powered by Mirror World SDK. We hope that this game will help players to better understand the fun aspects of Web3 games and help developers to better understand how to use the Mirror World SDK.";
+                "Mirrors Jump is our tribute to Doodle Jump, powered by Mirror World SDK. We hope that this game will help players to better understand the fun aspects of Web3 games and help developers to better understand how to use the Mirror World SDK.";
             nftCellData.DataParsingEntity.attribute = new List<AttributeItem>();
             AttributeItem attributeItemRare = new AttributeItem();
             attributeItemRare.trait_type = "Rarity";
