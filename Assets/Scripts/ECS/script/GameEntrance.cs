@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using GoogleMobileAds.Api;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
@@ -14,6 +15,13 @@ public class GameEntrance : MonoBehaviour
 
     private void Start()
     {
+        
+        
+        MobileAds.Initialize(initStatus =>
+        {
+            
+        });
+        
         
          MirrorSDK.SetLogoutCallback(() =>
         {
@@ -39,6 +47,9 @@ public class GameEntrance : MonoBehaviour
         {
             TAManager.Instance.InitShuShuSDK();
         }
+        
+      
+        
     }
 
 
