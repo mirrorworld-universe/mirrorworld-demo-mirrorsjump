@@ -1,4 +1,5 @@
 ﻿
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -125,6 +126,31 @@ public class GameController : MonoBehaviour
         
     }
 
+
+
+    public void OnGameRespawn()
+    {    
+        
+        MirrorJump mj = MirrorObject.GetComponent<MirrorJump>();
+        
+        MirrorObject.transform.eulerAngles = new Vector3(0,0,0);
+        MirrorObject.transform.localScale = new Vector3(0.28f,0.28f,0.28f);
+        MirrorObject.transform.GetComponent<MirrorJump>().Setup();
+
+        Vector2 StartPos = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.2f));//左下
+        SetTransformPosition(MirrorObject.transform,new Vector3(StartPos.x, StartPos.y,107.4f));
+        
+        MirrorObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 35);
+        mj.EnableRocket(RocketLevel.Low);
+      
+        
+        mj.RefreshSprite();
+        GameState = GameState.Gaming;
+        GameMenu.CloseGameOverWindow();
+        MirrorObject.transform.GetComponent<MirrorJump>().FallStateNotify(true);
+        
+    }
+    
     public void OnGameStart()
     {   
         MirrorJump mj = MirrorObject.GetComponent<MirrorJump>();

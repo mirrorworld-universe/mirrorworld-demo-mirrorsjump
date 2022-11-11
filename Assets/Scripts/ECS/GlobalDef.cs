@@ -30,8 +30,11 @@ public class GlobalDef
     public static string isMute = "isMute";
     public static int heightCoefficient = 4;
     // 当得分为最高分并且进行了分享
-    public static string hasInitPosY = "HasInitPosY";
+    public static string hasInitPosY = "HasInitPosY";   
     public static string maxScore = "MaxScore";
+
+    public static bool IsInitGoogleAdMob = false;
+    
 
     // 非生产环境
    // public static string server = "https://mirror-jump-staging.mirrorworld.fun/";

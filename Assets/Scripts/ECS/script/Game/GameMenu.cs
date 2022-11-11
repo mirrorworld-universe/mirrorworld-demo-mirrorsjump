@@ -159,7 +159,7 @@ public class GameMenu : MonoBehaviour
         LoadingPanel.Instance.SetLoadingPanelEnable(true);
 
         GameOverWindow.gameObject.SetActive(true);
-        GameController.OnGameOver();
+        GameController.OnGamePause();
 
         UserScoreUpdateReq req = new UserScoreUpdateReq();
         req.user_id = LoginState.WalletAddress;
@@ -172,16 +172,21 @@ public class GameMenu : MonoBehaviour
         {
             req.score = FindObjectOfType<GameController>().GetMaxHeight();
         }
-    
         req.scene = PlayerPrefs.GetInt("CurrentTheme");
-        
-        Debug.Log("调用 NetworkManager.Instance.SendUserScoreReq(req)");
-        Debug.Log("req.user_id :" + req.user_id);
-        Debug.Log("req.score :" + req.score);
-        Debug.Log("req.scene :" + req.scene);
-        
         NetworkManager.Instance.SendUserScoreReq(req);
     }
+
+
+    public void GameRespawn()
+    {
+        GameController.OnGameRespawn();
+        GameOverWindow.gameObject.SetActive(false);
+    }
+    
+    
+    
+    
+    
 
     public void GamePause()
     {

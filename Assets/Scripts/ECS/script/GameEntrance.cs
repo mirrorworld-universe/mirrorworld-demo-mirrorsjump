@@ -17,12 +17,6 @@ public class GameEntrance : MonoBehaviour
     {
         
         
-        MobileAds.Initialize(initStatus =>
-        {
-            
-        });
-        
-        
          MirrorSDK.SetLogoutCallback(() =>
         {
             PlayerPrefs.DeleteAll();
