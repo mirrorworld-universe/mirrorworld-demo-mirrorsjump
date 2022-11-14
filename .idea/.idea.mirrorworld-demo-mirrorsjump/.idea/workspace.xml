@@ -2,25 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="510429f0-be6a-42b7-ba45-15543685d641" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/GoogleMobileAdsManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/GoogleMobileAdsManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GoogleMobileAds/Resources/GoogleMobileAdsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GoogleMobileAds/Resources/GoogleMobileAdsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/GoogleMobileAdsPlugin.androidlib/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/GoogleMobileAdsPlugin.androidlib/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityUtils.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameEntrance.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameEntrance.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/GlobalDef.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/GlobalDef.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Audio/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Audio/SoundManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Constant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Constant.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/GameController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/GameMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/GameMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/MapRunSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/MapRunSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/Props/HighRocket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/Props/HighRocket.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/Props/LowRocket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/Props/LowRocket.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/RocketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/RocketController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/StairsFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/StairsFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/ThemeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/ThemeManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GameEntrance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GameEntrance.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/GoogleMobileAdsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/GoogleMobileAdsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/InterstitialAdPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/InterstitialAdPlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/RewardAdPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/RewardAdPlayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/UIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/prefeb/Stair/BalanceStair.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefeb/Stair/BalanceStair.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/prefeb/Stair/BreakageStairs.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefeb/Stair/BreakageStairs.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/prefeb/Stair/DisposableStairs.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefeb/Stair/DisposableStairs.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/prefeb/Stair/HighLevelRocket.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefeb/Stair/HighLevelRocket.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/prefeb/Stair/LowLevelRocket.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefeb/Stair/LowLevelRocket.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/prefeb/Stair/MovingStairs.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefeb/Stair/MovingStairs.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/prefeb/Stair/NormalStair 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefeb/Stair/NormalStair 1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,13 +40,23 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/066b41adfd1c4a3b90759d491f1499e8157a00/1e/5b9e59b5/Screen.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/066b41adfd1c4a3b90759d491f1499e8157a00/47/3deee62b/Vector2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/06fbd62add444b7e9fd9bccbc64e80113c00/25/46ddfe1c/AdSize.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/06fbd62add444b7e9fd9bccbc64e80113c00/7e/95cc479a/AdPosition.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/1e/e4d5f3fa/Guid.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c9b29c1f98764d19904aec63c99319c36400/ea/fe70a5af/BannerView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c9b29c1f98764d19904aec63c99319c36400/b9/62cfa5fd/RewardedAd.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c9b29c1f98764d19904aec63c99319c36400/ea/fe70a5af/BannerView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c9b29c1f98764d19904aec63c99319c36400/f1/abd14451/MobileAds.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c9b29c1f98764d19904aec63c99319c36400/f5/06a95d66/InitializationStatus.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/GameMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/PropsFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/RuleConfig.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/StairsFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/GameEntrance.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/BannerAdPlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/GoogleMobileAdsManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/InterstitialAdPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/RewardAdPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -46,18 +66,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;rider.run.widget.enabled.cache&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "XThreadsFramesViewSplitterKey": "0.8888889",
+    "nodejs_package_manager_path": "npm",
+    "rider.run.widget.enabled.cache": "false",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\edit\2021.3.3f1c1\Editor\Unity.exe" />
@@ -105,6 +126,11 @@
       <workItem from="1667956188139" duration="8018000" />
       <workItem from="1668035614618" duration="7966000" />
       <workItem from="1668064061878" duration="6638000" />
+      <workItem from="1668138591473" duration="7292000" />
+      <workItem from="1668157180570" duration="2799000" />
+      <workItem from="1668161296419" duration="1722000" />
+      <workItem from="1668163895252" duration="1269000" />
+      <workItem from="1668388138614" duration="19388000" />
     </task>
     <servers />
   </component>
@@ -127,5 +153,115 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityDebug.cs</url>
+          <line>66</line>
+          <properties documentPath="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorsjump\Assets\MirrorMarketSDK\Runtime\Services\Implementations\Unity\MirrorWrapperUnityDebug.cs" initialLine="66" containingFunctionPresentation="lambda expression inside method 'GetLoginSession'">
+            <startOffsets>
+              <option value="2283" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2410" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/UIManager.cs</url>
+          <line>261</line>
+          <properties documentPath="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorsjump\Assets\Scripts\ECS\script\Menu\UIManager.cs" initialLine="257" containingFunctionPresentation="lambda expression inside method 'Login'">
+            <startOffsets>
+              <option value="7222" />
+            </startOffsets>
+            <endOffsets>
+              <option value="7249" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityDebug.cs</url>
+          <line>48</line>
+          <properties documentPath="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorsjump\Assets\MirrorMarketSDK\Runtime\Services\Implementations\Unity\MirrorWrapperUnityDebug.cs" initialLine="48" containingFunctionPresentation="method 'GetLoginSession'">
+            <startOffsets>
+              <option value="1720" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1743" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityUtils.cs</url>
+          <line>71</line>
+          <properties documentPath="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorsjump\Assets\MirrorMarketSDK\Runtime\Services\Implementations\Unity\MirrorWrapperUnityUtils.cs" initialLine="71" containingFunctionPresentation="method 'Post'">
+            <startOffsets>
+              <option value="2502" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2561" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/RewardAdPlayer.cs</url>
+          <line>30</line>
+          <properties documentPath="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorsjump\Assets\Scripts\ECS\script\GoogleMobileAds\RewardAdPlayer.cs" initialLine="30" containingFunctionPresentation="method 'ShowRewardAd'">
+            <startOffsets>
+              <option value="541" />
+            </startOffsets>
+            <endOffsets>
+              <option value="561" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/UsePropMenu.cs</url>
+          <line>98</line>
+          <properties documentPath="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorsjump\Assets\Scripts\ECS\script\Game\UsePropMenu.cs" initialLine="69" containingFunctionPresentation="method 'OnUseHighRocket'">
+            <startOffsets>
+              <option value="1892" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1911" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/UIManager.cs</url>
+          <line>157</line>
+          <properties documentPath="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorsjump\Assets\Scripts\ECS\script\Menu\UIManager.cs" initialLine="157" containingFunctionPresentation="method 'OnUserDataReceived'">
+            <startOffsets>
+              <option value="4432" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4476" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/UIManager.cs</url>
+          <line>139</line>
+          <properties documentPath="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorsjump\Assets\Scripts\ECS\script\Menu\UIManager.cs" initialLine="139" containingFunctionPresentation="method 'OnUserDataReceived'">
+            <startOffsets>
+              <option value="3798" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3858" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

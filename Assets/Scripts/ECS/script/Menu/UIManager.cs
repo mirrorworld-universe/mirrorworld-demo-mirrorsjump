@@ -1,28 +1,53 @@
 ﻿
 
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    
+    
+    
+    // watch Ad for prop reward
 
+    public Sprite LowRocket;
+
+    public Sprite HighRocket;
+
+    public Sprite Spring;
+
+    public GameObject RewardAdvice;
+
+
+    public Image RewardImage;
+
+
+    public GameObject RewardPackage;
+
+    public TextMeshProUGUI LowRocketNumber;
+    
+    public TextMeshProUGUI HighRocketNumber;
+    
+    public TextMeshProUGUI SpringNumber;
+    
+    
+    
 
     public ThemeManager ThemeManager;
-    
 
     public GameObject LoginButton;
 
     
 
     private void Start()
-    {   
-        
-        SoundManager.Instance.GetAudioSource().clip = SoundManager.Instance.Clips[5];
+    {
+        SoundManager.Instance.GetAudioSource().clip = SoundManager.Instance.Clips[6];
         SoundManager.Instance.GetAudioSource().mute = SoundManager.Instance.GetSoundState();
         SoundManager.Instance.GetAudioSource().Play();
         LoginButton.SetActive(false);
-        
-        
     }
 
 
@@ -91,6 +116,7 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.SetInt(Constant.Theme_Pre + Constant.ThemeSnowIndex, 0);
         PlayerPrefs.SetInt(Constant.Theme_Pre + Constant.ThemeCyberpunkIndex, 0);
         PlayerPrefs.SetInt(Constant.Theme_Pre + Constant.ThemePastureIndex, 0);
+        PlayerPrefs.SetInt(Constant.Theme_Pre + Constant.ThemeWorldCupIndex, 0);
         
         PlayerPrefs.SetInt("ThemeDesertState", 0);
         
@@ -99,6 +125,8 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.SetInt("ThemeCyberpunkState", 0);
         
         PlayerPrefs.SetInt("ThemePastureState", 0);
+        
+        PlayerPrefs.SetInt("ThemeWorldCupState", 0);
         
         
 
@@ -124,6 +152,10 @@ public class UIManager : MonoBehaviour
             }else if (scenes.scene_id == 4)
             {
                 PlayerPrefs.SetInt("ThemePastureState", 1);
+                
+            }else if (scenes.scene_id == 5)
+            {
+                PlayerPrefs.SetInt("ThemeWorldCupState", 1);
             }
 
         }
@@ -207,8 +239,6 @@ public class UIManager : MonoBehaviour
     public void Login()
     {
         
-       
-
         if (IsDebug)
         {
             SoundManager.Instance.PlaySound(SoundName.Button);
@@ -269,8 +299,100 @@ public class UIManager : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
     }
-
-
-   
     
+    
+    
+    
+    // todo Reward Advice & Reward Package
+    
+    // Google AdMob Watch Ad for Reward
+    public void OpenRewardAdvice()
+    {
+        RewardImage.sprite = GenerateRewardProp();
+        RewardAdvice.SetActive(true);
+    }
+    
+    // just mock data
+    private Sprite GenerateRewardProp()
+    {
+        int seed = Random.Range(1, 30);
+
+        if (seed <= 10)
+        {
+            GlobalDef.SpringCount++;
+            return Spring;
+            
+        }else if (seed <= 20)
+        {
+            GlobalDef.LowRocketCount++;
+            return LowRocket;
+        }
+
+        GlobalDef.HighRocketCount++;
+        return HighRocket;
+    }
+
+
+
+    public void CloseRewardAdvice()
+    {
+      
+        RewardAdvice.SetActive(false);
+        RewardImage.sprite = null;
+    }
+
+
+
+
+    public void OpenRewardPackage()
+    {
+        
+       if (GlobalDef.HighRocketCount <= 0)
+       {
+           HighRocketNumber.text = "x0";
+           
+       }else
+       {
+           HighRocketNumber.text = "x"+GlobalDef.HighRocketCount;
+       }
+       
+       
+       if (GlobalDef.LowRocketCount <= 0)
+       {
+          LowRocketNumber.text = "x0";
+           
+       }else
+       {
+          LowRocketNumber.text = "x"+GlobalDef.LowRocketCount;
+       }
+
+       
+       if (GlobalDef.SpringCount <= 0)
+       {
+           SpringNumber.text = "x0";
+           
+       }else
+       {
+          SpringNumber.text = "x"+GlobalDef.SpringCount;
+       }
+       
+       RewardPackage.SetActive(true);
+       
+    }
+
+
+    public void CloseRewardPackage()
+    {
+        RewardPackage.SetActive(false);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+
+
 }

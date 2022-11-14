@@ -61,6 +61,8 @@ public class StairsFactory : MonoBehaviour
     public Sprite[]  ThemeCyberpunkStairs = new Sprite[8];
     
     public Sprite[]  ThemePastureStairs = new Sprite[8];
+    
+    public Sprite[]  ThemeWorldCupStairs = new Sprite[8];
 
 
     private void Awake()
@@ -89,8 +91,14 @@ public class StairsFactory : MonoBehaviour
            CyberpunkStairsSpriteChange();
            
        }else if(stairsTheme == Constant.ThemePastureIndex)
+       {   
+           
+           WorldCupStairsSpriteChange();
+           //PastureStairsSpriteChange();
+           
+       }else if(stairsTheme == Constant.ThemeWorldCupIndex)
        {
-           PastureStairsSpriteChange();
+           WorldCupStairsSpriteChange();
        }
        else
        {
@@ -231,6 +239,33 @@ public class StairsFactory : MonoBehaviour
     }
     
     
+    private void WorldCupStairsSpriteChange()
+    {  
+        
+        GeneralStairs.transform.gameObject.GetComponent<SpriteRenderer>().sprite = ThemeWorldCupStairs[Constant.GeneralStairs];
+        MovingStairs.transform.gameObject.GetComponent<SpriteRenderer>().sprite = ThemeWorldCupStairs[Constant.MovingStairs];
+        
+        DisposableStairs.transform.gameObject.GetComponent<SpriteRenderer>().sprite = ThemeWorldCupStairs[Constant.BreakageStairs];
+        DisposableStairs.transform.Find("left").gameObject.GetComponent<SpriteRenderer>().sprite = ThemeWorldCupStairs[Constant.BreakageStairsLeft];
+        DisposableStairs.transform.Find("right").gameObject.GetComponent<SpriteRenderer>().sprite = ThemeWorldCupStairs[Constant.BreakageStairsRight];
+       
+         
+        BreakageStairs.transform.Find("left").gameObject.GetComponent<SpriteRenderer>().sprite = ThemeWorldCupStairs[Constant.BreakageStairsLeft];
+        BreakageStairs.transform.Find("right").gameObject.GetComponent<SpriteRenderer>().sprite = ThemeWorldCupStairs[Constant.BreakageStairsRight];
+        BreakageStairs.transform.Find("right/top").gameObject.GetComponent<SpriteRenderer>().sprite = ThemeWorldCupStairs[Constant.BreakageStairsTop];
+
+        BalanceStairs.transform.Find("Stair").gameObject.GetComponent<SpriteRenderer>().sprite =
+            ThemeWorldCupStairs[Constant.BalanceStairs];
+        
+         
+         
+        BalanceStairs.transform.Find("Axis").gameObject.GetComponent<SpriteRenderer>().sprite =
+            ThemeWorldCupStairs[Constant.BalanceStairsAxis];
+         
+
+    }
+    
+    
 
     public void GenerateStairs(Vector2 position,StairsType stairsType)
     {   
@@ -336,6 +371,7 @@ public class StairsFactory : MonoBehaviour
         }else if (RuleConfig.GeneratePropType() == PropType.HighRocket)
         {
             GenerateHeighRocket(StairsParent, GameController);
+            
         }else if (RuleConfig.GeneratePropType() == PropType.Empty)
         {
             

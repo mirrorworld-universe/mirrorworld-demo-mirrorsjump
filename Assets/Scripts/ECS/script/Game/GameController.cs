@@ -250,6 +250,11 @@ public class GameController : MonoBehaviour
             GameMenu.SetUnlockedHeightText("4000");
         }else if (PlayerPrefs.GetInt("CurrentTheme") == Constant.ThemePastureIndex)
         {
+            UnlockHeight = 5000f;
+            GameMenu.SetUnlockedHeightText("5000");
+            
+        }else if (PlayerPrefs.GetInt("CurrentTheme") == Constant.ThemeWorldCupIndex)
+        {
             IsUnlock = false;
             return;
         }
@@ -314,6 +319,16 @@ public class GameController : MonoBehaviour
             PlayerPrefs.SetInt("ThemePastureState", 1);
 
         }else if (PlayerPrefs.GetInt("CurrentTheme") == Constant.ThemePastureIndex)
+        {
+            if (1 == PlayerPrefs.GetInt(Constant.Theme_Pre + Constant.ThemeWorldCupIndex, 0))
+            {
+                return;
+            }
+
+            PlayerPrefs.SetInt(Constant.Theme_Pre + Constant.ThemeWorldCupIndex, 1);
+            PlayerPrefs.SetInt("ThemeWorldCupState", 1);
+
+        }else if (PlayerPrefs.GetInt("CurrentTheme") == Constant.ThemeWorldCupIndex)
         {
             return;
         }

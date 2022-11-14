@@ -1,12 +1,14 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using GoogleMobileAds.Api;
 using UnityEngine;
 
 public class RewardAdPlayer : MonoBehaviour
 {
    public GameMenu GameMenu;
+   
+   public bool IsRewardProp = false;
+
+   public UIManager UIManager;
    
    public GoogleMobileAdsManager GoogleMobileAdsManager;
    
@@ -25,6 +27,8 @@ public class RewardAdPlayer : MonoBehaviour
 
    public void ShowRewardAd()
    {
+
+      string abc = "dedf";
       if ( GoogleMobileAdsManager.GetRewardAd().IsLoaded()) {
            GoogleMobileAdsManager.GetRewardAd().Show();
       }
@@ -76,7 +80,16 @@ public class RewardAdPlayer : MonoBehaviour
 
    public void HandleRewardedAdClosed(object sender, EventArgs args)
    {
+
+      if (IsRewardProp)
+      {
+         UIManager.OpenRewardAdvice();
+      }
+      else
+      {
          GameMenu.GameRespawn();
+      }
+        
    }
 
    public void HandleUserEarnedReward(object sender, Reward args)

@@ -34,6 +34,23 @@ public class GlobalDef
     public static string maxScore = "MaxScore";
 
     public static bool IsInitGoogleAdMob = false;
+
+    public static bool HasPlayerRewardAd = false;
+    
+    
+    
+    // temb reward prop conut
+    public static int HighRocketCount =1;
+
+    public static int LowRocketCount = 2;
+
+    public static int SpringCount =1;
+
+
+    public static string UserName = "Default Name";
+    
+    
+    
     
 
     // 非生产环境

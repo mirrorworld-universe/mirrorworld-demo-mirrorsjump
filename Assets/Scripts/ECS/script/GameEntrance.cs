@@ -14,9 +14,10 @@ public class GameEntrance : MonoBehaviour
     
 
     private void Start()
-    {
+    {    
         
-        
+
+         
          MirrorSDK.SetLogoutCallback(() =>
         {
             PlayerPrefs.DeleteAll();
@@ -69,8 +70,6 @@ public class GameEntrance : MonoBehaviour
         videoPlayer.targetTexture.Release();
          videoPlayer.gameObject.SetActive(false);
          SceneManager.LoadScene("Login");
-         
-         
     }
     
  

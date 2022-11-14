@@ -19,15 +19,19 @@ public class MapRunSystem : MonoBehaviour
     public GameObject MiddleBack;
     
     public GameObject TopBack;
+
+
+    public GameObject WorldCup;
+    
     
     
     
     // Theme
-    public Sprite[] ThemeBackSprites = new Sprite[5];
+    public Sprite[] ThemeBackSprites = new Sprite[6];
     
-    public Sprite[] ThemeGroudSprites = new Sprite[5];
+    public Sprite[] ThemeGroudSprites = new Sprite[6];
     
-    public Sprite[] ThemeCloudSprites = new Sprite[5];
+    public Sprite[] ThemeCloudSprites = new Sprite[6];
 
 
     public SpriteRenderer TopSpriteRenderer;
@@ -74,6 +78,7 @@ public class MapRunSystem : MonoBehaviour
         BottomCloudSpriteRendererRight.sprite = ThemeCloudSprites[index];
 
         GroudSpriteRenderer.sprite = ThemeGroudSprites[index];
+        ShowWorldCup();
 
     }
     
@@ -197,6 +202,25 @@ public class MapRunSystem : MonoBehaviour
         HeightDisplayManager.Instance.GenerateHeightNumber(ButtomBack.transform.position.y * GlobalDef.heightCoefficient);
         HeightDisplayManager.Instance.GenerateHeightNumber(MiddleBack.transform.position.y * GlobalDef.heightCoefficient);
         HeightDisplayManager.Instance.GenerateHeightNumber(TopBack.transform.position.y * GlobalDef.heightCoefficient);
+        
+        ShowWorldCup();
+    }
+
+
+    private void ShowWorldCup()
+    {   
+        int index = PlayerPrefs.GetInt("CurrentTheme");
+        
+        if (index == Constant.ThemeWorldCupIndex)
+        {
+           
+            WorldCup.SetActive(true);
+        }
+        else
+        { 
+           
+            WorldCup.SetActive(false);
+        }
     }
     
     

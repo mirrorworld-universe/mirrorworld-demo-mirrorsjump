@@ -24,6 +24,7 @@
         public static int ThemeSnowIndex = 2;
         public static int ThemeCyberpunkIndex = 3;
         public static int ThemePastureIndex = 4;
+        public static int ThemeWorldCupIndex = 5;
 
         public static string Theme_Pre = "Theme_";
 

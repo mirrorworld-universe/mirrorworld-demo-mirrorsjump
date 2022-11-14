@@ -42,7 +42,8 @@ public class GoogleMobileAdsManager:MonoBehaviour
 #else
             string adUnitId = "unexpected_platform";
 #endif
-        bannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Top);
+       
+        bannerView = new BannerView(adUnitId,  AdSize.Banner, AdPosition.Top);
     }
     
     public void LoadBanner()

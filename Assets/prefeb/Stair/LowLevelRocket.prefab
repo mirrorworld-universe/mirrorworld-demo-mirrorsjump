@@ -209,7 +209,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc2353339793fc4396981044d33957e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sprites:
+  NormalSprites:
   - {fileID: 21300000, guid: 4da0c5e1127489842a7ae01c7ed60a89, type: 3}
   - {fileID: 21300000, guid: 5724911f1a43b4a4eaceb129ea4646f4, type: 3}
+  WorldCupSprite:
+  - {fileID: 21300000, guid: ec2bad9bc286c8b4bb2374264ad205cf, type: 3}
+  - {fileID: 21300000, guid: d555a58f90e1cfc46b2eac16a242a851, type: 3}
+  Sprites:
+  - {fileID: 0}
+  - {fileID: 0}
   RocketThrust: 35

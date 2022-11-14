@@ -9,7 +9,7 @@ public class SoundManager : MonoSingleton<SoundManager>
     private static bool IsMute = false;
     
     // Back music 
-    public AudioClip[] Clips = new AudioClip[6];
+    public AudioClip[] Clips = new AudioClip[7];
 
     private void Start()
     {

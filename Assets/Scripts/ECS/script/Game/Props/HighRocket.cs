@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,10 +17,33 @@ public class HighRocket : ItemBase
 
     public Sprite[] Sprites = new Sprite[2];
 
+    public Sprite[] NormalSprites = new Sprite[2];
+
+    public Sprite[] WorldCupSprite = new Sprite[2];
+    
+
     private bool IsPlayAnimation = true;
 
     private int CurrentIndex = 0;
-    
+
+
+    private void Start()
+    {
+        int index = PlayerPrefs.GetInt("CurrentTheme");
+        
+        if (index == Constant.ThemeWorldCupIndex)
+        {
+
+            Sprites[0] = WorldCupSprite[0];
+            Sprites[1] = WorldCupSprite[1];
+        }
+        else
+        { 
+            Sprites[0] = NormalSprites[0];
+            Sprites[1] = NormalSprites[1];
+        }
+    }
+
 
     public void SetGameController(GameController gameController)
     {

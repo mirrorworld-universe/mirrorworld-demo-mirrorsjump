@@ -10,6 +10,7 @@ public class InterstitialAdPlayer : MonoBehaviour
 {   
     
     public GoogleMobileAdsManager GoogleMobileAdsManager;
+    
     private void Start()
     {
        LoadInterstitial();
@@ -27,7 +28,7 @@ public class InterstitialAdPlayer : MonoBehaviour
         SoundManager.Instance.PlaySound(SoundName.Close);
         int random =  Random.Range(1, 101);
 
-        if (random < 50)
+        if (random < 80)
         {   
             TAManager.Instance.EndGame("user_end");
             SceneManager.LoadScene("Menu");

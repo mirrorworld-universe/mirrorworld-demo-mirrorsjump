@@ -13,13 +13,16 @@ public class ThemeManager : MonoBehaviour
     public GameObject LockedBack;
     public GameObject Tips;
 
- 
+    public GameObject WorldCup;
+    
+    
+    
 
-    public Sprite[] ThemeBackSprites = new Sprite[5];
+    public Sprite[] ThemeBackSprites = new Sprite[6];
     
-    public Sprite[] ThemeGroudSprites = new Sprite[5];
+    public Sprite[] ThemeGroudSprites = new Sprite[6];
     
-    public Sprite[] ThemeCloudSprites = new Sprite[5];
+    public Sprite[] ThemeCloudSprites = new Sprite[6];
 
 
 
@@ -80,7 +83,7 @@ public class ThemeManager : MonoBehaviour
             return;
         }
 
-        if (CurrentThemeIndex +1 > 4)
+        if (CurrentThemeIndex +1 > 5)
         {
             //  do some advice
             
@@ -97,7 +100,7 @@ public class ThemeManager : MonoBehaviour
     {
         int SpriteIndex = PlayerPrefs.GetInt("CurrentTheme");
 
-        if (SpriteIndex >= 4)
+        if (SpriteIndex >= 5)
         {
             RightPage.gameObject.GetComponent<CanvasGroup>().alpha = 0f;
             RightPage.gameObject.GetComponent<Button>().interactable =false;
@@ -159,6 +162,10 @@ public class ThemeManager : MonoBehaviour
         }else if (PlayerPrefs.GetInt("CurrentTheme") == Constant.ThemePastureIndex)
         {
              LockState = PlayerPrefs.GetInt(Constant.Theme_Pre + Constant.ThemePastureIndex, 0); 
+             
+        }else if (PlayerPrefs.GetInt("CurrentTheme") == Constant.ThemeWorldCupIndex)
+        {
+            LockState = PlayerPrefs.GetInt(Constant.Theme_Pre + Constant.ThemeWorldCupIndex, 0); 
         }
 
 
@@ -211,15 +218,17 @@ public class ThemeManager : MonoBehaviour
     
     private void GrassPositionAdjust(int index)
     {
-
-        return;
-        if (index == Constant.ThemeDesertIndex)
+        // 1080  1160
+     
+        if (index == Constant.ThemeWorldCupIndex)
         {
-            ThemeGroud.GetComponent<RectTransform>().sizeDelta = new Vector2(ThemeGroud.GetComponent<RectTransform>().sizeDelta.x,630f);
+            ThemeGroud.GetComponent<RectTransform>().sizeDelta = new Vector2(ThemeGroud.GetComponent<RectTransform>().sizeDelta.x,1160f);
+            WorldCup.SetActive(true);
         }
         else
         { 
-            ThemeGroud.GetComponent<RectTransform>().sizeDelta = new Vector2(ThemeGroud.GetComponent<RectTransform>().sizeDelta.x,536f);
+            ThemeGroud.GetComponent<RectTransform>().sizeDelta = new Vector2(ThemeGroud.GetComponent<RectTransform>().sizeDelta.x,1080f);
+            WorldCup.SetActive(false);
         }
         
     }

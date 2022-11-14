@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,6 +7,8 @@ public class GameMenu : MonoBehaviour
 {
 
 
+    public GameObject Respawn;
+    
     public GameOverPanel GameOverWindow;
 
     public GameObject GamePauseWindow;
@@ -43,6 +43,17 @@ public class GameMenu : MonoBehaviour
         UnlockAdvice.SetActive(false);
         OpenUnlockHeightAdvice();
         EventDispatcher.Instance.userScoreReceived += OnUserScoreReceived;
+
+        if (!GlobalDef.HasPlayerRewardAd)
+        {
+            Respawn.SetActive(true);
+        }
+        else
+        {
+            Respawn.SetActive(false);
+        }
+        
+        
         
     }
 
@@ -99,10 +110,19 @@ public class GameMenu : MonoBehaviour
             }
             
         }else if (PlayerPrefs.GetInt("CurrentTheme") == Constant.ThemePastureIndex)
+        {    
+            if (1 ==   PlayerPrefs.GetInt("ThemeWorldCupState", 0))
+            {
+                return;
+            }
+            
+        }else if (PlayerPrefs.GetInt("CurrentTheme") == Constant.ThemeWorldCupIndex)
         {
             return;
         }
         
+        
+        //ThemeWorldCupState
         IsHeightAdvice = true;
         CurrentTime = 0;
         UnlockHeightAdvice.SetActive(true);
@@ -181,6 +201,11 @@ public class GameMenu : MonoBehaviour
     {
         GameController.OnGameRespawn();
         GameOverWindow.gameObject.SetActive(false);
+        
+        Respawn.SetActive(false);
+        GlobalDef.HasPlayerRewardAd = true;
+        
+        
     }
     
     
@@ -234,5 +259,5 @@ public class GameMenu : MonoBehaviour
         SoundManager.Instance.PlaySound(SoundName.Close);
         SceneManager.LoadScene("Menu");
     }
-   
+    
 }

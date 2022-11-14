@@ -104,8 +104,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RocketThrust: 60
   Sprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  NormalSprites:
   - {fileID: 21300000, guid: 4102489fa841bc1478ab8481f95a7b00, type: 3}
   - {fileID: 21300000, guid: bbe42e91084059043a0acd5a278ad97e, type: 3}
+  WorldCupSprite:
+  - {fileID: 21300000, guid: f408f23b47b64b84db1ba2c2bb132e06, type: 3}
+  - {fileID: 21300000, guid: 4b6f42c3a1ec78f478b20698c9af5204, type: 3}
 --- !u!68 &4362619939857248020
 EdgeCollider2D:
   m_ObjectHideFlags: 0

@@ -8,6 +8,10 @@ public class LowRocket : ItemBase
 
     private float RecoveryLine = 0;
     
+    public Sprite[] NormalSprites = new Sprite[2];
+
+    public Sprite[] WorldCupSprite = new Sprite[2];
+    
     private GameController GameController;
     
     public Sprite[] Sprites = new Sprite[2];
@@ -39,6 +43,23 @@ public class LowRocket : ItemBase
             
             IsPlayAnimation = false;
             DestroyStairs();
+        }
+    }
+    
+    private void Start()
+    {
+        int index = PlayerPrefs.GetInt("CurrentTheme");
+        
+        if (index == Constant.ThemeWorldCupIndex)
+        {
+
+            Sprites[0] = WorldCupSprite[0];
+            Sprites[1] = WorldCupSprite[1];
+        }
+        else
+        { 
+            Sprites[0] = NormalSprites[0];
+            Sprites[1] = NormalSprites[1];
         }
     }
      
