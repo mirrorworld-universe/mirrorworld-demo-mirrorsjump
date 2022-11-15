@@ -1,6 +1,6 @@
 ﻿
 using UnityEngine;
-using Random = UnityEngine.Random;
+
 
 
 public enum StairsType
@@ -93,8 +93,7 @@ public class StairsFactory : MonoBehaviour
        }else if(stairsTheme == Constant.ThemePastureIndex)
        {   
            
-           WorldCupStairsSpriteChange();
-           //PastureStairsSpriteChange();
+           PastureStairsSpriteChange();
            
        }else if(stairsTheme == Constant.ThemeWorldCupIndex)
        {

@@ -9,14 +9,23 @@ public class RewardAdPlayer : MonoBehaviour
    public bool IsRewardProp = false;
 
    public UIManager UIManager;
+
+   public GameObject RewardButton;
    
    public GoogleMobileAdsManager GoogleMobileAdsManager;
+
+   public BannerAdPlayer BannerAdPlayer;
+   
    
    private void Start()
    {
       GoogleMobileAdsManager.InstantiateRewardView();
       AddRewardAdEvent();
       GoogleMobileAdsManager.LoadRewardAd();
+      if (null != RewardButton)
+      {
+         RewardButton.SetActive(true);
+      }
    }
 
 
@@ -27,8 +36,7 @@ public class RewardAdPlayer : MonoBehaviour
 
    public void ShowRewardAd()
    {
-
-      string abc = "dedf";
+      
       if ( GoogleMobileAdsManager.GetRewardAd().IsLoaded()) {
            GoogleMobileAdsManager.GetRewardAd().Show();
       }
@@ -60,7 +68,10 @@ public class RewardAdPlayer : MonoBehaviour
 
    public void HandleRewardedAdLoaded(object sender, EventArgs args)
    {
-      
+      if (null != BannerAdPlayer)
+      {
+        BannerAdPlayer.LoadBanner();
+      }
    }
 
    public void HandleRewardedAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
@@ -84,12 +95,14 @@ public class RewardAdPlayer : MonoBehaviour
       if (IsRewardProp)
       {
          UIManager.OpenRewardAdvice();
+         RewardButton.SetActive(false);
       }
       else
       {
          GameMenu.GameRespawn();
       }
-        
+      
+      
    }
 
    public void HandleUserEarnedReward(object sender, Reward args)

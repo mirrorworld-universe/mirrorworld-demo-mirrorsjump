@@ -7,6 +7,11 @@ public class GoogleMobileAdsManager:MonoBehaviour
 {   
     
     private BannerView bannerView;
+
+    public bool IsNeedInit = false;
+
+    public bool IsNeedPreloadRewardAd = false;
+    
     
     public BannerView GetBannerView()
     {
@@ -21,16 +26,24 @@ public class GoogleMobileAdsManager:MonoBehaviour
     
     public void  InitGoogleMobileAdsSDK()
     {
-        if (!GlobalDef.IsInitGoogleAdMob)
+        if (IsNeedInit)
         {
             MobileAds.Initialize(initStatus =>
             {
-                GlobalDef.IsInitGoogleAdMob = true;
+              
             });
+        }
+        
+        if (IsNeedPreloadRewardAd)
+        {
+            InstantiateRewardView();
+            LoadRewardAd();
         }
     }
 
     
+
+
     // Banner Ads
 
     public void InstantiateBannerView()
@@ -122,26 +135,5 @@ public class GoogleMobileAdsManager:MonoBehaviour
         this.rewardedAd.LoadAd(request);
     }
     
-   
-  
-   
-    
-    
-    //Native Ad
-    
-    // private NativeAd nativeAd;
-    // private void HandleNativeAdLoaded(object sender, NativeAdEventArgs args) {
-    //     this.nativeAd = args.nativeAd;
-    // }
-    //
-    // private void RequestNativeAd() {
-    //     AdLoader adLoader = new AdLoader.Builder(INSERT_AD_UNIT_HERE)
-    //         .ForNativeAd()
-    //         .Build();
-    //     adLoader.OnNativeAdLoaded += this.HandleNativeAdLoaded;
-    //     adLoader.OnAdFailedToLoad += this.HandleAdFailedToLoad;
-    //     adLoader.LoadAd(new AdRequest.Builder().Build());
-    // }
-    //
     
 }

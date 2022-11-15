@@ -44,14 +44,8 @@ public class GameMenu : MonoBehaviour
         OpenUnlockHeightAdvice();
         EventDispatcher.Instance.userScoreReceived += OnUserScoreReceived;
 
-        if (!GlobalDef.HasPlayerRewardAd)
-        {
-            Respawn.SetActive(true);
-        }
-        else
-        {
-            Respawn.SetActive(false);
-        }
+        Respawn.SetActive(true);
+      
         
         
         
@@ -201,11 +195,9 @@ public class GameMenu : MonoBehaviour
     {
         GameController.OnGameRespawn();
         GameOverWindow.gameObject.SetActive(false);
-        
         Respawn.SetActive(false);
-        GlobalDef.HasPlayerRewardAd = true;
-        
-        
+
+
     }
     
     

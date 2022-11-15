@@ -1,5 +1,4 @@
 ﻿
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,9 +18,15 @@ public class Options : MonoBehaviour
     public Button soundOn;
     public Button soundOff;
 
+    public GameObject UserName;
+
+
+    public TextMeshProUGUI Name;
+
 
     public void OpenOptions()
     {
+        Name.text = GlobalDef.UserName;
         SoundManager.Instance.PlaySound(SoundName.Pop);
         Bg.SetActive(true);
         exit.SetActive(true);
@@ -137,6 +142,22 @@ public class Options : MonoBehaviour
     {   TAManager.Instance.ExploreSDK();
         SoundManager.Instance.PlaySound(SoundName.OpenUrl);
         Application.OpenURL("https://mirrorworld.fun/");
+    }
+
+
+    public void OpenUserName()
+    {
+        UserName.SetActive(true);
+        OptionMenu.SetActive(false);
+        UserName.GetComponent<SetUserName>().OnSetNameOpen();
+        
+    }
+
+
+    public void CloseUseName()
+    {
+        UserName.SetActive(false);
+        OptionMenu.SetActive(true);
     }
     
    

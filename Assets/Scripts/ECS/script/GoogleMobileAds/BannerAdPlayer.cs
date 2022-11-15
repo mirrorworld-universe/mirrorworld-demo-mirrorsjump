@@ -9,11 +9,7 @@ public class BannerAdPlayer : MonoBehaviour
 
 
     public GoogleMobileAdsManager GoogleMobileAdsManager;
-   private void Start()
-   {
-        LoadBanner();
-     
-   }
+ 
    
    public void DestroyBanner()
    {

@@ -13,7 +13,7 @@ public class ThemeManager : MonoBehaviour
     public GameObject LockedBack;
     public GameObject Tips;
 
-    public GameObject WorldCup;
+    
     
     
     
@@ -223,12 +223,12 @@ public class ThemeManager : MonoBehaviour
         if (index == Constant.ThemeWorldCupIndex)
         {
             ThemeGroud.GetComponent<RectTransform>().sizeDelta = new Vector2(ThemeGroud.GetComponent<RectTransform>().sizeDelta.x,1160f);
-            WorldCup.SetActive(true);
+          //  WorldCup.SetActive(true);
         }
         else
         { 
             ThemeGroud.GetComponent<RectTransform>().sizeDelta = new Vector2(ThemeGroud.GetComponent<RectTransform>().sizeDelta.x,1080f);
-            WorldCup.SetActive(false);
+            //WorldCup.SetActive(false);
         }
         
     }
