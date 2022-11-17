@@ -12,5 +12,6 @@ public class RankListDataItem
     public string Score;
     public string DateTime;
     public int Number;
-    
+    public string UserId;
+
 }

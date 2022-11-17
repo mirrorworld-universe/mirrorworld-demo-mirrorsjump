@@ -498,6 +498,7 @@ public class RankListData
     /// 
     /// </summary>
     public List <RankingItem > ranking { get; set; }
+    public CountDown count_down { get; set; }
 }
  
 public class RankListResponse
@@ -647,4 +648,18 @@ public class UpdatePropReq
     
     public Props props { get; set; }
 }
+
+
+
+
+public class CountDown
+{
+    public int day { get; set; }
+    
+    public int hour{ get; set; }
+    
+    public int minute { get; set; }
+    
+}
+
 

@@ -36,7 +36,16 @@ public class RankListViewItem : MonoBehaviour
         SetImage(t.ImageUrl);
         
         // according to wallet address
-        IsPlayerRank(false);
+        if (t.UserId == GlobalDef.RankUserID)
+        {
+            IsPlayerRank(true);
+        }
+        else
+        {
+            IsPlayerRank(false);
+        }
+        
+      
       
     }
 

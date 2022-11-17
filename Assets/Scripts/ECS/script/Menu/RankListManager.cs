@@ -5,6 +5,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+public enum RankState{
+     DayRank,
+     WeekRank,
+     HistoryRank,
+     Default,
+}
+
 public class RankListManager : MonoBehaviour
 {
 
@@ -12,6 +20,37 @@ public class RankListManager : MonoBehaviour
     public RankListDataProvider RankListDataProvider;
 
     private List<RankListDataItem> datas;
+
+    public TextMeshProUGUI UpdateTime;
+
+    private RankState _rankState = RankState.Default;
+
+
+    public Sprite BorderImage;
+
+    public Sprite DefaultHeader;
+    
+    [SerializeField] private Color Black;
+    [SerializeField] private Color Yellow;
+
+    public Image DayBg;
+    public Image WeekBg;
+    public Image HistoryBg;
+
+    public TextMeshProUGUI DayText;
+    
+    public TextMeshProUGUI WeekText;
+    
+    public TextMeshProUGUI HistoryText;
+
+    public GameObject UpdateTimeIcon;
+
+    public GameObject Header;
+    
+    
+    
+
+  
 
    // public TextMeshProUGUI UserRank;
 
@@ -25,13 +64,24 @@ public class RankListManager : MonoBehaviour
 
     public TextMeshProUGUI DateTime;
     
-
+   
 
     private void Start()
     {
         datas = new List<RankListDataItem>();
         EventDispatcher.Instance.OnRankListResponse += OnRankListResponse;
         OpenDayRank();
+
+
+        DayBg.sprite = BorderImage;
+        WeekBg.sprite = BorderImage;
+        HistoryBg.sprite = BorderImage;
+
+        DayText.color = Black;
+        WeekText.color = Black;
+        HistoryText.color = Black;
+        
+        
     }
 
     private void OnDestroy()
@@ -41,6 +91,103 @@ public class RankListManager : MonoBehaviour
 
     public void OnRankListResponse(RankListResponse rankListResponse)
     {
+
+        GlobalDef.RankUserID = rankListResponse.data.user_info.user_id;
+        UpdateTimeIcon.SetActive(false);
+        if (_rankState == RankState.DayRank)
+        {
+            DayBg.sprite = null;
+            WeekBg.sprite = BorderImage;
+            HistoryBg.sprite = BorderImage;
+
+            DayText.color = Yellow;
+            WeekText.color = Black;
+            HistoryText.color = Black;
+            
+          //  Leaderboard resets in 3 days and 16 hours!
+          //  Leaderboard resets in xx hours and xx minutes
+
+          string hours = "";
+
+          string minutes = "";
+          
+          if (rankListResponse.data.count_down.hour > 1)
+          {
+              hours = "hours";
+          }
+          else
+          {
+              hours = "hour";
+          }
+          
+          if (rankListResponse.data.count_down.minute > 1)
+          {
+              minutes = "minutes";
+          }
+          else
+          {
+              minutes = "minute";
+          }
+
+          
+          string updateTime = "Leaderboard resets in " +rankListResponse.data.count_down.hour +" "+hours + " and " + rankListResponse.data.count_down.minute + " "+minutes;
+          UpdateTime.text = updateTime;
+          UpdateTimeIcon.SetActive(true);
+        }else if (_rankState == RankState.WeekRank)
+        {
+            DayBg.sprite = BorderImage;
+            WeekBg.sprite = null;
+            HistoryBg.sprite = BorderImage;
+
+            DayText.color = Black;
+            WeekText.color = Yellow;
+            HistoryText.color = Black;
+            
+            string hours = "";
+
+            string day = "";
+          
+            if (rankListResponse.data.count_down.day > 1)
+            {
+                day = "days";
+            }
+            else
+            {
+                day = "day";
+            }
+          
+            if (rankListResponse.data.count_down.hour > 1)
+            {
+                hours = "hours";
+            }
+            else
+            {
+                hours = "hour";
+            }
+
+          
+            string updateTime = "Leaderboard resets in " +rankListResponse.data.count_down.day +" "+day + " and " + rankListResponse.data.count_down.hour + " "+hours;
+            UpdateTime.text = updateTime;
+            
+            UpdateTimeIcon.SetActive(true);
+
+        }else if (_rankState == RankState.HistoryRank)
+        {
+            DayBg.sprite = BorderImage;
+            WeekBg.sprite = BorderImage;
+            HistoryBg.sprite = null;
+
+            DayText.color = Black;
+            WeekText.color = Black;
+            HistoryText.color =Yellow;
+
+            UpdateTime.text = "";
+            UpdateTimeIcon.SetActive(false);
+        }
+        
+        
+        
+        
         datas.Clear();
         
         for (int i = 0; i < rankListResponse.data.ranking.Count; i++)
@@ -56,7 +203,7 @@ public class RankListManager : MonoBehaviour
             rankListDataItem.Score = rankListResponse.data.ranking[i].score.ToString();
             rankListDataItem.DateTime = rankListResponse.data.ranking[i].time;
             rankListDataItem.ImageUrl = rankListResponse.data.ranking[i].nft.image;
-            
+            rankListDataItem.UserId = rankListResponse.data.ranking[i].user_id;
             datas.Add(rankListDataItem);
             
         }
@@ -74,18 +221,42 @@ public class RankListManager : MonoBehaviour
 
        string userImage = rankListResponse.data.user_info.nft.image;
        
+       
+       LoadingPanel.Instance.SetLoadingPanelEnable(false);
+       Header.SetActive(true);
+
+       UserHeader.sprite = DefaultHeader;
+
+       if (UserName.text == null)
+       {
+           UserName.text = "empty";
+       }
+       
+       if (DateTime.text == null)
+       {
+           DateTime.text = "empty";
+       }
+       
+       
+       if (null == rankListResponse.data.user_info.nft.image ||
+           "" == userImage)
+       {
+           UserHeader.sprite = DefaultHeader;
+           return;
+       }
+       
        //todo loader image
        SetImage(userImage);
        
-       LoadingPanel.Instance.SetLoadingPanelEnable(false);
+    
        
-
+      // Leaderboard resets in 3 days and 16 hours!
     }
     
 
     public void OpenDayRank()
-    {   
-        
+    {
+        _rankState = RankState.DayRank;
         NetworkManager.Instance.GetDailyRank(LoginState.WalletAddress,100);
         LoadingPanel.Instance.SetLoadingPanelEnable(true);
         
@@ -93,13 +264,15 @@ public class RankListManager : MonoBehaviour
     
     
     public void OpenWeekRank()
-    {   
+    {
+        _rankState = RankState.WeekRank;
         NetworkManager.Instance.GetWeeklyRank(LoginState.WalletAddress,100);
         LoadingPanel.Instance.SetLoadingPanelEnable(true);
     }
     
     public void OpenHistoryRank()
     {
+        _rankState = RankState.HistoryRank;
         NetworkManager.Instance.GetHistoryRank(LoginState.WalletAddress,100);
         LoadingPanel.Instance.SetLoadingPanelEnable(true);
     }

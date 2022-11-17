@@ -38,6 +38,8 @@ public class GlobalDef
     public static bool HasPlayerRewardAd = false;
 
     public static bool CanUserGoogleAdMob = false;
+
+    public static string RankUserID;
     
     
     

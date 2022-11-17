@@ -14707,6 +14707,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RankListDataProvider: {fileID: 622293481}
+  UpdateTime: {fileID: 95727164}
+  BorderImage: {fileID: 21300000, guid: e37601f335f01e54d8a468dd067b0005, type: 3}
+  Black: {r: 0, g: 0, b: 0, a: 1}
+  Yellow: {r: 1, g: 0.93333334, b: 0.16862746, a: 1}
+  DayBg: {fileID: 2001355325}
+  WeekBg: {fileID: 2055103539}
+  HistoryBg: {fileID: 644999877}
+  DayText: {fileID: 1589943508}
+  WeekText: {fileID: 373520247}
+  HistoryText: {fileID: 110383447}
+  UpdateTimeIcon: {fileID: 95727162}
+  Header: {fileID: 1710874048}
   UserHeader: {fileID: 1235826018}
   UserName: {fileID: 420668879}
   Address: {fileID: 927383312}
@@ -15734,7 +15746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -47424,7 +47436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

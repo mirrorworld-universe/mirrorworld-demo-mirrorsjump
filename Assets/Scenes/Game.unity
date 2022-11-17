@@ -2140,7 +2140,6 @@ MonoBehaviour:
   UIManager: {fileID: 0}
   RewardButton: {fileID: 0}
   GoogleMobileAdsManager: {fileID: 1525751050}
-  IsNeedLoad: 1
 --- !u!1 &696569631
 GameObject:
   m_ObjectHideFlags: 0
@@ -5842,8 +5841,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc1a5f75fd4c4c4b86efbef2cd9ec57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsNeedInit: 0
-  IsNeedPreloadRewardAd: 0
 --- !u!1 &1548768691
 GameObject:
   m_ObjectHideFlags: 0
@@ -7124,8 +7121,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ec3fb26d38bdd184da1f4a4d4528fe98, type: 3}
   - {fileID: 21300000, guid: 9c99f13e76cd05346bceee9eb26cfac1, type: 3}
   WorldCupIcons:
-  - {fileID: 21300000, guid: f408f23b47b64b84db1ba2c2bb132e06, type: 3}
-  - {fileID: 21300000, guid: ec2bad9bc286c8b4bb2374264ad205cf, type: 3}
+  - {fileID: 21300000, guid: 2769db7e5339e6b4e9e35f3bf1536f15, type: 3}
+  - {fileID: 21300000, guid: 875d1adf14662da41a5b55a8b30b2059, type: 3}
   MirrorObject: {fileID: 5925371422525462709}
   GameController: {fileID: 247834403}
   HighRocketContent: {fileID: 1283806317}
