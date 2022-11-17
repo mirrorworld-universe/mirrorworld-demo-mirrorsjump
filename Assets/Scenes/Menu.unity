@@ -7350,7 +7350,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305053049}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7360,7 +7360,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000016212463, y: -8.000005}
+  m_AnchoredPosition: {x: -0.000015258789, y: -8.000005}
   m_SizeDelta: {x: 80, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &305053051
@@ -16158,7 +16158,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 658974106}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -16168,7 +16168,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000016212463, y: -8.000005}
+  m_AnchoredPosition: {x: -0.000015258789, y: -8.000005}
   m_SizeDelta: {x: 80, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &658974108
@@ -18279,7 +18279,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 746471391}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -24801,8 +24801,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc1a5f75fd4c4c4b86efbef2cd9ec57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsNeedInit: 1
-  IsNeedPreloadRewardAd: 1
 --- !u!224 &1054705960
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25769,7 +25767,7 @@ GameObject:
   - component: {fileID: 1087452139}
   - component: {fileID: 1087452138}
   m_Layer: 5
-  m_Name: HighRocketProp
+  m_Name: LowRocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26066,7 +26064,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101098738}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -26077,7 +26075,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 62, y: 70}
+  m_AnchoredPosition: {x: 62.000015, y: 70}
   m_SizeDelta: {x: 80, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1101098740
@@ -44062,7 +44060,7 @@ GameObject:
   - component: {fileID: 1834684480}
   - component: {fileID: 1834684479}
   m_Layer: 5
-  m_Name: LowRocketProp
+  m_Name: HighRocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49372,14 +49370,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RankList: {fileID: 622293476}
+  GoogleMobileAdsManager: {fileID: 0}
   LowRocket: {fileID: 21300000, guid: 9c99f13e76cd05346bceee9eb26cfac1, type: 3}
   HighRocket: {fileID: 21300000, guid: ec3fb26d38bdd184da1f4a4d4528fe98, type: 3}
   Spring: {fileID: 21300000, guid: ec2b18779c00d1648bd1b2e0fb0a4ef6, type: 3}
   RewardAdvice: {fileID: 544065001}
   RewardImage: {fileID: 1646695064}
   RewardPackage: {fileID: 880476973}
-  LowRocketNumber: {fileID: 305053051}
-  HighRocketNumber: {fileID: 658974108}
+  LowRocketNumber: {fileID: 658974108}
+  HighRocketNumber: {fileID: 305053051}
   SpringNumber: {fileID: 1112253391}
   ThemeManager: {fileID: 1371097675}
   LoginButton: {fileID: 372886247}

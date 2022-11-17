@@ -34,6 +34,7 @@ public class NetworkManager : MonoSingleton<NetworkManager>
 
     public void SendUserScoreReq(UserScoreUpdateReq req)
     {
+        
         Debug.Log("发送游戏得分...");
         string path = GlobalDef.server + "api/v1/user/score";
         var data = JsonMapper.ToJson(req);
@@ -279,24 +280,30 @@ public class NetworkManager : MonoSingleton<NetworkManager>
     }
     
     
-    public void UpdateProp(string user_id,string propName ,int count)
+    public void UpdateProp(string user_id,int deltaHightRocket,int deltaLowRocket,int deltaSpring)
     {
+        Debug.Log("Start.....");
        
         string path = GlobalDef.server + "api/v1/user/prop/update_info";
+        Debug.Log("UpdatePropUrl:"+GlobalDef.server+"api/v1/user/prop/update_info");
         UpdatePropReq req = new UpdatePropReq();
+        req.props = new Props();
         req.user_id = user_id;
-        req.prop_name = propName;
-        req.count = count;
-        
+        req.props.high_rocket = deltaHightRocket;
+        req.props.low_rocket = deltaLowRocket;
+        req.props.spring = deltaSpring;
+        Debug.Log("StartCoroutine"+path);
         StartCoroutine(Post(path, JsonMapper.ToJson(req), (result, json) =>
         {
             var res = JsonMapper.ToObject<PropResponse>(json);
             if (res.status != "success")
             {
-                Debug.Log("SendUserScoreReq error " + res.status);
+                Debug.Log("UpdatePropResponseStatus " + res.status);
+                Debug.Log("UpdatePropResponseMessage " + res.message);
                 return;
             }
             
+            Debug.Log("UpdatePropResponseStatus " + res.status);
             EventDispatcher.Instance.OnUpdatePropResponse?.Invoke(res);
             
         }));
@@ -637,13 +644,7 @@ public class UpdatePropReq
     /// 
     /// </summary>
     public string user_id { get; set; }
-    /// <summary>
-    /// 
-    /// </summary>
-    public string prop_name { get; set; }
-    /// <summary>
-    /// 
-    /// </summary>
-    public int count { get; set; }
+    
+    public Props props { get; set; }
 }
 

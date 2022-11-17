@@ -432,18 +432,25 @@ public class UIManager : MonoBehaviour
         if (seed <= 10)
         {
             GlobalDef.SpringCount++;
-            NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,"SpringCount",GlobalDef.SpringCount);
+            
+            
+            Debug.Log("UpdatePropParams:"+LoginState.WalletAddress+"  "+0+"  "+0+"   "+1);
+            
+            NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,0,0,1);
             return Spring;
             
         }else if (seed <= 20)
         {
             GlobalDef.LowRocketCount++;
-            NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,"LowRocketCount",GlobalDef.LowRocketCount);
+            Debug.Log("UpdatePropParams:"+LoginState.WalletAddress+"  "+0+"  "+0+"   "+1);
+            
+            NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,0,1,0);
             return LowRocket;
         }
 
         GlobalDef.HighRocketCount++;
-        NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,"HighRocketCount",GlobalDef.HighRocketCount);
+        Debug.Log("UpdatePropParams:"+LoginState.WalletAddress+"  "+0+"  "+0+"   "+1);
+        NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,1,0,0);
         return HighRocket;
     }
 
