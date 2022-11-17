@@ -1,4 +1,5 @@
 ﻿
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,6 +24,35 @@ public class Options : MonoBehaviour
 
     public TextMeshProUGUI Name;
 
+
+    private void Start()
+    {
+        EventDispatcher.Instance.OnUpdateUserName += OnUserNameUpdate;
+    }
+
+    private void OnDestroy()
+    {
+        EventDispatcher.Instance.OnUpdateUserName -= OnUserNameUpdate;
+    }
+
+
+    public void OnUserNameUpdate(UpdateUserNameResponse userNameResponse)
+    {
+        if (userNameResponse.status == "success")
+        {   
+            
+            // todo data == null 
+            // Name.text = userNameResponse.data.username;
+            // GlobalDef.UserName = userNameResponse.data.username;
+        }
+        else
+        {
+            Name.text = GlobalDef.UserName;
+        }
+        
+        LoadingPanel.Instance.SetLoadingPanelEnable(false);
+        
+    }
 
     public void OpenOptions()
     {

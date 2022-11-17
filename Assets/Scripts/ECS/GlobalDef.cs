@@ -36,6 +36,8 @@ public class GlobalDef
     public static bool IsInitGoogleAdMob = false;
 
     public static bool HasPlayerRewardAd = false;
+
+    public static bool CanUserGoogleAdMob = false;
     
     
     

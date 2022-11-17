@@ -1,6 +1,5 @@
-using System;
+
 using System.Collections;
-using GoogleMobileAds.Api;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
@@ -16,7 +15,7 @@ public class GameEntrance : MonoBehaviour
     private void Start()
     {    
         
-
+       
          
          MirrorSDK.SetLogoutCallback(() =>
         {

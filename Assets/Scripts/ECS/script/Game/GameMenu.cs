@@ -45,9 +45,6 @@ public class GameMenu : MonoBehaviour
         EventDispatcher.Instance.userScoreReceived += OnUserScoreReceived;
 
         Respawn.SetActive(true);
-      
-        
-        
         
     }
 

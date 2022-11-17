@@ -25,20 +25,23 @@ public class InterstitialAdPlayer : MonoBehaviour
 
     public void ShowInterstitialAd()
     {
-        SoundManager.Instance.PlaySound(SoundName.Close);
-        int random =  Random.Range(1, 101);
 
-        if (random < 80)
-        {   
-            TAManager.Instance.EndGame("user_end");
-            SceneManager.LoadScene("Menu");
-            return;
-        }
+        if (GlobalDef.CanUserGoogleAdMob)
+        {
+            SoundManager.Instance.PlaySound(SoundName.Close);
+            int random =  Random.Range(1, 101);
+
+            if (random < 80)
+            {   
+                TAManager.Instance.EndGame("user_end");
+                SceneManager.LoadScene("Menu");
+                return;
+            }
         
-        if ( GoogleMobileAdsManager.GetInterstitialAd().IsLoaded()) {
-            GoogleMobileAdsManager.GetInterstitialAd().Show();
+            if ( GoogleMobileAdsManager.GetInterstitialAd().IsLoaded()) {
+                GoogleMobileAdsManager.GetInterstitialAd().Show();
+            }
         }
-        
     }
     
     public void DestroyInterstitial()
@@ -48,9 +51,12 @@ public class InterstitialAdPlayer : MonoBehaviour
 
     public void LoadInterstitial()
     {
-        GoogleMobileAdsManager.InstantiateInterstitialView();
-        AddInterstitialAdEvent();
-        GoogleMobileAdsManager.LoadInterstitialAd();
+        if (GlobalDef.CanUserGoogleAdMob)
+        {
+            GoogleMobileAdsManager.InstantiateInterstitialView();
+            AddInterstitialAdEvent();
+            GoogleMobileAdsManager.LoadInterstitialAd();
+        }
     }
 
 

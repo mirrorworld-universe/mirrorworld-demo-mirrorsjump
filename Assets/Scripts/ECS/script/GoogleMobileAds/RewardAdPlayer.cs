@@ -14,19 +14,33 @@ public class RewardAdPlayer : MonoBehaviour
    
    public GoogleMobileAdsManager GoogleMobileAdsManager;
 
-   public BannerAdPlayer BannerAdPlayer;
+ 
    
    
    private void Start()
    {
-      GoogleMobileAdsManager.InstantiateRewardView();
-      AddRewardAdEvent();
-      GoogleMobileAdsManager.LoadRewardAd();
-      if (null != RewardButton)
+      if (GlobalDef.CanUserGoogleAdMob)
       {
-         RewardButton.SetActive(true);
+         GoogleMobileAdsManager.InstantiateRewardView();
+         AddRewardAdEvent();
+         GoogleMobileAdsManager.LoadRewardAd();
+         if (null != RewardButton)
+         {
+            RewardButton.SetActive(true);
+         }
       }
+      else
+      {
+         if (null != RewardButton)
+         {
+            RewardButton.SetActive(false);
+         }
+      }
+      
    }
+   
+   
+   
 
 
    private void OnDestroy()
@@ -68,20 +82,20 @@ public class RewardAdPlayer : MonoBehaviour
 
    public void HandleRewardedAdLoaded(object sender, EventArgs args)
    {
-      if (null != BannerAdPlayer)
-      {
-        BannerAdPlayer.LoadBanner();
-      }
+      // if (null != BannerAdPlayer)
+      // {
+      //   BannerAdPlayer.LoadBanner();
+      // }
    }
 
    public void HandleRewardedAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
    {
-       
+         
    }
 
    public void HandleRewardedAdOpening(object sender, EventArgs args)
    {
-       
+      GoogleMobileAdsManager.LoadRewardAd();
    }
 
    public void HandleRewardedAdFailedToShow(object sender, AdErrorEventArgs args)
@@ -95,7 +109,7 @@ public class RewardAdPlayer : MonoBehaviour
       if (IsRewardProp)
       {
          UIManager.OpenRewardAdvice();
-         RewardButton.SetActive(false);
+       
       }
       else
       {

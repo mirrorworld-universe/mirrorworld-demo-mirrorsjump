@@ -92,10 +92,14 @@ public class SetUserName : MonoBehaviour
 
      public void OnConfirmSetName()
      {
-          GlobalDef.UserName = UserName.text;
           CloseConfirmDialog();
-          Name.text = GlobalDef.UserName;
-
+          NetworkManager.Instance.UpdateUserName(LoginState.WalletAddress,UserName.text);
+          
+          // todo delete
+          Name.text = UserName.text;
+          GlobalDef.UserName = Name.text;
+          
+          LoadingPanel.Instance.SetLoadingPanelEnable(true);
      }
      
      

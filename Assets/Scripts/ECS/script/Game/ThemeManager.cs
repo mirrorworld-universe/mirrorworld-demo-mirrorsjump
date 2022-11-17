@@ -1,4 +1,5 @@
 ﻿
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,9 @@ public class ThemeManager : MonoBehaviour
 
     public GameObject LockedBack;
     public GameObject Tips;
+    
+    
+
 
     
     
@@ -36,15 +40,17 @@ public class ThemeManager : MonoBehaviour
     public GameObject LeftPage;
 
     public GameObject RightPage;
-    
-    
+
+
+  
     
     
     
     
     
     private void Start()
-    {
+    {   
+       
         if (PlayerPrefs.GetInt("CurrentTheme",-1) == -1)
         {
            PlayerPrefs.SetInt("CurrentTheme",Constant.ThemeSpaceIndex);

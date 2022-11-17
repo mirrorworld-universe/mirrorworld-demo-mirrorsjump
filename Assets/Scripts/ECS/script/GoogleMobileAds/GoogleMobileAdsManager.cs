@@ -8,37 +8,28 @@ public class GoogleMobileAdsManager:MonoBehaviour
     
     private BannerView bannerView;
 
-    public bool IsNeedInit = false;
-
-    public bool IsNeedPreloadRewardAd = false;
-    
     
     public BannerView GetBannerView()
     {
         return bannerView;
     }
     
-    private void Awake()
-    {
-        InitGoogleMobileAdsSDK();
-    }
-    
+  
     
     public void  InitGoogleMobileAdsSDK()
     {
-        if (IsNeedInit)
+        MobileAds.Initialize(initStatus =>
         {
-            MobileAds.Initialize(initStatus =>
-            {
               
-            });
-        }
-        
-        if (IsNeedPreloadRewardAd)
-        {
-            InstantiateRewardView();
-            LoadRewardAd();
-        }
+        });
+     
+    }
+
+
+    public void PreloadRewardAd()
+    {
+        InstantiateRewardView();
+        LoadRewardAd();
     }
 
     

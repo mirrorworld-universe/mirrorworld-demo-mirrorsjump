@@ -8,7 +8,13 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    
+
+
+
+    public GameObject RankList;
+
+
+    public GoogleMobileAdsManager GoogleMobileAdsManager;
     
     
     // watch Ad for prop reward
@@ -39,6 +45,9 @@ public class UIManager : MonoBehaviour
     public ThemeManager ThemeManager;
 
     public GameObject LoginButton;
+
+
+    public bool IsInitPropPackage = true;
 
     
 
@@ -75,11 +84,21 @@ public class UIManager : MonoBehaviour
                     Debug.Log("wallet(user_id)"+PlayerPrefs.GetString("walletAddress"));
                     NetworkManager.Instance.SendUserBasicInfoReq(PlayerPrefs.GetString("walletAddress"));
                     //SceneManager.LoadScene("Menu");
+
+                    GlobalDef.CanUserGoogleAdMob = true;
+
+                    if (null != GoogleMobileAdsManager)
+                    {
+                        GoogleMobileAdsManager.InitGoogleMobileAdsSDK();
+                        GoogleMobileAdsManager.PreloadRewardAd();
+                    }
+                    
                 }
                 else
                 {
                     LoginButton.SetActive(true);
                     LoadingPanel.Instance.SetLoadingPanelEnable(false);
+                    GlobalDef.CanUserGoogleAdMob = false;
                 }
             });
             
@@ -93,21 +112,113 @@ public class UIManager : MonoBehaviour
     {
       
             EventDispatcher.Instance.userInfoDataReceived += OnUserDataReceived;
-      
-        
+            EventDispatcher.Instance.OnPropResponse += OnPropCountReceived;
+            NetworkManager.Instance.GetPropInfo(LoginState.WalletAddress);
+            
     }
 
     private void OnDestroy()
     {
-     
             EventDispatcher.Instance.userInfoDataReceived -= OnUserDataReceived;
+            EventDispatcher.Instance.OnPropResponse -= OnPropCountReceived;
+    }
 
+
+    public void OnPropCountReceived(PropResponse propResponse)
+    {
+        if (propResponse.data.props.high_rocket <= 0)
+        {
+            HighRocketNumber.text = "x0";
+        }
+        else
+        {
+            HighRocketNumber.text = "x"+propResponse.data.props.high_rocket;
+        }
+        
+        if (propResponse.data.props.low_rocket <= 0)
+        {
+            LowRocketNumber.text = "x0";
+           
+        }else
+        {
+            LowRocketNumber.text = "x"+propResponse.data.props.low_rocket;
+        }
+        
+        
+        if (propResponse.data.props.spring <= 0)
+        {
+            SpringNumber.text = "x0";
+           
+        }else
+        {
+            SpringNumber.text = "x"+propResponse.data.props.spring;
+        }
+
+        GlobalDef.HighRocketCount = propResponse.data.props.high_rocket;
+        GlobalDef.LowRocketCount = propResponse.data.props.low_rocket;
+        GlobalDef.SpringCount = propResponse.data.props.spring;
+
+        if (!IsInitPropPackage)
+        {
+            LoadingPanel.Instance.SetLoadingPanelEnable(false);
+            RewardPackage.SetActive(true);
+        }
+
+        IsInitPropPackage = false;
+
+    }
+    
+    
+    public void OpenRewardPackage()
+    {
+        //
+        // if (GlobalDef.HighRocketCount <= 0)
+        // {
+        //     HighRocketNumber.text = "x0";
+        //    
+        // }else
+        // {
+        //     HighRocketNumber.text = "x"+GlobalDef.HighRocketCount;
+        // }
+       
+       
+        // if (GlobalDef.LowRocketCount <= 0)
+        // {
+        //     LowRocketNumber.text = "x0";
+        //    
+        // }else
+        // {
+        //     LowRocketNumber.text = "x"+GlobalDef.LowRocketCount;
+        // }
+
+       
+        // if (GlobalDef.SpringCount <= 0)
+        // {
+        //     SpringNumber.text = "x0";
+        //    
+        // }else
+        // {
+        //     SpringNumber.text = "x"+GlobalDef.SpringCount;
+        // }
+       
+        // RewardPackage.SetActive(true);
+        
+        NetworkManager.Instance.GetPropInfo(LoginState.WalletAddress);
+        LoadingPanel.Instance.SetLoadingPanelEnable(true);
+       
     }
 
     private void OnUserDataReceived(UserInfoData userInfoData)
-    {    
-        
-        
+    {
+
+        if (null == userInfoData.name)
+        {
+            GlobalDef.UserName = "default";
+        }
+        else
+        {
+            GlobalDef.UserName = userInfoData.name;
+        }
         
         // 数据记录
         // 处理场景
@@ -310,6 +421,7 @@ public class UIManager : MonoBehaviour
     {
         RewardImage.sprite = GenerateRewardProp();
         RewardAdvice.SetActive(true);
+        
     }
     
     // just mock data
@@ -320,15 +432,18 @@ public class UIManager : MonoBehaviour
         if (seed <= 10)
         {
             GlobalDef.SpringCount++;
+            NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,"SpringCount",GlobalDef.SpringCount);
             return Spring;
             
         }else if (seed <= 20)
         {
             GlobalDef.LowRocketCount++;
+            NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,"LowRocketCount",GlobalDef.LowRocketCount);
             return LowRocket;
         }
 
         GlobalDef.HighRocketCount++;
+        NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,"HighRocketCount",GlobalDef.HighRocketCount);
         return HighRocket;
     }
 
@@ -341,58 +456,21 @@ public class UIManager : MonoBehaviour
         RewardImage.sprite = null;
     }
 
-
-
-
-    public void OpenRewardPackage()
-    {
-        
-       if (GlobalDef.HighRocketCount <= 0)
-       {
-           HighRocketNumber.text = "x0";
-           
-       }else
-       {
-           HighRocketNumber.text = "x"+GlobalDef.HighRocketCount;
-       }
-       
-       
-       if (GlobalDef.LowRocketCount <= 0)
-       {
-          LowRocketNumber.text = "x0";
-           
-       }else
-       {
-          LowRocketNumber.text = "x"+GlobalDef.LowRocketCount;
-       }
-
-       
-       if (GlobalDef.SpringCount <= 0)
-       {
-           SpringNumber.text = "x0";
-           
-       }else
-       {
-          SpringNumber.text = "x"+GlobalDef.SpringCount;
-       }
-       
-       RewardPackage.SetActive(true);
-       
-    }
-
-
     public void CloseRewardPackage()
     {
         RewardPackage.SetActive(false);
     }
-    
-    
-    
-    
-    
-    
-    
-    
 
 
+    public void OpenRankList()
+    {
+        RankList.SetActive(true);
+     
+    }
+    
+    public void CloseRankList()
+    {
+        RankList.SetActive(false);
+    }
+    
 }

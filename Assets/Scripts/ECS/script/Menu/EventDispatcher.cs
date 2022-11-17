@@ -14,4 +14,15 @@ public class EventDispatcher : Singleton<EventDispatcher>
     public UnityAction<UpdateMintStateData> updateMintReceived;
 
     public UnityAction<UpdateAirdropSolData> updateAirdopReceived;
+
+
+    public UnityAction<RankListResponse> OnRankListResponse;
+    
+    public UnityAction<UpdateUserNameResponse> OnUpdateUserName;
+    
+    public UnityAction<PropResponse> OnPropResponse;
+    
+    public UnityAction<PropResponse> OnUpdatePropResponse;
+    
+
 }

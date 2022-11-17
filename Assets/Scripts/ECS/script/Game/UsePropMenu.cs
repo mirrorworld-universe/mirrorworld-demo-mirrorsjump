@@ -39,6 +39,28 @@ public class UsePropMenu : MonoBehaviour
 
     private void Start()
     {
+        EventDispatcher.Instance.OnPropResponse += OnPropCountReceived;
+        NetworkManager.Instance.GetPropInfo(LoginState.WalletAddress);
+    }
+    
+    private void OnDestroy()
+    {
+        EventDispatcher.Instance.OnPropResponse -= OnPropCountReceived;
+    }
+    
+    
+    public void OnPropCountReceived(PropResponse propResponse)
+    {
+        GlobalDef.HighRocketCount = propResponse.data.props.high_rocket;
+        GlobalDef.LowRocketCount = propResponse.data.props.low_rocket;
+        GlobalDef.SpringCount = propResponse.data.props.spring;
+        UpdatePropMenu();
+    }
+
+
+
+    private void UpdatePropMenu()
+    {
         if (GlobalDef.HighRocketCount <= 0)
         {
             HasHighRocket = false;
@@ -80,17 +102,14 @@ public class UsePropMenu : MonoBehaviour
         if (index == Constant.ThemeWorldCupIndex)
         {
 
-           HightRocketIcon.sprite = WorldCupIcons[0];
-           LowRocketIcon.sprite= WorldCupIcons[1];
+            HightRocketIcon.sprite = WorldCupIcons[0];
+            LowRocketIcon.sprite= WorldCupIcons[1];
         }
         else
         { 
             HightRocketIcon.sprite = NormalIcons[0];
             LowRocketIcon.sprite= NormalIcons[1];
         }
-        
-        
-        
     }
 
 
@@ -118,7 +137,8 @@ public class UsePropMenu : MonoBehaviour
         
         
         
-        // Use Prop
+        // use prop
+        NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,"HighRocketCount",GlobalDef.HighRocketCount-1);
         PickupItem();
         MirrorObject.GetComponent<MirrorJump>().EnableRocket(RocketLevel.High);
         Vector2 Force = MirrorObject.GetComponent<Rigidbody2D>().velocity;
@@ -157,7 +177,8 @@ public class UsePropMenu : MonoBehaviour
             return;
         }
         
-        // Use Prop
+        // use prop
+        NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,"LowRocketCount",GlobalDef.LowRocketCount-1);
         PickupItem();
         MirrorObject.GetComponent<MirrorJump>().EnableRocket(RocketLevel.Low);
         Vector2 Force = MirrorObject.GetComponent<Rigidbody2D>().velocity;
@@ -184,9 +205,8 @@ public class UsePropMenu : MonoBehaviour
         }
         
         
-        
-        
         // use prop
+        NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,"SpringCount",GlobalDef.SpringCount-1);
         
         if (GameController.GetGameState() == GameState.GameOver)
         {
