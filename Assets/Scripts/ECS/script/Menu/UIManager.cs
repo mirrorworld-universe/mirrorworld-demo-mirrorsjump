@@ -82,6 +82,8 @@ public class UIManager : MonoBehaviour
                     
                     Debug.Log("call NetworkManager.Instance.SendUserBasicInfoReq");
                     Debug.Log("wallet(user_id)"+PlayerPrefs.GetString("walletAddress"));
+                    
+                
                     NetworkManager.Instance.SendUserBasicInfoReq(PlayerPrefs.GetString("walletAddress"));
                     //SceneManager.LoadScene("Menu");
                     
@@ -367,6 +369,7 @@ public class UIManager : MonoBehaviour
                     LoginState.Name = LoginResponse.user.username;
                     LoginState.WalletAddress = LoginResponse.user.wallet.sol_address;
                     PlayerPrefs.SetString("walletAddress", LoginResponse.user.wallet.sol_address);
+                    
                     
                    // LoginResponse.user.sol_address
                     

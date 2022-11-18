@@ -104,8 +104,13 @@ public class NetworkManager : MonoSingleton<NetworkManager>
     }
 
     private IEnumerator Get(string url, string messageBody, Action<Result, string> callBack)
-    {
+    {   
+      
         UnityWebRequest request = UnityWebRequest.Get(url);
+
+
+        EncrypoUtils.DecorateWithMD5( request, PlayerPrefs.GetString("walletAddress"));
+        
         if (!string.IsNullOrEmpty(messageBody))
         {
             byte[] rawRequestBodyToSend = new System.Text.UTF8Encoding().GetBytes(messageBody);
@@ -137,6 +142,9 @@ public class NetworkManager : MonoSingleton<NetworkManager>
     {
         UnityWebRequest request = new UnityWebRequest(url, "POST");
         request.SetRequestHeader("Content-Type", "application/json");
+        
+      
+        EncrypoUtils.DecorateWithMD5( request, PlayerPrefs.GetString("walletAddress"));
 
         MirrorUtils.SetContentTypeHeader(request);
         MirrorUtils.SetAcceptHeader(request);
@@ -459,6 +467,8 @@ public class User_info
     /// 
     /// </summary>
     public string time { get; set; }
+    
+    public string rank { get; set; }
     /// <summary>
     /// 
     /// </summary>

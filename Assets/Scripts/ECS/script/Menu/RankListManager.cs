@@ -49,13 +49,19 @@ public class RankListManager : MonoBehaviour
 
 
     public GameObject TimeIcon;
-    
-    
+
+    public Image UserHeaderContent;
+
+    public Sprite DefaultSprite;
     
 
-  
 
-   // public TextMeshProUGUI UserRank;
+
+
+    public GameObject RankViewport;
+    
+
+    public TextMeshProUGUI UserRank;
 
     public Image UserHeader;
 
@@ -99,6 +105,9 @@ public class RankListManager : MonoBehaviour
         UpdateTimeIcon.SetActive(false);
         if (_rankState == RankState.DayRank)
         {
+
+            RankViewport.GetComponent<RectTransform>().anchoredPosition =
+                new Vector3( RankViewport.GetComponent<RectTransform>().anchoredPosition.x, -476);
             DayBg.sprite = null;
             WeekBg.sprite = BorderImage;
             HistoryBg.sprite = BorderImage;
@@ -139,7 +148,10 @@ public class RankListManager : MonoBehaviour
           UpdateTime.text = updateTime;
           UpdateTimeIcon.SetActive(true);
         }else if (_rankState == RankState.WeekRank)
-        {
+        {   
+            
+            RankViewport.GetComponent<RectTransform>().anchoredPosition =
+                new Vector3( RankViewport.GetComponent<RectTransform>().anchoredPosition.x, -476);
             DayBg.sprite = BorderImage;
             WeekBg.sprite = null;
             HistoryBg.sprite = BorderImage;
@@ -176,7 +188,9 @@ public class RankListManager : MonoBehaviour
             UpdateTimeIcon.SetActive(true);
 
         }else if (_rankState == RankState.HistoryRank)
-        {
+        {   
+            RankViewport.GetComponent<RectTransform>().anchoredPosition =
+                new Vector3( RankViewport.GetComponent<RectTransform>().anchoredPosition.x, -406);
             TimeIcon.SetActive(false);
             DayBg.sprite = BorderImage;
             WeekBg.sprite = BorderImage;
@@ -245,6 +259,16 @@ public class RankListManager : MonoBehaviour
        
        
        LoadingPanel.Instance.SetLoadingPanelEnable(false);
+
+      
+       if (rankListResponse.data.user_info.rank != null && rankListResponse.data.user_info.rank != "" )
+       {
+           UserRank.text = rankListResponse.data.user_info.rank;
+       }
+       else
+       {
+           UserRank.text = "100+";
+       }
        
        
        Header.SetActive(true);
@@ -253,12 +277,12 @@ public class RankListManager : MonoBehaviour
 
        if (UserName.text == null)
        {
-           UserName.text = "empty";
+           UserName.text = "-";
        }
        
        if (DateTime.text == null)
        {
-           DateTime.text = "empty";
+           DateTime.text = "-";
        }
        
        
@@ -268,6 +292,8 @@ public class RankListManager : MonoBehaviour
            UserHeader.sprite = DefaultHeader;
            return;
        }
+
+       UserHeaderContent.sprite = DefaultSprite;
        
        //todo loader image
        SetImage(userImage);
