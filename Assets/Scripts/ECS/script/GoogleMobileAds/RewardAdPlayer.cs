@@ -11,6 +11,13 @@ public class RewardAdPlayer : MonoBehaviour
    public UIManager UIManager;
 
    public GameObject RewardButton;
+
+   public GameObject RespawnButton;
+   
+   
+   
+   
+   
    
    public GoogleMobileAdsManager GoogleMobileAdsManager;
 
@@ -19,6 +26,22 @@ public class RewardAdPlayer : MonoBehaviour
    
    private void Start()
    {
+
+
+
+      if (null != RespawnButton)
+      {
+         RespawnButton.SetActive(false);
+      }
+      
+      
+      if (null != RewardButton)
+      {
+         RespawnButton.SetActive(false);
+      }
+      
+      
+      
       if (GlobalDef.CanUserGoogleAdMob)
       {
          GoogleMobileAdsManager.InstantiateRewardView();
@@ -87,6 +110,19 @@ public class RewardAdPlayer : MonoBehaviour
       // {
       //   BannerAdPlayer.LoadBanner();
       // }
+      if (null != RespawnButton)
+      {
+         RespawnButton.SetActive(true);
+      }
+      
+      
+      if (null != RewardButton)
+      {
+         RespawnButton.SetActive(true);
+      }
+
+      
+      
    }
 
    public void HandleRewardedAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)

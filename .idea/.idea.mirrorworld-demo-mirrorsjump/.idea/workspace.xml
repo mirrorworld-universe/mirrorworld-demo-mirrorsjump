@@ -3,7 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="510429f0-be6a-42b7-ba45-15543685d641" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameEntrance.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameEntrance.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Login.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Login.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GameEntrance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GameEntrance.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/GoogleMobileAdsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/GoogleMobileAdsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/RewardAdPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/RewardAdPlayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/RankListManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/RankListManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/UIManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +135,7 @@
       <workItem from="1668731072689" duration="6123000" />
       <workItem from="1668737524658" duration="1286000" />
       <workItem from="1668738869849" duration="13142000" />
-      <workItem from="1668753294778" duration="3082000" />
+      <workItem from="1668753294778" duration="7931000" />
     </task>
     <servers />
   </component>

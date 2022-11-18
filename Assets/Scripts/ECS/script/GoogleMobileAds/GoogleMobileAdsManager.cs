@@ -40,7 +40,7 @@ public class GoogleMobileAdsManager:MonoBehaviour
     public void InstantiateBannerView()
     {
 #if UNITY_ANDROID
-        string adUnitId = "ca-app-pub-3940256099942544/6300978111";
+        string adUnitId = "ca-app-pub-8941705055545500/8436874789";
 #elif UNITY_IPHONE
             string adUnitId = "ca-app-pub-3940256099942544/2934735716";
 #else
@@ -75,7 +75,7 @@ public class GoogleMobileAdsManager:MonoBehaviour
     public void InstantiateInterstitialView()
     {
 #if UNITY_ANDROID
-        string adUnitId = "ca-app-pub-3940256099942544/1033173712";
+        string adUnitId = "ca-app-pub-8941705055545500/6960480890";
 #elif UNITY_IPHONE
         string adUnitId = "ca-app-pub-3940256099942544/4411468910";
 #else
@@ -108,7 +108,7 @@ public class GoogleMobileAdsManager:MonoBehaviour
     {
         string adUnitId;
 #if UNITY_ANDROID
-        adUnitId = "ca-app-pub-3940256099942544/5224354917";
+        adUnitId = "ca-app-pub-8941705055545500/5247658562";
 #elif UNITY_IPHONE
             adUnitId = "ca-app-pub-3940256099942544/1712485313";
 #else
@@ -117,6 +117,11 @@ public class GoogleMobileAdsManager:MonoBehaviour
 
         rewardedAd = new RewardedAd(adUnitId);
     }
+    
+    
+    
+    
+    
     
     public void LoadRewardAd()
     {

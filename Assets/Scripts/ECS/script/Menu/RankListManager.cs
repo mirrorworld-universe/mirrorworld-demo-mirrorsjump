@@ -293,7 +293,7 @@ public class RankListManager : MonoBehaviour
            return;
        }
 
-      
+       UserHeaderContent.sprite = DefaultSprite;
        
        //todo loader image
        SetImage(userImage);

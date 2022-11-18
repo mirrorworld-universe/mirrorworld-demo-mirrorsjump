@@ -38,6 +38,8 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI HighRocketNumber;
     
     public TextMeshProUGUI SpringNumber;
+
+   
     
     
     
@@ -57,6 +59,13 @@ public class UIManager : MonoBehaviour
         SoundManager.Instance.GetAudioSource().mute = SoundManager.Instance.GetSoundState();
         SoundManager.Instance.GetAudioSource().Play();
         LoginButton.SetActive(false);
+        
+        if (null != GoogleMobileAdsManager)
+        {
+            GoogleMobileAdsManager.InitGoogleMobileAdsSDK();
+            GoogleMobileAdsManager.PreloadRewardAd();
+        }
+        
     }
 
 

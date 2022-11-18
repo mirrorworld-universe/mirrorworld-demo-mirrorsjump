@@ -2140,6 +2140,7 @@ MonoBehaviour:
   IsRewardProp: 0
   UIManager: {fileID: 0}
   RewardButton: {fileID: 0}
+  RespawnButton: {fileID: 424041585}
   GoogleMobileAdsManager: {fileID: 1525751050}
 --- !u!1 &696569631
 GameObject:
