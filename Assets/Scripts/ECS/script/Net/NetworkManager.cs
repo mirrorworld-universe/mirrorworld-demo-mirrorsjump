@@ -38,6 +38,8 @@ public class NetworkManager : MonoSingleton<NetworkManager>
         Debug.Log("发送游戏得分...");
         string path = GlobalDef.server + "api/v1/user/score";
         var data = JsonMapper.ToJson(req);
+        Debug.Log("req.tokenid"+req.token_id);
+        
         StartCoroutine(Post(path, data, (result, json) =>
         {
             var res = JsonMapper.ToObject<UserScoreUpdateRes>(json);
@@ -176,7 +178,7 @@ public class NetworkManager : MonoSingleton<NetworkManager>
         req.user_id = user_id;
         req.limit = limit;
         StartCoroutine(Post(path, JsonMapper.ToJson(req), (result, json) =>
-        {
+        {   
             var res = JsonMapper.ToObject<RankListResponse>(json);
             if (res.status != "success")
             {
@@ -353,6 +355,7 @@ public class UserScoreUpdateReq
     public string user_id;
     public long score;
     public int scene;
+    public int token_id;
 }
 // User score update 返回数据
 public class UserScoreUpdateRes
@@ -447,7 +450,7 @@ public class User_info
     /// <summary>
     /// 
     /// </summary>
-    public string userame { get; set; }
+    public string username { get; set; }
     /// <summary>
     /// 
     /// </summary>
@@ -473,7 +476,7 @@ public class RankingItem
     /// <summary>
     /// 
     /// </summary>
-    public string user_name { get; set; }
+    public string username { get; set; }
     /// <summary>
     /// 
     /// </summary>

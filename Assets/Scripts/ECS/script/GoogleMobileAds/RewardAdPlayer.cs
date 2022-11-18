@@ -53,6 +53,7 @@ public class RewardAdPlayer : MonoBehaviour
       
       if ( GoogleMobileAdsManager.GetRewardAd().IsLoaded()) {
            GoogleMobileAdsManager.GetRewardAd().Show();
+           TAManager.Instance.ViewAdStart();
       }
    }
 
@@ -105,7 +106,8 @@ public class RewardAdPlayer : MonoBehaviour
 
    public void HandleRewardedAdClosed(object sender, EventArgs args)
    {
-
+      
+      TAManager.Instance.ViewAd(true);
       if (IsRewardProp)
       {
          UIManager.OpenRewardAdvice();
@@ -123,6 +125,7 @@ public class RewardAdPlayer : MonoBehaviour
    {
       string type = args.Type;
       double amount = args.Amount;
+      
    }
 
 

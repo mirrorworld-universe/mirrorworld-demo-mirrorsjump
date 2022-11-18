@@ -33,6 +33,8 @@ public class GlobalDef
     public static string hasInitPosY = "HasInitPosY";   
     public static string maxScore = "MaxScore";
 
+    public static long CurrentScore = 0;
+
     public static bool IsInitGoogleAdMob = false;
 
     public static bool HasPlayerRewardAd = false;
@@ -40,9 +42,10 @@ public class GlobalDef
     public static bool CanUserGoogleAdMob = false;
 
     public static string RankUserID;
-    
-    
-    
+
+    public static int TokenID = 0;
+
+
     // temb reward prop conut
     public static int HighRocketCount =1;
 

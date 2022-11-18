@@ -179,7 +179,8 @@ public class PackageDetailsManager : MonoBehaviour
         TAManager.Instance.SelectToBattle("random nft");
         
         EventDispatcher.Instance.roleChanged?.Invoke();
-
+        
+        PlayerPrefs.SetInt("RoleID", PlayerPrefs.GetInt("CurrentTokenID"));
     }
     
     public void SetDefaultToBattle()
@@ -220,6 +221,8 @@ public class PackageDetailsManager : MonoBehaviour
         TAManager.Instance.SelectToBattle("default nft");
       
         EventDispatcher.Instance.roleChanged?.Invoke();
+
+        PlayerPrefs.SetInt("RoleID",0);
 
     }
 

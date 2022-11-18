@@ -84,21 +84,13 @@ public class UIManager : MonoBehaviour
                     Debug.Log("wallet(user_id)"+PlayerPrefs.GetString("walletAddress"));
                     NetworkManager.Instance.SendUserBasicInfoReq(PlayerPrefs.GetString("walletAddress"));
                     //SceneManager.LoadScene("Menu");
-
-                    GlobalDef.CanUserGoogleAdMob = true;
-
-                    if (null != GoogleMobileAdsManager)
-                    {
-                        GoogleMobileAdsManager.InitGoogleMobileAdsSDK();
-                        GoogleMobileAdsManager.PreloadRewardAd();
-                    }
                     
                 }
                 else
                 {
                     LoginButton.SetActive(true);
                     LoadingPanel.Instance.SetLoadingPanelEnable(false);
-                    GlobalDef.CanUserGoogleAdMob = false;
+                
                 }
             });
             
@@ -285,6 +277,7 @@ public class UIManager : MonoBehaviour
                 LoginState.mintableRoleData = data;
                 PlayerPrefs.SetString("MintUrl", data.token_url);
                 PlayerPrefs.SetString("TokenId",data.token_id.ToString());
+                PlayerPrefs.SetInt("CurrentTokenID",data.token_id);
             }
         }
 

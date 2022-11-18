@@ -8016,7 +8016,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: you get a item
+  m_text: you get an item
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4ab6f992935e7dd49827c381db96e516, type: 2}
   m_sharedMaterial: {fileID: 1714751534592507751, guid: 4ab6f992935e7dd49827c381db96e516, type: 2}
@@ -14709,6 +14709,7 @@ MonoBehaviour:
   RankListDataProvider: {fileID: 622293481}
   UpdateTime: {fileID: 95727164}
   BorderImage: {fileID: 21300000, guid: e37601f335f01e54d8a468dd067b0005, type: 3}
+  DefaultHeader: {fileID: 0}
   Black: {r: 0, g: 0, b: 0, a: 1}
   Yellow: {r: 1, g: 0.93333334, b: 0.16862746, a: 1}
   DayBg: {fileID: 2001355325}
@@ -14719,6 +14720,7 @@ MonoBehaviour:
   HistoryText: {fileID: 110383447}
   UpdateTimeIcon: {fileID: 95727162}
   Header: {fileID: 1710874048}
+  TimeIcon: {fileID: 2023293795}
   UserHeader: {fileID: 1235826018}
   UserName: {fileID: 420668879}
   Address: {fileID: 927383312}

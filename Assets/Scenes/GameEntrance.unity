@@ -464,6 +464,7 @@ MonoBehaviour:
   videoPlayer: {fileID: 126243402}
   useShuShuAnalysis: 1
   IsTestEnv: 1
+  GoogleMobileAdsManager: {fileID: 786707461}
 --- !u!1 &463826718
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,8 +738,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc1a5f75fd4c4c4b86efbef2cd9ec57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsNeedInit: 0
-  IsNeedPreloadRewardAd: 0
 --- !u!4 &786707462
 Transform:
   m_ObjectHideFlags: 0

@@ -46,6 +46,8 @@ public class GameController : MonoBehaviour
 
     private bool IsUnlock = true;
 
+    public UsePropMenu UsePropMenu;
+
 
    
     
@@ -84,6 +86,7 @@ public class GameController : MonoBehaviour
             MaxHeight = (long)MirrorObject.transform.position.y * GlobalDef.heightCoefficient;
 
             GameMenu.SetHighScore(MaxHeight.ToString());
+            GlobalDef.CurrentScore = MaxHeight;
         }
     }
 
@@ -94,6 +97,7 @@ public class GameController : MonoBehaviour
     {
         StairsFactory.DestroyAllStairs();
         OnGameStart();
+        UsePropMenu.UpdateUseMenu();
     }
     
     // Game State

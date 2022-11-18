@@ -184,6 +184,7 @@ public class GameMenu : MonoBehaviour
             req.score = FindObjectOfType<GameController>().GetMaxHeight();
         }
         req.scene = PlayerPrefs.GetInt("CurrentTheme");
+        req.token_id = PlayerPrefs.GetInt("RoleID",0);
         NetworkManager.Instance.SendUserScoreReq(req);
     }
 
@@ -237,14 +238,14 @@ public class GameMenu : MonoBehaviour
 
     public void UserExitGame()
     {   
-        TAManager.Instance.EndGame("user_end");
+        TAManager.Instance.EndGame("user_end",GlobalDef.CurrentScore);
         SoundManager.Instance.PlaySound(SoundName.Close);
         SceneManager.LoadScene("Menu");
     }
     
     public void GameOverExitGame()
     {   
-        TAManager.Instance.EndGame("game_over");
+        TAManager.Instance.EndGame("game_over",GlobalDef.CurrentScore);
         SoundManager.Instance.PlaySound(SoundName.Close);
         SceneManager.LoadScene("Menu");
     }

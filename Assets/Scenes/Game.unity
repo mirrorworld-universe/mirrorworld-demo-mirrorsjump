@@ -1001,6 +1001,7 @@ MonoBehaviour:
   GameMenu: {fileID: 803901527}
   RolePersistence: {fileID: 1649454947}
   CloundMoveManager: {fileID: 760929461}
+  UsePropMenu: {fileID: 1917135528}
 --- !u!4 &247834404
 Transform:
   m_ObjectHideFlags: 0

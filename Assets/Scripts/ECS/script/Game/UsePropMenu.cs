@@ -41,11 +41,48 @@ public class UsePropMenu : MonoBehaviour
     {
         EventDispatcher.Instance.OnPropResponse += OnPropCountReceived;
         NetworkManager.Instance.GetPropInfo(LoginState.WalletAddress);
+        
+        HasHighRocket = false;
+        HighRocketContent.alpha = 0.5f;
+        
+        HasLowRocket = false;
+        LowRocketContent.alpha = 0.5f;
+        
+        HasSpring= false;
+        SpringContent.alpha = 0.5f;
+        
+        int index = PlayerPrefs.GetInt("CurrentTheme");
+        
+        if (index == Constant.ThemeWorldCupIndex)
+        {
+
+            HightRocketIcon.sprite = WorldCupIcons[0];
+            LowRocketIcon.sprite= WorldCupIcons[1];
+        }
+        else
+        { 
+            HightRocketIcon.sprite = NormalIcons[0];
+            LowRocketIcon.sprite= NormalIcons[1];
+        }
     }
     
     private void OnDestroy()
     {
         EventDispatcher.Instance.OnPropResponse -= OnPropCountReceived;
+    }
+
+
+    public void UpdateUseMenu()
+    {   
+        HasHighRocket = false;
+        HighRocketContent.alpha = 0.5f;
+        
+        HasLowRocket = false;
+        LowRocketContent.alpha = 0.5f;
+        
+        HasSpring= false;
+        SpringContent.alpha = 0.5f;
+        NetworkManager.Instance.GetPropInfo(LoginState.WalletAddress);
     }
     
     
@@ -97,19 +134,7 @@ public class UsePropMenu : MonoBehaviour
         
         
         
-        int index = PlayerPrefs.GetInt("CurrentTheme");
-        
-        if (index == Constant.ThemeWorldCupIndex)
-        {
-
-            HightRocketIcon.sprite = WorldCupIcons[0];
-            LowRocketIcon.sprite= WorldCupIcons[1];
-        }
-        else
-        { 
-            HightRocketIcon.sprite = NormalIcons[0];
-            LowRocketIcon.sprite= NormalIcons[1];
-        }
+      
     }
 
 
@@ -135,7 +160,7 @@ public class UsePropMenu : MonoBehaviour
             return;
         }
         
-        
+        TAManager.Instance.UseProp(GlobalDef.CurrentScore,"high_rocket");
         
         // use prop
         NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,-1,0,0);
@@ -147,11 +172,10 @@ public class UsePropMenu : MonoBehaviour
 
         GlobalDef.HighRocketCount--;
 
-        if (GlobalDef.HighRocketCount <= 0)
-        {
+      
             HasHighRocket = false;
             HighRocketContent.alpha = 0.5f;
-        }
+        
     }
 
 
@@ -177,6 +201,7 @@ public class UsePropMenu : MonoBehaviour
             return;
         }
         
+        TAManager.Instance.UseProp(GlobalDef.CurrentScore,"low_rocket");
         // use prop
         NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,0,-1,0);
         PickupItem();
@@ -188,11 +213,10 @@ public class UsePropMenu : MonoBehaviour
         
         GlobalDef.LowRocketCount--;
 
-        if (GlobalDef.LowRocketCount <= 0)
-        {
+     
            HasLowRocket = false; 
            LowRocketContent.alpha = 0.5f;
-        }
+        
         
     }
 
@@ -206,6 +230,7 @@ public class UsePropMenu : MonoBehaviour
         
         
         // use prop
+        TAManager.Instance.UseProp(GlobalDef.CurrentScore,"spring");
         NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,0,0,-1);
         
         if (GameController.GetGameState() == GameState.GameOver)
@@ -234,11 +259,10 @@ public class UsePropMenu : MonoBehaviour
 
         GlobalDef.SpringCount--;
 
-        if (GlobalDef.SpringCount <= 0)
-        {
+     
             HasSpring = false;
             SpringContent.alpha = 0.5f;
-        }
+        
     }
     
     

@@ -9,7 +9,7 @@ public class GameEntrance : MonoBehaviour
     [SerializeField] VideoPlayer videoPlayer;
     [SerializeField] bool useShuShuAnalysis = true;
     [SerializeField] bool IsTestEnv = true;
-    
+    public  GoogleMobileAdsManager GoogleMobileAdsManager;
     
 
     private void Start()
@@ -41,6 +41,15 @@ public class GameEntrance : MonoBehaviour
         {
             TAManager.Instance.InitShuShuSDK();
         }
+        
+        GlobalDef.CanUserGoogleAdMob = true;
+
+        if (null != GoogleMobileAdsManager)
+        {
+            GoogleMobileAdsManager.InitGoogleMobileAdsSDK();
+            GoogleMobileAdsManager.PreloadRewardAd();
+        }
+
         
       
         

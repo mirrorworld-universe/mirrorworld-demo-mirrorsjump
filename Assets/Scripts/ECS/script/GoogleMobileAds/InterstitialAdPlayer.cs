@@ -33,7 +33,7 @@ public class InterstitialAdPlayer : MonoBehaviour
 
             if (random < 80)
             {   
-                TAManager.Instance.EndGame("user_end");
+                TAManager.Instance.EndGame("user_end",GlobalDef.CurrentScore);
                 SceneManager.LoadScene("Menu");
                 return;
             }
@@ -87,7 +87,7 @@ public class InterstitialAdPlayer : MonoBehaviour
     
     public void HandleOnAdClosed(object sender, EventArgs args)
     {   
-        TAManager.Instance.EndGame("user_end");
+        TAManager.Instance.EndGame("user_end",GlobalDef.CurrentScore);
         SceneManager.LoadScene("Menu");
     }
 

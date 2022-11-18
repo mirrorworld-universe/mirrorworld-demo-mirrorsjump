@@ -131,6 +131,13 @@ public class NFTDetailsManager : MonoBehaviour
         TAManager.Instance.SelectToBattle(CurrentMirror.NftData.name);
         
         EventDispatcher.Instance.roleChanged?.Invoke();
+
+
+
+        int id = ResolveRoleIDByName(CurrentMirror.NftData.name);
+
+
+        PlayerPrefs.SetInt("RoleID",ResolveRoleIDByName(CurrentMirror.NftData.name));
      
     }
     
@@ -169,9 +176,22 @@ public class NFTDetailsManager : MonoBehaviour
         WaitBackNFTPackage();
         NftTrade.OpenTransfer(CurrentMirror);
     }
-    
-    
- 
+
+
+
+
+    private int ResolveRoleIDByName(string name)
+    {
+        
+        //  Mirror Jump #840
+        string res = name.Substring(13, name.Length - 13);
+        
+   
+
+        int id = int.Parse(res);
+        
+        return id;
+    }
 
    
     

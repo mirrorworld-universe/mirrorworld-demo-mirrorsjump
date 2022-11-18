@@ -152,11 +152,12 @@ public class TAManager :Singleton<TAManager>
         ThinkingAnalyticsAPI.Track("about_mirrorjump",properties);
     }
 
-
-    public void EndGame(string reason)
+    // end_score
+    public void EndGame(string reason,long endScore)
     {   //game_over/user_end
         Dictionary<string, object> properties = new Dictionary<string, object>(){
-            {"end_reason",reason}
+            {"end_reason",reason},
+            {"end_score",endScore}
         };   
         ThinkingAnalyticsAPI.Track("end_game",properties);
     }
@@ -281,13 +282,51 @@ public class TAManager :Singleton<TAManager>
     public void OpenWallet()
     {
         Dictionary<string, object> properties = new Dictionary<string, object>(){
-          
+         
         };   
         ThinkingAnalyticsAPI.Track("open_wallet",properties);
     }
     
     
+    // use_props  curr_score  props_id
+
+    public void UseProp(long currentScore,string propsId)
+    {
+        Dictionary<string, object> properties = new Dictionary<string, object>(){
+            {"curr_score",currentScore},
+            {"propsId",propsId}
+        };   
+        ThinkingAnalyticsAPI.Track("use_props",properties);
+    }
     
+    //view_ad  if_complete  watch_time  cum_ltv
+    
+ 
+
+    public void ViewAdStart()
+    {
+        ThinkingAnalyticsAPI.Track("use_props");
+    }
+    
+    public void ViewAd(bool if_complete)
+    {
+        Dictionary<string, object> properties = new Dictionary<string, object>(){
+            {"if_complete",if_complete}
+        };   
+        ThinkingAnalyticsAPI.Track("use_props",properties);
+    }
+    
+    
+    
+    
+    // public void AdvertisingTime(float time)
+    // {
+    //     ThinkingAnalyticsAPI.UserAdd(new Dictionary<string, object>()
+    //     {
+    //         {"total_ad_time", time}
+    //     });
+    // }
+    //
     
     
     

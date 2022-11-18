@@ -46,6 +46,9 @@ public class RankListManager : MonoBehaviour
     public GameObject UpdateTimeIcon;
 
     public GameObject Header;
+
+
+    public GameObject TimeIcon;
     
     
     
@@ -104,6 +107,8 @@ public class RankListManager : MonoBehaviour
             WeekText.color = Black;
             HistoryText.color = Black;
             
+            TimeIcon.SetActive(true);
+            
           //  Leaderboard resets in 3 days and 16 hours!
           //  Leaderboard resets in xx hours and xx minutes
 
@@ -142,6 +147,7 @@ public class RankListManager : MonoBehaviour
             DayText.color = Black;
             WeekText.color = Yellow;
             HistoryText.color = Black;
+            TimeIcon.SetActive(true);
             
             string hours = "";
 
@@ -164,8 +170,6 @@ public class RankListManager : MonoBehaviour
             {
                 hours = "hour";
             }
-
-          
             string updateTime = "Leaderboard resets in " +rankListResponse.data.count_down.day +" "+day + " and " + rankListResponse.data.count_down.hour + " "+hours;
             UpdateTime.text = updateTime;
             
@@ -173,6 +177,7 @@ public class RankListManager : MonoBehaviour
 
         }else if (_rankState == RankState.HistoryRank)
         {
+            TimeIcon.SetActive(false);
             DayBg.sprite = BorderImage;
             WeekBg.sprite = BorderImage;
             HistoryBg.sprite = null;
@@ -185,21 +190,28 @@ public class RankListManager : MonoBehaviour
             UpdateTimeIcon.SetActive(false);
         }
         
-        
-        
-        
         datas.Clear();
         
         for (int i = 0; i < rankListResponse.data.ranking.Count; i++)
         {
             RankListDataItem rankListDataItem = new RankListDataItem();
             rankListDataItem.Number = i + 1;
-            rankListDataItem.Name = rankListResponse.data.ranking[i].user_name;
+            rankListDataItem.Name = rankListResponse.data.ranking[i].username;
             rankListDataItem.Rank = i + 1 + "";
+
+            if (null != rankListResponse.data.ranking[i].user_id && rankListResponse.data.ranking[i].user_id !="")
+            {
+                string preFix = rankListResponse.data.ranking[i].user_id.Substring(0,3);
+                string postFix = rankListResponse.data.ranking[i].user_id.Substring(rankListResponse.data.user_info.user_id.Length-3,2);
+                rankListDataItem.Address = preFix + "***" + postFix;
+            }
+            else
+            {
+                rankListDataItem.Address = "";
+            }
             
-            string preFix = rankListResponse.data.ranking[i].user_id.Substring(0,3);
-            string postFix = rankListResponse.data.ranking[i].user_id.Substring(rankListResponse.data.user_info.user_id.Length-3,2);
-            rankListDataItem.Address = preFix + "***" + postFix;
+          
+            
             rankListDataItem.Score = rankListResponse.data.ranking[i].score.ToString();
             rankListDataItem.DateTime = rankListResponse.data.ranking[i].time;
             rankListDataItem.ImageUrl = rankListResponse.data.ranking[i].nft.image;
@@ -212,10 +224,20 @@ public class RankListManager : MonoBehaviour
         
         
       
-       UserName.text = rankListResponse.data.user_info.userame;
-       string preFixUser = rankListResponse.data.user_info.user_id.Substring(0,3);
-       string postFixUser = rankListResponse.data.user_info.user_id.Substring(rankListResponse.data.user_info.user_id.Length-3,2);
-       Address.text = preFixUser + "***" + postFixUser;
+       UserName.text = rankListResponse.data.user_info.username;
+
+
+       if (null != rankListResponse.data.user_info.user_id && rankListResponse.data.user_info.user_id != "" )
+       {
+           string preFixUser = rankListResponse.data.user_info.user_id.Substring(0,3);
+           string postFixUser = rankListResponse.data.user_info.user_id.Substring(rankListResponse.data.user_info.user_id.Length-3,2);
+           Address.text = preFixUser + "***" + postFixUser;
+       }
+       else
+       {
+           Address.text = "";
+       }
+       
        UserScore.text = rankListResponse.data.user_info.score.ToString();
        DateTime.text = rankListResponse.data.user_info.time;
 
@@ -223,6 +245,8 @@ public class RankListManager : MonoBehaviour
        
        
        LoadingPanel.Instance.SetLoadingPanelEnable(false);
+       
+       
        Header.SetActive(true);
 
        UserHeader.sprite = DefaultHeader;
