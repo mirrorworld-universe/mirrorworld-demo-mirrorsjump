@@ -58,7 +58,7 @@ public class MessageAdvice : MonoBehaviour
    {
        NotSufficientAdvice.SetActive(false);
        // open wallet
-       MirrorSDK.OpenWalletPage();
+       //MirrorSDK.OpenWalletPage();
    }
    
    

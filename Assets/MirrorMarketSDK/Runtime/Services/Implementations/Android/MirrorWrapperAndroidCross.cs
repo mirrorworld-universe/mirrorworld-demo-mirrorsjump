@@ -51,10 +51,13 @@ namespace MirrorworldSDK.Wrapper
             if (javaSDKInstance == null)
             {
                 LogFlow("Must call InitSDK function first.");
+
                 return;
             }
             javaSDKInstance.Call("setLogoutCallback",new MSimpleCallback(()=> {
+
                 ClearUnitySDKCache();
+
                 logoutAction();
             }));
         }
@@ -81,14 +84,16 @@ namespace MirrorworldSDK.Wrapper
 
                 LoginResponse responseBody = JsonUtility.FromJson<LoginResponse>(resultString);
 
-                saveKeyParams(responseBody.access_token, responseBody.refresh_token, responseBody.user);
+                SaveKeyParams(responseBody.access_token, responseBody.refresh_token, responseBody.user);
 
                 callback(responseBody);
             }));
         }
 
-        public void AndroidOpenWallet()
+        public void AndroidOpenWallet(Action walletLogoutAction)
         {
+            AndroidSetLogoutCallback(walletLogoutAction);
+
             if (javaSDKInstance == null)
             {
                 LogFlow("Must call InitSDK function first.");

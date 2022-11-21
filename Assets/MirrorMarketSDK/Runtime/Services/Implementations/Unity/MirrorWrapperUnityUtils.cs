@@ -76,8 +76,12 @@ namespace MirrorworldSDK.Wrapper
             MirrorUtils.SetApiKeyHeader(request, apiKey);
             MirrorUtils.SetAuthorizationHeader(request, accessToken);
 
-            byte[] rawRequestBodyToSend = new System.Text.UTF8Encoding().GetBytes(messageBody);
-            request.uploadHandler = new UploadHandlerRaw(rawRequestBodyToSend);
+            if(messageBody != null && messageBody != "")
+            {
+                byte[] rawRequestBodyToSend = new System.Text.UTF8Encoding().GetBytes(messageBody);
+                request.uploadHandler = new UploadHandlerRaw(rawRequestBodyToSend);
+            }
+            
             request.downloadHandler = new DownloadHandlerBuffer();
 
             yield return request.SendWebRequest();
@@ -120,7 +124,7 @@ namespace MirrorworldSDK.Wrapper
         }
 
         //Nessesary params
-        private void saveKeyParams(string accessToken,string refreshToken,UserResponse userResponse)
+        public void SaveKeyParams(string accessToken,string refreshToken,UserResponse userResponse)
         {
             this.accessToken = accessToken;
 
@@ -246,6 +250,31 @@ namespace MirrorworldSDK.Wrapper
             {
                 LogFlow("GetAuthRoot failed! env is:" + environment);
                 return Constant.UserRootStagingDevnet;
+            }
+        }
+
+        private string GetDebugLoginPageRoot()
+        {
+            if (environment == MirrorEnv.ProductionMainnet)
+            {
+                return Constant.urlDebugLoginUrlPreProductionMain;
+            }
+            else if (environment == MirrorEnv.ProductionDevnet)
+            {
+                return Constant.urlDebugLoginUrlPreProductionDev;
+            }
+            else if (environment == MirrorEnv.StagingDevNet)
+            {
+                return Constant.urlDebugLoginUrlPreStagingDev;
+            }
+            else if (environment == MirrorEnv.StagingMainNet)
+            {
+                return Constant.urlDebugLoginUrlPreStagingMain;
+            }
+            else
+            {
+                LogFlow("GetAuthRoot failed! env is:" + environment);
+                return Constant.urlDebugLoginUrlPreProductionDev;
             }
         }
     }

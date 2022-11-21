@@ -17,12 +17,12 @@ public class GameEntrance : MonoBehaviour
         
        
          
-         MirrorSDK.SetLogoutCallback(() =>
-        {
-            PlayerPrefs.DeleteAll();
-            SceneManager.LoadScene("Login");
+        // MirrorSDK.SetLogoutCallback(() =>
+        //{
+        //    PlayerPrefs.DeleteAll();
+        //    SceneManager.LoadScene("Login");
             
-        });
+        //});
 
          if (!IsTestEnv)
          {

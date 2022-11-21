@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using MirrorworldSDK;
 using MirrorworldSDK.Models;
 using MirrorworldSDK.UI;
 using MirrorworldSDK.Wrapper;
 using UnityEngine;
-
+using static MirrorworldSDK.Wrapper.MirrorWrapper;
 
 public class MirrorSDK : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class MirrorSDK : MonoBehaviour
     [Tooltip("Open debug mode")]
     public bool debugMode = false;
     [Tooltip("runtime environment")]
-    public MirrorEnv environment = MirrorEnv.StagingDevNet;
+    public MirrorEnvPublic environment = MirrorEnvPublic.ProductionDevnet;
 
     [Tooltip("Temp Attr")]
     public string debugEmail = "";
@@ -30,8 +31,8 @@ public class MirrorSDK : MonoBehaviour
             MirrorWrapper.Instance.LogFlow("Please input an api key");
             return;
         }
-
-        InitSDK(apiKey, gameObject, debugMode, environment);
+        Debug.Log("Unity apikey:"+apiKey);
+        InitSDK(apiKey, gameObject, debugMode, (MirrorEnv)environment);
 
 #if (!(UNITY_IOS) || UNITY_EDITOR) && (!(UNITY_ANDROID) || UNITY_EDITOR)
         MirrorWrapper.Instance.SetDebugEmail(debugEmail);
@@ -40,6 +41,7 @@ public class MirrorSDK : MonoBehaviour
 
     public static void InitSDK(string apiKey, GameObject gameObject, bool useDebug, MirrorEnv environment)
     {
+        environment = MirrorEnv.StagingDevNet;
         DontDestroyOnLoad(gameObject);
 
         MonoBehaviour monoBehaviour = gameObject.GetComponent<MonoBehaviour>();
@@ -60,32 +62,35 @@ public class MirrorSDK : MonoBehaviour
 
 #elif (UNITY_IOS && !(UNITY_EDITOR))
 
-            MirrorWrapper.Instance.SetApiKey(apiKey);
+            // MirrorWrapper.initSDK(apiKey);
+
+            MirrorWrapper.IOSInitSDK((int)environment,apiKey);
 
             MirrorWrapper.Instance.LogFlow("Mirror SDK Inited.");
 #endif
 
+
     }
 
-    public static void SetAPIKey(string apiKey)
-    {
-#if (!(UNITY_IOS) || UNITY_EDITOR) && (!(UNITY_ANDROID) || UNITY_EDITOR)
+//    public static void SetAPIKey(string apiKey)
+//    {
+//#if (!(UNITY_IOS) || UNITY_EDITOR) && (!(UNITY_ANDROID) || UNITY_EDITOR)
 
-        MirrorWrapper.Instance.SetAPIKey(apiKey);
+//        MirrorWrapper.Instance.SetAPIKey(apiKey);
 
-#elif (UNITY_ANDROID && !(UNITY_EDITOR))
+//#elif (UNITY_ANDROID && !(UNITY_EDITOR))
 
-            MirrorWrapper.Instance.AndroidSetAPIKey(apiKey);
+//            MirrorWrapper.Instance.AndroidSetAPIKey(apiKey);
 
-            MirrorWrapper.Instance.SetAPIKey(apiKey);
+//            MirrorWrapper.Instance.SetAPIKey(apiKey);
 
-#elif (UNITY_IOS && !(UNITY_EDITOR))
+//#elif (UNITY_IOS && !(UNITY_EDITOR))
 
-            MirrorWrapper.Instance.SetApiKey(apiKey);
+//            MirrorWrapper.Instance.SetApiKey(apiKey);
 
-            MirrorWrapper.Instance.LogFlow("Mirror SDK Inited.");
-#endif
-    }
+//            MirrorWrapper.Instance.LogFlow("Mirror SDK Inited.");
+//#endif
+//    }
 
     //set if use debug mode
     public static void SetDebugMode(bool useDebug)
@@ -131,7 +136,6 @@ public class MirrorSDK : MonoBehaviour
                 }, action);
             }
         });
-
 #elif UNITY_ANDROID && !(UNITY_EDITOR)
 
             MirrorWrapper.Instance.LogFlow("Start login in android...");
@@ -140,35 +144,45 @@ public class MirrorSDK : MonoBehaviour
 
 #elif UNITY_IOS && !(UNITY_EDITOR)
 
-            MirrorWrapper.Instance.LogFlow("IOS is not implemented");
+        MirrorWrapper.iOSLoginAction = action;
+            MirrorWrapper.Instance.LogFlow("Start login in iOS...");
+            IOSLoginCallback handler = new IOSLoginCallback(MirrorWrapper.iOSloginCallback);
+            IntPtr fp = Marshal.GetFunctionPointerForDelegate(handler);
+            MirrorWrapper.IOSStartLogin(fp);
 #endif
+
     }
 
 
     //open login ui
-    public static void SetLogoutCallback(Action action)
-    {
-        MirrorWrapper.Instance.LogFlow("SetLogoutCallback.");
+//    public static void SetWalletLogoutCallback(Action action)
+//    {
+//        MirrorWrapper.Instance.LogFlow("SetWalletLogoutCallback.");
 
-#if (!(UNITY_IOS) || UNITY_EDITOR) && (!(UNITY_ANDROID) || UNITY_EDITOR)
+//#if (!(UNITY_IOS) || UNITY_EDITOR) && (!(UNITY_ANDROID) || UNITY_EDITOR)
 
-        MirrorWrapper.Instance.LogFlow("SetLogoutCallback only implemented on native.");
+//        MirrorWrapper.Instance.LogFlow("SetLogoutCallback only implemented on native.");
 
-#elif UNITY_ANDROID && !(UNITY_EDITOR)
+//#elif UNITY_ANDROID && !(UNITY_EDITOR)
 
-            MirrorWrapper.Instance.LogFlow("SetLogoutCallback in android...");
+//            MirrorWrapper.Instance.LogFlow("SetLogoutCallback in android...");
 
-            MirrorWrapper.Instance.AndroidSetLogoutCallback(action);
+//            MirrorWrapper.Instance.AndroidSetLogoutCallback(action);
 
-#elif UNITY_IOS && !(UNITY_EDITOR)
+//#elif UNITY_IOS && !(UNITY_EDITOR)
 
-            MirrorWrapper.Instance.LogFlow("IOS is not implemented");
-#endif
-    }
+//            MirrorWrapper.Instance.LogFlow("IOS is not implemented");
+//#endif
+//    }
 
     public static void LoginWithEmail(string emailAddress, string password, Action<CommonResponse<LoginResponse>> callBack)
     {
         MirrorWrapper.Instance.LoginWithEmail(emailAddress, password, callBack);
+    }
+
+    public static void Logout(Action logoutAction)
+    {
+        MirrorWrapper.Instance.Logout(logoutAction);
     }
 
     public static void GetWallet(Action<UserResponse> callback)
@@ -364,19 +378,23 @@ public class MirrorSDK : MonoBehaviour
     #endregion
 
     #region market ui
-    public static void OpenWalletPage()
+    public static void OpenWalletPage(Action walletLogoutAction)
     {
         if (MirrorUtils.IsEditor())
         {
-            MirrorWrapper.Instance.DebugOpenWalletPage();
+            MirrorWrapper.Instance.DebugOpenWalletPage(walletLogoutAction);
         }
         else if (Application.platform == RuntimePlatform.Android)
         {
-            MirrorWrapper.Instance.AndroidOpenWallet();
+            MirrorWrapper.Instance.AndroidOpenWallet(walletLogoutAction);
         }
         else if (Application.platform == RuntimePlatform.IPhonePlayer)
         {
-            MirrorWrapper.Instance.LogFlow("Not supported.");
+            MirrorWrapper.Instance.walletLogoutAction = walletLogoutAction;
+            //MirrorWrapper.OpenWallet();
+            iOSWalletLogOutCallback handler = new iOSWalletLogOutCallback(MirrorWrapper.iOSWalletCallBack);
+             IntPtr fp = Marshal.GetFunctionPointerForDelegate(handler);
+             MirrorWrapper.IOSOpenWallet (fp);
         }
         else
         {
@@ -403,63 +421,5 @@ public class MirrorSDK : MonoBehaviour
             MirrorWrapper.Instance.LogFlow("Unknown platform!");
         }
     }
-
-    //public static void OpenTransferPage(string mintAddress, string image, string name)
-    //{
-    //    if (Utils.IsEditor())
-    //    {
-    //        MirrorWrapper.Instance.LogFlow("Not supported.");
-    //    }
-    //    else if (Application.platform == RuntimePlatform.Android)
-    //    {
-    //        MirrorWrapper.Instance.AndroidOpenTransferPage(mintAddress, image, name);
-    //    }
-    //    else if (Application.platform == RuntimePlatform.IPhonePlayer)
-    //    {
-    //        MirrorWrapper.Instance.LogFlow("Not supported.");
-    //    }
-    //    else
-    //    {
-    //        MirrorWrapper.Instance.LogFlow("Unknown platform!");
-    //    }
-    //}
-    //public static void OpenSellPage(string mintAddress, string image, string name)
-    //{
-    //    if (Utils.IsEditor())
-    //    {
-    //        MirrorWrapper.Instance.LogFlow("Not supported.");
-    //    }
-    //    else if (Application.platform == RuntimePlatform.Android)
-    //    {
-    //        MirrorWrapper.Instance.AndroidOpenSellPage(mintAddress, image, name);
-    //    }
-    //    else if (Application.platform == RuntimePlatform.IPhonePlayer)
-    //    {
-    //        MirrorWrapper.Instance.LogFlow("Not supported.");
-    //    }
-    //    else
-    //    {
-    //        MirrorWrapper.Instance.LogFlow("Unknown platform!");
-    //    }
-    //}
-    //public static void OpenNFTManagePage(string mintAddress, string image, string name, double price)
-    //{
-    //    if (Utils.IsEditor())
-    //    {
-    //        MirrorWrapper.Instance.LogFlow("Not supported.");
-    //    }
-    //    else if (Application.platform == RuntimePlatform.Android)
-    //    {
-    //        MirrorWrapper.Instance.AndroidOpenNFTManagePage(mintAddress, image, name, price);
-    //    }
-    //    else if (Application.platform == RuntimePlatform.IPhonePlayer)
-    //    {
-    //        MirrorWrapper.Instance.LogFlow("Not supported.");
-    //    }
-    //    else
-    //    {
-    //        MirrorWrapper.Instance.LogFlow("Unknown platform!");
-    //    }
-    //}
     #endregion
 }
