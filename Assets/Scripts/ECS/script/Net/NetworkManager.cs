@@ -109,7 +109,7 @@ public class NetworkManager : MonoSingleton<NetworkManager>
         UnityWebRequest request = UnityWebRequest.Get(url);
 
 
-        EncrypoUtils.DecorateWithMD5( request, PlayerPrefs.GetString("walletAddress"));
+       EncrypoUtils.DecorateWithMD5( request, PlayerPrefs.GetString("walletAddress"));
         
         if (!string.IsNullOrEmpty(messageBody))
         {

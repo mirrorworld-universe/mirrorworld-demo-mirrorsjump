@@ -44,7 +44,7 @@ public class GameMenu : MonoBehaviour
         OpenUnlockHeightAdvice();
         EventDispatcher.Instance.userScoreReceived += OnUserScoreReceived;
 
-        Respawn.SetActive(true);
+        //Respawn.SetActive(true);
         
     }
 
@@ -185,6 +185,9 @@ public class GameMenu : MonoBehaviour
         }
         req.scene = PlayerPrefs.GetInt("CurrentTheme");
         req.token_id = PlayerPrefs.GetInt("RoleID",0);
+        
+        Debug.Log("Before Send RoleID:"+req.token_id);
+        
         NetworkManager.Instance.SendUserScoreReq(req);
     }
 

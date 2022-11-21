@@ -216,7 +216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6236376754683695852, guid: 2ca39d7c5936f436b9cd2d79123ee069, type: 3}
       propertyPath: apiKey
-      value: bU21hAbKFrKUBnCcSf9oZ84pq82aWhUfF6u
+      value: mw_RRetgcSVAXj6OpssSBj0t0PXbqsahlbnDaJ
       objectReference: {fileID: 0}
     - target: {fileID: 6236376754683695852, guid: 2ca39d7c5936f436b9cd2d79123ee069, type: 3}
       propertyPath: password
@@ -232,7 +232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6236376754683695852, guid: 2ca39d7c5936f436b9cd2d79123ee069, type: 3}
       propertyPath: environment
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6236376754683695854, guid: 2ca39d7c5936f436b9cd2d79123ee069, type: 3}
       propertyPath: m_Name
@@ -463,7 +463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 126243402}
   useShuShuAnalysis: 1
-  IsTestEnv: 1
+  IsTestEnv: 0
 --- !u!1 &463826718
 GameObject:
   m_ObjectHideFlags: 0

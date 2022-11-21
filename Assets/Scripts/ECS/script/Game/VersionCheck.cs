@@ -109,7 +109,11 @@ public class VersionCheck : MonoBehaviour
        {
            string url = "https://games.mirrorworld.fun/game/mirror_jump/Config/config.json";
    #if UNITY_ANDROID
+           // https://games.mirrorworld.fun/game/mirror_jump/ConfigTest/config.json
+           //https://games.mirrorworld.fun/game/mirror_jump/Config/config.json
+         //  url = "https://games.mirrorworld.fun/game/mirror_jump/ConfigTest/config.json";
            url = "https://games.mirrorworld.fun/game/mirror_jump/Config/config.json";
+           
    #elif UNITY_IPHONE
            url = "https://games.mirrorworld.fun/game/mirror_jump/Config/config.json";
    #endif
