@@ -63,7 +63,6 @@ public class UIManager : MonoBehaviour
         if (null != GoogleMobileAdsManager)
         {
             GoogleMobileAdsManager.InitGoogleMobileAdsSDK();
-            GoogleMobileAdsManager.PreloadRewardAd();
         }
         
     }
@@ -477,7 +476,7 @@ public class UIManager : MonoBehaviour
     public void OpenRankList()
     {
         RankList.SetActive(true);
-     
+        RankList.GetComponent<RankListManager>().OpenDayRank();
     }
     
     public void CloseRankList()

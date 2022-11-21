@@ -181,6 +181,8 @@ public class PackageDetailsManager : MonoBehaviour
         EventDispatcher.Instance.roleChanged?.Invoke();
         
         PlayerPrefs.SetInt("RoleID", PlayerPrefs.GetInt("CurrentTokenID"));
+        
+        
     }
     
     public void SetDefaultToBattle()

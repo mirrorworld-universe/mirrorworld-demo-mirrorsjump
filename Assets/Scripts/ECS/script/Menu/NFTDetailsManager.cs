@@ -135,6 +135,8 @@ public class NFTDetailsManager : MonoBehaviour
 
 
         int id = ResolveRoleIDByName(CurrentMirror.NftData.name);
+        
+        Debug.Log("RoleID"+id);
 
 
         PlayerPrefs.SetInt("RoleID",ResolveRoleIDByName(CurrentMirror.NftData.name));
@@ -182,11 +184,14 @@ public class NFTDetailsManager : MonoBehaviour
 
     private int ResolveRoleIDByName(string name)
     {
+        int index=name.IndexOf('#');
         
         //  Mirror Jump #840
-        string res = name.Substring(13, name.Length - 13);
+    //    string res = name.Substring(13, name.Length - 13);
+    
+        string res = name.Substring(index+1, name.Length-(index+1));
         
-   
+        Debug.Log("ResolveResult :"+res);
 
         int id = int.Parse(res);
         

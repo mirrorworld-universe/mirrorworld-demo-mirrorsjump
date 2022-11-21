@@ -26,9 +26,8 @@ public class RewardAdPlayer : MonoBehaviour
    
    private void Start()
    {
-
-
-
+      
+      
       if (null != RespawnButton)
       {
          RespawnButton.SetActive(false);
@@ -37,29 +36,16 @@ public class RewardAdPlayer : MonoBehaviour
       
       if (null != RewardButton)
       {
-         RespawnButton.SetActive(false);
+         RewardButton.SetActive(false);
       }
       
-      
-      
-      if (GlobalDef.CanUserGoogleAdMob)
-      {
+   
          GoogleMobileAdsManager.InstantiateRewardView();
          AddRewardAdEvent();
          GoogleMobileAdsManager.LoadRewardAd();
-         if (null != RewardButton)
-         {
-            RewardButton.SetActive(true);
-         }
-      }
-      else
-      {
-         if (null != RewardButton)
-         {
-            RewardButton.SetActive(false);
-         }
-      }
+       
       
+
    }
    
    
@@ -73,11 +59,12 @@ public class RewardAdPlayer : MonoBehaviour
 
    public void ShowRewardAd()
    {
-      
       if ( GoogleMobileAdsManager.GetRewardAd().IsLoaded()) {
            GoogleMobileAdsManager.GetRewardAd().Show();
            TAManager.Instance.ViewAdStart();
       }
+      
+      
    }
 
    public void DestroyRewardAd()
@@ -110,6 +97,8 @@ public class RewardAdPlayer : MonoBehaviour
       // {
       //   BannerAdPlayer.LoadBanner();
       // }
+      
+      
       if (null != RespawnButton)
       {
          RespawnButton.SetActive(true);
@@ -118,7 +107,7 @@ public class RewardAdPlayer : MonoBehaviour
       
       if (null != RewardButton)
       {
-         RespawnButton.SetActive(true);
+         RewardButton.SetActive(true);
       }
 
       
@@ -127,25 +116,30 @@ public class RewardAdPlayer : MonoBehaviour
 
    public void HandleRewardedAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
    {
-         
+      Debug.Log("HandleRewardedAdFailedToLoad");
    }
 
    public void HandleRewardedAdOpening(object sender, EventArgs args)
    {
       GoogleMobileAdsManager.LoadRewardAd();
+      Debug.Log("HandleRewardedAdOpening");
    }
 
    public void HandleRewardedAdFailedToShow(object sender, AdErrorEventArgs args)
    {
-        
+      Debug.Log("HandleRewardedAdFailedToShow");
    }
 
    public void HandleRewardedAdClosed(object sender, EventArgs args)
    {
-      
+      Debug.Log("HandleRewardedAdClosed");
       TAManager.Instance.ViewAd(true);
-      if (IsRewardProp)
-      {
+      
+      if (null != UIManager)
+      {  
+         
+         Debug.Log("OpenRewardAdvice");
+         
          UIManager.OpenRewardAdvice();
        
       }
@@ -161,6 +155,8 @@ public class RewardAdPlayer : MonoBehaviour
    {
       string type = args.Type;
       double amount = args.Amount;
+      
+      Debug.Log("HandleUserEarnedReward");
       
    }
 

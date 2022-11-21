@@ -3,15 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="510429f0-be6a-42b7-ba45-15543685d641" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/Android/sdk-release120.11181715.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/Android/sdk-release120.11181715.aar.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameEntrance.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameEntrance.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Login.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Login.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GameEntrance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GameEntrance.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/GlobalDef.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/GlobalDef.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/CallSDK.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/CallSDK.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/GameMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/GameMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/VersionCheck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/VersionCheck.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/GoogleMobileAdsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/GoogleMobileAdsManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/RewardAdPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/GoogleMobileAds/RewardAdPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/RankListManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/RankListManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Login/TokenGuidance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Login/TokenGuidance.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/NFTDetailsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/NFTDetailsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/PackageDetailsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/PackageDetailsManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Net/NetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Net/NetworkManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +38,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/51ae54a1ce5541248e4e19776e45d57b7600/9f/3d5c8f72/Countdown.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/1e/e4d5f3fa/Guid.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/78/d3b60358/String.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/da/075160fa/EventArgs.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/abf17200928d4c6da169323fb49282c2be00/07/395b6efc/UnityWebRequest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c9b29c1f98764d19904aec63c99319c36400/b9/62cfa5fd/RewardedAd.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c9b29c1f98764d19904aec63c99319c36400/ea/fe70a5af/BannerView.cs" root0="FORCE_HIGHLIGHTING" />
@@ -135,7 +144,11 @@
       <workItem from="1668731072689" duration="6123000" />
       <workItem from="1668737524658" duration="1286000" />
       <workItem from="1668738869849" duration="13142000" />
-      <workItem from="1668753294778" duration="7931000" />
+      <workItem from="1668753294778" duration="15537000" />
+      <workItem from="1668774960485" duration="10115000" />
+      <workItem from="1668786819560" duration="601000" />
+      <workItem from="1669010838907" duration="15961000" />
+      <workItem from="1669034142663" duration="2479000" />
     </task>
     <servers />
   </component>
@@ -206,10 +219,10 @@
           <line>185</line>
           <properties documentPath="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorsjump\Assets\Scripts\ECS\script\Game\GameMenu.cs" initialLine="188" containingFunctionPresentation="method 'GameOver'">
             <startOffsets>
-              <option value="4417" />
+              <option value="4419" />
             </startOffsets>
             <endOffsets>
-              <option value="4464" />
+              <option value="4466" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="9" />
@@ -232,10 +245,10 @@
           <line>256</line>
           <properties documentPath="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorsjump\Assets\Scripts\ECS\script\Net\NetworkManager.cs" initialLine="245" containingFunctionPresentation="lambda expression inside method 'UpdateUserName'">
             <startOffsets>
-              <option value="7896" />
+              <option value="7895" />
             </startOffsets>
             <endOffsets>
-              <option value="7956" />
+              <option value="7955" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="29" />
@@ -255,13 +268,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/NFTDetailsManager.cs</url>
-          <line>186</line>
+          <line>189</line>
           <properties documentPath="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorsjump\Assets\Scripts\ECS\script\Menu\NFTDetailsManager.cs" initialLine="184" containingFunctionPresentation="method 'ResolveRoleIDByName'">
             <startOffsets>
-              <option value="3789" />
+              <option value="3869" />
             </startOffsets>
             <endOffsets>
-              <option value="3839" />
+              <option value="3919" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="33" />
@@ -297,10 +310,10 @@
           <line>189</line>
           <properties documentPath="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorsjump\Assets\Scripts\ECS\script\Net\NetworkManager.cs" initialLine="179" containingFunctionPresentation="lambda expression inside method 'GetHistoryRank'">
             <startOffsets>
-              <option value="5832" />
+              <option value="5831" />
             </startOffsets>
             <endOffsets>
-              <option value="5886" />
+              <option value="5885" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="37" />
@@ -310,10 +323,10 @@
           <line>212</line>
           <properties documentPath="C:\Users\Pu\Desktop\Mirror Jump\mirrorworld-demo-mirrorsjump\Assets\Scripts\ECS\script\Net\NetworkManager.cs" initialLine="202" containingFunctionPresentation="lambda expression inside method 'GetDailyRank'">
             <startOffsets>
-              <option value="6521" />
+              <option value="6520" />
             </startOffsets>
             <endOffsets>
-              <option value="6575" />
+              <option value="6574" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="38" />

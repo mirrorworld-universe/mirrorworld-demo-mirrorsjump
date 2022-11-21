@@ -38,7 +38,11 @@ public class GoogleMobileAdsManager:MonoBehaviour
     // Banner Ads
 
     public void InstantiateBannerView()
-    {
+    {   
+        
+        // ca-app-pub-3940256099942544/6300978111
+        
+        //ZHESH  ca-app-pub-8941705055545500/8436874789
 #if UNITY_ANDROID
         string adUnitId = "ca-app-pub-8941705055545500/8436874789";
 #elif UNITY_IPHONE
@@ -74,6 +78,11 @@ public class GoogleMobileAdsManager:MonoBehaviour
 
     public void InstantiateInterstitialView()
     {
+        
+        
+        //ca-app-pub-3940256099942544/1033173712
+        
+        // ZHESHI ca-app-pub-8941705055545500/6960480890
 #if UNITY_ANDROID
         string adUnitId = "ca-app-pub-8941705055545500/6960480890";
 #elif UNITY_IPHONE
@@ -105,7 +114,11 @@ public class GoogleMobileAdsManager:MonoBehaviour
     }
 
     public void InstantiateRewardView()
-    {
+    {  
+        
+        //ca-app-pub-3940256099942544/5224354917
+        
+        // ZHENSH  ca-app-pub-8941705055545500/5247658562
         string adUnitId;
 #if UNITY_ANDROID
         adUnitId = "ca-app-pub-8941705055545500/5247658562";
