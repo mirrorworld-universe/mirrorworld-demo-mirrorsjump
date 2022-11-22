@@ -367,8 +367,6 @@ public class MirrorSDK : MonoBehaviour
     #region market ui
     public static void OpenWalletPage(Action walletLogoutAction)
     {
-        MirrorWrapper.Instance.LogFlow("Try to OpenWalletPage...");
-
         if (MirrorUtils.IsEditor())
         {
             MirrorWrapper.Instance.DebugOpenWalletPage(walletLogoutAction);
@@ -379,11 +377,11 @@ public class MirrorSDK : MonoBehaviour
         }
         else if (Application.platform == RuntimePlatform.IPhonePlayer)
         {
-            MirrorWrapper.Instance.LogFlow("Call OpenWalletPage func...");
             MirrorWrapper.Instance.walletLogoutAction = walletLogoutAction;
+            //MirrorWrapper.OpenWallet();
             iOSWalletLogOutCallback handler = new iOSWalletLogOutCallback(MirrorWrapper.iOSWalletCallBack);
-            IntPtr fp = Marshal.GetFunctionPointerForDelegate(handler);
-            MirrorWrapper.IOSOpenWallet (fp);
+             IntPtr fp = Marshal.GetFunctionPointerForDelegate(handler);
+             MirrorWrapper.IOSOpenWallet (fp);
         }
         else
         {
