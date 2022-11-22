@@ -14,6 +14,7 @@ public class GameEntrance : MonoBehaviour
 
     private void Start()
     {
+        //移动到OpenWallet方法作为参数了
         // MirrorSDK.SetLogoutCallback(() =>
         //{
         //    PlayerPrefs.DeleteAll();
