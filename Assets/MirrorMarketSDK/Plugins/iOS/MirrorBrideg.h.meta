@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/MirrorMarketSDK/Plugins/Android/sdk-release120.11182055.aar.meta
-guid: 12e97ace68a804d508c21a170d35a684
-========
-guid: 6521239d31228aa4597c2c4acbf81532
->>>>>>>> puyu:Assets/MirrorMarketSDK/Plugins/Android/sdk-release120.11182105.aar.meta
+guid: 8f52756ea1cce4268b0f744d9e08dc40
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -16,14 +12,9 @@ PluginImporter:
   validateReferences: 1
   platformData:
   - first:
-      Android: Android
-    second:
-      enabled: 1
-      settings: {}
-  - first:
       Any: 
     second:
-      enabled: 0
+      enabled: 1
       settings: {}
   - first:
       Editor: Editor
