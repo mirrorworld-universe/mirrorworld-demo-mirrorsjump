@@ -123,7 +123,10 @@ namespace MirrorworldSDK.Wrapper
         public void IsLoggedIn(Action<bool> action)
         {
             string url = GetAuthRoot() + urlGetCurrentUser;
-
+            Debug.Log("IsLoggedInUrl: "+url);
+            Debug.Log("IsLoggedInAPIKey:" + apiKey);
+            Debug.Log("IsLoggedInRefreshToken:" + refreshToken);
+            Debug.Log("IsLoggedInAccessToken:" + accessToken);
             monoBehaviour.StartCoroutine(CheckAndGet(url, null, (response) => {
 
                 CommonResponse<UserResponse> responseBody = JsonUtility.FromJson<CommonResponse<UserResponse>>(response);

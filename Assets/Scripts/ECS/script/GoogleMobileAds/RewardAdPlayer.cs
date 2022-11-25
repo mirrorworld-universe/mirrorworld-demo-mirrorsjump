@@ -40,12 +40,11 @@ public class RewardAdPlayer : MonoBehaviour
       }
       
    
-         GoogleMobileAdsManager.InstantiateRewardView();
+      GoogleMobileAdsManager.InstantiateRewardView();
          AddRewardAdEvent();
          GoogleMobileAdsManager.LoadRewardAd();
        
-      
-
+         
    }
    
    
@@ -75,7 +74,7 @@ public class RewardAdPlayer : MonoBehaviour
    
    public void AddRewardAdEvent()
    {
-      
+      Debug.Log("RewardAd:Add Event Start");
       // Called when an ad request has successfully loaded.
       GoogleMobileAdsManager.GetRewardAd().OnAdLoaded += HandleRewardedAdLoaded;
       // Called when an ad request failed to load.
@@ -88,6 +87,7 @@ public class RewardAdPlayer : MonoBehaviour
       GoogleMobileAdsManager.GetRewardAd().OnUserEarnedReward += HandleUserEarnedReward;
       // Called when the ad is closed.
       GoogleMobileAdsManager.GetRewardAd().OnAdClosed += HandleRewardedAdClosed;
+      Debug.Log("RewardAd:Add Event End");
       
    }
 
@@ -147,8 +147,6 @@ public class RewardAdPlayer : MonoBehaviour
       {
          GameMenu.GameRespawn();
       }
-      
-      
    }
 
    public void HandleUserEarnedReward(object sender, Reward args)
