@@ -221,6 +221,8 @@ namespace MirrorworldSDK.Wrapper
             var rawRequestBody = JsonUtility.ToJson(requestBody);
 
             string url = GetAPIRoot() + urlListNFTOnTheMarketplace;
+            
+            Debug.Log("ListNFTUrl "+ url );
 
             monoBehaviour.StartCoroutine(CheckAndPost(url, rawRequestBody, (response) => {
 
