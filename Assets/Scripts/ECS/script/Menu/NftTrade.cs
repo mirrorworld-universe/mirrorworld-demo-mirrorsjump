@@ -453,9 +453,9 @@ public class NftTrade : MonoBehaviour
         
         TAManager.Instance.ListNFTStart(CurrentNftCellData.NftData.name);
         
-        // Debug.Log("List_MintAddress:"+CurrentNftCellData.NftData.mintAddress);
-        // Debug.Log("List_price:"+price);
-        // Debug.Log("List_Action_House:"+ "6gysn49dh2tfwbqvLqWpJNwisjkZCJoX3AyjuyFUn89C" );
+        Debug.Log("List_MintAddress:"+CurrentNftCellData.NftData.mintAddress);
+        Debug.Log("List_price:"+price);
+        Debug.Log("List_Action_House:"+ "6gysn49dh2tfwbqvLqWpJNwisjkZCJoX3AyjuyFUn89C" );
         MirrorSDK.ListNFT(CurrentNftCellData.NftData.mintAddress,price,"6gysn49dh2tfwbqvLqWpJNwisjkZCJoX3AyjuyFUn89C",Confirmation.Finalized,(result) =>
         {
 
