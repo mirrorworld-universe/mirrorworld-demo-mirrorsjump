@@ -136,19 +136,22 @@ public class RewardAdPlayer : MonoBehaviour
       TAManager.Instance.ViewAd(true);
       
       if (null != UIManager)
-      {  
-         
+      {
          Debug.Log("OpenRewardAdvice");
          
          UIManager.OpenRewardAdvice();
+         
+         GoogleMobileAdsManager.LoadRewardAd();
        
       }
       else
       {
+         GlobalDef.IsUseRespawn = true;
          GameMenu.GameRespawn();
+         
       }
       
-      GoogleMobileAdsManager.LoadRewardAd();
+     
    }
 
    public void HandleUserEarnedReward(object sender, Reward args)
