@@ -50,6 +50,18 @@ public class TokenGuidance : MonoBehaviour
             
         }
         
+        if (!GlobalDef.HasTokenGuidence)
+        {
+        
+            if ("false" == PlayerPrefs.GetString("HasGuidence", "false"))
+            {
+                Guidence.OnFirstStep();
+            }
+            return;
+        }
+        
+        
+        
        isAirDropping = false;
         
        

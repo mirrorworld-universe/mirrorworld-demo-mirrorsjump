@@ -58,9 +58,9 @@ public class GlobalDef
 
 
     public static bool IsUseRespawn = false;
-    
-    
-    
+
+
+    public static  bool HasTokenGuidence = false;
     
 
     // 非生产环境
