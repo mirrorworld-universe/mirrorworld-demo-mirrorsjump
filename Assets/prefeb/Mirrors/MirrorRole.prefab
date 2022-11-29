@@ -292,7 +292,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.13141239, y: -2.9097598}
+  m_Offset: {x: 0.13141239, y: -2.6046515}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -303,7 +303,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.2, y: 0.1828847}
+  m_Size: {x: 2.2, y: 0.9595232}
   m_EdgeRadius: 0
 --- !u!114 &5925371422525462715
 MonoBehaviour:
@@ -548,6 +548,18 @@ MonoBehaviour:
   HighRocket:
   - {fileID: 21300000, guid: 4102489fa841bc1478ab8481f95a7b00, type: 3}
   - {fileID: 21300000, guid: bbe42e91084059043a0acd5a278ad97e, type: 3}
+  LowRocketSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  HighRocketSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  WorldCup:
+  - {fileID: 0}
+  - {fileID: 0}
+  FootBall:
+  - {fileID: 0}
+  - {fileID: 0}
   HightRocketImage: {fileID: 3047164329062279365}
   LowRocketImage: {fileID: 5360718215260750161}
   GameController: {fileID: 0}
