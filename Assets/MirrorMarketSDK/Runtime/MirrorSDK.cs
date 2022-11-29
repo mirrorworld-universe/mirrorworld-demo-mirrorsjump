@@ -42,7 +42,7 @@ public class MirrorSDK : MonoBehaviour
     public static void InitSDK(string apiKey, GameObject gameObject, bool useDebug, MirrorEnv environment)
     {
         //Test
-        environment = MirrorEnv.StagingDevNet;
+        //environment = MirrorEnv.StagingDevNet;
 
         if (environment == MirrorEnv.StagingDevNet || environment == MirrorEnv.StagingMainNet)
         {

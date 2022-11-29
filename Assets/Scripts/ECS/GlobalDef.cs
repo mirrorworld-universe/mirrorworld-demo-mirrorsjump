@@ -64,11 +64,11 @@ public class GlobalDef
     
 
     // 非生产环境
-   public static string server = "https://mirror-jump-staging.mirrorworld.fun/";
+   //public static string server = "https://mirror-jump-staging.mirrorworld.fun/";
     // 生产环境
-    //public static string server = "https://mirror-jump.mirrorworld.fun/";
-    
-    public static string version = "22112119"; 
+    public static string server = "https://mirror-jump.mirrorworld.fun/";
+
+    public static string version = "22112916"; 
     
     public static string GetCurrentVersion()
     {

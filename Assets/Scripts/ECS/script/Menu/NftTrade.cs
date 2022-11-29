@@ -461,9 +461,9 @@ public class NftTrade : MonoBehaviour
 
         
 
-        Debug.Log("List_Action_House:"+ devnetMarketAuctionHouse);
+        Debug.Log("List_Action_House:"+ mainnetMarketAuctionHouse);
 
-        MirrorSDK.ListNFT(CurrentNftCellData.NftData.mintAddress,price, devnetMarketAuctionHouse, Confirmation.Finalized,(result) =>
+        MirrorSDK.ListNFT(CurrentNftCellData.NftData.mintAddress,price, mainnetMarketAuctionHouse, Confirmation.Finalized,(result) =>
         {
 
             if (result.status == "success")
@@ -507,7 +507,7 @@ public class NftTrade : MonoBehaviour
             TAManager.Instance.ChangeListPriceStart(CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count - 1].price,CurrentNftCellData.NftData.name);
             // Debug.Log("UpdateList_MintAddress:"+CurrentNftCellData.NftData.mintAddress);
             // Debug.Log("UpdateList_price:"+price);
-            MirrorSDK.UpdateNFTListing(CurrentNftCellData.NftData.mintAddress, price, devnetMarketAuctionHouse, Confirmation.Finalized,(result) =>
+            MirrorSDK.UpdateNFTListing(CurrentNftCellData.NftData.mintAddress, price, mainnetMarketAuctionHouse, Confirmation.Finalized,(result) =>
             {   
                 if (result.status == "success")
                 {
@@ -553,7 +553,7 @@ public class NftTrade : MonoBehaviour
                
             // Debug.Log("CancelList_MintAddress:"+CurrentNftCellData.NftData.mintAddress);
             // Debug.Log("CancelList_price:"+CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count-1].price);
-            MirrorSDK.CancelNFTListing(CurrentNftCellData.NftData.mintAddress,CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count-1].price, devnetMarketAuctionHouse, Confirmation.Finalized,(result) =>
+            MirrorSDK.CancelNFTListing(CurrentNftCellData.NftData.mintAddress,CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count-1].price, mainnetMarketAuctionHouse, Confirmation.Finalized,(result) =>
             {     
                 if (result.status == "success")
                 {
