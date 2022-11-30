@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="510429f0-be6a-42b7-ba45-15543685d641" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/GlobalDef.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/GlobalDef.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/RankListManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/RankListManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,6 +147,7 @@
       <workItem from="1668786819560" duration="601000" />
       <workItem from="1669010838907" duration="15961000" />
       <workItem from="1669034142663" duration="2479000" />
+      <workItem from="1669796819138" duration="22000" />
     </task>
     <servers />
   </component>
