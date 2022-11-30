@@ -61,6 +61,11 @@ public class GlobalDef
 
 
     public static  bool HasTokenGuidence = false;
+
+
+    public static bool IsIOSDev = true;
+
+    public static  string VersionCode = "1.0.0.1";
     
 
     // 非生产环境
@@ -72,6 +77,13 @@ public class GlobalDef
     
     public static string GetCurrentVersion()
     {
+
+        if (IsIOSDev)
+        {
+            return VersionCode + "." + version;
+        }
+        
+        
         return $"{Application.version}.{version}";
     }
     

@@ -115,7 +115,7 @@ public class VersionCheck : MonoBehaviour
            url = "https://games.mirrorworld.fun/game/mirror_jump/Config/config.json";
            
    #elif UNITY_IPHONE
-           url = "https://games.mirrorworld.fun/game/mirror_jump/Config/config.json";
+           url = "https://games.mirrorworld.fun/game/mirror_jump/IOSConfig/config.json";
    #endif
            StartCoroutine(Get(url));
        }
