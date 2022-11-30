@@ -2,7 +2,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 
 public enum RocketLevel
@@ -37,9 +36,9 @@ public class MirrorJump : MonoBehaviour
     public float SpringForce = 10f;
 
     private float gravity;
+    
 
-
-  
+    
 
    
     
@@ -429,6 +428,7 @@ public class MirrorJump : MonoBehaviour
             Velocity.x = HorizontalVelocity;
             rigidbody2D.velocity = Velocity;
             MirrorJumpState(Velocity.y);
+            
         }
     }
 

@@ -160,7 +160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 7.5176697, y: 4.209999}
+  m_AnchoredPosition: {x: 7.5176697, y: 4.2100067}
   m_SizeDelta: {x: 210, y: 210}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &48231392
@@ -656,7 +656,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 457.58835, y: 4.209999}
+  m_AnchoredPosition: {x: 457.58835, y: 4.2100067}
   m_SizeDelta: {x: 210, y: 210}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &139880041
@@ -1526,7 +1526,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 232.55301, y: 4.209999}
+  m_AnchoredPosition: {x: 232.55301, y: 4.2100067}
   m_SizeDelta: {x: 210, y: 210}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &424041587
@@ -7532,6 +7532,10 @@ PrefabInstance:
       propertyPath: GameController
       value: 
       objectReference: {fileID: 247834402}
+    - target: {fileID: 5925371422525462715, guid: 9366142dee3ff804493ec3ad7cd581ca, type: 3}
+      propertyPath: GameDebugPanel
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5925371423033197922, guid: 9366142dee3ff804493ec3ad7cd581ca, type: 3}
       propertyPath: m_Name
       value: MirrorRole

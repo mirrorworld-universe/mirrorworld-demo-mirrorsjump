@@ -273,7 +273,7 @@ public class RankListManager : MonoBehaviour
 
        if (null != rankListResponse.data.user_info.score && rankListResponse.data.user_info.score == 0)
        {
-           UserRank.text = "-";
+           UserRank.text = "--";
        }
        
        
