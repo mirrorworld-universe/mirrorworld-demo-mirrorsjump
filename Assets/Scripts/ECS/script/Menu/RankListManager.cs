@@ -269,6 +269,12 @@ public class RankListManager : MonoBehaviour
        {
            UserRank.text = "100+";
        }
+
+
+       if (null != rankListResponse.data.user_info.score && rankListResponse.data.user_info.score == 0)
+       {
+           UserRank.text = "-";
+       }
        
        
        Header.SetActive(true);

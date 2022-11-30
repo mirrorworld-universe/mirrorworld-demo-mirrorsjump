@@ -55,6 +55,9 @@ public class GlobalDef
 
 
     public static string UserName = "Default Name";
+
+
+    public static bool HasTokenGuidence= false;
     
     
     
