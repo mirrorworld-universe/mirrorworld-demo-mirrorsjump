@@ -38,7 +38,7 @@ public class MirrorJump : MonoBehaviour
     private float gravity;
 
 
-    public GameDebugPanel GameDebugPanel;
+  //  public GameDebugPanel GameDebugPanel;
     
 
     
@@ -427,10 +427,29 @@ public class MirrorJump : MonoBehaviour
             {
                 return;
             }
+            
+            
             Vector2 Velocity = rigidbody2D.velocity;
             Velocity.x = HorizontalVelocity;
             rigidbody2D.velocity = Velocity;
             MirrorJumpState(Velocity.y);
+            
+            
+            // // todo just debug
+            // if (GameDebugPanel.GetRushState())
+            // {
+            //
+            //     rigidbody2D.velocity = new Vector2(0,65);
+            //     MirrorJumpState(65);
+            //     
+            // }
+            // else
+            // {
+            //     Vector2 Velocity = rigidbody2D.velocity;
+            //     Velocity.x = HorizontalVelocity;
+            //     rigidbody2D.velocity = Velocity;
+            //     MirrorJumpState(Velocity.y);
+            // }
             
         }
     }
