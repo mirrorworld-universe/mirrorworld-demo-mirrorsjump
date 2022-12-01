@@ -36,6 +36,9 @@ public class MirrorJump : MonoBehaviour
     public float SpringForce = 10f;
 
     private float gravity;
+
+
+    public GameDebugPanel GameDebugPanel;
     
 
     

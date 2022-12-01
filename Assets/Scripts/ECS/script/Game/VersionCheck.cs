@@ -7,7 +7,7 @@ public class VersionCheck : MonoBehaviour
 {
 
 
-    private bool IsGoogleEnv = true;
+    private bool IsGoogleEnv = false;
 
     private bool IsIOSEnv = false;
     
