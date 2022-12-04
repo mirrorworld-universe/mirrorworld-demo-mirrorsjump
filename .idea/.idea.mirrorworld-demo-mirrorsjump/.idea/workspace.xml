@@ -3,10 +3,150 @@
   <component name="ChangeListManager">
     <list default="true" id="525c1ec2-f16c-4937-9d92-d0b5d45ac29a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameEntrance.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameEntrance.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/GlobalDef.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/GlobalDef.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/CallSDK.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/CallSDK.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/NftTrade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/NftTrade.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut/0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut/0.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut/0j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut/0j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut/1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut/1j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut/1j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut/2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut/2j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut/2j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut/3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut/3j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut/3j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut/4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut/4j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Astronaut/4j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman/0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman/0.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman/0j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman/0j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman/1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman/1j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman/1j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman/2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman/2j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman/2j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman/3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman/3j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman/3j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman/4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman/4j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Catwoman/4j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate/0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate/0.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate/0j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate/0j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate/1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate/1j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate/1j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate/2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate/2j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate/2j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate/3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate/3j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate/3j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate/4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate/4j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Pirate/4j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai/0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai/0.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai/0j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai/0j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai/1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai/1j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai/1j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai/2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai/2j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai/2j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai/3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai/3j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai/3j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai/4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai/4j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Samurai/4j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie/0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie/0.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie/0j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie/0j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie/1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie/1j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie/1j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie/2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie/2j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie/2j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie/3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie/3j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie/3j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie/4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie/4j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/MirrorJump/RoleImage/Roles/Zombie/4j.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/bg_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/bg_2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/bg_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/bg_3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/bg_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/bg_4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/bg_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/bg_5.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/bg_up.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/bg_up.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/bg_up_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/bg_up_2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/bg_up_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/bg_up_3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/bg_up_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/bg_up_4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/bg_up_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/bg_up_5.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/yuncai_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/yuncai_1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/yuncai_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/yuncai_2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/yuncai_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/yuncai_3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/yuncai_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/yuncai_4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/yuncai_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Menu/yuncai_5.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/WorldCup/Menu/bg_6 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/WorldCup/Menu/bg_6 1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/WorldCup/Menu/bg_up_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/WorldCup/Menu/bg_up_6.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/WorldCup/Menu/yuncai_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/WorldCup/Menu/yuncai_6.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/bg.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/ThemeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/ThemeManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/RolePersistence.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/RolePersistence.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/ResourceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/ResourceManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +193,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Net/NetworkManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MainUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@7.0.5/Editor/ResourceLoader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">

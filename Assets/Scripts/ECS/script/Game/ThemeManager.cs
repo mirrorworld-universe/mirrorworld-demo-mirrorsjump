@@ -16,21 +16,6 @@ public class ThemeManager : MonoBehaviour
     
     
 
-
-    
-    
-    
-    
-
-    public Sprite[] ThemeBackSprites = new Sprite[6];
-    
-    public Sprite[] ThemeGroudSprites = new Sprite[6];
-    
-    public Sprite[] ThemeCloudSprites = new Sprite[6];
-
-
-
-
     private int CurrentThemeIndex ;
 
 
@@ -123,11 +108,13 @@ public class ThemeManager : MonoBehaviour
             LeftPage.gameObject.GetComponent<Button>().interactable = true;
             RightPage.gameObject.GetComponent<Button>().interactable =true;
         }
+
+        ThemeBack.gameObject.GetComponent<Image>().sprite = GetBackGroudByIndex(SpriteIndex);
+        ThemeGroud.gameObject.GetComponent<Image>().sprite = GetGrassByIndex(SpriteIndex);
+        ThemeCloud.gameObject.GetComponent<Image>().sprite = GetCloundByIndex(SpriteIndex);
+        ThemeCloundRight.gameObject.GetComponent<Image>().sprite =  GetCloundByIndex(SpriteIndex);
         
-        ThemeBack.gameObject.GetComponent<Image>().sprite = ThemeBackSprites[SpriteIndex];
-        ThemeGroud.gameObject.GetComponent<Image>().sprite = ThemeGroudSprites[SpriteIndex];
-        ThemeCloud.gameObject.GetComponent<Image>().sprite = ThemeCloudSprites[SpriteIndex];
-        ThemeCloundRight.gameObject.GetComponent<Image>().sprite = ThemeCloudSprites[SpriteIndex];
+        
         ClundPositionAdjust(SpriteIndex);
         GrassPositionAdjust(SpriteIndex);
         
@@ -148,6 +135,109 @@ public class ThemeManager : MonoBehaviour
         
         CurrentThemeIndex = PlayerPrefs.GetInt("CurrentTheme");
     }
+
+
+
+
+    private Sprite GetBackGroudByIndex(int index)
+    {
+        if (index == 0)
+        {
+            return ResourceManager.Instance.GetSprite("bg");
+
+        }else if (index == 1)
+        {
+            return ResourceManager.Instance.GetSprite("bg_2");
+            
+        }else if (index == 2)
+        {
+            
+            return ResourceManager.Instance.GetSprite("bg_3");
+            
+        }else if (index == 3)
+        {
+            return ResourceManager.Instance.GetSprite("bg_4");
+            
+        }else if (index == 4)
+        {
+            return ResourceManager.Instance.GetSprite("bg_5");
+            
+        }else if (index == 5)
+        {
+            return ResourceManager.Instance.GetSprite("bg_6");
+        }
+
+
+        return null;
+    }
+
+    private Sprite GetCloundByIndex(int index)
+    {
+        if (index == 0)
+        {
+            return ResourceManager.Instance.GetSprite("yuncai_1");
+
+        }else if (index == 1)
+        {
+            return ResourceManager.Instance.GetSprite("yuncai_2");
+            
+        }else if (index == 2)
+        {
+            
+            return ResourceManager.Instance.GetSprite("yuncai_3");
+            
+        }else if (index == 3)
+        {
+            return ResourceManager.Instance.GetSprite("yuncai_4");
+            
+        }else if (index == 4)
+        {
+            return ResourceManager.Instance.GetSprite("yuncai_5");
+            
+        }else if (index == 5)
+        {
+            return ResourceManager.Instance.GetSprite("yuncai_6");
+        }
+
+
+        return null;
+    }
+
+
+    private Sprite GetGrassByIndex(int index)
+    {
+        if (index == 0)
+        {
+            return ResourceManager.Instance.GetSprite("bg_up");
+
+        }else if (index == 1)
+        {
+            return ResourceManager.Instance.GetSprite("bg_up_2");
+            
+        }else if (index == 2)
+        {
+            
+            return ResourceManager.Instance.GetSprite("bg_up_3");
+            
+        }else if (index == 3)
+        {
+            return ResourceManager.Instance.GetSprite("bg_up_4");
+            
+        }else if (index == 4)
+        {
+            return ResourceManager.Instance.GetSprite("bg_up_5");
+            
+        }else if (index == 5)
+        {
+            return ResourceManager.Instance.GetSprite("bg_up_6");
+        }
+
+
+        return null;
+    }
+    
+    
+    
     
     private bool LockState()
     {
