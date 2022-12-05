@@ -16,20 +16,7 @@ public class ThemeManager : MonoBehaviour
     
     
 
-
     
-    
-    
-    
-
-    public Sprite[] ThemeBackSprites = new Sprite[6];
-    
-    public Sprite[] ThemeGroudSprites = new Sprite[6];
-    
-    public Sprite[] ThemeCloudSprites = new Sprite[6];
-
-
-
 
     private int CurrentThemeIndex ;
 
