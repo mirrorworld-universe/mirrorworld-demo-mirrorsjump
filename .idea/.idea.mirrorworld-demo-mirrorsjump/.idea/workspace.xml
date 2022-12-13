@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="510429f0-be6a-42b7-ba45-15543685d641" name="Changes" comment="">
+    <list default="true" id="525c1ec2-f16c-4937-9d92-d0b5d45ac29a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/ThemeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/ThemeManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/RolePersistence.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/RolePersistence.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/ResourceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/ResourceManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/GlobalDef.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/GlobalDef.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/VersionCheck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/VersionCheck.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +40,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/CallSDK.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/GameMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/PropsFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/ReviewCheck.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/RuleConfig.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/StairsFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Game/VersionCheck.cs" root0="FORCE_HIGHLIGHTING" />
@@ -110,7 +110,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="510429f0-be6a-42b7-ba45-15543685d641" name="Changes" comment="" />
+      <changelist id="525c1ec2-f16c-4937-9d92-d0b5d45ac29a" name="Changes" comment="" />
       <created>1667201963082</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -151,6 +151,8 @@
       <workItem from="1669010838907" duration="15961000" />
       <workItem from="1669034142663" duration="2479000" />
       <workItem from="1669796819138" duration="22000" />
+      <workItem from="1670899920243" duration="4856000" />
+      <workItem from="1670905701599" duration="814000" />
     </task>
     <servers />
   </component>

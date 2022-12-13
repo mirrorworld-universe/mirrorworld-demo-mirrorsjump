@@ -10,6 +10,8 @@ public class VersionCheck : MonoBehaviour
     private bool IsGoogleEnv = false;
 
     private bool IsIOSEnv = true;
+
+    private int ReviewVersion;
     
 
     public UIManager UIManager;

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -86,9 +86,16 @@ public class GlobalDef
         
         return $"{Application.version}.{version}";
     }
+
+
+    public static int ReviewVersionCode = 1;
+
+    public static bool IsShowPackage;
     
-  //  public static string server = "https://mirror-jump-staging.mirrorworld.fun/";
-  
+
+
+    //  public static string server = "https://mirror-jump-staging.mirrorworld.fun/";
+
 
 }
 
