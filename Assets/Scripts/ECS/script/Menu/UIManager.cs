@@ -1,16 +1,20 @@
 ﻿
 
+using System;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class UIManager : MonoBehaviour
 {
 
 
 
+    public GameObject LoginPanel;
+    
     public GameObject RankList;
 
 
@@ -51,6 +55,12 @@ public class UIManager : MonoBehaviour
 
     public bool IsInitPropPackage = true;
 
+
+    public TextMeshProUGUI Account;
+
+    public TextMeshProUGUI PassWord;
+    
+
     
 
     private void Start()
@@ -67,12 +77,50 @@ public class UIManager : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        if (!GlobalDef.IsShowPackage)
+        {   
+            
+            // todo Length Limit
+            // if (UserName.text.Length > 10)
+            // {
+            //     string str1=UserName.text.Substring(0,10);
+            //     UserName.text = str1;
+            //     Confirm.interactable = false;
+            //    
+            // }else if (UserName.text.Length == 10)
+            // {
+            //     BorderNormal.SetActive(false);
+            //     BorderRed.SetActive(true);
+            //     Tips.SetActive(true);
+            //     Confirm.interactable = false;
+            // }
+            // else
+            // {
+            //     BorderNormal.SetActive(true);
+            //     BorderRed.SetActive(false);
+            //     Tips.SetActive(false);
+            //
+            //     if (UserName.text.Length == 0)
+            //     {
+            //         Confirm.interactable = false;
+            //     }
+            //     else
+            //     {
+            //         Confirm.interactable = true;
+            //     }
+            //   
+          //  }
+        }
+    }
 
 
     public void AutoLogin()
     {
-        LoginButton.SetActive(false);
+            LoginButton.SetActive(false);
             LoadingPanel.Instance.SetLoadingPanelEnable(true);
+            
             MirrorSDK.IsLoggedIn((result) =>
             {
                 if (result)
@@ -104,8 +152,97 @@ public class UIManager : MonoBehaviour
                 }
             });
             
-            // LoginButton.SetActive(true);
-            // LoadingPanel.Instance.SetLoadingPanelEnable(false);
+         
+    }
+    
+    public void Login()
+    {
+
+
+        if (GlobalDef.IsShowPackage)
+        {
+               
+            if (IsDebug)
+            {
+                SoundManager.Instance.PlaySound(SoundName.Button);
+                SceneManager.LoadScene("Menu");
+            }
+            else
+            {   
+            
+                SoundManager.Instance.PlaySound(SoundName.Button);
+
+         
+                MirrorSDK.StartLogin((LoginResponse)=>
+                {
+                    if(LoginResponse.access_token == "" || LoginResponse.refresh_token == "")
+                    {
+                        Debug.Log("MirrorJump:Login failed!");
+                    }
+                    else
+                    {   
+                    
+                        LoginState.HasLogin = true;
+                        LoginState.Name = LoginResponse.user.username;
+                        LoginState.WalletAddress = LoginResponse.user.wallet.sol_address;
+                        PlayerPrefs.SetString("walletAddress", LoginResponse.user.wallet.sol_address);
+                    
+                    
+                        // LoginResponse.user.sol_address
+                    
+                        PlayerPrefs.SetString("emailAddress", LoginResponse.user.email);
+                        LoginState.ID = LoginResponse.user.id.ToString();
+
+                        LoadingPanel.Instance.SetLoadingPanelEnable(true);
+                        // 与服务器通信发送登陆信息
+                        NetworkManager.Instance.SendUserBasicInfoReq(LoginState.WalletAddress);
+                        //SceneManager.LoadScene("Menu");
+                    }
+
+                });
+            }
+        }
+        else
+        {
+            // active panel
+            LoginPanel.SetActive(true);
+            LoginButton.SetActive(false);
+            
+        }
+        
+    }
+
+
+
+
+
+    public void GameLogin()
+    {
+        //  review
+        MirrorSDK.LoginWithEmail(Account.text,PassWord.text, (LoginResponse) =>
+        {
+            if (LoginResponse.status == "success")
+            {
+                LoginState.HasLogin = true;
+                LoginState.Name = LoginResponse.data.user.username;
+                LoginState.WalletAddress = LoginResponse.data.user.wallet.sol_address;
+                PlayerPrefs.SetString("walletAddress", LoginResponse.data.user.wallet.sol_address);
+                // LoginResponse.user.sol_address
+                    
+                PlayerPrefs.SetString("emailAddress", LoginResponse.data.user.email);
+                LoginState.ID = LoginResponse.data.user.id.ToString();
+
+                LoadingPanel.Instance.SetLoadingPanelEnable(true);
+                // 与服务器通信发送登陆信息
+                NetworkManager.Instance.SendUserBasicInfoReq(LoginState.WalletAddress);
+            }
+            else
+            {
+                
+            }
+            
+        });
+
     }
 
     private bool IsDebug;
@@ -350,51 +487,7 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
-    public void Login()
-    {
-        
-        if (IsDebug)
-        {
-            SoundManager.Instance.PlaySound(SoundName.Button);
-            SceneManager.LoadScene("Menu");
-        }
-        else
-        {   
-            
-            SoundManager.Instance.PlaySound(SoundName.Button);
-
-         
-            MirrorSDK.StartLogin((LoginResponse)=>
-            {
-                if(LoginResponse.access_token == "" || LoginResponse.refresh_token == "")
-                {
-                    Debug.Log("MirrorJump:Login failed!");
-                }
-                else
-                {   
-                    
-                    LoginState.HasLogin = true;
-                    LoginState.Name = LoginResponse.user.username;
-                    LoginState.WalletAddress = LoginResponse.user.wallet.sol_address;
-                    PlayerPrefs.SetString("walletAddress", LoginResponse.user.wallet.sol_address);
-                    
-                    
-                   // LoginResponse.user.sol_address
-                    
-                    PlayerPrefs.SetString("emailAddress", LoginResponse.user.email);
-                    LoginState.ID = LoginResponse.user.id.ToString();
-
-                    LoadingPanel.Instance.SetLoadingPanelEnable(true);
-                    // 与服务器通信发送登陆信息
-                    NetworkManager.Instance.SendUserBasicInfoReq(LoginState.WalletAddress);
-                    //SceneManager.LoadScene("Menu");
-                }
-
-            });
-        }
-        
-       
-    }
+   
 
     public void OpenWallet()
     {   

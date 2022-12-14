@@ -128,7 +128,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6236376754683695851, guid: 2ca39d7c5936f436b9cd2d79123ee069, type: 3}
@@ -240,7 +239,6 @@ PrefabInstance:
       value: MirrorSDK
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ca39d7c5936f436b9cd2d79123ee069, type: 3}
 --- !u!1 &126243400
 GameObject:
@@ -362,6 +360,7 @@ GameObject:
   - component: {fileID: 190328557}
   - component: {fileID: 190328556}
   - component: {fileID: 190328560}
+  - component: {fileID: 190328561}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -427,7 +426,6 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -467,6 +465,18 @@ MonoBehaviour:
   videoPlayer: {fileID: 126243402}
   useShuShuAnalysis: 1
   IsTestEnv: 0
+--- !u!114 &190328561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190328555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 359baa02fc22fa64298666e13c1fd81c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &463826718
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,6 +507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -539,7 +550,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 868216903487129407, guid: f7e7783fa010d3e46b7f32838c76e668, type: 3}
@@ -627,7 +637,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: b3ad353a6ad823045b29a9b4df59a610, type: 3}
     m_RemovedComponents: []
-    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: f7e7783fa010d3e46b7f32838c76e668, type: 3}
 --- !u!1 &771027978
 GameObject:
