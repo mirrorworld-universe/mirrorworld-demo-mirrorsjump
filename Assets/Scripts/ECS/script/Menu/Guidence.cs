@@ -20,8 +20,11 @@ public class Guidence : MonoBehaviour
 
     public void OnFirstStep()
     {
-
-        FirstStep.SetActive(true);
+        if (GlobalDef.IsShowPackage)
+        {
+            FirstStep.SetActive(true);
+        }
+      
     }
 
 
