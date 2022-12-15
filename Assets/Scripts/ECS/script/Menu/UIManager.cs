@@ -56,9 +56,9 @@ public class UIManager : MonoBehaviour
     public bool IsInitPropPackage = true;
 
 
-    public TextMeshProUGUI Account;
+    public TMP_InputField Account;
 
-    public TextMeshProUGUI PassWord;
+    public TMP_InputField PassWord;
 
 
     public GameObject Title;
@@ -78,7 +78,7 @@ public class UIManager : MonoBehaviour
     
 
     private void Start()
-    {
+    {   GameLoginButton.interactable = false;
         SoundManager.Instance.GetAudioSource().clip = SoundManager.Instance.Clips[6];
         SoundManager.Instance.GetAudioSource().mute = SoundManager.Instance.GetSoundState();
         SoundManager.Instance.GetAudioSource().Play();
@@ -94,38 +94,15 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         if (!GlobalDef.IsShowPackage)
-        {   
-            
-            // todo Length Limit
-            // if (UserName.text.Length > 10)
-            // {
-            //     string str1=UserName.text.Substring(0,10);
-            //     UserName.text = str1;
-            //     Confirm.interactable = false;
-            //    
-            // }else if (UserName.text.Length == 10)
-            // {
-            //     BorderNormal.SetActive(false);
-            //     BorderRed.SetActive(true);
-            //     Tips.SetActive(true);
-            //     Confirm.interactable = false;
-            // }
-            // else
-            // {
-            //     BorderNormal.SetActive(true);
-            //     BorderRed.SetActive(false);
-            //     Tips.SetActive(false);
-            //
-            //     if (UserName.text.Length == 0)
-            //     {
-            //         Confirm.interactable = false;
-            //     }
-            //     else
-            //     {
-            //         Confirm.interactable = true;
-            //     }
-            //   
-          //  }
+        {
+            if (Account.text.Length >0 && PassWord.text.Length > 0)
+            {
+                GameLoginButton.interactable = true;
+            }
+            else
+            {
+                GameLoginButton.interactable = false;
+            }
         }
     }
 
@@ -253,6 +230,10 @@ public class UIManager : MonoBehaviour
 
     public void GameLogin()
     {
+
+        string abs = Account.text;
+        string abd = PassWord.text;
+        
         //  review
         MirrorSDK.LoginWithEmail(Account.text,PassWord.text, (LoginResponse) =>
         {

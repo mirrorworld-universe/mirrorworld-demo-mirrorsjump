@@ -2493,7 +2493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -50, y: -48.999268}
+  m_AnchoredPosition: {x: -50, y: -48.99884}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1079994050
@@ -3815,8 +3815,8 @@ MonoBehaviour:
   ThemeManager: {fileID: 0}
   LoginButton: {fileID: 254729433}
   IsInitPropPackage: 1
-  Account: {fileID: 986515999}
-  PassWord: {fileID: 872990292}
+  Account: {fileID: 2064815134}
+  PassWord: {fileID: 1208319771}
   Title: {fileID: 1263442288}
   GameLoginTitle: {fileID: 500178800}
   Back: {fileID: 676685807}
@@ -3933,7 +3933,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2064815132
