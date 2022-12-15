@@ -36,12 +36,14 @@ namespace MirrorworldSDK.Wrapper
             var rawRequestBody = JsonUtility.ToJson(requestBody);
 
             string url = GetAuthRoot() + urlLoginWithEmail;
+            
+            
+            Debug.Log("LoginWithEmailEmailAddress"+emailAddress);
+            Debug.Log("LoginWithEmailEmailpass"+password);
+            Debug.Log("LoginWithEmailEmailUrl"+url);
 
             monoBehaviour.StartCoroutine(Post(url, rawRequestBody, (rawResponseBody) =>
             {
-
-           
-                
                 Debug.LogWarning("raw string:"+rawRequestBody);
                 CommonResponse<LoginResponse> responseBody = JsonUtility.FromJson<CommonResponse<LoginResponse>>(rawResponseBody);
 

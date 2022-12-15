@@ -87,6 +87,7 @@ namespace MirrorworldSDK.Wrapper
             yield return request.SendWebRequest();
             
             Debug.LogWarning("request.text:"+request.downloadHandler.text);
+            
             string rawResponseBody = request.downloadHandler.text;
 
             request.Dispose();
