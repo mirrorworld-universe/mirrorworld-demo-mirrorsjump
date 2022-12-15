@@ -59,6 +59,20 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI Account;
 
     public TextMeshProUGUI PassWord;
+
+
+    public GameObject Title;
+
+    public GameObject GameLoginTitle;
+
+    public GameObject Back;
+
+    public GameObject FailurePanel;
+
+
+    public Button GameLoginButton;
+    
+    
     
 
     
@@ -120,6 +134,20 @@ public class UIManager : MonoBehaviour
     {
             LoginButton.SetActive(false);
             LoadingPanel.Instance.SetLoadingPanelEnable(true);
+            Back.SetActive(false);
+
+            if (GlobalDef.IsShowPackage)
+            {
+                Title.SetActive(true);
+                GameLoginTitle.SetActive(false);
+            }
+            else
+            {
+                Title.SetActive(false);
+                GameLoginTitle.SetActive(true);
+            }
+            
+            
             
             MirrorSDK.IsLoggedIn((result) =>
             {
@@ -146,8 +174,22 @@ public class UIManager : MonoBehaviour
                 }
                 else
                 {
-                    LoginButton.SetActive(true);
-                    LoadingPanel.Instance.SetLoadingPanelEnable(false);
+                    
+                    if (GlobalDef.IsShowPackage)
+                    {
+                        LoginButton.SetActive(true);
+                        LoadingPanel.Instance.SetLoadingPanelEnable(false);
+                        Back.SetActive(false);
+                        
+                    }
+                    else
+                    {
+                        LoginButton.SetActive(false);
+                        LoadingPanel.Instance.SetLoadingPanelEnable(false);
+                        Back.SetActive(true);
+                    }
+                    
+                    
                 
                 }
             });
@@ -202,14 +244,7 @@ public class UIManager : MonoBehaviour
                 });
             }
         }
-        else
-        {
-            // active panel
-            LoginPanel.SetActive(true);
-            LoginButton.SetActive(false);
-            
-        }
-        
+
     }
 
 
@@ -238,11 +273,17 @@ public class UIManager : MonoBehaviour
             }
             else
             {
-                
+                FailurePanel.SetActive(true);
             }
             
         });
 
+    }
+
+
+    public void CloseFailure()
+    {
+        FailurePanel.SetActive(false);
     }
 
     private bool IsDebug;

@@ -49558,6 +49558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc04748b81c34543a14c2813e8a870f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LoginPanel: {fileID: 0}
   RankList: {fileID: 622293476}
   GoogleMobileAdsManager: {fileID: 1054705959}
   LowRocket: {fileID: 21300000, guid: 9c99f13e76cd05346bceee9eb26cfac1, type: 3}
@@ -49572,6 +49573,13 @@ MonoBehaviour:
   ThemeManager: {fileID: 1371097675}
   LoginButton: {fileID: 372886247}
   IsInitPropPackage: 1
+  Account: {fileID: 0}
+  PassWord: {fileID: 0}
+  Title: {fileID: 0}
+  GameLoginTitle: {fileID: 0}
+  Back: {fileID: 0}
+  FailurePanel: {fileID: 0}
+  GameLoginButton: {fileID: 0}
 --- !u!114 &2117460476
 MonoBehaviour:
   m_ObjectHideFlags: 0
