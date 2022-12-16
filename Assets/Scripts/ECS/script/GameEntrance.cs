@@ -15,15 +15,7 @@ public class GameEntrance : MonoBehaviour
     private void Start()
     {    
         
-       
-         
-         MirrorSDK.SetLogoutCallback(() =>
-        {
-            PlayerPrefs.DeleteAll();
-            SceneManager.LoadScene("Login");
-            
-        });
-
+        
          if (!IsTestEnv)
          {
 

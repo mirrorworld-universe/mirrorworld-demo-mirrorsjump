@@ -400,7 +400,14 @@ public class UIManager : MonoBehaviour
     {   
         SoundManager.Instance.PlaySound(SoundName.Button);
         TAManager.Instance.OpenWallet();
-        MirrorSDK.OpenWalletPage();
+        MirrorSDK.OpenWalletPage(() =>
+        {
+           
+                PlayerPrefs.DeleteAll();
+                SceneManager.LoadScene("Login");
+                
+        });
+        
     }
     
     public void OpenMarket()

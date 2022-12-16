@@ -470,7 +470,7 @@ public class NftTrade : MonoBehaviour
 
             if (result.status == "success")
             {
-                TAManager.Instance.ListNft(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),result.data.price,true);
+                TAManager.Instance.ListNft(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),float.Parse(result.data.price),true);
             }
 
             ResultAdvice(result);
@@ -514,7 +514,7 @@ public class NftTrade : MonoBehaviour
             {   
                 if (result.status == "success")
                 {
-                    TAManager.Instance.ChangeListPrice(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),result.data.price);
+                    TAManager.Instance.ChangeListPrice(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),float.Parse(result.data.price));
                 }
 
                 ResultAdvice(result);
@@ -561,7 +561,7 @@ public class NftTrade : MonoBehaviour
             {     
                 if (result.status == "success")
                 {
-                    TAManager.Instance.CancelList(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),result.data.price);
+                    TAManager.Instance.CancelList(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),float.Parse(result.data.price));
                 }
                   ResultAdvice(result);
                   

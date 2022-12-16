@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MessageAdvice : MonoBehaviour
@@ -58,7 +59,11 @@ public class MessageAdvice : MonoBehaviour
    {
        NotSufficientAdvice.SetActive(false);
        // open wallet
-       MirrorSDK.OpenWalletPage();
+       MirrorSDK.OpenWalletPage(() =>
+       {
+           PlayerPrefs.DeleteAll();
+           SceneManager.LoadScene("Login");
+       });
    }
    
    
