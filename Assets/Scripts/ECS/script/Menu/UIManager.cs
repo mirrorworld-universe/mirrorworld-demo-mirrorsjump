@@ -163,7 +163,8 @@ public class UIManager : MonoBehaviour
                     {
                         LoginButton.SetActive(false);
                         LoadingPanel.Instance.SetLoadingPanelEnable(false);
-                        Back.SetActive(true);
+                        Back.SetActive(false);
+                        GameLogin();
                     }
                     
                     
@@ -230,12 +231,11 @@ public class UIManager : MonoBehaviour
 
     public void GameLogin()
     {
-
-        string abs = Account.text;
-        string abd = PassWord.text;
+        string userAccount = "mirrorworldtest001@gmail.com";
+        string password = "123456789!";
         
         //  review
-        MirrorSDK.LoginWithEmail(Account.text,PassWord.text, (LoginResponse) =>
+        MirrorSDK.LoginWithEmail(userAccount,password, (LoginResponse) =>
         {
             if (LoginResponse.status == "success")
             {
