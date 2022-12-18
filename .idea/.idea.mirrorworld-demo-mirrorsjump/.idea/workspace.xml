@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="525c1ec2-f16c-4937-9d92-d0b5d45ac29a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Map1/DiMian_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Map1/DiMian_1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Map2/DiMian_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Map2/DiMian_2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Map3/DiMian_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Map3/DiMian_3.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Map4/DiMian_4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Map4/DiMian_4.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Map5/Map5/DiMian_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Arts/UI/SceneBack/Map5/Map5/DiMian_5.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/bg/新手引导1 1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Arts/UI/bg/新手引导1 1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/prefeb/Stair/BalanceStair.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefeb/Stair/BalanceStair.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/prefeb/Stair/BreakageStairs.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefeb/Stair/BreakageStairs.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/prefeb/Stair/DisposableStairs.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefeb/Stair/DisposableStairs.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/prefeb/Stair/MovingStairs.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefeb/Stair/MovingStairs.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/prefeb/Stair/NormalStair 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefeb/Stair/NormalStair 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +63,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/script/Net/NetworkManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MainUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@7.0.5/Editor/ResourceLoader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">

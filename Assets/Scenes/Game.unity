@@ -160,7 +160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 7.5176697, y: 4.209999}
+  m_AnchoredPosition: {x: 7.5176697, y: 4.2100067}
   m_SizeDelta: {x: 210, y: 210}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &48231392
@@ -656,7 +656,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 457.58835, y: 4.209999}
+  m_AnchoredPosition: {x: 457.58835, y: 4.2100067}
   m_SizeDelta: {x: 210, y: 210}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &139880041
@@ -1526,7 +1526,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 232.55301, y: 4.209999}
+  m_AnchoredPosition: {x: 232.55301, y: 4.2100067}
   m_SizeDelta: {x: 210, y: 210}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &424041587
@@ -2498,8 +2498,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 827596243}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -7.51, z: -9.17}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -7.37, z: -9.17}
+  m_LocalScale: {x: 1.35, y: 1.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1113051818}
@@ -2546,7 +2546,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 387dbf2bb2275ce47a3b786d0c2d1d3c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fb932af664819314ab6a69b7d5faabfe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3327,7 +3327,7 @@ Transform:
   m_GameObject: {fileID: 1056517870}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 38.4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1113051818}
@@ -5331,7 +5331,7 @@ Transform:
   m_GameObject: {fileID: 1441342516}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 19.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1113051818}
@@ -5953,7 +5953,7 @@ Transform:
   m_GameObject: {fileID: 1576967217}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1113051818}
@@ -6259,66 +6259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67898207c25826244a6d76cfd825c906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CatMaid:
-  - {fileID: 21300000, guid: 80ae2655e48a77c43ab58c50908561cc, type: 3}
-  - {fileID: 21300000, guid: 27e329bb57b232e48adb35eca79ca977, type: 3}
-  - {fileID: 21300000, guid: 839c116e2d7cf8a419d018cee3014a5a, type: 3}
-  - {fileID: 21300000, guid: e89ebf3075d743f4a90c7e500f5e8ecc, type: 3}
-  - {fileID: 21300000, guid: dd72f5e8b0fb1694ab42f99f67daba10, type: 3}
-  Samurai:
-  - {fileID: 21300000, guid: cf559b79dc9bbe24dbb55b42a07c59bd, type: 3}
-  - {fileID: 21300000, guid: 9bcef59d994e0cd459200ce22ad72ebd, type: 3}
-  - {fileID: 21300000, guid: 18bb2d0b2d62b02428a44adb41925a35, type: 3}
-  - {fileID: 21300000, guid: 8963ff04ccbc2c64698385a1b857a108, type: 3}
-  - {fileID: 21300000, guid: dd54180689578b3469ae2a9809050a82, type: 3}
-  Zombie:
-  - {fileID: 21300000, guid: 155539f27bfb1e74aa6262384ebca9ab, type: 3}
-  - {fileID: 21300000, guid: 9921605844339c543b72325e1ec12edc, type: 3}
-  - {fileID: 21300000, guid: 457166117c9d4ec46a9a67e75d23cbef, type: 3}
-  - {fileID: 21300000, guid: 0a15edfcf8a419841ac51debd49f8355, type: 3}
-  - {fileID: 21300000, guid: 47a333892a537cd45b850aa00c150516, type: 3}
-  PirateCaptain:
-  - {fileID: 21300000, guid: 3eaa9dad43683c344979612d5d8c83af, type: 3}
-  - {fileID: 21300000, guid: 8e241af7d41a4934fbe85c38cfafb1e3, type: 3}
-  - {fileID: 21300000, guid: b0acc4c919d8a3b4198c1f96d0087c51, type: 3}
-  - {fileID: 21300000, guid: d3048bafc943c0b4eb50f7f8c4b424a1, type: 3}
-  - {fileID: 21300000, guid: 2bb7c9e258e7b3142950b6a12741f19c, type: 3}
-  Astronaut:
-  - {fileID: 21300000, guid: 1225877850e1a4a4b9bdffa0d8289dae, type: 3}
-  - {fileID: 21300000, guid: 2c9355b862190e04fac6c0efdb3b4b2f, type: 3}
-  - {fileID: 21300000, guid: 14c2210c30b053845b35653cba31bbd7, type: 3}
-  - {fileID: 21300000, guid: f08b86ca146973e408eb1856b868366e, type: 3}
-  - {fileID: 21300000, guid: 642f34b2ea1d29347b354a1b8b8143c9, type: 3}
-  CatMaidJump:
-  - {fileID: 21300000, guid: 5425670c8991caa45b3ffe7dbd9b1d3c, type: 3}
-  - {fileID: 21300000, guid: cfe4f2ac8ef9bde438ae1b6157e67a6b, type: 3}
-  - {fileID: 21300000, guid: 3d1b5dbab17e8e54395ca3ee8f71ac50, type: 3}
-  - {fileID: 21300000, guid: bfec08821759ad7458ccf8502461ee62, type: 3}
-  - {fileID: 21300000, guid: 573c4962196774444ac7478de4268465, type: 3}
-  SamuraiJump:
-  - {fileID: 21300000, guid: 29c4ff0df8dd077449924255c6fdbb76, type: 3}
-  - {fileID: 21300000, guid: 76a2507c68be645489d70e8474202601, type: 3}
-  - {fileID: 21300000, guid: 77a310f6936ad6f499ad3b162f5eab8d, type: 3}
-  - {fileID: 21300000, guid: 5686efaf3f473ab41b365c38da318fd6, type: 3}
-  - {fileID: 21300000, guid: 9c0ef2f702858b3418bba2403129ff1b, type: 3}
-  ZombieJump:
-  - {fileID: 21300000, guid: 717a179bd8c7f1641998b43e6b9151f2, type: 3}
-  - {fileID: 21300000, guid: d30248f9e77c8ac43be1a524817e33b9, type: 3}
-  - {fileID: 21300000, guid: 177a49660dad9a5479d9f2797cc83a5a, type: 3}
-  - {fileID: 21300000, guid: 8572c026ce5e47f4e91cd0e08e03616f, type: 3}
-  - {fileID: 21300000, guid: 463ebe8dc42df6b44889f0d7cb360d38, type: 3}
-  PirateCaptainJump:
-  - {fileID: 21300000, guid: 52cdddd6eb2c6c34dbc02cfdbf118fe3, type: 3}
-  - {fileID: 21300000, guid: 6a84404765641524180002c536d12b74, type: 3}
-  - {fileID: 21300000, guid: 471f5c1f15f92eb49b19fb4aea6e71a5, type: 3}
-  - {fileID: 21300000, guid: 59d7867c3c04d5f4cb31aa16fafb443a, type: 3}
-  - {fileID: 21300000, guid: 76015dc54c1d2c14bb42d7462045831f, type: 3}
-  AstronautJump:
-  - {fileID: 21300000, guid: 5453b5662cf686d4b8cb8251ee33cd92, type: 3}
-  - {fileID: 21300000, guid: 99e49c217e42ea14b870619cc3fc7c26, type: 3}
-  - {fileID: 21300000, guid: 97d20b53b38f64f48a9aaec1002d5e99, type: 3}
-  - {fileID: 21300000, guid: ab172aea39cafbc419968fc06207b644, type: 3}
-  - {fileID: 21300000, guid: 000aa8e18793fd9489209decd62eb345, type: 3}
   DefaultRole: {fileID: 21300000, guid: 2c9355b862190e04fac6c0efdb3b4b2f, type: 3}
   DefaultRoleJump: {fileID: 21300000, guid: 99e49c217e42ea14b870619cc3fc7c26, type: 3}
 --- !u!4 &1649454948
