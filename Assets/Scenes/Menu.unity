@@ -49592,9 +49592,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f742d07e23472b489a1e314e2ff8710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Wallet: {fileID: 0}
-  RankList: {fileID: 0}
-  BottomRoot: {fileID: 0}
+  Wallet: {fileID: 441739187}
+  RankList: {fileID: 1748473965}
+  BottomRoot: {fileID: 258789738}
 --- !u!1 &2118041829
 GameObject:
   m_ObjectHideFlags: 0
