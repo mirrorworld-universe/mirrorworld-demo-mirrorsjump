@@ -33,7 +33,7 @@ public class ReviewCheck : MonoBehaviour
                {   
                    
                    var data = JsonConvert.DeserializeObject<ReviewData>(request.downloadHandler.text);
-
+                   Debug.Log("ReviewResult:"+request.downloadHandler.text);
                    if (data.IsReview)
                    {
                        // 审核期
