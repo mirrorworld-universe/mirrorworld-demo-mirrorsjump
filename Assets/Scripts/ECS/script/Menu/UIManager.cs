@@ -515,10 +515,21 @@ public class UIManager : MonoBehaviour
     {   
         SoundManager.Instance.PlaySound(SoundName.Button);
         TAManager.Instance.OpenWallet();
+<<<<<<< HEAD
         MirrorSDK.OpenWalletPage(()=> {
             PlayerPrefs.DeleteAll();
             SceneManager.LoadScene("Login");
         });
+=======
+        MirrorSDK.OpenWalletPage(() =>
+        {
+           
+                PlayerPrefs.DeleteAll();
+                SceneManager.LoadScene("Login");
+                
+        });
+        
+>>>>>>> Google-Dev1
     }
     
     public void OpenMarket()

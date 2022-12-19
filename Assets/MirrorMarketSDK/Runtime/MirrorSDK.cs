@@ -32,7 +32,16 @@ public class MirrorSDK : MonoBehaviour
             return;
         }
         Debug.Log("Unity apikey:"+apiKey);
+<<<<<<< HEAD
         InitSDK(apiKey, gameObject, debugMode, (MirrorEnv)environment);
+=======
+        MirrorEnv env = MirrorEnv.ProductionDevnet;
+        if(environment == MirrorEnvPublic.ProductionMainnet)
+        {
+            env = MirrorEnv.ProductionMainnet;
+        }
+        InitSDK(apiKey, gameObject, debugMode, env);
+>>>>>>> Google-Dev1
 
 #if (!(UNITY_IOS) || UNITY_EDITOR) && (!(UNITY_ANDROID) || UNITY_EDITOR)
         MirrorWrapper.Instance.SetDebugEmail(debugEmail);
@@ -41,6 +50,35 @@ public class MirrorSDK : MonoBehaviour
 
     public static void InitSDK(string apiKey, GameObject gameObject, bool useDebug, MirrorEnv environment)
     {
+<<<<<<< HEAD
+=======
+        Debug.Log("env:"+ environment);
+        //CreateNftRequest requestBody = new CreateNftRequest();
+
+        //requestBody.name = "";
+        //requestBody.symbol = "aaafb";
+        //requestBody.url = "urlsafds";
+        //requestBody.collection_mint = "";
+        ////requestBody.mint_id = "";
+        //string finalstr = JsonUtility.ToJson(requestBody);
+        //Debug.Log("final value is1:" + finalstr);
+        //finalstr = JsonAttrRemover.RemoveEmptyAttr(finalstr);
+        //Debug.Log("final value is:" + finalstr);
+
+        //ApproveListNFT apiParams = new ApproveListNFT();
+        //apiParams.mint_address = "zxlkjkasdfasdf";
+        //apiParams.price = "0.1";
+
+        //CommonApprove<ApproveListNFT> jsonObject = new CommonApprove<ApproveListNFT>();
+        //jsonObject.type = MirrorSafeOptType.TransferSPLToken;
+        //jsonObject.message = "test";
+        //jsonObject.value = "0";
+        //MirrorWrapper.Instance.HandleValue(jsonObject, apiParams);
+        //jsonObject.paramsPlaceHolder = apiParams;
+        //Debug.Log("final value is:" + JsonUtility.ToJson(jsonObject));
+
+
+>>>>>>> Google-Dev1
         //Test
         //environment = MirrorEnv.StagingDevNet;
 
@@ -55,22 +93,21 @@ public class MirrorSDK : MonoBehaviour
 
         MirrorWrapper.Instance.InitSDK(monoBehaviour, environment, apiKey, useDebug);
 
-        MirrorWrapper.Instance.SetAPIKey(apiKey);
-
         MirrorWrapper.Instance.SetDebug(useDebug);
 
 #if (UNITY_ANDROID && !(UNITY_EDITOR))
 
-            MirrorWrapper.Instance.AndroidInitSDK(environment);
-
-            MirrorWrapper.Instance.AndroidSetAPIKey(apiKey);
+            MirrorWrapper.Instance.AndroidInitSDK(apiKey,environment);
             
             MirrorWrapper.Instance.AndroidSetDebug(useDebug);
 
 #elif (UNITY_IOS && !(UNITY_EDITOR))
 
+<<<<<<< HEAD
             // MirrorWrapper.initSDK(apiKey);
 
+=======
+>>>>>>> Google-Dev1
             MirrorWrapper.IOSInitSDK((int)environment,apiKey);
 
             MirrorWrapper.Instance.LogFlow("Mirror SDK Inited.");
@@ -79,7 +116,10 @@ public class MirrorSDK : MonoBehaviour
 
     }
 
-    //set if use debug mode
+    /// <summary>
+    /// Set if use debug mode
+    /// </summary>
+    /// <param name="useDebug"></param>
     public static void SetDebugMode(bool useDebug)
     {
         MirrorWrapper.Instance.SetDebug(useDebug);
@@ -94,7 +134,11 @@ public class MirrorSDK : MonoBehaviour
 #endif
     }
 
-    //open login ui
+
+    /// <summary>
+    /// Open login page.
+    /// </summary>
+    /// <param name="action"></param>
     public static void StartLogin(Action<LoginResponse> action)
     {
         MirrorWrapper.Instance.LogFlow("Start login logic...");
@@ -137,6 +181,7 @@ public class MirrorSDK : MonoBehaviour
             IntPtr fp = Marshal.GetFunctionPointerForDelegate(handler);
             MirrorWrapper.IOSStartLogin(fp);
 #endif
+<<<<<<< HEAD
 
     }
 
@@ -161,7 +206,17 @@ public class MirrorSDK : MonoBehaviour
 //            MirrorWrapper.Instance.LogFlow("IOS is not implemented");
 //#endif
 //    }
+=======
 
+    }
+>>>>>>> Google-Dev1
+
+    /// <summary>
+    /// Login with email,this email must registed.
+    /// </summary>
+    /// <param name="emailAddress"></param>
+    /// <param name="password"></param>
+    /// <param name="callBack"></param>
     public static void LoginWithEmail(string emailAddress, string password, Action<CommonResponse<LoginResponse>> callBack)
     {
         MirrorWrapper.Instance.LoginWithEmail(emailAddress, password, callBack);
@@ -209,19 +264,37 @@ public class MirrorSDK : MonoBehaviour
 
     #region mint
 
-    public static void MintNFT(string parentCollection, string collectionName, string collectionSymbol, string collectionInfoUrl, string confirmation, string mint_id,Action<CommonResponse<MintResponse>> callBack)
+    public static void MintNFT(string parentCollection, string nFTName, string nFTSymbol, string nFTJsonUrl, string confirmation, string mint_id,Action<CommonResponse<MintResponse>> callBack)
     {
-        MirrorWrapper.Instance.MintNft(parentCollection, collectionName, collectionSymbol, collectionInfoUrl, confirmation, mint_id, callBack);
+        ApproveMintNFT requestParams = new ApproveMintNFT();
+        requestParams.collection_mint = parentCollection;
+        requestParams.name = nFTName;
+        requestParams.symbol = nFTSymbol;
+        requestParams.url = nFTJsonUrl;
+
+        if (confirmation == null || confirmation == "")
+        {
+            confirmation = Confirmation.Confirmed;
+        }
+        requestParams.confirmation = confirmation;
+
+        MirrorWrapper.Instance.GetSecurityToken<ApproveMintNFT>(MirrorSafeOptType.MintNFT,"mint nft", requestParams,()=> {
+            MirrorWrapper.Instance.MintNft(parentCollection, nFTName, nFTSymbol, nFTJsonUrl, confirmation, mint_id, callBack);
+        });
     }
 
-    public static void CreateVerifiedCollection(string collectionName, string collectionSymbol, string collectionInfoUrl, string confirmation, Action<CommonResponse<MintResponse>> callBack)
+    public static void CreateVerifiedCollection(string collectionName, string collectionSymbol, string collectionInfoUrl,int seller_fee_basis_points, string confirmation, Action<CommonResponse<MintResponse>> callBack)
     {
-        MirrorWrapper.Instance.CreateVerifiedCollection(collectionName, collectionSymbol, collectionInfoUrl, confirmation, callBack);
-    }
+        ApproveCreateCollection requestParams = new ApproveCreateCollection();
+        requestParams.name = collectionName;
+        requestParams.symbol = collectionSymbol;
+        requestParams.url = collectionInfoUrl;
+        requestParams.confirmation = confirmation;
+        requestParams.seller_fee_basis_points = seller_fee_basis_points;
 
-    public static void CreateVerifiedSubCollection(string parentCollection, string collectionName, string collectionSymbol, string collectionInfoUrl, string confirmation, Action<CommonResponse<MintResponse>> callBack)
-    {
-        MirrorWrapper.Instance.CreateVerifiedSubCollection(parentCollection, collectionName, collectionSymbol, collectionInfoUrl, confirmation, callBack);
+        MirrorWrapper.Instance.GetSecurityToken(MirrorSafeOptType.CreateCollection, "create collection", requestParams, () => {
+            MirrorWrapper.Instance.CreateVerifiedCollection(collectionName, collectionSymbol, collectionInfoUrl, confirmation, callBack);
+        });
     }
 
     #endregion
@@ -258,60 +331,97 @@ public class MirrorSDK : MonoBehaviour
         MirrorWrapper.Instance.FetchNftsByUpdateAuthorities(updateAuthorityAddresses, action);
     }
 
-    public static void ListNFT(string mintAddress, float price, string confirmation, Action<CommonResponse<ListingResponse>> callBack)
+    public static void ListNFT(string mintAddress, double price, string confirmation, Action<CommonResponse<ListingResponse>> callBack)
     {
-        MirrorWrapper.Instance.ListNFT(mintAddress, price, confirmation, callBack);
+        MirrorSDK.ListNFT(mintAddress, price, "", confirmation, callBack);
     }
 
-    public static void ListNFT(string mintAddress, float price, string auction_house, string confirmation, Action<CommonResponse<ListingResponse>> callBack)
+    public static void ListNFT(string mint_address, double price, string auction_house, string confirmation, Action<CommonResponse<ListingResponse>> callBack)
     {
-        MirrorWrapper.Instance.ListNFT(mintAddress, price, auction_house, confirmation, callBack);
+        ApproveListNFT requestParams = new ApproveListNFT();
+        requestParams.mint_address = mint_address;
+        requestParams.price = price.ToString();
+        requestParams.confirmation = confirmation;
+        requestParams.auction_house = auction_house;
+
+        MirrorWrapper.Instance.GetSecurityToken(MirrorSafeOptType.ListNFT, "list nft", requestParams, () => {
+            MirrorWrapper.Instance.ListNFT(mint_address, price, auction_house, confirmation, callBack);
+        });
     }
 
-    public static void CancelNFTListing(string mintAddress, float price, string confirmation, Action<CommonResponse<ListingResponse>> callBack)
+    public static void CancelNFTListing(string mintAddress, double price, string confirmation, Action<CommonResponse<ListingResponse>> callBack)
     {
-        MirrorWrapper.Instance.CancelNFTListing(mintAddress, price, confirmation, callBack);
+        MirrorSDK.CancelNFTListing(mintAddress, price, "", confirmation, callBack);
     }
 
-    public static void CancelNFTListing(string mintAddress, float price, string auction_house, string confirmation, Action<CommonResponse<ListingResponse>> callBack)
+    public static void CancelNFTListing(string mint_address, double price, string auction_house, string confirmation, Action<CommonResponse<ListingResponse>> callBack)
     {
-        MirrorWrapper.Instance.CancelNFTListing(mintAddress, price, auction_house, confirmation, callBack);
+        ApproveListNFT requestParams = new ApproveListNFT();
+        requestParams.mint_address = mint_address;
+        requestParams.price = price.ToString();
+        requestParams.confirmation = confirmation;
+        requestParams.auction_house = auction_house;
+
+        MirrorWrapper.Instance.GetSecurityToken(MirrorSafeOptType.CancelListing, "cancel list nft", requestParams, () => {
+            MirrorWrapper.Instance.CancelNFTListing(mint_address, price, auction_house, confirmation, callBack);
+        });
     }
 
-    public static void UpdateNFTListing(string mintAddress, float price, string confirmation, Action<CommonResponse<ListingResponse>> callBack)
+    public static void UpdateNFTListing(string mintAddress, double price, string confirmation, Action<CommonResponse<ListingResponse>> callBack)
     {
-        MirrorWrapper.Instance.UpdateNFTListing(mintAddress, price, confirmation, callBack);
+        MirrorSDK.UpdateNFTListing(mintAddress, price, "", confirmation, callBack);
     }
 
 
-    public static void UpdateNFTListing(string mintAddress, float price, string auction_house, string confirmation, Action<CommonResponse<ListingResponse>> callBack)
+    public static void UpdateNFTListing(string mint_address, double price, string auction_house, string confirmation, Action<CommonResponse<ListingResponse>> callBack)
     {
-        MirrorWrapper.Instance.UpdateNFTListing(mintAddress, price, auction_house, confirmation, callBack);
+        ApproveListNFT requestParams = new ApproveListNFT();
+        requestParams.mint_address = mint_address;
+        requestParams.price = price.ToString();
+        requestParams.confirmation = confirmation;
+        requestParams.auction_house = auction_house;
+
+        MirrorWrapper.Instance.GetSecurityToken(MirrorSafeOptType.UpdateListing, "update list nft", requestParams, () => {
+            MirrorWrapper.Instance.UpdateNFTListing(mint_address, price, auction_house, confirmation, callBack);
+        });
     }
 
-    public static void BuyNFT(string mintAddress, float price, Action<CommonResponse<ListingResponse>> callBack)
+    public static void BuyNFT(string mintAddress, double price, Action<CommonResponse<ListingResponse>> callBack)
     {
-        MirrorWrapper.Instance.BuyNFT(mintAddress, price, callBack);
+        MirrorSDK.BuyNFT(mintAddress, price, "", callBack);
     }
 
-    public static void BuyNFT(string mintAddress, float price, string auction_house, Action<CommonResponse<ListingResponse>> callBack)
+    public static void BuyNFT(string mint_address, double price, string auction_house, Action<CommonResponse<ListingResponse>> callBack)
     {
-        MirrorWrapper.Instance.BuyNFT(mintAddress, price, auction_house, callBack);
+        ApproveListNFT requestParams = new ApproveListNFT();
+        requestParams.mint_address = mint_address;
+        requestParams.price = price.ToString();
+        requestParams.auction_house = auction_house;
+
+        MirrorWrapper.Instance.GetSecurityToken(MirrorSafeOptType.BuyNFT, "buy nft", requestParams, () => {
+            MirrorWrapper.Instance.BuyNFT(mint_address, price, auction_house, callBack);
+        });
     }
 
-    public static void TransferNFT(string mintAddress, string toWallet, Action<CommonResponse<ListingResponse>> callBack)
+    public static void TransferNFT(string mint_address, string to_wallet_address, Action<CommonResponse<ListingResponse>> callBack)
     {
-        MirrorWrapper.Instance.TransferNFT(mintAddress, toWallet, callBack);
+        ApproveTransferNFT requestParams = new ApproveTransferNFT();
+        requestParams.mint_address = mint_address;
+        requestParams.to_wallet_address = to_wallet_address;
+
+        MirrorWrapper.Instance.GetSecurityToken(MirrorSafeOptType.TransferNFT, "transfer nft", requestParams, () => {
+            MirrorWrapper.Instance.TransferNFT(mint_address, to_wallet_address, callBack);
+        });
     }
 
     #endregion
 
     #region Wallet
-    public static void GetWalletTokens(Action<CommonResponse<WalletTokenResponse>> action)
+    public static void GetTokens(Action<CommonResponse<WalletTokenResponse>> action)
     {
         MirrorWrapper.Instance.GetWalletTokens(action);
     }
-    public static void GetWalletTransactions(float number, string nextBefore, Action<CommonResponse<TransferTokenResponse>> action)
+    public static void GetTransactions(double number, string nextBefore, Action<CommonResponse<TransferTokenResponse>> action)
     {
         MirrorWrapper.Instance.GetWalletTransactions(number, nextBefore, action);
     }
@@ -319,13 +429,27 @@ public class MirrorSDK : MonoBehaviour
     {
         MirrorWrapper.Instance.GetWalletTransactionsBySignatrue(signature, action);
     }
-    public static void TransferSol(ulong amout, string publicKey, string confirmation, Action<CommonResponse<TransferSolResponse>> callBack)
+    public static void TransferSol(ulong amount, string to_publickey, string confirmation, Action<CommonResponse<TransferSolResponse>> callBack)
     {
-        MirrorWrapper.Instance.TransferSol(amout, publicKey, confirmation, callBack);
+        ApproveTransferSOL requestParams = new ApproveTransferSOL();
+        requestParams.to_publickey = to_publickey;
+        requestParams.amount = amount;
+
+        MirrorWrapper.Instance.GetSecurityToken(MirrorSafeOptType.TransferSol, "transfer sol", requestParams, () => {
+            MirrorWrapper.Instance.TransferSol(amount, to_publickey, confirmation, callBack);
+        });
     }
-    public static void TransferSPLToken(ulong amout, string publicKey, Action<CommonResponse<TransferTokenResponse>> callBack)
+    public static void TransferSPLToken(string token_mint, int decimals,ulong amount, string to_publickey, Action<CommonResponse<TransferTokenResponse>> callBack)
     {
-        MirrorWrapper.Instance.TransferSPLToken(amout, publicKey, callBack);
+        ApproveTransferSPLToken requestParams = new ApproveTransferSPLToken();
+        requestParams.to_publickey = to_publickey;
+        requestParams.amount = amount;
+        requestParams.token_mint = token_mint;
+        requestParams.decimals = decimals;
+
+        MirrorWrapper.Instance.GetSecurityToken(MirrorSafeOptType.TransferSPLToken, "transfer spl token", requestParams, () => {
+            MirrorWrapper.Instance.TransferSPLToken(token_mint,decimals,amount,to_publickey,callBack);
+        });
     }
     #endregion
 
@@ -370,6 +494,7 @@ public class MirrorSDK : MonoBehaviour
         if (MirrorUtils.IsEditor())
         {
             MirrorWrapper.Instance.DebugOpenWalletPage(walletLogoutAction);
+<<<<<<< HEAD
         }
         else if (Application.platform == RuntimePlatform.Android)
         {
@@ -386,10 +511,28 @@ public class MirrorSDK : MonoBehaviour
             IntPtr fp2 = Marshal.GetFunctionPointerForDelegate(handler2);
 
             MirrorWrapper.IOSOpenWallet (fp,fp2);
+=======
+>>>>>>> Google-Dev1
         }
         else
         {
-            MirrorWrapper.Instance.LogFlow("Unknown platform!");
+
+#if (UNITY_ANDROID && !(UNITY_EDITOR))
+
+             MirrorWrapper.Instance.AndroidOpenWallet(walletLogoutAction);
+
+#elif (UNITY_IOS && !(UNITY_EDITOR))
+
+            MirrorWrapper.Instance.walletLogoutAction = walletLogoutAction;
+            //MirrorWrapper.OpenWallet();
+            iOSWalletLogOutCallback handler = new iOSWalletLogOutCallback(MirrorWrapper.iOSWalletCallBack);
+            IntPtr fp = Marshal.GetFunctionPointerForDelegate(handler);
+
+            iOSWalletLoginTokenCallback handler2 = new iOSWalletLoginTokenCallback(MirrorWrapper.iOSWalletLoginCallback);
+            IntPtr fp2 = Marshal.GetFunctionPointerForDelegate(handler2);
+
+            MirrorWrapper.IOSOpenWallet(fp, fp2);
+#endif
         }
     }
 
@@ -399,6 +542,7 @@ public class MirrorSDK : MonoBehaviour
         {
             MirrorWrapper.Instance.DebugOpenMarketPage();
         }
+<<<<<<< HEAD
         else if (Application.platform == RuntimePlatform.Android)
         {
             MirrorWrapper.Instance.AndroidOpenMarket();
@@ -407,9 +551,18 @@ public class MirrorSDK : MonoBehaviour
         {
             MirrorWrapper.IOSOpenMarketPlace();
         }
+=======
+>>>>>>> Google-Dev1
         else
         {
-            MirrorWrapper.Instance.LogFlow("Unknown platform!");
+#if (UNITY_ANDROID && !(UNITY_EDITOR))
+
+             MirrorWrapper.Instance.AndroidOpenMarket();
+
+#elif (UNITY_IOS && !(UNITY_EDITOR))
+
+            MirrorWrapper.IOSOpenMarketPlace();
+#endif
         }
     }
     #endregion

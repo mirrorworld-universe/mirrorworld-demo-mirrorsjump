@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 2567c4fa3e4f75440a926452cb272064
+=======
+guid: 488ac846f23ba064bb823c14be9f432e
+>>>>>>> Google-Dev1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

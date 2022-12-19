@@ -5,7 +5,12 @@ public class RolePersistence : MonoBehaviour
 {   
     
     
+<<<<<<< HEAD
    public Sprite DefaultRole;
+=======
+
+    public Sprite DefaultRole;
+>>>>>>> Google-Dev1
 
     public Sprite DefaultRoleJump;
     
@@ -328,6 +333,17 @@ public class RolePersistence : MonoBehaviour
 
     
     
+<<<<<<< HEAD
+=======
+    
+    
+    
+    
+    
+    
+    
+    
+>>>>>>> Google-Dev1
     public Sprite GetDefaultRole()
     {
         return DefaultRole;

@@ -58,10 +58,16 @@ public class TokenGuidance : MonoBehaviour
                 Guidence.OnFirstStep();
             }
             return;
+<<<<<<< HEAD
         }
         
         
         
+=======
+            
+        }
+        
+>>>>>>> Google-Dev1
        isAirDropping = false;
         
        

@@ -275,7 +275,11 @@ public class RankListManager : MonoBehaviour
        {
            UserRank.text = "--";
        }
+<<<<<<< HEAD
            
+=======
+       
+>>>>>>> Google-Dev1
        
        Header.SetActive(true);
 

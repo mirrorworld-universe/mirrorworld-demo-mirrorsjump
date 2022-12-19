@@ -62,6 +62,15 @@ public class NftTrade : MonoBehaviour
     public GameObject UpdatePriceAdvice;
     
     
+    // main net
+   // public string ActionHouse = "6gysn49dh2tfwbqvLqWpJNwisjkZCJoX3AyjuyFUn89C";
+    
+    // dev net
+    
+    public string ActionHouse = "AiEqGqMDMa7G6sDF484pqfgsxRGuCcjgxv43MxoiVCsz";
+    
+    
+    
     private float InputSellPrice;
 
     private float InputUpdatePrice;
@@ -456,6 +465,7 @@ public class NftTrade : MonoBehaviour
         
         TAManager.Instance.ListNFTStart(CurrentNftCellData.NftData.name);
         
+<<<<<<< HEAD
         Debug.Log("List_MintAddress:"+CurrentNftCellData.NftData.mintAddress);
         Debug.Log("List_price:"+price);
 
@@ -464,11 +474,17 @@ public class NftTrade : MonoBehaviour
         Debug.Log("List_Action_House:"+ mainnetMarketAuctionHouse);
 
         MirrorSDK.ListNFT(CurrentNftCellData.NftData.mintAddress,price, mainnetMarketAuctionHouse, Confirmation.Finalized,(result) =>
+=======
+        // Debug.Log("List_MintAddress:"+CurrentNftCellData.NftData.mintAddress);
+        // Debug.Log("List_price:"+price);
+        // Debug.Log("List_Action_House:"+ "6gysn49dh2tfwbqvLqWpJNwisjkZCJoX3AyjuyFUn89C" );
+        MirrorSDK.ListNFT(CurrentNftCellData.NftData.mintAddress,price,ActionHouse,Confirmation.Finalized,(result) =>
+>>>>>>> Google-Dev1
         {
 
             if (result.status == "success")
             {
-                TAManager.Instance.ListNft(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),result.data.price,true);
+                TAManager.Instance.ListNft(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),float.Parse(result.data.price),true);
             }
 
             ResultAdvice(result);
@@ -507,11 +523,16 @@ public class NftTrade : MonoBehaviour
             TAManager.Instance.ChangeListPriceStart(CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count - 1].price,CurrentNftCellData.NftData.name);
             // Debug.Log("UpdateList_MintAddress:"+CurrentNftCellData.NftData.mintAddress);
             // Debug.Log("UpdateList_price:"+price);
+<<<<<<< HEAD
             MirrorSDK.UpdateNFTListing(CurrentNftCellData.NftData.mintAddress, price, mainnetMarketAuctionHouse, Confirmation.Finalized,(result) =>
+=======
+            // Debug.Log("Update_Action_House:"+ "6gysn49dh2tfwbqvLqWpJNwisjkZCJoX3AyjuyFUn89C" );
+            MirrorSDK.UpdateNFTListing(CurrentNftCellData.NftData.mintAddress, price, ActionHouse,Confirmation.Finalized,(result) =>
+>>>>>>> Google-Dev1
             {   
                 if (result.status == "success")
                 {
-                    TAManager.Instance.ChangeListPrice(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),result.data.price);
+                    TAManager.Instance.ChangeListPrice(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),float.Parse(result.data.price));
                 }
 
                 ResultAdvice(result);
@@ -553,11 +574,16 @@ public class NftTrade : MonoBehaviour
                
             // Debug.Log("CancelList_MintAddress:"+CurrentNftCellData.NftData.mintAddress);
             // Debug.Log("CancelList_price:"+CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count-1].price);
+<<<<<<< HEAD
             MirrorSDK.CancelNFTListing(CurrentNftCellData.NftData.mintAddress,CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count-1].price, mainnetMarketAuctionHouse, Confirmation.Finalized,(result) =>
+=======
+            // Debug.Log("Cancel_Action_House:"+ "6gysn49dh2tfwbqvLqWpJNwisjkZCJoX3AyjuyFUn89C" );
+            MirrorSDK.CancelNFTListing(CurrentNftCellData.NftData.mintAddress,CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count-1].price,ActionHouse,Confirmation.Finalized,(result) =>
+>>>>>>> Google-Dev1
             {     
                 if (result.status == "success")
                 {
-                    TAManager.Instance.CancelList(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),result.data.price);
+                    TAManager.Instance.CancelList(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),float.Parse(result.data.price));
                 }
                   ResultAdvice(result);
                   

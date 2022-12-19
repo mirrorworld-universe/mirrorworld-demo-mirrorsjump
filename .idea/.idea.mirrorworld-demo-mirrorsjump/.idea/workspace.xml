@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="525c1ec2-f16c-4937-9d92-d0b5d45ac29a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" afterDir="false" />
+>>>>>>> Google-Dev1
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,12 +152,20 @@
       <workItem from="1668786819560" duration="601000" />
       <workItem from="1669010838907" duration="15961000" />
       <workItem from="1669034142663" duration="2479000" />
+<<<<<<< HEAD
       <workItem from="1669796819138" duration="22000" />
       <workItem from="1670899920243" duration="4856000" />
       <workItem from="1670905701599" duration="814000" />
       <workItem from="1671079249452" duration="4526000" />
       <workItem from="1671093963679" duration="91000" />
       <workItem from="1671355726197" duration="668000" />
+=======
+      <workItem from="1669804939200" duration="1082000" />
+      <workItem from="1669855948496" duration="629000" />
+      <workItem from="1669861284977" duration="2675000" />
+      <workItem from="1669876753419" duration="2322000" />
+      <workItem from="1669956814278" duration="4056000" />
+>>>>>>> Google-Dev1
     </task>
     <servers />
   </component>

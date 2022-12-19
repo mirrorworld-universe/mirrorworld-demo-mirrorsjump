@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +6,8 @@ public class ResourceManager : MonoSingleton<ResourceManager>
 {
     private Dictionary<string, GameObject> resDict = new Dictionary<string, GameObject>();
     
+    private Dictionary<string, Sprite> _sprites = new Dictionary<string, Sprite>();
+
     private Dictionary<string, Sprite> _sprites = new Dictionary<string, Sprite>();
 
     /// <summary>
@@ -24,7 +26,12 @@ public class ResourceManager : MonoSingleton<ResourceManager>
 
         return resDict[path];
     }
+<<<<<<< HEAD
     
+=======
+
+
+>>>>>>> Google-Dev1
     public Sprite GetSprite(string path)
     {
         if (_sprites.ContainsKey(path))
@@ -36,4 +43,10 @@ public class ResourceManager : MonoSingleton<ResourceManager>
 
         return _sprites[path];
     }
+<<<<<<< HEAD
+=======
+    
+    
+    
+>>>>>>> Google-Dev1
 }

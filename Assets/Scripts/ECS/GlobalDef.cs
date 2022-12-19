@@ -57,6 +57,7 @@ public class GlobalDef
     public static string UserName = "Default Name";
 
 
+<<<<<<< HEAD
     public static bool IsUseRespawn = false;
 
 
@@ -74,6 +75,20 @@ public class GlobalDef
     public static string server = "https://mirror-jump.mirrorworld.fun/";
 
     public static string version = "22112916"; 
+=======
+    public static bool HasTokenGuidence= false;
+    
+    
+    
+    
+
+    // 非生产环境
+   public static string server = "https://mirror-jump-staging.mirrorworld.fun/";
+    // 生产环境
+    //public static string server = "https://mirror-jump.mirrorworld.fun/";
+    
+    public static string version = "22113018"; 
+>>>>>>> Google-Dev1
     
     public static string GetCurrentVersion()
     {

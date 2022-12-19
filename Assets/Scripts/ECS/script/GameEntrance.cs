@@ -13,6 +13,7 @@ public class GameEntrance : MonoBehaviour
     
 
     private void Start()
+<<<<<<< HEAD
     {
         //移动到OpenWallet方法作为参数了
         // MirrorSDK.SetLogoutCallback(() =>
@@ -23,6 +24,12 @@ public class GameEntrance : MonoBehaviour
         //});
 
         if (!IsTestEnv)
+=======
+    {    
+        
+        
+         if (!IsTestEnv)
+>>>>>>> Google-Dev1
          {
 
              PlayerPrefs.SetString("IsTestEnvironment", "false");
