@@ -53,6 +53,7 @@ public class VersionCheck : MonoBehaviour
    
        void Start()
        {
+           Debug.Log("Start VersionCheck");
            CheckVersion();
            dialog.confirmClicked += OnConfirmClicked;
            dialog.cancelClicked += OnCancelClicked;
