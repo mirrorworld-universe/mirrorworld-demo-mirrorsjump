@@ -69,15 +69,19 @@ namespace MirrorworldSDK.Wrapper
 
         private IEnumerator Post(string url, string messageBody, Action<string> callBack)
         {
+            messageBody = RemoveNull(messageBody);
+
             UnityWebRequest request = new UnityWebRequest(url, "POST");
 
             MirrorUtils.SetContentTypeHeader(request);
             MirrorUtils.SetAcceptHeader(request);
             MirrorUtils.SetApiKeyHeader(request, apiKey);
             MirrorUtils.SetAuthorizationHeader(request, accessToken);
+            MirrorUtils.SetXAuthToken(request,authToken);
 
-            if(messageBody != null && messageBody != "")
+            if (messageBody != null && messageBody != "")
             {
+                LogFlow("Post:"+ messageBody);
                 byte[] rawRequestBodyToSend = new System.Text.UTF8Encoding().GetBytes(messageBody);
                 request.uploadHandler = new UploadHandlerRaw(rawRequestBodyToSend);
             }
@@ -85,9 +89,7 @@ namespace MirrorworldSDK.Wrapper
             request.downloadHandler = new DownloadHandlerBuffer();
 
             yield return request.SendWebRequest();
-            
-            Debug.LogWarning("request.text:"+request.downloadHandler.text);
-            
+
             string rawResponseBody = request.downloadHandler.text;
 
             request.Dispose();
@@ -103,6 +105,7 @@ namespace MirrorworldSDK.Wrapper
             MirrorUtils.SetAcceptHeader(request);
             MirrorUtils.SetApiKeyHeader(request, apiKey);
             MirrorUtils.SetAuthorizationHeader(request, accessToken);
+            MirrorUtils.SetXAuthToken(request, authToken);
 
             request.downloadHandler = new DownloadHandlerBuffer();
 
@@ -113,6 +116,19 @@ namespace MirrorworldSDK.Wrapper
             request.Dispose();
 
             callBack(rawResponseBody);
+        }
+
+        private string RemoveNull(string requestDataStr)
+        {
+            if(requestDataStr == null || requestDataStr == "")
+            {
+                return requestDataStr;
+            }
+
+            LogFlow("Handle data string:"+requestDataStr);
+            string result = JsonAttrRemover.RemoveEmptyAttr(requestDataStr);
+            LogFlow("Handle data string result:" + result);
+            return result;
         }
 
         private void SaveStringToLocal(string key, string value)
@@ -127,6 +143,12 @@ namespace MirrorworldSDK.Wrapper
 
         //Nessesary params
         public void SaveKeyParams(string accessToken,string refreshToken,UserResponse userResponse)
+        {
+            this.accessToken = accessToken;
+
+            UpdateRefreshToken(refreshToken);
+        }
+        public void SaveKeyParams(string accessToken, string refreshToken)
         {
             this.accessToken = accessToken;
 

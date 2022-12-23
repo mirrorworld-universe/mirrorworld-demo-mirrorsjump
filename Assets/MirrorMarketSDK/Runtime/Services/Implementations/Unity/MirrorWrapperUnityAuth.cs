@@ -135,6 +135,8 @@ namespace MirrorworldSDK.Wrapper
             Debug.Log("IsLoggedInAccessToken:" + accessToken);
             monoBehaviour.StartCoroutine(CheckAndGet(url, null, (response) => {
 
+                LogFlow("IsLoggedIn result:"+ response);
+
                 CommonResponse<UserResponse> responseBody = JsonUtility.FromJson<CommonResponse<UserResponse>>(response);
 
                 if(responseBody.code == (long)MirrorResponseCode.Success)
