@@ -63,7 +63,7 @@ public class GlobalDef
     public static  bool HasTokenGuidence = false;
 
 
-    public static bool IsIOSDev = true;
+    public static bool IsIOSDev = false;
 
     public static  string VersionCode = "1.0.0.1";
     
