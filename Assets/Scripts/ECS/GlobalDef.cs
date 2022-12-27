@@ -70,9 +70,9 @@ public class GlobalDef
     public static  string VersionCode = "1.0.0.1";
     
     // 非生产环境
-   //public static string server = "https://mirror-jump-staging.mirrorworld.fun/";
+   public static string server = "https://mirror-jump-staging.mirrorworld.fun/";
     // 生产环境
-    public static string server = "https://mirror-jump.mirrorworld.fun/";
+   // public static string server = "https://mirror-jump.mirrorworld.fun/";
 
     public static string version = "22112916"; 
     
@@ -100,14 +100,10 @@ public class GlobalDef
    
    public  static string ParentCollectionMainNet = "7Vv68CarFpqn291aTeeUz65Uxk1tp8X7gfR8CDMZo2gw";
    public  static string ParentCollectionDevNet = "DUuMbpmH3oiREntViXfGZhrLMbVcYBwGeBa4Wn9X8QfM";
+
+   public static bool IsMainNet = false;
    
-   // 正式环境和测试环境下的 API Key (在节点面板配置)
-   // bU21hAbKFrKUBnCcSf9oZ84pq82aWhUfF6u
-   //
-   // mw_RRetgcSVAXj6OpssSBj0t0PXbqsahlbnDaJ
-   //
-   // puyu@rct.studio
-   
+
 }
 
 public struct AirDropPostData

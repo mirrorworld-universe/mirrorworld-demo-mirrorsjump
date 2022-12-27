@@ -34,6 +34,8 @@ namespace MirrorworldSDK.Models
 
         public NFTOwnerObj owner;
 
+        public NFTCollection collection;
+
         public List<NFTAttributeObj> attributes;
 
         public List<Listing> listings;
@@ -49,6 +51,22 @@ namespace MirrorworldSDK.Models
         public bool verified;
 
         public float share;
+    }
+    
+    [Serializable]
+    public class NFTCollection
+    {
+        public string name;
+        
+        public string mintAddress;
+        
+        public string updateAuthorityAddress;
+        
+        public string image;
+        
+        public string animationUrl;
+        
+        public string externalUrl;
     }
 
     [Serializable]

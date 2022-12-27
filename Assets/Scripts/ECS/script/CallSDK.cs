@@ -80,6 +80,22 @@ public class CallSDK : MonoBehaviour
                  List<NFTCellData> datas = new List<NFTCellData>();
                  for (int i = 0; i < Mutiple.data.nfts.Count; i++)
                  {
+                     if (GlobalDef.IsMainNet)
+                     {
+                         if (!Mutiple.data.nfts[i].collection.mintAddress.Equals(GlobalDef.ParentCollectionMainNet))
+                         {
+                             continue;
+                             
+                         }
+                     }
+                     else
+                     {
+                         if (!Mutiple.data.nfts[i].collection.mintAddress.Equals(GlobalDef.ParentCollectionDevNet))
+                         {
+                             continue;
+                         }
+                     }
+                     
                      NFTCellData nftCellData = new NFTCellData();
                      SingleNFTResponseObj NftData = Mutiple.data.nfts[i];
                      
@@ -159,7 +175,7 @@ public class CallSDK : MonoBehaviour
                 string name = "Mirrors Jump " + "#" +PlayerPrefs.GetString("TokenId");
                 MessageAdvice.OpenWaitPanel("Mint Now");
                 TAManager.Instance.MintToNFTStart("random role");
-                MirrorSDK.MintNFT(GlobalDef.ParentCollectionMainNet,name,"MJNFT",PlayerPrefs.GetString("MintUrl"),Confirmation.Confirmed,
+                MirrorSDK.MintNFT(GlobalDef.ParentCollectionDevNet,name,"MJNFT",PlayerPrefs.GetString("MintUrl"),Confirmation.Confirmed,
                     PlayerPrefs.GetString("TokenId"),(result) =>
                     {  
                         
@@ -206,7 +222,7 @@ public class CallSDK : MonoBehaviour
                         TAManager.Instance.MintToNFTStart("random role");
                  
                         
-                        MirrorSDK.MintNFT(GlobalDef.ParentCollectionMainNet,name,"MJNFT",PlayerPrefs.GetString("MintUrl"),Confirmation.Confirmed,
+                        MirrorSDK.MintNFT(GlobalDef.ParentCollectionDevNet,name,"MJNFT",PlayerPrefs.GetString("MintUrl"),Confirmation.Confirmed,
                             PlayerPrefs.GetString("TokenId"),(result) =>
                             {   
                                 
