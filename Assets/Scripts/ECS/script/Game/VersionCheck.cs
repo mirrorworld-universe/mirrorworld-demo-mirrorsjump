@@ -6,10 +6,10 @@ using UnityEngine.Networking;
 public class VersionCheck : MonoBehaviour
 {
 
+    //  Google  官网  IOS 三种环境的包
+    private bool IsGoogleEnv = true;
 
-    private bool IsGoogleEnv = false;
-
-    private bool IsIOSEnv = true;
+    private bool IsIOSEnv = false;
 
     private int ReviewVersion;
     
@@ -55,11 +55,9 @@ public class VersionCheck : MonoBehaviour
    
        void Start()
        {
-           Debug.Log("Start VersionCheck");
            CheckVersion();
            dialog.confirmClicked += OnConfirmClicked;
            dialog.cancelClicked += OnCancelClicked;
-   
        }
    
        private void OnCancelClicked()
@@ -275,6 +273,5 @@ public class VersionCheck : MonoBehaviour
    
            return version;
        }
-   
-     
+       
 }

@@ -10,10 +10,7 @@ using UnityEngine.UI;
 
 public class NftTrade : MonoBehaviour
 {
-    string devnetMarketAuctionHouse = "AiEqGqMDMa7G6sDF484pqfgsxRGuCcjgxv43MxoiVCsz";
-    string mainnetMarketAuctionHouse = "6gysn49dh2tfwbqvLqWpJNwisjkZCJoX3AyjuyFUn89C";
-
-
+    
     private NFTCellData CurrentNftCellData;
      
     // sell
@@ -461,9 +458,9 @@ public class NftTrade : MonoBehaviour
 
         
 
-        Debug.Log("List_Action_House:"+ mainnetMarketAuctionHouse);
+       
 
-        MirrorSDK.ListNFT(CurrentNftCellData.NftData.mintAddress,price, mainnetMarketAuctionHouse, Confirmation.Finalized,(result) =>
+        MirrorSDK.ListNFT(CurrentNftCellData.NftData.mintAddress,price, GlobalDef.mainnetMarketAuctionHouse, Confirmation.Finalized,(result) =>
         {
 
             if (result.status == "success")
@@ -507,7 +504,7 @@ public class NftTrade : MonoBehaviour
             TAManager.Instance.ChangeListPriceStart(CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count - 1].price,CurrentNftCellData.NftData.name);
             // Debug.Log("UpdateList_MintAddress:"+CurrentNftCellData.NftData.mintAddress);
             // Debug.Log("UpdateList_price:"+price);
-            MirrorSDK.UpdateNFTListing(CurrentNftCellData.NftData.mintAddress, price, mainnetMarketAuctionHouse, Confirmation.Finalized,(result) =>
+            MirrorSDK.UpdateNFTListing(CurrentNftCellData.NftData.mintAddress, price, GlobalDef.mainnetMarketAuctionHouse, Confirmation.Finalized,(result) =>
             {   
                 if (result.status == "success")
                 {
@@ -553,7 +550,7 @@ public class NftTrade : MonoBehaviour
                
             // Debug.Log("CancelList_MintAddress:"+CurrentNftCellData.NftData.mintAddress);
             // Debug.Log("CancelList_price:"+CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count-1].price);
-            MirrorSDK.CancelNFTListing(CurrentNftCellData.NftData.mintAddress,CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count-1].price, mainnetMarketAuctionHouse, Confirmation.Finalized,(result) =>
+            MirrorSDK.CancelNFTListing(CurrentNftCellData.NftData.mintAddress,CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count-1].price, GlobalDef.mainnetMarketAuctionHouse, Confirmation.Finalized,(result) =>
             {     
                 if (result.status == "success")
                 {

@@ -59,15 +59,16 @@ public class GlobalDef
 
     public static bool IsUseRespawn = false;
 
-
+    
+    //  正式环境下取消 TokenGuidence
     public static  bool HasTokenGuidence = false;
 
-
+    
+    // 是否为 IOS 环境
     public static bool IsIOSDev = false;
 
     public static  string VersionCode = "1.0.0.1";
     
-
     // 非生产环境
    //public static string server = "https://mirror-jump-staging.mirrorworld.fun/";
     // 生产环境
@@ -92,11 +93,21 @@ public class GlobalDef
 
     public static bool IsShowPackage;
     
-
-
-    //  public static string server = "https://mirror-jump-staging.mirrorworld.fun/";
-
-
+    
+    // Global  Parent Collection  &  Action House
+   public static   string devnetMarketAuctionHouse = "AiEqGqMDMa7G6sDF484pqfgsxRGuCcjgxv43MxoiVCsz";
+   public static  string mainnetMarketAuctionHouse = "6gysn49dh2tfwbqvLqWpJNwisjkZCJoX3AyjuyFUn89C";
+   
+   public  static string ParentCollectionMainNet = "7Vv68CarFpqn291aTeeUz65Uxk1tp8X7gfR8CDMZo2gw";
+   public  static string ParentCollectionDevNet = "DUuMbpmH3oiREntViXfGZhrLMbVcYBwGeBa4Wn9X8QfM";
+   
+   // 正式环境和测试环境下的 API Key (在节点面板配置)
+   // bU21hAbKFrKUBnCcSf9oZ84pq82aWhUfF6u
+   //
+   // mw_RRetgcSVAXj6OpssSBj0t0PXbqsahlbnDaJ
+   //
+   // puyu@rct.studio
+   
 }
 
 public struct AirDropPostData
