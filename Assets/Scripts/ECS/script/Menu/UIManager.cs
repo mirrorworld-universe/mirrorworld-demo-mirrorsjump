@@ -150,7 +150,16 @@ public class UIManager : MonoBehaviour
                     
                 }
                 else
-                {
+                {   
+                    
+                    if (!GlobalDef.IsIOSDev)
+                    {
+                        LoginButton.SetActive(true);
+                        LoadingPanel.Instance.SetLoadingPanelEnable(false);
+                        Back.SetActive(false);
+                        return;
+                    }
+
                     
                     if (GlobalDef.IsShowPackage)
                     {
@@ -167,9 +176,9 @@ public class UIManager : MonoBehaviour
                         GameLogin();
                     }
 
+                     
+                 
                     
-                    
-                
                 }
             });
             
