@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2e03b632-dd78-4b97-8001-53560f487b8d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Android/MirrorWrapperAndroidCross.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Android/MirrorWrapperAndroidCross.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameEntrance.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameEntrance.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/GlobalDef.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/GlobalDef.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/CallSDK.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/CallSDK.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/NftTrade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/NftTrade.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/UIManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +36,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c9b29c1f98764d19904aec63c99319c36400/ea/fe70a5af/BannerView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c9b29c1f98764d19904aec63c99319c36400/f1/abd14451/MobileAds.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c9b29c1f98764d19904aec63c99319c36400/f5/06a95d66/InitializationStatus.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/df90a8596bee4c199c807c3b8a1e2fd911400/84/b5edd8d7/AndroidJavaObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MirrorMarketSDK/LoginUI/Scripts/PageLoginHorizontal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/MirrorSDK.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityAuth.cs" root0="FORCE_HIGHLIGHTING" />
@@ -161,7 +167,8 @@
       <workItem from="1672018302533" duration="6000" />
       <workItem from="1672018432160" duration="729000" />
       <workItem from="1672105386372" duration="6571000" />
-      <workItem from="1672191551321" duration="5067000" />
+      <workItem from="1672191551321" duration="5443000" />
+      <workItem from="1672197502424" duration="6248000" />
     </task>
     <servers />
   </component>

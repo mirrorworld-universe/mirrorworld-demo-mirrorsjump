@@ -98,19 +98,21 @@ namespace MirrorworldSDK.Wrapper
         public void AndroidOpenWallet(Action walletLogoutAction)
         {
             //AndroidSetLogoutCallback(walletLogoutAction);
-
+            Debug.Log(" AndroidOpenWallet");
+            
             if (javaMirrorWorld == null)
             {
                 LogFlow("Must call InitSDK function first.");
                 return;
             }
-
+            
+            Debug.Log("  javaMirrorWorld.CallStatic(openWallet, new MirrorCallback((resultString)");
             javaMirrorWorld.CallStatic("openWallet", new MirrorCallback((resultString) => {
-
+                Debug.Log("Start Callback");
                 LoginResponse responseBody = JsonUtility.FromJson<LoginResponse>(resultString);
 
                 SaveKeyParams(responseBody.access_token, responseBody.refresh_token, responseBody.user);
-
+                Debug.Log(" walletLogoutAction() on call");
                 walletLogoutAction();
             }));
         }

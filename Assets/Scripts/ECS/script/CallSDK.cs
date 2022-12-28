@@ -189,7 +189,7 @@ public class CallSDK : MonoBehaviour
                 string name = "Mirrors Jump " + "#" +PlayerPrefs.GetString("TokenId");
                 MessageAdvice.OpenWaitPanel("Mint Now");
                 TAManager.Instance.MintToNFTStart("random role");
-                MirrorSDK.MintNFT(GlobalDef.ParentCollectionMainNet,name,"MJNFT",PlayerPrefs.GetString("MintUrl"),Confirmation.Confirmed,
+                MirrorSDK.MintNFT(GlobalDef.ParentCollectionDevNet,name,"MJNFT",PlayerPrefs.GetString("MintUrl"),Confirmation.Confirmed,
                     PlayerPrefs.GetString("TokenId"),(result) =>
                     {  
                         
@@ -236,7 +236,7 @@ public class CallSDK : MonoBehaviour
                         TAManager.Instance.MintToNFTStart("random role");
                  
                         
-                        MirrorSDK.MintNFT(GlobalDef.ParentCollectionMainNet,name,"MJNFT",PlayerPrefs.GetString("MintUrl"),Confirmation.Confirmed,
+                        MirrorSDK.MintNFT(GlobalDef.ParentCollectionDevNet,name,"MJNFT",PlayerPrefs.GetString("MintUrl"),Confirmation.Confirmed,
                             PlayerPrefs.GetString("TokenId"),(result) =>
                             {   
                                 

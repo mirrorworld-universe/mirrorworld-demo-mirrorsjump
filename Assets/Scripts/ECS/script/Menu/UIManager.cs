@@ -525,9 +525,13 @@ public class UIManager : MonoBehaviour
     {   
         SoundManager.Instance.PlaySound(SoundName.Button);
         TAManager.Instance.OpenWallet();
+        Debug.Log("MirrorSDK.OpenWalletPage on call");
         MirrorSDK.OpenWalletPage(()=> {
+            
+            Debug.Log("MirrorSDK.OpenWalletPage on call back");
             PlayerPrefs.DeleteAll();
             SceneManager.LoadScene("Login");
+            
         });
     }
     
