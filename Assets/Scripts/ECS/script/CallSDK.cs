@@ -82,7 +82,21 @@ public class CallSDK : MonoBehaviour
                  {
                      if (GlobalDef.IsMainNet)
                      {
-                         if (!Mutiple.data.nfts[i].collection.mintAddress.Equals(GlobalDef.ParentCollectionMainNet))
+                         // 空地址排除
+                         if (Mutiple.data.nfts[i].collection == null)
+                         {
+                             continue;
+                         }
+                         
+                         if (Mutiple.data.nfts[i].collection.mintAddress == null)
+                         {
+                             continue;
+                         }
+                         
+                         
+                         
+                         
+                         if (  !Mutiple.data.nfts[i].collection.mintAddress.Equals(GlobalDef.ParentCollectionMainNet))
                          {
                              continue;
                              

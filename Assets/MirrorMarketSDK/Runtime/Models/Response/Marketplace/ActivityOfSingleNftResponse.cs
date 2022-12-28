@@ -56,17 +56,7 @@ namespace MirrorworldSDK.Models
     [Serializable]
     public class NFTCollection
     {
-        public string name;
-        
         public string mintAddress;
-        
-        public string updateAuthorityAddress;
-        
-        public string image;
-        
-        public string animationUrl;
-        
-        public string externalUrl;
     }
 
     [Serializable]
