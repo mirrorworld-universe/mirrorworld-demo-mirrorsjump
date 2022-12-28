@@ -178,7 +178,7 @@ namespace MirrorworldSDK.Wrapper
             string url = GetAPIRoot() + urlFetchMultiNFTsDataByOwnerAddresses;
 
             monoBehaviour.StartCoroutine(CheckAndPost(url, rawRequestBody, (response) => {
-
+                Debug.Log("fetch nft result string: "+response);
                 CommonResponse<MultipleNFTsResponse> responseBody = JsonUtility.FromJson<CommonResponse<MultipleNFTsResponse>>(response);
 
                 //MultipleNFTsResponse nfts = responseBody.Data;
