@@ -16,6 +16,7 @@ namespace MirrorworldSDK.Wrapper
         private readonly string urlGetCurrentUser = "auth/me";
         private readonly string urlQueryUser = "auth/user";
         private readonly string urlLogout = "auth/logout";
+        private readonly string urlGuestLogin = "auth/guest-login";
 
         public void GetCurrentUserInfo(Action<CommonResponse<UserResponse>> callBack)
         {
@@ -28,6 +29,8 @@ namespace MirrorworldSDK.Wrapper
             }));
         }
 
+
+
         public void LoginWithEmail(string emailAddress, string password, Action<CommonResponse<LoginResponse>> callBack)
         {
             BasicEmailLoginRequest requestBody = new BasicEmailLoginRequest();
@@ -36,15 +39,9 @@ namespace MirrorworldSDK.Wrapper
             var rawRequestBody = JsonUtility.ToJson(requestBody);
 
             string url = GetAuthRoot() + urlLoginWithEmail;
-            
-            
-            Debug.Log("LoginWithEmailEmailAddress"+emailAddress);
-            Debug.Log("LoginWithEmailEmailpass"+password);
-            Debug.Log("LoginWithEmailEmailUrl"+url);
 
             monoBehaviour.StartCoroutine(Post(url, rawRequestBody, (rawResponseBody) =>
             {
-                Debug.LogWarning("raw string:"+rawRequestBody);
                 CommonResponse<LoginResponse> responseBody = JsonUtility.FromJson<CommonResponse<LoginResponse>>(rawResponseBody);
 
                 SaveKeyParams(responseBody.data.access_token, responseBody.data.refresh_token, responseBody.data.user);
@@ -129,10 +126,7 @@ namespace MirrorworldSDK.Wrapper
         public void IsLoggedIn(Action<bool> action)
         {
             string url = GetAuthRoot() + urlGetCurrentUser;
-            Debug.Log("IsLoggedInUrl: "+url);
-            Debug.Log("IsLoggedInAPIKey:" + apiKey);
-            Debug.Log("IsLoggedInRefreshToken:" + refreshToken);
-            Debug.Log("IsLoggedInAccessToken:" + accessToken);
+
             monoBehaviour.StartCoroutine(CheckAndGet(url, null, (response) => {
 
                 LogFlow("IsLoggedIn result:"+ response);
@@ -146,6 +140,25 @@ namespace MirrorworldSDK.Wrapper
 
                 action(responseBody.code == (long)MirrorResponseCode.Success);
 
+            }));
+        }
+
+        public void GuestLogin(Action<LoginResponse> action)
+        {
+            string url = GetAuthRoot() + urlGuestLogin;
+
+            monoBehaviour.StartCoroutine(CheckAndGet(url, null, (response) => {
+
+                LogFlow("IsLoggedIn result:" + response);
+
+                CommonResponse<LoginResponse> responseBody = JsonUtility.FromJson<CommonResponse<LoginResponse>>(response);
+
+                if (responseBody.code == (long)MirrorResponseCode.Success)
+                {
+                    SaveCurrentUser(responseBody.data.user);
+
+                    action(responseBody.data);
+                }
             }));
         }
     }

@@ -73,7 +73,7 @@ public class MirrorSDK : MonoBehaviour
 
 
         //Test
-        //environment = MirrorEnv.StagingDevNet;
+        environment = MirrorEnv.StagingDevNet;
 
         if (environment == MirrorEnv.StagingDevNet || environment == MirrorEnv.StagingMainNet)
         {
@@ -240,7 +240,7 @@ public class MirrorSDK : MonoBehaviour
         requestParams.confirmation = confirmation;
 
         MirrorWrapper.Instance.GetSecurityToken<ApproveMintNFT>(MirrorSafeOptType.MintNFT,"mint nft", requestParams,()=> {
-            MirrorWrapper.Instance.MintNft(parentCollection, nFTName, nFTSymbol, nFTJsonUrl, confirmation, mint_id, callBack);
+            MirrorWrapper.Instance.MintNFT(parentCollection, nFTName, nFTSymbol, nFTJsonUrl, confirmation, mint_id, callBack);
         });
     }
 
@@ -478,23 +478,60 @@ public class MirrorSDK : MonoBehaviour
         }
     }
 
-    public static void OpenMarketPage()
+    public static void OpenMarketPage(string marketUrl)
     {
+        string url = Instance.GetMarketUrl(marketUrl);
+
         if (MirrorUtils.IsEditor())
         {
-            MirrorWrapper.Instance.DebugOpenMarketPage();
+            MirrorWrapper.Instance.DebugOpenMarketPage(url);
         }
         else
         {
 #if (UNITY_ANDROID && !(UNITY_EDITOR))
 
-             MirrorWrapper.Instance.AndroidOpenMarket();
+             MirrorWrapper.Instance.AndroidOpenMarket(url);
 
 #elif (UNITY_IOS && !(UNITY_EDITOR))
 
-            MirrorWrapper.IOSOpenMarketPlace();
+            MirrorWrapper.IOSOpenMarketPlace(url);
 #endif
         }
+    }
+    #endregion
+
+    #region market ui apis
+    public static void GetCollectionFilterInfo(string collection, Action<CommonResponse<GetCollectionFilterInfoResponse>> callBack)
+    {
+        MirrorWrapper.Instance.GetCollectionFilterInfo(collection,callBack);
+    }
+    public static void GetNFTInfo(string mintAddress, Action<string> callBack)
+    {
+        MirrorWrapper.Instance.GetNFTInfo(mintAddress, callBack);
+    }
+    public static void GetCollectionInfo(List<string> collections, Action<CommonResponse<GetCollectionInfoResponse>> callback)
+    {
+        MirrorWrapper.Instance.GetCollectionInfo(collections, callback);
+    }
+    public static void GetNFTEvents(string mintAddress, int page, int pageSize, Action<CommonResponse<GetNFTEventsResponse>> callback)
+    {
+        MirrorWrapper.Instance.GetNFTEvents(mintAddress, page, pageSize, callback);
+    }
+    public static void SearchNFTs(List<string> collections, string searchString, Action<CommonResponse<SearchNFTsRequest>> callback)
+    {
+        MirrorWrapper.Instance.SearchNFTs(collections, searchString, callback);
+    }
+    public static void RecommendSearchNFT(List<string> collections, Action<CommonResponse<List<MirrorMarketNFTObj>>> callback)
+    {
+        MirrorWrapper.Instance.RecommendSearchNFT(collections, callback);
+    }
+    public static void GetNFTs(string collection, int page, int pageSize, string orderByString, bool desc, List<GetNFTsRequestFilter> filters, Action<CommonResponse<GetNFTsResponse>> callback)
+    {
+        MirrorWrapper.Instance.GetNFTs(collection, page, pageSize, orderByString,desc, filters,callback);
+    }
+    public static void GetNFTRealPrice(string price, int fee, Action<CommonResponse<GetNFTRealPriceResponse>> callback)
+    {
+        MirrorWrapper.Instance.GetNFTRealPrice(price,fee, callback);
     }
     #endregion
 }

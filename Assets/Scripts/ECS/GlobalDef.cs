@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+using MirrorworldSDK;
 using UnityEngine;
 
 public enum SoundName
@@ -103,6 +104,9 @@ public class GlobalDef
 
    public static bool IsMainNet = false;
    
+   // market 路径标识枚举
+   public static MirrorEnv Env = MirrorEnv.ProductionDevnet;
+
 
 }
 

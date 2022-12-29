@@ -1,8 +1,6 @@
 ﻿
-
-using System;
+using MirrorworldSDK;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -539,8 +537,35 @@ public class UIManager : MonoBehaviour
     {   
         SoundManager.Instance.PlaySound(SoundName.Button);
         TAManager.Instance.OpenMarketPlace();
-        MirrorSDK.OpenMarketPage();
+        MirrorSDK.OpenMarketPage(GetMarketRoot());
     }
+    
+    
+    private string GetMarketRoot()
+    {     
+        
+        if (GlobalDef.Env == MirrorEnv.ProductionMainnet)
+        {
+            return MirrorworldSDK.Constant.MarketRootProduction;
+        }
+        else if (GlobalDef.Env == MirrorEnv.ProductionDevnet)
+        {
+            return MirrorworldSDK.Constant.MarketRootProductionDev;
+        }
+        else if (GlobalDef.Env== MirrorEnv.StagingDevNet)
+        {
+            return MirrorworldSDK.Constant.MarketRootStagingDevnet;
+        }
+        else if (GlobalDef.Env == MirrorEnv.StagingMainNet)
+        {
+            return MirrorworldSDK.Constant.MarketRootStagingMainnet;
+        }
+        else
+        {
+            return MirrorworldSDK.Constant.MarketRootStagingDevnet;
+        }
+    }
+
 
     public void ClearAllPersistingData()
     {

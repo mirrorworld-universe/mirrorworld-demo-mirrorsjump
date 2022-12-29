@@ -44,6 +44,12 @@ namespace MirrorworldSDK.Models
     }
 
     [Serializable]
+    public class NFTCollection
+    {
+        public string mintAddress;
+    }
+
+    [Serializable]
     public class NFTCreatorObj
     {
         public string address;
@@ -51,12 +57,6 @@ namespace MirrorworldSDK.Models
         public bool verified;
 
         public float share;
-    }
-    
-    [Serializable]
-    public class NFTCollection
-    {
-        public string mintAddress;
     }
 
     [Serializable]
