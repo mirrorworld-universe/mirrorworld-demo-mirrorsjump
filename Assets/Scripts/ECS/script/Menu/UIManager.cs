@@ -540,7 +540,6 @@ public class UIManager : MonoBehaviour
         MirrorSDK.OpenMarketPage(GetMarketRoot());
     }
     
-    
     private string GetMarketRoot()
     {     
         

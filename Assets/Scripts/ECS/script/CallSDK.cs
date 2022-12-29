@@ -93,14 +93,12 @@ public class CallSDK : MonoBehaviour
                              continue;
                          }
                          
-                         
-                         
-                         
-                         if (  !Mutiple.data.nfts[i].collection.mintAddress.Equals(GlobalDef.ParentCollectionMainNet))
+                         if (!Mutiple.data.nfts[i].collection.mintAddress.Equals(GlobalDef.ParentCollectionMainNet))
                          {
                              continue;
                              
                          }
+                         
                      }
                      else
                      {
@@ -189,7 +187,7 @@ public class CallSDK : MonoBehaviour
                 string name = "Mirrors Jump " + "#" +PlayerPrefs.GetString("TokenId");
                 MessageAdvice.OpenWaitPanel("Mint Now");
                 TAManager.Instance.MintToNFTStart("random role");
-                MirrorSDK.MintNFT(GlobalDef.ParentCollectionDevNet,name,"MJNFT",PlayerPrefs.GetString("MintUrl"),Confirmation.Confirmed,
+                MirrorSDK.MintNFT(GlobalDef.ParentCollectionMainNet,name,"MJNFT",PlayerPrefs.GetString("MintUrl"),Confirmation.Confirmed,
                     PlayerPrefs.GetString("TokenId"),(result) =>
                     {  
                         
@@ -236,7 +234,7 @@ public class CallSDK : MonoBehaviour
                         TAManager.Instance.MintToNFTStart("random role");
                  
                         
-                        MirrorSDK.MintNFT(GlobalDef.ParentCollectionDevNet,name,"MJNFT",PlayerPrefs.GetString("MintUrl"),Confirmation.Confirmed,
+                        MirrorSDK.MintNFT(GlobalDef.ParentCollectionMainNet,name,"MJNFT",PlayerPrefs.GetString("MintUrl"),Confirmation.Confirmed,
                             PlayerPrefs.GetString("TokenId"),(result) =>
                             {   
                                 

@@ -71,9 +71,9 @@ public class GlobalDef
     public static  string VersionCode = "1.0.0.1";
     
     // 非生产环境
-   public static string server = "https://mirror-jump-staging.mirrorworld.fun/";
+  // public static string server = "https://mirror-jump-staging.mirrorworld.fun/";
     // 生产环境
-   // public static string server = "https://mirror-jump.mirrorworld.fun/";
+    public static string server = "https://mirror-jump.mirrorworld.fun/";
 
     public static string version = "22112916"; 
     
@@ -102,10 +102,10 @@ public class GlobalDef
    public  static string ParentCollectionMainNet = "7Vv68CarFpqn291aTeeUz65Uxk1tp8X7gfR8CDMZo2gw";
    public  static string ParentCollectionDevNet = "DUuMbpmH3oiREntViXfGZhrLMbVcYBwGeBa4Wn9X8QfM";
 
-   public static bool IsMainNet = false;
+   public static bool IsMainNet = true;
    
    // market 路径标识枚举
-   public static MirrorEnv Env = MirrorEnv.ProductionDevnet;
+   public static MirrorEnv Env = MirrorEnv.ProductionMainnet;
 
 
 }
