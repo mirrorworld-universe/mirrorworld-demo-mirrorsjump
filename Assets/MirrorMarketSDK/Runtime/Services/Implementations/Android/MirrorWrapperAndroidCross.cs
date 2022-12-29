@@ -95,7 +95,7 @@ namespace MirrorworldSDK.Wrapper
             }));
         }
 
-        public void AndroidOpenWallet(Action walletLogoutAction)
+        public void AndroidOpenWallet(string url,Action walletLogoutAction)
         {
             //AndroidSetLogoutCallback(walletLogoutAction);
 
@@ -105,7 +105,7 @@ namespace MirrorworldSDK.Wrapper
                 return;
             }
 
-            javaMirrorWorld.CallStatic("openWallet", new MirrorCallback((resultString) => {
+            javaMirrorWorld.CallStatic("openWallet", url, new MirrorCallback((resultString) => {
 
                 //LoginResponse responseBody = JsonUtility.FromJson<LoginResponse>(resultString);
 
@@ -125,7 +125,18 @@ namespace MirrorworldSDK.Wrapper
 
             LogFlow("Unity try to open market with url:" + url);
 
-            javaMirrorWorld.CallStatic("openMarketWithWholeUrl", url);
+            AndroidOpenUrl(url);
+        }
+
+        public void AndroidOpenUrl(string url)
+        {
+            if (javaMirrorWorld == null)
+            {
+                LogFlow("Must call InitSDK function first.");
+                return;
+            }
+
+            javaMirrorWorld.CallStatic("openUrl", url);
         }
     }
 }

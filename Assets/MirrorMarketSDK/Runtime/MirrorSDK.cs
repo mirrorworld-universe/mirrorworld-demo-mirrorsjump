@@ -73,7 +73,7 @@ public class MirrorSDK : MonoBehaviour
 
 
         //Test
-       // environment = MirrorEnv.StagingDevNet;
+        environment = MirrorEnv.StagingDevNet;
 
         if (environment == MirrorEnv.StagingDevNet || environment == MirrorEnv.StagingMainNet)
         {
@@ -205,9 +205,9 @@ public class MirrorSDK : MonoBehaviour
         }
     }
 
-    public static void GetAccessToken()
+    public static void GetAccessToken(Action<bool> action)
     {
-        MirrorWrapper.Instance.GetAccessToken();
+        MirrorWrapper.Instance.GetAccessToken(action);
     }
 
     public static void FetchUser(string email, Action<CommonResponse<UserResponse>> callback)
@@ -452,6 +452,8 @@ public class MirrorSDK : MonoBehaviour
     #region market ui
     public static void OpenWalletPage(Action walletLogoutAction)
     {
+        string walletUrl = Instance.GetWalletUrl();
+
         if (MirrorUtils.IsEditor())
         {
             MirrorWrapper.Instance.DebugOpenWalletPage(walletLogoutAction);
@@ -461,7 +463,7 @@ public class MirrorSDK : MonoBehaviour
 
 #if (UNITY_ANDROID && !(UNITY_EDITOR))
 
-             MirrorWrapper.Instance.AndroidOpenWallet(walletLogoutAction);
+             MirrorWrapper.Instance.AndroidOpenWallet(walletUrl, walletLogoutAction);
 
 #elif (UNITY_IOS && !(UNITY_EDITOR))
 
@@ -527,7 +529,7 @@ public class MirrorSDK : MonoBehaviour
     }
     public static void GetNFTs(string collection, int page, int pageSize, string orderByString, bool desc, List<GetNFTsRequestFilter> filters, Action<CommonResponse<GetNFTsResponse>> callback)
     {
-        MirrorWrapper.Instance.GetNFTs(collection, page, pageSize, orderByString,desc, filters,callback);
+        MirrorWrapper.Instance.GetNFTsByUnabridgedParams(collection, page, pageSize, orderByString,desc, filters,callback);
     }
     public static void GetNFTRealPrice(string price, int fee, Action<CommonResponse<GetNFTRealPriceResponse>> callback)
     {

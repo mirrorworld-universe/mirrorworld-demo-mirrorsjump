@@ -527,7 +527,7 @@ public class UIManager : MonoBehaviour
         MirrorSDK.OpenWalletPage(()=> {
             
             Debug.Log("MirrorSDK.OpenWalletPage on call back");
-            PlayerPrefs.DeleteAll();
+           // PlayerPrefs.DeleteAll();
             SceneManager.LoadScene("Login");
             
         });

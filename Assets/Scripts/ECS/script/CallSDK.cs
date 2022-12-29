@@ -79,20 +79,24 @@ public class CallSDK : MonoBehaviour
                 
                  List<NFTCellData> datas = new List<NFTCellData>();
                  for (int i = 0; i < Mutiple.data.nfts.Count; i++)
-                 {
+                 {   
+                     
+                     
+                     // 空地址排除
+                     if (Mutiple.data.nfts[i].collection == null)
+                     {
+                         continue;
+                     }
+                         
+                     if (Mutiple.data.nfts[i].collection.mintAddress == null)
+                     {
+                         continue;
+                     }
+                    
+                     
+                     // 根据环境筛选
                      if (GlobalDef.IsMainNet)
                      {
-                         // 空地址排除
-                         if (Mutiple.data.nfts[i].collection == null)
-                         {
-                             continue;
-                         }
-                         
-                         if (Mutiple.data.nfts[i].collection.mintAddress == null)
-                         {
-                             continue;
-                         }
-                         
                          if (!Mutiple.data.nfts[i].collection.mintAddress.Equals(GlobalDef.ParentCollectionMainNet))
                          {
                              continue;
@@ -106,6 +110,7 @@ public class CallSDK : MonoBehaviour
                          {
                              continue;
                          }
+                         
                      }
                      
                      NFTCellData nftCellData = new NFTCellData();
@@ -187,7 +192,7 @@ public class CallSDK : MonoBehaviour
                 string name = "Mirrors Jump " + "#" +PlayerPrefs.GetString("TokenId");
                 MessageAdvice.OpenWaitPanel("Mint Now");
                 TAManager.Instance.MintToNFTStart("random role");
-                MirrorSDK.MintNFT(GlobalDef.ParentCollectionMainNet,name,"MJNFT",PlayerPrefs.GetString("MintUrl"),Confirmation.Confirmed,
+                MirrorSDK.MintNFT(GlobalDef.ParentCollectionDevNet,name,"MJNFT",PlayerPrefs.GetString("MintUrl"),Confirmation.Confirmed,
                     PlayerPrefs.GetString("TokenId"),(result) =>
                     {  
                         
@@ -234,7 +239,7 @@ public class CallSDK : MonoBehaviour
                         TAManager.Instance.MintToNFTStart("random role");
                  
                         
-                        MirrorSDK.MintNFT(GlobalDef.ParentCollectionMainNet,name,"MJNFT",PlayerPrefs.GetString("MintUrl"),Confirmation.Confirmed,
+                        MirrorSDK.MintNFT(GlobalDef.ParentCollectionDevNet,name,"MJNFT",PlayerPrefs.GetString("MintUrl"),Confirmation.Confirmed,
                             PlayerPrefs.GetString("TokenId"),(result) =>
                             {   
                                 
