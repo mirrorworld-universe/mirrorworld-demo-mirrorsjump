@@ -67,8 +67,12 @@ namespace MirrorworldSDK.Wrapper
             requestBody.to_publickey = publicKey;
 
             requestBody.confirmation = confirmation;
+            
+            Debug.Log("Transfer sol request to Json start");
 
             var rawRequestBody = JsonUtility.ToJson(requestBody);
+            
+            Debug.Log("Transfer sol request to Json end");
 
             monoBehaviour.StartCoroutine(CheckAndPost(url, rawRequestBody, (response) => {
 

@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2e03b632-dd78-4b97-8001-53560f487b8d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/Android/141.12291623.aar" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/Android/141.12292213.aar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/Android/141.12291623.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/Android/141.12292213.aar.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperApprove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperApprove.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/googlemobileads-unity.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/googlemobileads-unity.aar.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/CallSDK.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/CallSDK.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/MirrorSDK.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/MirrorSDK.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityMarket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityMarket.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityWallet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityWallet.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +26,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/51ae54a1ce5541248e4e19776e45d57b7600/9f/3d5c8f72/Countdown.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/1e/e4d5f3fa/Guid.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/78/d3b60358/String.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/8f/6daf9f6c/Void.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/b4/4ed25eb1/DllImportAttribute.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/da/075160fa/EventArgs.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/abf17200928d4c6da169323fb49282c2be00/07/395b6efc/UnityWebRequest.cs" root0="SKIP_HIGHLIGHTING" />
@@ -171,6 +170,8 @@
       <workItem from="1672316043399" duration="815000" />
       <workItem from="1672317671311" duration="915000" />
       <workItem from="1672364596580" duration="24000" />
+      <workItem from="1672364632929" duration="2272000" />
+      <workItem from="1672368175253" duration="2016000" />
     </task>
     <servers />
   </component>

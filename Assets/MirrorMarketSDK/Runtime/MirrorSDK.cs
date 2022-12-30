@@ -238,7 +238,7 @@ public class MirrorSDK : MonoBehaviour
             confirmation = Confirmation.Confirmed;
         }
         requestParams.confirmation = confirmation;
-
+        
         MirrorWrapper.Instance.GetSecurityToken<ApproveMintNFT>(MirrorSafeOptType.MintNFT,"mint nft", requestParams,()=> {
             MirrorWrapper.Instance.MintNFT(parentCollection, nFTName, nFTSymbol, nFTJsonUrl, confirmation, mint_id, callBack);
         });
@@ -395,8 +395,11 @@ public class MirrorSDK : MonoBehaviour
         ApproveTransferSOL requestParams = new ApproveTransferSOL();
         requestParams.to_publickey = to_publickey;
         requestParams.amount = amount;
+        
+        Debug.Log("GetSecurityToken Start");
 
         MirrorWrapper.Instance.GetSecurityToken(MirrorSafeOptType.TransferSol, "transfer sol", requestParams, () => {
+            Debug.Log("GetSecurityToken");
             MirrorWrapper.Instance.TransferSol(amount, to_publickey, confirmation, callBack);
         });
     }

@@ -108,8 +108,13 @@ namespace MirrorworldSDK.Wrapper
             requestBody.collection_mint = parentCollection;
             requestBody.mint_id = mint_id;
             requestBody.confirmation = confirmation;
-            string rawRequestBody = JsonUtility.ToJson(requestBody);
 
+            Debug.Log("Mint request to Json start");
+
+            string rawRequestBody = JsonUtility.ToJson(requestBody);
+            
+            Debug.Log("Mint request to Json end");
+            
             CreateNftRequestNoMintID requestBodyNoMintID = new CreateNftRequestNoMintID();
 
             string url = GetAPIRoot() + urlMintNFTCollection;
