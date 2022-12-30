@@ -3,40 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2e03b632-dd78-4b97-8001-53560f487b8d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.mirrorworld-demo-mirrorsjump/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/LoginUI/Scripts/PageLoginHorizontal.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/LoginUI/Scripts/PageLoginHorizontal.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/Android/141.12282017.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/Android/141.12282017.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/iOS.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/iOS.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/iOS/MirrorWorldSDK.framework/Headers.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/iOS/MirrorWorldSDK.framework/Headers.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/iOS/MirrorWorldSDK.framework/MirrorWorldSDK" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/iOS/MirrorWorldSDK.framework/MirrorWorldSDK.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/iOS/MirrorWorldSDK.framework/Modules.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/iOS/MirrorWorldSDK.framework/Modules.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/iOS/MirrorWorldSDK.framework/Modules/MirrorWorldSDK.swiftmodule.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/iOS/MirrorWorldSDK.framework/Modules/MirrorWorldSDK.swiftmodule.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/MirrorSDK.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/MirrorSDK.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Models/Request/Authentication/LoginWithGoogleRequest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Models/Request/Authentication/LoginWithGoogleRequest.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Models/Request/Authentication/RefreshTokenRequest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Models/Request/Authentication/RefreshTokenRequest.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Models/Request/Authentication/SignupRequest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Models/Request/Authentication/SignupRequest.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Models/Request/Marketplace/UpdateNftListOnMarketplaceRequest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Models/Request/Marketplace/UpdateNftListOnMarketplaceRequest.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Android/MirrorWrapperAndroidCross.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Android/MirrorWrapperAndroidCross.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/Android/141.12291623.aar" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/Android/141.12292213.aar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/Android/141.12291623.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Plugins/Android/141.12292213.aar.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperApprove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperApprove.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityAuth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityAuth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityCross.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityCross.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityMarket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityMarket.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityMarketUI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityMarketUI.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Implementations/Unity/MirrorWrapperUnityUtils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Interfaces/IAuthenticationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MirrorMarketSDK/Runtime/Services/Interfaces/IAuthenticationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameEntrance.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameEntrance.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/GlobalDef.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/GlobalDef.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/googlemobileads-unity.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/googlemobileads-unity.aar.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/CallSDK.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/CallSDK.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/NftTrade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/NftTrade.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/script/Menu/UIManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +167,10 @@
       <workItem from="1672105386372" duration="6571000" />
       <workItem from="1672191551321" duration="5443000" />
       <workItem from="1672197502424" duration="6248000" />
-      <workItem from="1672298702261" duration="1518000" />
+      <workItem from="1672298702261" duration="4487000" />
+      <workItem from="1672316043399" duration="815000" />
+      <workItem from="1672317671311" duration="915000" />
+      <workItem from="1672364596580" duration="24000" />
     </task>
     <servers />
   </component>
