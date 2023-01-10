@@ -121,64 +121,90 @@ public class UIManager : MonoBehaviour
                 Title.SetActive(false);
                 GameLoginTitle.SetActive(true);
             }
-            
-            
-            
-            MirrorSDK.IsLoggedIn((result) =>
-            {
-                if (result)
-                {
-                    // 自动登录钱包地址（user_id）非空性检查 
-                    if (PlayerPrefs.GetString("walletAddress", "empty") == "empty")
-                    {
-                        LoginButton.SetActive(true);
-                        LoadingPanel.Instance.SetLoadingPanelEnable(false);
-                        return;
-                    }
-                    LoginState.HasLogin = true;
-                    LoginState.WalletAddress = PlayerPrefs.GetString("walletAddress");
-                    LoginState.Email = PlayerPrefs.GetString("emailAddress");
-                    
-                    Debug.Log("call NetworkManager.Instance.SendUserBasicInfoReq");
-                    Debug.Log("wallet(user_id)"+PlayerPrefs.GetString("walletAddress"));
-                    
-                
-                    NetworkManager.Instance.SendUserBasicInfoReq(PlayerPrefs.GetString("walletAddress"));
-                    //SceneManager.LoadScene("Menu");
-                    
-                }
-                else
-                {   
-                    
-                    if (!GlobalDef.IsIOSDev)
-                    {
-                        LoginButton.SetActive(true);
-                        LoadingPanel.Instance.SetLoadingPanelEnable(false);
-                        Back.SetActive(false);
-                        return;
-                    }
 
-                    
-                    if (GlobalDef.IsShowPackage)
+        MirrorSDK.GetAccessToken((isSuccess)=> {
+            if (isSuccess)
+            {
+                MirrorSDK.IsLoggedIn((result) =>
+                {
+                    if (result)
                     {
-                        LoginButton.SetActive(true);
-                        LoadingPanel.Instance.SetLoadingPanelEnable(false);
-                        Back.SetActive(false);
-                        
+                        // 自动登录钱包地址（user_id）非空性检查 
+                        if (PlayerPrefs.GetString("walletAddress", "empty") == "empty")
+                        {
+                            LoginButton.SetActive(true);
+                            LoadingPanel.Instance.SetLoadingPanelEnable(false);
+                            return;
+                        }
+                        LoginState.HasLogin = true;
+                        LoginState.WalletAddress = PlayerPrefs.GetString("walletAddress");
+                        LoginState.Email = PlayerPrefs.GetString("emailAddress");
+
+                        Debug.Log("call NetworkManager.Instance.SendUserBasicInfoReq");
+                        Debug.Log("wallet(user_id)" + PlayerPrefs.GetString("walletAddress"));
+
+
+                        NetworkManager.Instance.SendUserBasicInfoReq(PlayerPrefs.GetString("walletAddress"));
+                        //SceneManager.LoadScene("Menu");
+
                     }
                     else
                     {
-                        LoginButton.SetActive(false);
-                        LoadingPanel.Instance.SetLoadingPanelEnable(false);
-                        Back.SetActive(false);
-                        GameLogin();
-                    }
+                        if (!GlobalDef.IsIOSDev)
+                        {
+                            LoginButton.SetActive(true);
+                            LoadingPanel.Instance.SetLoadingPanelEnable(false);
+                            Back.SetActive(false);
+                            return;
+                        }
 
-                     
-                 
-                    
+
+                        if (GlobalDef.IsShowPackage)
+                        {
+                            LoginButton.SetActive(true);
+                            LoadingPanel.Instance.SetLoadingPanelEnable(false);
+                            Back.SetActive(false);
+
+                        }
+                        else
+                        {
+                            LoginButton.SetActive(false);
+                            LoadingPanel.Instance.SetLoadingPanelEnable(false);
+                            Back.SetActive(false);
+                            GameLogin();
+                        }
+                    }
+                });
+            }
+            else
+            {
+                if (!GlobalDef.IsIOSDev)
+                {
+                    LoginButton.SetActive(true);
+                    LoadingPanel.Instance.SetLoadingPanelEnable(false);
+                    Back.SetActive(false);
+                    return;
                 }
-            });
+
+
+                if (GlobalDef.IsShowPackage)
+                {
+                    LoginButton.SetActive(true);
+                    LoadingPanel.Instance.SetLoadingPanelEnable(false);
+                    Back.SetActive(false);
+
+                }
+                else
+                {
+                    LoginButton.SetActive(false);
+                    LoadingPanel.Instance.SetLoadingPanelEnable(false);
+                    Back.SetActive(false);
+                    GameLogin();
+                }
+            }
+        });
+            
+            
             
          
     }

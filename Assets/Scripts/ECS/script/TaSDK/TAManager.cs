@@ -222,7 +222,7 @@ public class TAManager :Singleton<TAManager>
         ThinkingAnalyticsAPI.Track("mint_to_nft_start",properties);
     }
 
-    public void ChangeListPriceStart(float beforePrice,string nft_id)
+    public void ChangeListPriceStart(double beforePrice,string nft_id)
     {
         Dictionary<string, object> properties = new Dictionary<string, object>(){
             {"nft_price_before",beforePrice},

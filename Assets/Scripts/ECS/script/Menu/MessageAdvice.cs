@@ -116,7 +116,7 @@ public class MessageAdvice : MonoBehaviour
    { 
        CloseConfirm();
        // open wait panel
-       OpenWaitPanel("Minting Now");
+       //OpenWaitPanel("Minting Now");
        
        PackageDetailsManager.MintNFT();
    }

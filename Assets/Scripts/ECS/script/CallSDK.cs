@@ -190,38 +190,19 @@ public class CallSDK : MonoBehaviour
                     return;
                 } 
                 string name = "Mirrors Jump " + "#" +PlayerPrefs.GetString("TokenId");
-                MessageAdvice.OpenWaitPanel("Mint Now");
                 TAManager.Instance.MintToNFTStart("random role");
-                
-                MirrorSDK.MintNFT(GlobalDef.ParentCollectionDevNet,name,"MJNFT",PlayerPrefs.GetString("MintUrl"),Confirmation.Confirmed,
-                    PlayerPrefs.GetString("TokenId"),(result) =>
-                    {  
-                        
-                       
-                        if (result.status == "success")
-                        {   
-                            TAManager.Instance.MintToNft(result.data.name,0.1f);
-                            FinishedMint(true);
-                        }
-                        else
-                        {
-                            FinishedMint(false);
-                        }
-                   
-                    });
-                
-                
-                
+
+                DoMintNFT(name,()=> {
+                    MessageAdvice.OpenWaitPanel("Mint Now");
+                });
+
                 return;
             }
-            
-            
-            
-            MirrorSDK.TransferSol(100000000,"qS6JW1CKQgpwZU6jG5JpXL3Q4EDMoDD5DWacPEsNZoe",Confirmation.Confirmed, (result) =>
+
+            MirrorSDK.TransferSol(100000000,"qS6JW1CKQgpwZU6jG5JpXL3Q4EDMoDD5DWacPEsNZoe",Confirmation.Confirmed, null, (result) =>
                 {
                     if (result.status == "success")
                     {
-
                         PlayerPrefs.SetString("HasTransferSol", "true");
 
                         if (PlayerPrefs.GetString("TokenId", "empty") == "empty")
@@ -230,36 +211,17 @@ public class CallSDK : MonoBehaviour
                         }
                         string name = "Mirrors Jump " + "#" +PlayerPrefs.GetString("TokenId");
             
-                        if (ApiCallLimit.MintLimit() == false)
-                        {
-                            MessageAdvice.OpenWaitPanel("Mint Now");
-                            return;
-                        }
-            
-                        ApiCallLimit.SetMintApiLimit(Constant.ExecuteMint);
-            
-                        MessageAdvice.OpenWaitPanel("Mint Now");
-                        
                         TAManager.Instance.MintToNFTStart("random role");
-                 
-                        
-                        MirrorSDK.MintNFT(GlobalDef.ParentCollectionDevNet,name,"MJNFT",PlayerPrefs.GetString("MintUrl"),Confirmation.Confirmed,
-                            PlayerPrefs.GetString("TokenId"),(result) =>
-                            {   
-                                
-                                if (result.status == "success")
-                                {   
-                                    TAManager.Instance.MintToNft(result.data.name,0.1f);
-                                    FinishedMint(true);
-                                }
-                                else
-                                {
-                                    FinishedMint(false);
-                                }
-                   
-                            });
 
-                        
+                        DoMintNFT(name,()=> {
+                            if (ApiCallLimit.MintLimit() == false)
+                            {
+                                MessageAdvice.OpenWaitPanel("Mint Now");
+                                return;
+                            }
+
+                            ApiCallLimit.SetMintApiLimit(Constant.ExecuteMint);
+                        });
                     }
                     else
                     {
@@ -275,18 +237,30 @@ public class CallSDK : MonoBehaviour
                             MessageAdvice.ConfrimCloseWaitPanel();
                             MessageAdvice.OnFailure();
                         }
-                        
-                        
                     }
                 
                 });
                 
         }
-        
-        
-        
-        
     }
     
-    
+    private void DoMintNFT(string name,Action approveAction)
+    {
+        MirrorSDK.MintNFT(GlobalDef.ParentCollectionDevNet, name, "MJNFT", PlayerPrefs.GetString("MintUrl"), Confirmation.Confirmed,
+            PlayerPrefs.GetString("TokenId"),
+            approveAction,
+            (result) =>
+            {
+                if (result.status == "success")
+                {
+                    TAManager.Instance.MintToNft(result.data.name, 0.1f);
+                    FinishedMint(true);
+                }
+                else
+                {
+                    FinishedMint(false);
+                }
+
+            });
+    }
 }

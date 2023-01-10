@@ -56,23 +56,19 @@ namespace MirrorworldSDK.Wrapper
             }));
         }
 
-        public void TransferSol(ulong amout, string publicKey,string confirmation, Action<CommonResponse<TransferSolResponse>> callBack)
+        public void TransferSol(int amount, string publicKey,string confirmation, Action<CommonResponse<TransferSolResponse>> callBack)
         {
             string url = GetAPIRoot() + urlTransferSolToAnotherAddress;
 
             TransferSolRequest requestBody = new TransferSolRequest();
 
-            requestBody.amount = amout;
+            requestBody.amount = amount;
 
             requestBody.to_publickey = publicKey;
 
             requestBody.confirmation = confirmation;
-            
-            Debug.Log("Transfer sol request to Json start");
 
             var rawRequestBody = JsonUtility.ToJson(requestBody);
-            
-            Debug.Log("Transfer sol request to Json end");
 
             monoBehaviour.StartCoroutine(CheckAndPost(url, rawRequestBody, (response) => {
 

@@ -2,10 +2,8 @@
     using System.Collections.Generic;
     using UnityEngine;
 
-    public class ApiCallLimit:Singleton<ApiCallLimit>
+    public class ApiCallLimit
     {
-        
-        
         // limit SDK Api Call
 
         private static Dictionary<string, CallApiState> CallStates = new Dictionary<string, CallApiState>();
