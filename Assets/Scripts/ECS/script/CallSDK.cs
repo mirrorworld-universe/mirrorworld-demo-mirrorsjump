@@ -131,32 +131,18 @@ public class CallSDK : MonoBehaviour
         }
     }
     
-    private void  FinishedMint(bool IsSuccess)
+    private void FinishedMint(bool IsSuccess)
     {
+        PackageManager.ClosePackage();
+        MessageAdvice.ConfrimCloseWaitPanel();
 
         if (IsSuccess)
         {
-            // string name = null;
-            // string rarity = null;
-            // foreach (var item in NftCellData.DataParsingEntity.attribute)
-            // {
-            //     if (item.trait_type == "Rarity")
-            //     {
-            //         rarity = item.value;
-            //         
-            //     }else if (item.trait_type == "Type")
-            //     {
-            //         name = item.value;
-            //     }
-            // } 
-            //
-           // RoleChange.OnRoleChange(name,rarity);
-            
-            PlayerPrefs.SetString("HasMintRandom", "true");
-            
-            PlayerPrefs.SetString("HasMintNFT","true");
-            
-            MessageAdvice.ConfrimCloseWaitPanel();
+            //clear transfer sol result
+            PlayerCacheMgr.ClearTransferSOLResult();
+            //clear Mint apiCallLimit
+            PlayerCacheMgr.StopMinting();
+
             MessageAdvice.OnSuccess("Mint Successful!");
             PackageManager.RefreshPackage();
             UpdateMintStatusReq req = new UpdateMintStatusReq();
@@ -167,8 +153,10 @@ public class CallSDK : MonoBehaviour
             
         }
         else
-        {   
-            MessageAdvice.ConfrimCloseWaitPanel();
+        {
+            //clear Mint apiCallLimit
+            PlayerCacheMgr.StopMinting();
+
             MessageAdvice.OnFailure();
         }
         
@@ -182,7 +170,9 @@ public class CallSDK : MonoBehaviour
         
         if (LoginState.HasLogin)
         {
-            if ("true" == PlayerPrefs.GetString("HasTransferSol", "false"))
+            UserResponse user = MirrorSDK.GetWallet();
+            string walletAddress = user.wallet.sol_address;
+            if ("true" == PlayerPrefs.GetString("HasTransferSol" + walletAddress, "false"))
             {
                
                 if (PlayerPrefs.GetString("TokenId", "empty") == "empty")
@@ -203,7 +193,10 @@ public class CallSDK : MonoBehaviour
                 {
                     if (result.status == "success")
                     {
-                        PlayerPrefs.SetString("HasTransferSol", "true");
+                        UserResponse user = MirrorSDK.GetWallet();
+                        string walletAddress = user.wallet.sol_address;
+                        Debug.Log("MirrorSDK TransferSol finished, wallet is:" + walletAddress) ;
+                        PlayerPrefs.SetString("HasTransferSol" + walletAddress, "true");
 
                         if (PlayerPrefs.GetString("TokenId", "empty") == "empty")
                         {

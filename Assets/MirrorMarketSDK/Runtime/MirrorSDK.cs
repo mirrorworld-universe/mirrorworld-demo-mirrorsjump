@@ -115,7 +115,6 @@ public class MirrorSDK : MonoBehaviour
 
         MirrorWrapper.Instance.GetLoginSession(MirrorWrapper.Instance.debugEmail, (startSuccess) =>
         {
-
             MonoBehaviour monoBehaviour = MirrorWrapper.Instance.GetMonoBehaviour();
 
             GameObject dialogCanvas = ResourcesUtils.Instance.LoadPrefab("DialogCanvas", monoBehaviour.transform);
@@ -181,21 +180,11 @@ public class MirrorSDK : MonoBehaviour
         MirrorWrapper.Instance.Logout(logoutAction);
     }
 
-    public static void GetWallet(Action<UserResponse> callback)
+    public static UserResponse GetWallet()
     {
         UserResponse user = MirrorWrapper.Instance.GetCurrentUser();
-        if (user != null)
-        {
-            MirrorWrapper.Instance.LogFlow("Have old current user,use old data.");
-            callback(user);
-        }
-        else
-        {
-            MirrorWrapper.Instance.LogFlow("No old current user,try to get data.");
-            MirrorWrapper.Instance.GetCurrentUserInfo((response) => {
-                callback(response.data);
-            });
-        }
+        Debug.Log("MirrorSDK get wallet:"+user);
+        return user;
     }
 
     public static void GetAccessToken(Action<bool> action)
@@ -381,13 +370,17 @@ public class MirrorSDK : MonoBehaviour
         });
     }
 
-    public static void TransferNFT(string mint_address, string to_wallet_address, Action<CommonResponse<ListingResponse>> callBack)
+    public static void TransferNFT(string mint_address, string to_wallet_address,Action approveAction, Action<CommonResponse<ListingResponse>> callBack)
     {
         ApproveTransferNFT requestParams = new ApproveTransferNFT();
         requestParams.mint_address = mint_address;
         requestParams.to_wallet_address = to_wallet_address;
 
         MirrorWrapper.Instance.GetSecurityToken(MirrorSafeOptType.TransferNFT, "transfer nft", requestParams, () => {
+            if (approveAction != null)
+            {
+                approveAction();
+            }
             MirrorWrapper.Instance.TransferNFT(mint_address, to_wallet_address, callBack);
         });
     }

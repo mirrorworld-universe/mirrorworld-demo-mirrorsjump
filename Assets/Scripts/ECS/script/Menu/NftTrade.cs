@@ -579,13 +579,17 @@ public class NftTrade : MonoBehaviour
         callApiState.MintAddress = CurrentNftCellData.NftData.mintAddress;
         callApiState.name = CurrentNftCellData.NftData.name;
         callApiState.State = CallState.Transfer;
-        ApiCallLimit.AddItemState(callApiState.MintAddress,callApiState);
-        
-        MessageAdvice.OpenWaitPanel("Transfer now");
         
         // Debug.Log("Transfer_MintAddress:"+CurrentNftCellData.NftData.mintAddress);
         // Debug.Log("Transfer_toAddress:"+address);
-        MirrorSDK.TransferNFT(CurrentNftCellData.NftData.mintAddress,address,(result) =>
+        MirrorSDK.TransferNFT(CurrentNftCellData.NftData.mintAddress,address,
+            () =>
+            {
+                ApiCallLimit.AddItemState(callApiState.MintAddress, callApiState);
+
+                MessageAdvice.OpenWaitPanel("Transfer now");
+            },
+            (result) =>
         {
             
            ResultAdvice(result);

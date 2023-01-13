@@ -197,7 +197,6 @@ public class MessageAdvice : MonoBehaviour
    {
        IsWaiting = false;
        WaitPanel.SetActive(false);
-       
    }
 
 

@@ -95,8 +95,4 @@
             PlayerPrefs.SetInt("IsExecuteMint", isExecuteMint);
         }
         
-        
-        
-        
-        
     }
