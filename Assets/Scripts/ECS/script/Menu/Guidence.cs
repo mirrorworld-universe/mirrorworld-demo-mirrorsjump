@@ -64,8 +64,7 @@ public class Guidence : MonoBehaviour
     {
         SoundManager.Instance.PlaySound(SoundName.Button);
         FinishGuidence.SetActive(false);
-        PlayerPrefs.SetString("HasGuidence", "true");
-
+        PlayerCacheMgr.FinishGuild();
     }
 
 

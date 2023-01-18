@@ -495,7 +495,7 @@ public class UIManager : MonoBehaviour
         if (userInfoData.airdrop_sol)
         {
             PlayerPrefs.SetString("HasReceiveToken", "true");
-            PlayerPrefs.SetString("HasGuidence", "true");
+            PlayerCacheMgr.FinishGuild();
         }
         
         TAManager.Instance.AccountLogin(LoginState.WalletAddress);
@@ -547,7 +547,7 @@ public class UIManager : MonoBehaviour
 
     public void OpenWallet()
     {
-        Debug.Log("Wallet is:"+MirrorSDK.GetWallet().wallet.sol_address);
+        Debug.Log("Wallet is:"+MirrorSDK.GetWallet());
         SoundManager.Instance.PlaySound(SoundName.Button);
         TAManager.Instance.OpenWallet();
         Debug.Log("MirrorSDK.OpenWalletPage on call");

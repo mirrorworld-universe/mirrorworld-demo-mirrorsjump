@@ -144,7 +144,7 @@ public class CallSDK : MonoBehaviour
             PlayerCacheMgr.StopMinting();
 
             MessageAdvice.OnSuccess("Mint Successful!");
-            PackageManager.RefreshPackage();
+            //PackageManager.RefreshPackage();
             UpdateMintStatusReq req = new UpdateMintStatusReq();
             req.user_id = LoginState.WalletAddress;
             req.token_id = LoginState.mintableRoleData.token_id;
@@ -170,70 +170,18 @@ public class CallSDK : MonoBehaviour
         
         if (LoginState.HasLogin)
         {
-            UserResponse user = MirrorSDK.GetWallet();
-            string walletAddress = user.wallet.sol_address;
-            if ("true" == PlayerPrefs.GetString("HasTransferSol" + walletAddress, "false"))
+            if (PlayerPrefs.GetString("TokenId", "empty") == "empty")
             {
-               
-                if (PlayerPrefs.GetString("TokenId", "empty") == "empty")
-                {
-                    return;
-                } 
-                string name = "Mirrors Jump " + "#" +PlayerPrefs.GetString("TokenId");
-                TAManager.Instance.MintToNFTStart("random role");
-
-                DoMintNFT(name,()=> {
-                    MessageAdvice.OpenWaitPanel("Mint Now");
-                });
-
                 return;
             }
+            string name = "Mirrors Jump " + "#" + PlayerPrefs.GetString("TokenId");
+            TAManager.Instance.MintToNFTStart("random role");
 
-            MirrorSDK.TransferSol(100000000,"qS6JW1CKQgpwZU6jG5JpXL3Q4EDMoDD5DWacPEsNZoe",Confirmation.Confirmed, null, (result) =>
-                {
-                    if (result.status == "success")
-                    {
-                        UserResponse user = MirrorSDK.GetWallet();
-                        string walletAddress = user.wallet.sol_address;
-                        Debug.Log("MirrorSDK TransferSol finished, wallet is:" + walletAddress) ;
-                        PlayerPrefs.SetString("HasTransferSol" + walletAddress, "true");
+            DoMintNFT(name, () => {
+                MessageAdvice.OpenWaitPanel("Mint Now");
+            });
 
-                        if (PlayerPrefs.GetString("TokenId", "empty") == "empty")
-                        {
-                            return;
-                        }
-                        string name = "Mirrors Jump " + "#" +PlayerPrefs.GetString("TokenId");
-            
-                        TAManager.Instance.MintToNFTStart("random role");
-
-                        DoMintNFT(name,()=> {
-                            if (ApiCallLimit.MintLimit() == false)
-                            {
-                                MessageAdvice.OpenWaitPanel("Mint Now");
-                                return;
-                            }
-
-                            ApiCallLimit.SetMintApiLimit(Constant.ExecuteMint);
-                        });
-                    }
-                    else
-                    {
-                        //FinishedMint(false);
-                        if (result.message == Constant.NotSufficientFunds)
-                        {
-                            // 余额不足
-                            MessageAdvice.ConfrimCloseWaitPanel();
-                            MessageAdvice.OnSufficientAdvice();
-                        }
-                        else
-                        {
-                            MessageAdvice.ConfrimCloseWaitPanel();
-                            MessageAdvice.OnFailure();
-                        }
-                    }
-                
-                });
-                
+            return;
         }
     }
     
@@ -241,6 +189,8 @@ public class CallSDK : MonoBehaviour
     {
         MirrorSDK.MintNFT(GlobalDef.ParentCollectionDevNet, name, "MJNFT", PlayerPrefs.GetString("MintUrl"), Confirmation.Confirmed,
             PlayerPrefs.GetString("TokenId"),
+            "qS6JW1CKQgpwZU6jG5JpXL3Q4EDMoDD5DWacPEsNZoe",
+            0.1,
             approveAction,
             (result) =>
             {

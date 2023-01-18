@@ -49,7 +49,7 @@ public class ThemeManager : MonoBehaviour
     public void ToLeftTheme()
     {
         SoundManager.Instance.PlaySound(SoundName.Button);
-        if ("false" == PlayerPrefs.GetString("HasGuidence", "false"))
+        if (PlayerCacheMgr.IsGuildFinish())
         {
             return;
         }
@@ -71,7 +71,7 @@ public class ThemeManager : MonoBehaviour
     {
         SoundManager.Instance.PlaySound(SoundName.Button);
         
-        if ("false" == PlayerPrefs.GetString("HasGuidence", "false"))
+        if (PlayerCacheMgr.IsGuildFinish())
         {
             return;
         }

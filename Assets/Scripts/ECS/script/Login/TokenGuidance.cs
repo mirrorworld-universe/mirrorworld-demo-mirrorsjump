@@ -38,11 +38,9 @@ public class TokenGuidance : MonoBehaviour
 
     private void Start()
     {
-        
         if (PlayerPrefs.GetString("IsTestEnvironment","true") == "false")
         {
-        
-            if ("false" == PlayerPrefs.GetString("HasGuidence", "false"))
+            if (PlayerCacheMgr.IsGuildFinish())
             {
                 Guidence.OnFirstStep();
             }
@@ -53,7 +51,7 @@ public class TokenGuidance : MonoBehaviour
         if (!GlobalDef.HasTokenGuidence)
         {
         
-            if ("false" == PlayerPrefs.GetString("HasGuidence", "false"))
+            if (PlayerCacheMgr.IsGuildFinish())
             {
                 Guidence.OnFirstStep();
             }
@@ -71,7 +69,7 @@ public class TokenGuidance : MonoBehaviour
         }
         else
         {
-            if ("false" == PlayerPrefs.GetString("HasGuidence", "false"))
+            if (PlayerCacheMgr.IsGuildFinish())
             {
                 Guidence.OnFirstStep();
             }
@@ -258,7 +256,7 @@ public class TokenGuidance : MonoBehaviour
         FinishGuidence.SetActive(false);
         Back.SetActive(false);
 
-        if ("false" == PlayerPrefs.GetString("HasGuidence", "false"))
+        if (PlayerCacheMgr.IsGuildFinish())
         {
             Guidence.OnFirstStep();
         }

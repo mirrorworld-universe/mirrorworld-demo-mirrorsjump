@@ -72,7 +72,7 @@ public class NftTrade : MonoBehaviour
 
             if (SellPrice.text.Length > 8)
             {
-                string str1=SellPrice.text.Substring(0,8);
+                string str1 = SellPrice.text.Substring(0,8);
                 SellPrice.text = str1;
                 
             }else if (SellPrice.text.Length == 8)
@@ -117,17 +117,11 @@ public class NftTrade : MonoBehaviour
                 SellMask.SetActive(true);
               
             }
-            
-            
-            
-          
         }
 
 
         if (ManageRoot.activeSelf)
         {   
-            
-            
             if (NewPrice.text.Length > 8)
             {
                 string str1=NewPrice.text.Substring(0,8);
@@ -172,10 +166,6 @@ public class NftTrade : MonoBehaviour
                 UpdateConfirmButton.interactable = false;
                 UpdateMask.SetActive(true);
             }
-            
-            
-         
-            
         }
 
         if (TransferRoot.activeSelf)
@@ -196,10 +186,6 @@ public class NftTrade : MonoBehaviour
             }
             
         }
-        
-        
-        
-        
     }
     
     private string CalculatePrice(float price)

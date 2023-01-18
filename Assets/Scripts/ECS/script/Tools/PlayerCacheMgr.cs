@@ -24,17 +24,27 @@ public class PlayerCacheMgr
 
     public static void TransferSOLSuccess()
     {
-        UserResponse user = MirrorSDK.GetWallet();
-        string walletAddress = user.wallet.sol_address;
+        string walletAddress = MirrorSDK.GetWallet();
         Debug.Log("MirrorSDK TransferSol finished, wallet is:" + walletAddress);
         PlayerPrefs.SetString("HasTransferSol" + walletAddress, "true");
     }
 
     public static void ClearTransferSOLResult()
     {
-        UserResponse user = MirrorSDK.GetWallet();
-        string walletAddress = user.wallet.sol_address;
+        string walletAddress = MirrorSDK.GetWallet();
         Debug.Log("MirrorSDK TransferSol finished, wallet is:" + walletAddress);
         PlayerPrefs.SetString("HasTransferSol" + walletAddress, "false");
+    }
+
+    public static void FinishGuild()
+    {
+        Debug.Log("Guild:FinishGuild"+ MirrorSDK.GetWallet());
+        PlayerPrefs.SetString("HasGuidence" + MirrorSDK.GetWallet(), "true");
+    }
+
+    public static bool IsGuildFinish()
+    {
+        Debug.Log("Guild:IsGuildFinish" + MirrorSDK.GetWallet());
+        return "false" == PlayerPrefs.GetString("HasGuidence" + MirrorSDK.GetWallet(), "false");
     }
 }

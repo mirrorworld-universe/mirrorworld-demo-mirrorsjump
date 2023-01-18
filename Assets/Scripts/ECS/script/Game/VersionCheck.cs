@@ -123,79 +123,69 @@ public class VersionCheck : MonoBehaviour
    
        private IEnumerator Get(string path)
        {
-   #if UNITY_IPHONE || UNITY_STANDALONE_OSX
+#if UNITY_IPHONE || UNITY_STANDALONE_OSX
            // ios和mac系统在场景初始化后离开发送http请求会耗时过长，所以加个延迟
            yield return new WaitForSeconds(0.8f);
-   #endif
-           using (UnityWebRequest request = UnityWebRequest.Get(path))
-           {
-               yield return request.SendWebRequest();
-   
-               versionCheckPanel.SetActive(false);
-               var result = request.result;
-   
-               if(request.result == UnityWebRequest.Result.Success)
-               {   
-                   
-                   Debug.Log("VersionText  "+request.downloadHandler.text);
-                   var data = JsonConvert.DeserializeObject<VersionData>(request.downloadHandler.text);
-                   versionData = data;
-   
-                   if (data.stop)
-                   {
-                       var currentVersionList = SplitVersion(GlobalDef.GetCurrentVersion());
-                       var newestVersionList = SplitVersion(data.version);
-                       
-                       if(!IsLower(newestVersionList, currentVersionList))
-                       {
-                           dialog.displayMessage("Service Update", data.desc);
-                           dialog.EnableConfirmButton("Exit");
-                       }
-                       else
-                       {
-                           // todo Start Auto Login
-                           UIManager.AutoLogin();    
-                       }
-                       
-                       
-                   }
-                   else
-                   {
-                       // 显示游客登陆时候，通知
-                   if (NeedForceUpdate(data))
-                   {
-                       // 显示强制更新窗口
-                       needForceUpdate = true; 
-                       dialog.displayMessage("Update", data.desc);
-                       dialog.EnableConfirmButton("Download");
-                   }
-                   else if (HasNewVersion(data))
-                   {
-                     
-                            needForceUpdate = false;
-                            dialog.displayMessage("Update", data.desc);
-                            dialog.EnableConfirmButton("Download");
-                            dialog.EnableCancelButton();
-                       
-                   }
+#endif
+       using (UnityWebRequest request = UnityWebRequest.Get(path))
+        {
+            yield return request.SendWebRequest();
 
+            versionCheckPanel.SetActive(false);
+            var result = request.result;
 
-                   if (!NeedForceUpdate(data) && !HasNewVersion(data))
-                   {
-                       // todo Start Auto Login
-                       UIManager.AutoLogin();
-                   }
-                   }
-               }
-               else
-               {
-                   
-               }
-               
-               
-               
-           }
-       }
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+
+                Debug.Log("VersionText  " + request.downloadHandler.text);
+                var data = JsonConvert.DeserializeObject<VersionData>(request.downloadHandler.text);
+                versionData = data;
+
+                if (data.stop)
+                {
+                    var currentVersionList = SplitVersion(GlobalDef.GetCurrentVersion());
+                    var newestVersionList = SplitVersion(data.version);
+
+                    if (!IsLower(newestVersionList, currentVersionList))
+                    {
+                        dialog.displayMessage("Service Update", data.desc);
+                        dialog.EnableConfirmButton("Exit");
+                    }
+                    else
+                    {
+                        UIManager.AutoLogin();
+                    }
+                }
+                else
+                {
+                    // 显示游客登陆时候，通知
+                    if (NeedForceUpdate(data))
+                    {
+                        // 显示强制更新窗口
+                        needForceUpdate = true;
+                        dialog.displayMessage("Update", data.desc);
+                        dialog.EnableConfirmButton("Download");
+                    }
+                    else if (HasNewVersion(data))
+                    {
+                        needForceUpdate = false;
+                        dialog.displayMessage("Update", data.desc);
+                        dialog.EnableConfirmButton("Download");
+                        dialog.EnableCancelButton();
+                    }
+
+                    if (!NeedForceUpdate(data) && !HasNewVersion(data))
+                    {
+                        UIManager.AutoLogin();
+                    }
+                }
+            }
+            else
+            {
+
+            }
+        }
+    }
    
      
    
