@@ -26,6 +26,7 @@ public class MirrorSDK : MonoBehaviour
 
     private void Awake()
     {
+        PlayerPrefs.DeleteAll();
         if (apiKey == "" || apiKey == "your api key")
         {
             MirrorWrapper.Instance.LogFlow("Please input an api key");
@@ -49,7 +50,7 @@ public class MirrorSDK : MonoBehaviour
         Debug.Log("env:"+ environment);
 
         //Test
-        environment = MirrorEnv.StagingDevNet;
+        //environment = MirrorEnv.StagingDevNet;
 
         if (environment == MirrorEnv.StagingDevNet || environment == MirrorEnv.StagingMainNet)
         {
@@ -446,12 +447,12 @@ public class MirrorSDK : MonoBehaviour
     #endregion
 
     #region Confirmation
-    public static void GetStatusOfTransactions(List<string> signatures, Action<CommonResponse<GetStatusOfTransactionsResponse>> callBack)
+    public static void CheckStatusOfTransactions(List<string> signatures, Action<CommonResponse<GetStatusOfTransactionsResponse>> callBack)
     {
         MirrorWrapper.Instance.GetStatusOfTransactions(signatures,callBack);
     }
 
-    public static void GetStatusOfMintings(List<string> mintAddresses, Action<CommonResponse<GetStatusOfTransactionsResponse>> callBack)
+    public static void CheckStatusOfMinting(List<string> mintAddresses, Action<CommonResponse<GetStatusOfTransactionsResponse>> callBack)
     {
         MirrorWrapper.Instance.GetStatusOfMintings(mintAddresses,callBack);
     }

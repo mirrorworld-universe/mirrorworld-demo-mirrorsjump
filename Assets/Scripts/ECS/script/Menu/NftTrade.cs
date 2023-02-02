@@ -436,7 +436,7 @@ public class NftTrade : MonoBehaviour
         
         Debug.Log("MirrorSDK Start Listing:"+CurrentNftCellData.NftData.mintAddress+ " price:"+ price);
 
-        MirrorSDK.ListNFT(CurrentNftCellData.NftData.mintAddress,price, GlobalDef.devnetMarketAuctionHouse, Confirmation.Finalized,
+        MirrorSDK.ListNFT(CurrentNftCellData.NftData.mintAddress,price, GlobalDef.marketAuctionHouse, Confirmation.Finalized,
             () =>
             {
                 MessageAdvice.OpenWaitPanel("Listing Now");
@@ -480,7 +480,7 @@ public class NftTrade : MonoBehaviour
             
             TAManager.Instance.ChangeListPriceStart(CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count - 1].price,CurrentNftCellData.NftData.name);
 
-            MirrorSDK.UpdateNFTListing(CurrentNftCellData.NftData.mintAddress, price, GlobalDef.devnetMarketAuctionHouse, Confirmation.Finalized,
+            MirrorSDK.UpdateNFTListing(CurrentNftCellData.NftData.mintAddress, price, GlobalDef.marketAuctionHouse, Confirmation.Finalized,
                 () =>
                 {
                     MessageAdvice.OpenWaitPanel("Changing New Price Now");
@@ -525,7 +525,7 @@ public class NftTrade : MonoBehaviour
             
             TAManager.Instance.CancelListStart(CurrentNftCellData.NftData.name);
             
-            MirrorSDK.CancelNFTListing(CurrentNftCellData.NftData.mintAddress,CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count-1].price, GlobalDef.devnetMarketAuctionHouse, Confirmation.Finalized,
+            MirrorSDK.CancelNFTListing(CurrentNftCellData.NftData.mintAddress,CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count-1].price, GlobalDef.marketAuctionHouse, Confirmation.Finalized,
                 () =>
                 {
                     MessageAdvice.OpenWaitPanel("Canceling List Now");
