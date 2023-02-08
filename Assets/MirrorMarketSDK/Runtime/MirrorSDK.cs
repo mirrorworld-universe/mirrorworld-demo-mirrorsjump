@@ -26,7 +26,6 @@ public class MirrorSDK : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.DeleteAll();
         if (apiKey == "" || apiKey == "your api key")
         {
             MirrorWrapper.Instance.LogFlow("Please input an api key");

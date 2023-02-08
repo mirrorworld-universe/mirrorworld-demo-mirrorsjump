@@ -24,10 +24,7 @@ public class Guidence : MonoBehaviour
         {
             FirstStep.SetActive(true);
         }
-      
     }
-
-
 
     public void OnSecondStep()
     {
