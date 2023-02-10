@@ -6,7 +6,7 @@ namespace MirrorworldSDK
         public static readonly string AuthRootProduction = "https://auth.mirrorworld.fun/";
         public static readonly string UserRootProduction = "https://api.mirrorworld.fun/v1/";
         public static string ApiRootProduction = "https://api.mirrorworld.fun/v1/mainnet/";
-        public static string MarketRootProduction = "https://jump-devnet.mirrorworld.fun";
+        public static string MarketRootProduction = "https://jump.mirrorworld.fun";
         public static string urlDebugLoginUrlPreProductionMain = "https://auth.mirrorworld.fun/login?session=";
 
         //production devnet

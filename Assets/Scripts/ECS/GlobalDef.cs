@@ -98,14 +98,11 @@ public class GlobalDef
     // Global  Parent Collection  &  Action House
     //MainNet
     public static string marketAuctionHouse = "6gysn49dh2tfwbqvLqWpJNwisjkZCJoX3AyjuyFUn89C";
-
     //MainetCollection
     public static string ParentCollectionMainNet = "7Vv68CarFpqn291aTeeUz65Uxk1tp8X7gfR8CDMZo2gw";
     //DevnetCollection
     public static string ParentCollectionDevNet = "DUuMbpmH3oiREntViXfGZhrLMbVcYBwGeBa4Wn9X8QfM";
-
     public static bool IsMainNet = true;
-
     // market 路径标识枚举
     public static MirrorEnv Env = MirrorEnv.ProductionMainnet;
 
@@ -117,14 +114,11 @@ public class GlobalDef
     //public static string marketAuctionHouse = "AiEqGqMDMa7G6sDF484pqfgsxRGuCcjgxv43MxoiVCsz";
     ////MainNet
     ////public static string marketAuctionHouse = "6gysn49dh2tfwbqvLqWpJNwisjkZCJoX3AyjuyFUn89C";
-
     ////MainetCollection
     //public static string ParentCollectionMainNet = "7Vv68CarFpqn291aTeeUz65Uxk1tp8X7gfR8CDMZo2gw";
     ////DevnetCollection
     //public static string ParentCollectionDevNet = "DUuMbpmH3oiREntViXfGZhrLMbVcYBwGeBa4Wn9X8QfM";
-
     //public static bool IsMainNet = false;
-
     ////market 路径标识枚举
     //public static MirrorEnv Env = MirrorEnv.StagingDevNet;
 }
