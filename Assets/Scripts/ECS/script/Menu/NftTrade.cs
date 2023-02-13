@@ -421,11 +421,11 @@ public class NftTrade : MonoBehaviour
 
         float price = float.Parse(SellPrice.text);
 
-        if (ApiCallLimit.CallTradeLimit(CurrentNftCellData.NftData.mintAddress) == false)
-        {
-            MessageAdvice.OpenWaitPanel("Listing Now");
-            return;
-        }
+        //if (ApiCallLimit.CallTradeLimit(CurrentNftCellData.NftData.mintAddress) == false)
+        //{
+        //    MessageAdvice.OpenWaitPanel("Listing Now");
+        //    return;
+        //}
 
         CallApiState callApiState = new CallApiState();
         callApiState.MintAddress = CurrentNftCellData.NftData.mintAddress;
@@ -466,11 +466,11 @@ public class NftTrade : MonoBehaviour
 
             float price = float.Parse(NewPrice.text);
             
-            if (ApiCallLimit.CallTradeLimit(CurrentNftCellData.NftData.mintAddress) == false)
-            {
-                MessageAdvice.OpenWaitPanel("Changing New Price Now");
-                return;
-            }
+            //if (ApiCallLimit.CallTradeLimit(CurrentNftCellData.NftData.mintAddress) == false)
+            //{
+            //    MessageAdvice.OpenWaitPanel("Changing New Price Now");
+            //    return;
+            //}
 
 
             CallApiState callApiState = new CallApiState();
@@ -512,11 +512,11 @@ public class NftTrade : MonoBehaviour
 
         if (null != CurrentNftCellData)
         {   
-            if (ApiCallLimit.CallTradeLimit(CurrentNftCellData.NftData.mintAddress) == false)
-            {
-                MessageAdvice.OpenWaitPanel("Canceling List Now");
-                return;
-            }
+            //if (ApiCallLimit.CallTradeLimit(CurrentNftCellData.NftData.mintAddress) == false)
+            //{
+            //    MessageAdvice.OpenWaitPanel("Canceling List Now");
+            //    return;
+            //}
 
             CallApiState callApiState = new CallApiState();
             callApiState.MintAddress = CurrentNftCellData.NftData.mintAddress;
@@ -554,11 +554,11 @@ public class NftTrade : MonoBehaviour
         
         string address = Address.text.ToString();
         
-        if (ApiCallLimit.CallTradeLimit(CurrentNftCellData.NftData.mintAddress) == false)
-        {
-            MessageAdvice.OpenWaitPanel("Transfer now");
-            return;
-        }
+        //if (ApiCallLimit.CallTradeLimit(CurrentNftCellData.NftData.mintAddress) == false)
+        //{
+        //    MessageAdvice.OpenWaitPanel("Transfer now");
+        //    return;
+        //}
        
 
         CallApiState callApiState = new CallApiState();

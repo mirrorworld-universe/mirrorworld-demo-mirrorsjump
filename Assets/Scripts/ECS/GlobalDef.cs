@@ -102,6 +102,7 @@ public class GlobalDef
     public static string ParentCollectionMainNet = "7Vv68CarFpqn291aTeeUz65Uxk1tp8X7gfR8CDMZo2gw";
     //DevnetCollection
     public static string ParentCollectionDevNet = "DUuMbpmH3oiREntViXfGZhrLMbVcYBwGeBa4Wn9X8QfM";
+    public static string UserCollection = ParentCollectionMainNet;
     public static bool IsMainNet = true;
     // market 路径标识枚举
     public static MirrorEnv Env = MirrorEnv.ProductionMainnet;

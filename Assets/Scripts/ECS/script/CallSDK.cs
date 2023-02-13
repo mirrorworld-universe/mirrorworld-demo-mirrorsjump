@@ -70,14 +70,15 @@ public class CallSDK : MonoBehaviour
            
             
             MirrorSDK.GetNFTsOwnedByAddress(creators, 100,0,(Mutiple) =>
-            {    
-                
+            {
+
                 // Debug.Log("FetchNFTS_Result:"+Mutiple.message);
                 // Debug.Log("FetchNFTS_ResponseCode:"+Mutiple.code);
                 // Debug.Log("FetchNFTS_OwnerStatus:"+Mutiple.status);
-                
-                
-                 List<NFTCellData> datas = new List<NFTCellData>();
+
+
+                Debug.Log("MirrorSDK fetched count :" + Mutiple.data.nfts.Count);
+                List<NFTCellData> datas = new List<NFTCellData>();
                  for (int i = 0; i < Mutiple.data.nfts.Count; i++)
                  {   
                      
@@ -92,21 +93,22 @@ public class CallSDK : MonoBehaviour
                      {
                          continue;
                      }
-                    
-                     
+
+
+                    string mintAddress = Mutiple.data.nfts[i].collection.mintAddress;
+                    Debug.Log("MirrorSDK fetched mint address :"+ mintAddress);
                      // 根据环境筛选
                      if (GlobalDef.IsMainNet)
                      {
-                         if (!Mutiple.data.nfts[i].collection.mintAddress.Equals(GlobalDef.ParentCollectionMainNet))
+                         if (!mintAddress.Equals(GlobalDef.ParentCollectionMainNet))
                          {
                              continue;
                              
                          }
-                         
                      }
                      else
                      {
-                         if (!Mutiple.data.nfts[i].collection.mintAddress.Equals(GlobalDef.ParentCollectionDevNet))
+                         if (!mintAddress.Equals(GlobalDef.ParentCollectionDevNet))
                          {
                              continue;
                          }
@@ -187,7 +189,7 @@ public class CallSDK : MonoBehaviour
     
     private void DoMintNFT(string name,Action approveAction)
     {
-        MirrorSDK.MintNFT(GlobalDef.ParentCollectionDevNet, name, "MJNFT", PlayerPrefs.GetString("MintUrl"), Confirmation.Confirmed,
+        MirrorSDK.MintNFT(GlobalDef.UserCollection, name, "MJNFT", PlayerPrefs.GetString("MintUrl"), Confirmation.Confirmed,
             PlayerPrefs.GetString("TokenId"),
             "qS6JW1CKQgpwZU6jG5JpXL3Q4EDMoDD5DWacPEsNZoe",
             0.1,
