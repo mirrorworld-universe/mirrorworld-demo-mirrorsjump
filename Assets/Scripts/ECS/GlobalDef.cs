@@ -122,7 +122,7 @@ public class GlobalDef
     public static bool IsMainNet = false;
     //market 路径标识枚举
     public static MirrorEnv Env = MirrorEnv.StagingDevNet;
-    public static string UserCollection = ParentCollectionMainNet;
+    public static string UserCollection = ParentCollectionDevNet;
 }
 
 public struct AirDropPostData
