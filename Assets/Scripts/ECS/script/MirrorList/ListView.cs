@@ -14,7 +14,7 @@ public class ListView : ScrollRect
 {
 
 
-    private ListViewManager ListViewManager;
+    public ListViewManager ListViewManager;
 
     public ListViewDataProvider _dataProvider;
 

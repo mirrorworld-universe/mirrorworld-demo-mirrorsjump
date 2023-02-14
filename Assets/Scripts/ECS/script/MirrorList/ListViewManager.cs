@@ -72,7 +72,7 @@ public class ListViewManager
         SetTopLeftAnchor(_content);
         CalculateContentSize();
         _itemPool.Clear();
-        InitItemPool();
+        //InitItemPool();
         CurrentPage = 1;
         OnMeasureSinglePage(CurrentPage);
     }
@@ -281,6 +281,17 @@ public class ListViewManager
         tran.SetParent(_content, false);
         return tran;
 
+    }
+
+    public void ClearContentNodes()
+    {
+        if (_content.childCount > 0)
+        {
+            for (int i = 0; i < _content.childCount; i++)
+            {
+                GameObject.Destroy(_content.GetChild(i).gameObject);
+            }
+        }
     }
 
     public void ToLeftPage()

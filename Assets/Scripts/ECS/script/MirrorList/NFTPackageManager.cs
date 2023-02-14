@@ -58,12 +58,14 @@ public class NFTPackageManager : MonoBehaviour
     }
 
 
-    public void RefreshData( List<NFTCellData> datas)
+    public void RefreshData(List<NFTCellData> datas)
     {
 
         ListViewDataProvider.NFTListView.SetDataProvider(ListViewDataProvider);
         ListViewDataProvider.DataSource.Clear();
-        
+        ListViewDataProvider.NFTListView.ListViewManager.ClearContentNodes();
+
+
         if (null != datas && datas.Count > 0)
         {
            ListViewDataProvider.DataSource.AddRange(datas);

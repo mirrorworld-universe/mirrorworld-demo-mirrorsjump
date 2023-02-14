@@ -94,35 +94,37 @@ public class GlobalDef
 
     public static bool IsShowPackage;
 
-    ////Main!!!
-    //// Global  Parent Collection  &  Action House
-    ////MainNet
-    //public static string marketAuctionHouse = "6gysn49dh2tfwbqvLqWpJNwisjkZCJoX3AyjuyFUn89C";
-    ////MainetCollection
-    //public static string ParentCollectionMainNet = "7Vv68CarFpqn291aTeeUz65Uxk1tp8X7gfR8CDMZo2gw";
-    ////DevnetCollection
-    //public static string ParentCollectionDevNet = "DUuMbpmH3oiREntViXfGZhrLMbVcYBwGeBa4Wn9X8QfM";
-    //public static string UserCollection = ParentCollectionMainNet;
-    //public static bool IsMainNet = true;
-    //// market 路径标识枚举
-    //public static MirrorEnv Env = MirrorEnv.ProductionMainnet;
-
-
-
-    //Dev!!!
-    // Global Parent Collection  &  Action House
-    //DevNet
-    public static string marketAuctionHouse = "AiEqGqMDMa7G6sDF484pqfgsxRGuCcjgxv43MxoiVCsz";
+    //Main!!!
+    // Global  Parent Collection  &  Action House
     //MainNet
-    //public static string marketAuctionHouse = "6gysn49dh2tfwbqvLqWpJNwisjkZCJoX3AyjuyFUn89C";
+    public static string marketAuctionHouse = "6gysn49dh2tfwbqvLqWpJNwisjkZCJoX3AyjuyFUn89C";
     //MainetCollection
     public static string ParentCollectionMainNet = "7Vv68CarFpqn291aTeeUz65Uxk1tp8X7gfR8CDMZo2gw";
     //DevnetCollection
     public static string ParentCollectionDevNet = "DUuMbpmH3oiREntViXfGZhrLMbVcYBwGeBa4Wn9X8QfM";
-    public static bool IsMainNet = false;
-    //market 路径标识枚举
-    public static MirrorEnv Env = MirrorEnv.StagingDevNet;
-    public static string UserCollection = ParentCollectionDevNet;
+    public static string UserCollection = ParentCollectionMainNet;
+    public static bool IsMainNet = true;
+    // market 路径标识枚举
+    public static MirrorEnv Env = MirrorEnv.ProductionMainnet;
+    //出了这个还有MirrorSDK的手动指定环境，Unity面板上的环境和APIKey
+
+
+
+    ////Dev!!!
+    //// Global Parent Collection  &  Action House
+    ////DevNet
+    //public static string marketAuctionHouse = "AiEqGqMDMa7G6sDF484pqfgsxRGuCcjgxv43MxoiVCsz";
+    ////MainNet
+    ////public static string marketAuctionHouse = "6gysn49dh2tfwbqvLqWpJNwisjkZCJoX3AyjuyFUn89C";
+    ////MainetCollection
+    //public static string ParentCollectionMainNet = "7Vv68CarFpqn291aTeeUz65Uxk1tp8X7gfR8CDMZo2gw";
+    ////DevnetCollection
+    //public static string ParentCollectionDevNet = "DUuMbpmH3oiREntViXfGZhrLMbVcYBwGeBa4Wn9X8QfM";
+    //public static bool IsMainNet = false;
+    ////market 路径标识枚举
+    //public static MirrorEnv Env = MirrorEnv.StagingDevNet;
+    //public static string UserCollection = ParentCollectionDevNet;
+    ////除了这个还有MirrorSDK的手动指定环境，Unity面板上的环境和APIKey
 }
 
 public struct AirDropPostData

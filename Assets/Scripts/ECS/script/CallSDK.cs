@@ -81,8 +81,6 @@ public class CallSDK : MonoBehaviour
                 List<NFTCellData> datas = new List<NFTCellData>();
                  for (int i = 0; i < Mutiple.data.nfts.Count; i++)
                  {   
-                     
-                     
                      // 空地址排除
                      if (Mutiple.data.nfts[i].collection == null)
                      {
