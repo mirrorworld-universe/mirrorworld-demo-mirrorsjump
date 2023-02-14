@@ -450,7 +450,7 @@ public class NftTrade : MonoBehaviour
                     TAManager.Instance.ListNft(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),float.Parse(result.data.price),true);
                 }
 
-                ResultAdvice(result);
+                ResultAdvice("Listing  ",result);
             }
         );
         
@@ -494,7 +494,7 @@ public class NftTrade : MonoBehaviour
                         TAManager.Instance.ChangeListPrice(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),float.Parse(result.data.price));
                     }
 
-                    ResultAdvice(result);
+                    ResultAdvice("Changing New Price  ", result);
 
                 }
             );
@@ -538,8 +538,8 @@ public class NftTrade : MonoBehaviour
                     {
                         TAManager.Instance.CancelList(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),float.Parse(result.data.price));
                     }
-                      ResultAdvice(result);
-                  
+
+                    ResultAdvice("Canceling List  ", result);
                 }
             );
         }
@@ -578,7 +578,7 @@ public class NftTrade : MonoBehaviour
             (result) =>
         {
             
-           ResultAdvice(result);
+           ResultAdvice("Transfer  ", result);
            
         });
         
@@ -586,7 +586,7 @@ public class NftTrade : MonoBehaviour
     }
 
 
-    private void ResultAdvice(CommonResponse<ListingResponse> result)
+    private void ResultAdvice(string message, CommonResponse<ListingResponse> result)
     {
         if (result.status == "success")
         {   
@@ -598,7 +598,7 @@ public class NftTrade : MonoBehaviour
                     
             if (null != callApiStateResult && null != callApiStateResult.name)
             {
-                MessageAdvice.OnSuccess(ApiCallLimit.GetStateByAddress(mintAddress) +"Successfully!");
+                MessageAdvice.OnSuccess(message + "Successfully!");//ApiCallLimit.GetStateByAddress(mintAddress)
             }
             else
             {

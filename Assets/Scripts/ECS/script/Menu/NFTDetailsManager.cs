@@ -66,8 +66,10 @@ public class NFTDetailsManager : MonoBehaviour
 
     public void ExitNFTPackage()
     {
+        Debug.Log("MirrorSDK ExitNFTPackage");
         NFTPackageManager.ClosePackage();
         NFTDetails.SetActive(false);
+        Debug.Log("MirrorSDK ExitNFTPackage2");
     }
 
 

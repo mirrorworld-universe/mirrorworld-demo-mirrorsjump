@@ -330,6 +330,8 @@ public class ListViewManager
         for (int i = 0; i < CurrentItems.Count; i++)
         {
             var item = CurrentItems.Dequeue();
+            if (item == null) continue;
+
             item.gameObject.GetComponent<NFTViewCell>().Image.sprite = null;
             item.SetActive(false);
             _dataProvider.DestroyItem(item);

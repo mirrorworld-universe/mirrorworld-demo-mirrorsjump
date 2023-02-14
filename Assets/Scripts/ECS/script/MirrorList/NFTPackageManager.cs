@@ -102,7 +102,7 @@ public class NFTPackageManager : MonoBehaviour
         Package.SetActive(false);
         ListView.RecycleAllItems();
         ListViewDataProvider.DataSource.Clear();
-        
+        ListViewDataProvider.NFTListView.ListViewManager.ClearContentNodes();
     }
 
     public void PageTurningStateUpdate(bool IsFirst)

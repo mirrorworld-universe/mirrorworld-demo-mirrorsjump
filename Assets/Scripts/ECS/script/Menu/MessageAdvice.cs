@@ -132,8 +132,6 @@ public class MessageAdvice : MonoBehaviour
        Icon.sprite = Success;
        MessageContent.text = message;
        DialogRoot.SetActive(true);
-      
-      
    }
 
 
