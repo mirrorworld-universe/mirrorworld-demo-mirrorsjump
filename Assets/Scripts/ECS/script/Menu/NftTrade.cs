@@ -591,20 +591,11 @@ public class NftTrade : MonoBehaviour
         if (result.status == "success")
         {   
             string mintAddress = result.data.mint_address;
-
-            CallApiState callApiStateResult = ApiCallLimit.GetStateItemByAddress(mintAddress);
             
             MessageAdvice.ConfrimCloseWaitPanel();
-                    
-            if (null != callApiStateResult && null != callApiStateResult.name)
-            {
-                MessageAdvice.OnSuccess(message + "Successfully!");//ApiCallLimit.GetStateByAddress(mintAddress)
-            }
-            else
-            {
-                MessageAdvice.OnSuccess("Successfully!");
-            }
-            
+
+            MessageAdvice.OnSuccess(message + "Successfully!");//ApiCallLimit.GetStateByAddress(mintAddress)
+
             ApiCallLimit.DeleteItemState(mintAddress);
 
         }
