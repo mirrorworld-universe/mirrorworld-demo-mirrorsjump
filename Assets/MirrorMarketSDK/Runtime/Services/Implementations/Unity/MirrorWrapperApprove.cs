@@ -92,7 +92,7 @@ namespace MirrorworldSDK.Wrapper
             if (apiParams.GetType() == typeof(ApproveListNFT))
             {
                 ApproveListNFT approveListNFT = apiParams as ApproveListNFT;
-                amountObj = PrecisionUtil.StrToFloat(approveListNFT.price);
+                amountObj = PrecisionUtil.StrToDouble(approveListNFT.price);
                 haveAmountParam = true;
                 return;
             }
@@ -131,11 +131,7 @@ namespace MirrorworldSDK.Wrapper
                 return;
             }
 
-            int digit = GetDigit(valueValue);
-            int totalDigit = digit + decimalsObj;
-            double dec = Math.Pow(10, decimalsObj);
-            double v = valueValue / dec;
-            string strNeed = string.Format("{0:F" + totalDigit + "}", v);
+            string strNeed = PrecisionUtil.GetNumberDevided(valueValue,decimalsObj);
 
             approveRequest.value = strNeed;
         }

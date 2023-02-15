@@ -228,7 +228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6236376754683695852, guid: 2ca39d7c5936f436b9cd2d79123ee069, type: 3}
       propertyPath: debugEmail
-      value: suqiang@rct.studio
+      value: squall19871@gmail.com
       objectReference: {fileID: 0}
     - target: {fileID: 6236376754683695852, guid: 2ca39d7c5936f436b9cd2d79123ee069, type: 3}
       propertyPath: environment

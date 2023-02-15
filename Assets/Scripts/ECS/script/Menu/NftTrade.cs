@@ -419,7 +419,7 @@ public class NftTrade : MonoBehaviour
     {
         CloseSell();
 
-        float price = float.Parse(SellPrice.text);
+        double price = double.Parse(SellPrice.text);
 
         //if (ApiCallLimit.CallTradeLimit(CurrentNftCellData.NftData.mintAddress) == false)
         //{
@@ -464,7 +464,8 @@ public class NftTrade : MonoBehaviour
         {   
             CloseUpdateDialog();
 
-            float price = float.Parse(NewPrice.text);
+            double price = double.Parse(NewPrice.text);
+            Debug.Log("MirrorSDK updatePrice input price is:"+price);
             
             //if (ApiCallLimit.CallTradeLimit(CurrentNftCellData.NftData.mintAddress) == false)
             //{

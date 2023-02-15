@@ -1,5 +1,6 @@
 
 using System.Collections;
+using MirrorworldSDK;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
@@ -14,6 +15,21 @@ public class GameEntrance : MonoBehaviour
 
     private void Start()
     {
+        //    double oriD = 123.45;
+        //    string numStr = oriD.ToString();
+        //    double testF = PrecisionUtil.StrToFloat(numStr);
+        //    double testD = PrecisionUtil.StrToDouble(numStr);
+        //    Debug.Log("-=-=-=-=-=-==-=testD>>>>>" + testD);
+        //    Debug.Log("-=-=-=-=-=-==-=testF>>>>>" + testF);
+        //    float fff = float.Parse(numStr);
+        //    Debug.Log("-=-=-=-=-=-==-=fff>>>>>" + fff);
+        //    double dou = 123.45;
+        //    Debug.Log("-=-=-=-=-=-==-=1>>>>>" + dou.ToString());
+        //    decimal decimala = new decimal(dou);
+        //    Debug.Log("-=-=-=-=-=-==-=2>>>>>" + decimala);
+        //    string strNeed = PrecisionUtil.GetNumberDevided(1, 9);
+        //    Debug.Log("-=-=-=-=-=-==-=>>>>>"+ strNeed);
+
         //移动到OpenWallet方法作为参数了
         // MirrorSDK.SetLogoutCallback(() =>
         //{

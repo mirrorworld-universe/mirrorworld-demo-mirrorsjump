@@ -1,10 +1,53 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 namespace MirrorworldSDK
 {
     public class PrecisionUtil
     {
+
+        public static string GetNumberDevided(double valueValue,int decimalsObj)
+        {
+            int digit = GetDigit(valueValue);
+            int totalDigit = digit + decimalsObj;
+            double dec = Math.Pow(10, decimalsObj);
+            double v = valueValue / dec;
+            string strNeed = string.Format("{0:F" + totalDigit + "}", v);
+
+            return strNeed;
+        }
+
+        private static int GetDigit(double number)
+        {
+            if (haveSmallDigit(number))
+            {
+                return 0;
+            }
+            for (int i = 1; i < 10; i++)
+            {
+                if (haveSmallDigit(number * Math.Pow(10, i)))
+                {
+                    return i;
+                }
+            }
+            return 10;
+        }
+
+        private static bool haveSmallDigit(double number)
+        {
+            double pre = Math.Truncate(number);
+
+            double after = number - pre;
+
+            if (after == 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public static double StrToDouble(object FloatString)
         {
             double result;
