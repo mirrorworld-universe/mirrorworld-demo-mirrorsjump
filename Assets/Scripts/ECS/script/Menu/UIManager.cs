@@ -211,11 +211,8 @@ public class UIManager : MonoBehaviour
     
     public void Login()
     {
-
-
         if (GlobalDef.IsShowPackage)
         {
-               
             if (IsDebug)
             {
                 SoundManager.Instance.PlaySound(SoundName.Button);
@@ -223,10 +220,8 @@ public class UIManager : MonoBehaviour
             }
             else
             {   
-            
                 SoundManager.Instance.PlaySound(SoundName.Button);
 
-         
                 MirrorSDK.StartLogin((LoginResponse)=>
                 {
                     if(LoginResponse.access_token == "" || LoginResponse.refresh_token == "")

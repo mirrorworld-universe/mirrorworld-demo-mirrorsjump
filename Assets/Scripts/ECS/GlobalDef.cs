@@ -63,12 +63,6 @@ public class GlobalDef
     public static  bool HasTokenGuidence = false;
 
 
-    // 是否为 IOS 环境
-    public static bool IsGoogleEnv = false;
-    public static bool IsIOSEnv = true;
-    public static  string iOSVersion = "1.2.3.1";
-
-    public static string universalVersion = "23021711"; 
     
     public static string GetCurrentVersion()
     {
@@ -99,6 +93,11 @@ public class GlobalDef
     //出了这个还有MirrorSDK的手动指定环境，Unity面板上的环境和APIKey
     // 生产环境
     public static string server = "https://mirror-jump.mirrorworld.fun/";
+    // 是否为 IOS 环境
+    public static bool IsGoogleEnv = true;
+    public static bool IsIOSEnv = false;
+    public static string iOSVersion = "1.2.3.1";
+    public static string universalVersion = "23021711";
 
 
 
@@ -118,7 +117,7 @@ public class GlobalDef
     //public static string UserCollection = ParentCollectionDevNet;
     ////除了这个还有MirrorSDK的手动指定环境，Unity面板上的环境和APIKey
     //// 非生产环境
-    //public static string server = "https://mirror-jump-staging.mirrorworld.fun/";
+    ////public static string server = "https://mirror-jump-staging.mirrorworld.fun/";
 }
 
 public struct AirDropPostData
