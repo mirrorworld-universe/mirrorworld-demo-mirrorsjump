@@ -54,9 +54,7 @@ public class GlobalDef
 
     public static int SpringCount =1;
 
-
     public static string UserName = "Default Name";
-
 
     public static bool IsUseRespawn = false;
 
@@ -66,27 +64,18 @@ public class GlobalDef
 
     
     // 是否为 IOS 环境
-    public static bool IsIOSDev = false;
+    public static bool IsIOSEnv = true;
+    public static  string iOSVersion = "1.2.3.1";
 
-    public static  string VersionCode = "1.0.0.1";
-    
-    // 非生产环境
-    public static string server = "https://mirror-jump-staging.mirrorworld.fun/";
-    // 生产环境
-   // public static string server = "https://mirror-jump.mirrorworld.fun/";
-
-    public static string version = "23011815"; 
+    public static string universalVersion = "23021711"; 
     
     public static string GetCurrentVersion()
     {
-
-        if (IsIOSDev)
+        if (IsIOSEnv)
         {
-            return VersionCode + "." + version;
+            return iOSVersion + "." + universalVersion;
         }
-        
-        
-        return $"{Application.version}.{version}";
+        return $"{Application.version}.{universalVersion}";
     }
 
 
@@ -107,6 +96,8 @@ public class GlobalDef
     // market 路径标识枚举
     public static MirrorEnv Env = MirrorEnv.ProductionMainnet;
     //出了这个还有MirrorSDK的手动指定环境，Unity面板上的环境和APIKey
+    // 生产环境
+    public static string server = "https://mirror-jump.mirrorworld.fun/";
 
 
 
@@ -125,6 +116,8 @@ public class GlobalDef
     //public static MirrorEnv Env = MirrorEnv.StagingDevNet;
     //public static string UserCollection = ParentCollectionDevNet;
     ////除了这个还有MirrorSDK的手动指定环境，Unity面板上的环境和APIKey
+    //// 非生产环境
+    //public static string server = "https://mirror-jump-staging.mirrorworld.fun/";
 }
 
 public struct AirDropPostData

@@ -30,9 +30,9 @@ public class ReviewCheck : MonoBehaviour
            {
                yield return request.SendWebRequest();
                if(request.result == UnityWebRequest.Result.Success)
-               {   
-                   
-                   var data = JsonConvert.DeserializeObject<ReviewData>(request.downloadHandler.text);
+               {
+
+                    ReviewData data = JsonConvert.DeserializeObject<ReviewData>(request.downloadHandler.text);
                    Debug.Log("ReviewResult:"+request.downloadHandler.text);
                    if (data.IsReview)
                    {

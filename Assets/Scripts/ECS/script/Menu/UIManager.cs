@@ -150,7 +150,7 @@ public class UIManager : MonoBehaviour
                     }
                     else
                     {
-                        if (!GlobalDef.IsIOSDev)
+                        if (!GlobalDef.IsIOSEnv)
                         {
                             LoginButton.SetActive(true);
                             LoadingPanel.Instance.SetLoadingPanelEnable(false);
@@ -178,7 +178,7 @@ public class UIManager : MonoBehaviour
             }
             else
             {
-                if (!GlobalDef.IsIOSDev)
+                if (!GlobalDef.IsIOSEnv)
                 {
                     LoginButton.SetActive(true);
                     LoadingPanel.Instance.SetLoadingPanelEnable(false);
