@@ -97,7 +97,7 @@ public class GlobalDef
     public static bool IsGoogleEnv = true;
     public static bool IsIOSEnv = false;
     public static string iOSVersion = "1.2.3.1";
-    public static string universalVersion = "23021711";
+    public static string universalVersion = "02171925";
 
 
 
