@@ -47,8 +47,6 @@ public class ReviewCheck : MonoBehaviour
                            // 限制版本
                            GlobalDef.IsShowPackage = false;
                        }
-                       
-                       
                    }
                    else
                    {

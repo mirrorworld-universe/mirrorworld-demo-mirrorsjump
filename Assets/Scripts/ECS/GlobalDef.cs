@@ -62,8 +62,9 @@ public class GlobalDef
     //  正式环境下取消 TokenGuidence
     public static  bool HasTokenGuidence = false;
 
-    
+
     // 是否为 IOS 环境
+    public static bool IsGoogleEnv = false;
     public static bool IsIOSEnv = true;
     public static  string iOSVersion = "1.2.3.1";
 

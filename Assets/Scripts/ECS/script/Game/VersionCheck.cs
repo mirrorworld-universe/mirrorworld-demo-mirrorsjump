@@ -5,12 +5,6 @@ using UnityEngine.Networking;
 
 public class VersionCheck : MonoBehaviour
 {
-
-    //  Google  官网  IOS 三种环境的包
-    private bool IsGoogleEnv = true;
-
-    private bool IsIOSEnv = false;
-
     private int ReviewVersion;
 
 
@@ -71,11 +65,11 @@ public class VersionCheck : MonoBehaviour
         }
         else
         {
-            if (IsGoogleEnv)
+            if (GlobalDef.IsGoogleEnv)
             {
                 Application.OpenURL(versionData.googleUrl);
             }
-            else if (IsIOSEnv)
+            else if (GlobalDef.IsIOSEnv)
             {
                 Application.OpenURL(versionData.iosurl);
             }
