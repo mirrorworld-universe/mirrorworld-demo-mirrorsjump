@@ -40,7 +40,7 @@ public class TokenGuidance : MonoBehaviour
     {
         if (PlayerPrefs.GetString("IsTestEnvironment","true") == "false")
         {
-            if (PlayerCacheMgr.IsGuildFinish())
+            if (PlayerCacheMgr.GuildNotFinish())
             {
                 Guidence.OnFirstStep();
             }
@@ -51,7 +51,7 @@ public class TokenGuidance : MonoBehaviour
         if (!GlobalDef.HasTokenGuidence)
         {
         
-            if (PlayerCacheMgr.IsGuildFinish())
+            if (PlayerCacheMgr.GuildNotFinish())
             {
                 Guidence.OnFirstStep();
             }
@@ -69,7 +69,7 @@ public class TokenGuidance : MonoBehaviour
         }
         else
         {
-            if (PlayerCacheMgr.IsGuildFinish())
+            if (PlayerCacheMgr.GuildNotFinish())
             {
                 Guidence.OnFirstStep();
             }
@@ -256,7 +256,7 @@ public class TokenGuidance : MonoBehaviour
         FinishGuidence.SetActive(false);
         Back.SetActive(false);
 
-        if (PlayerCacheMgr.IsGuildFinish())
+        if (PlayerCacheMgr.GuildNotFinish())
         {
             Guidence.OnFirstStep();
         }

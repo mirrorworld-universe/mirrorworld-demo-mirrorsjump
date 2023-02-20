@@ -49,7 +49,7 @@ public class ThemeManager : MonoBehaviour
     public void ToLeftTheme()
     {
         SoundManager.Instance.PlaySound(SoundName.Button);
-        if (PlayerCacheMgr.IsGuildFinish())
+        if (GlobalDef.IsShowPackage && PlayerCacheMgr.GuildNotFinish())
         {
             return;
         }
@@ -70,28 +70,36 @@ public class ThemeManager : MonoBehaviour
     public void ToRightTheme()
     {
         SoundManager.Instance.PlaySound(SoundName.Button);
-        
-        if (PlayerCacheMgr.IsGuildFinish())
+
+        Debug.Log("ToRightTheme: ToRightTheme start...");
+        if (GlobalDef.IsShowPackage && PlayerCacheMgr.GuildNotFinish())
         {
+            Debug.Log("ToRightTheme: Guild is not finished,return!");
             return;
         }
 
         if (CurrentThemeIndex +1 > 5)
         {
             //  do some advice
-            
+            Debug.Log("ToRightTheme: CurrentThemeIndex is "+ CurrentThemeIndex+", it is not bigger than 5,return!");
+
             return;
         }
-        
+
+        int aaa = CurrentThemeIndex + 1;
+        Debug.Log("ToRightTheme: save CurrentThemeIndex as "+ aaa);
         PlayerPrefs.SetInt("CurrentTheme",CurrentThemeIndex+1);
 
+        Debug.Log("ToRightTheme: play sound turnpage... ");
         SoundManager.Instance.PlaySound(SoundName.TurnPage);
+        Debug.Log("ToRightTheme: refresh lock state... ");
         RefreshLockState();
     }
     
     private void RefreshLockState()
     {
         int SpriteIndex = PlayerPrefs.GetInt("CurrentTheme");
+        Debug.Log("ToRightTheme: SpriteIndex is " + SpriteIndex);
 
         if (SpriteIndex >= 5)
         {
@@ -134,6 +142,7 @@ public class ThemeManager : MonoBehaviour
         }
         
         CurrentThemeIndex = PlayerPrefs.GetInt("CurrentTheme");
+        Debug.Log("ToRightTheme: refresh CurrentThemeIndex to " + CurrentThemeIndex);
     }
     
     

@@ -42,9 +42,10 @@ public class PlayerCacheMgr
         PlayerPrefs.SetString("HasGuidence" + MirrorSDK.GetWallet(), "true");
     }
 
-    public static bool IsGuildFinish()
+    public static bool GuildNotFinish()
     {
-        Debug.Log("Guild:IsGuildFinish" + MirrorSDK.GetWallet());
-        return "false" == PlayerPrefs.GetString("HasGuidence" + MirrorSDK.GetWallet(), "false");
+        bool notFinish = "false" == PlayerPrefs.GetString("HasGuidence" + MirrorSDK.GetWallet(), "false");
+        Debug.Log("Guild:Check GuildNotFinish" + MirrorSDK.GetWallet() + " result:"+ notFinish);
+        return notFinish;
     }
 }

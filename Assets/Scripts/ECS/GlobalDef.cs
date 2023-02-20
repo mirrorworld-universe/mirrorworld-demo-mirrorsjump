@@ -94,10 +94,10 @@ public class GlobalDef
     // 生产环境
     public static string server = "https://mirror-jump.mirrorworld.fun/";
     // 是否为 IOS 环境
-    public static bool IsGoogleEnv = true;
-    public static bool IsIOSEnv = false;
-    public static string iOSVersion = "1.2.3.1";
-    public static string universalVersion = "02171925";
+    public static bool IsGoogleEnv = false;
+    public static bool IsIOSEnv = true;
+    public static string iOSVersion = "1.2.3.2";
+    public static string universalVersion = "02201154";
 
 
 

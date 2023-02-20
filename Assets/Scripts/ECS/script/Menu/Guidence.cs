@@ -20,6 +20,7 @@ public class Guidence : MonoBehaviour
 
     public void OnFirstStep()
     {
+        //No icon to fit this guild, close guild.
         if (GlobalDef.IsShowPackage)
         {
             FirstStep.SetActive(true);
