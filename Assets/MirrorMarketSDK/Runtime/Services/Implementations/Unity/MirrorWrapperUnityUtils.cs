@@ -12,33 +12,73 @@ namespace MirrorworldSDK.Wrapper
     {
         private string localKeyRefreshToken = "local_key_refresh_token";
 
-        private IEnumerator CheckAndPost(string url, string messageBody, Action<string> callBack)
+        public IEnumerator CheckAndPost(string url, string messageBody, Action<string> callBack)
         {
+            LogFlow("Try to post url:" + url);
             if(apiKey == "")
             {
                 LogFlow("Please set apiKey first.");
+
                 yield break;
             }
 
             if (accessToken == "")
             {
                 LogFlow("No access token,try to get one...");
-                yield return monoBehaviour.StartCoroutine(DoGetAccessToken(null));
-                if (accessToken == "")
-                {
-                    LogFlow("Get access token failed.");
-                    yield break;
-                }
+                yield return monoBehaviour.StartCoroutine(DoGetAccessToken((isSuccess)=> {
+                    if (isSuccess)
+                    {
+                        monoBehaviour.StartCoroutine(Post(url, messageBody, callBack));
+                    }
+                    else
+                    {
+                        LogFlow("No access token, please login first.");
+                        return;
+                    }
+                }));
             }
-
-            yield return Post(url,messageBody,callBack);
+            else
+            {
+                yield return Post(url, messageBody, callBack);
+            }
         }
 
-        private IEnumerator CheckAndGet(string url, Dictionary<string, string> requestParams, Action<string> callBack)
+        public IEnumerator CheckAndPostWithTimeoutConfig(string url, string messageBody,int timeOut,string timeOutMessage, Action<string> callBack)
         {
+            LogFlow("Try to post url:" + url);
             if (apiKey == "")
             {
-                //LogFlow("Please set apiKey first.");
+                LogFlow("Please set apiKey first.");
+
+                yield break;
+            }
+
+            if (accessToken == "")
+            {
+                LogFlow("No access token,try to get one...");
+                yield return monoBehaviour.StartCoroutine(DoGetAccessToken((isSuccess) => {
+                    if (isSuccess)
+                    {
+                        monoBehaviour.StartCoroutine(PostWithTotalParameters(url, messageBody,timeOut,timeOutMessage, callBack));
+                    }
+                    else
+                    {
+                        LogFlow("No access token, please login first.");
+                        return;
+                    }
+                }));
+            }
+            else
+            {
+                yield return Post(url, messageBody, callBack);
+            }
+        }
+
+        public IEnumerator CheckAndGet(string url, Dictionary<string, string> requestParams, Action<string> callBack)
+        {
+            LogFlow("Try to get url:" + url);
+            if (apiKey == "")
+            {
                 CommonResponse<string> commonResponse = new CommonResponse<string>();
                 commonResponse.code = (long)MirrorResponseCode.LocalFailed;
                 commonResponse.error = "Please set apiKey first.";
@@ -51,25 +91,36 @@ namespace MirrorworldSDK.Wrapper
             if (accessToken == "")
             {
                 LogFlow("No access token,try to get one...");
-                yield return monoBehaviour.StartCoroutine(DoGetAccessToken(null));
-                if (accessToken == "")
-                {
-                    LogFlow("Get access token failed.");
-                    CommonResponse<string> commonResponse = new CommonResponse<string>();
-                    commonResponse.code = (long)MirrorResponseCode.LocalFailed;
-                    commonResponse.error = "Get access token failed.";
+                yield return monoBehaviour.StartCoroutine(DoGetAccessToken((isSuccess)=> {
+                    if (isSuccess)
+                    {
+                        monoBehaviour.StartCoroutine(Get(url, requestParams, callBack));
+                    }
+                    else
+                    {
+                        LogFlow("CheckAndGet: Get access token failed.");
+                        CommonResponse<string> commonResponse = new CommonResponse<string>();
+                        commonResponse.code = (long)MirrorResponseCode.LocalFailed;
+                        commonResponse.error = "Please login first.";
 
-                    string resStr = JsonUtility.ToJson(commonResponse);
-                    callBack(resStr);
-                    yield break;
-                }
+                        string resStr = JsonUtility.ToJson(commonResponse);
+                        callBack(resStr);
+                    }
+                }));
             }
-
-            yield return Get(url, requestParams, callBack);
+            else
+            {
+                yield return Get(url, requestParams, callBack);
+            }
         }
-
         private IEnumerator Post(string url, string messageBody, Action<string> callBack)
         {
+            yield return PostWithTotalParameters(url, messageBody,-1,"Request error",callBack);
+        }
+
+        private IEnumerator PostWithTotalParameters(string url, string messageBody,int outTime,string timeOutMessage, Action<string> callBack)
+        {
+            LogUtils.LogFlow("Post url:"+url);
             messageBody = RemoveNull(messageBody);
 
             UnityWebRequest request = new UnityWebRequest(url, "POST");
@@ -80,6 +131,10 @@ namespace MirrorworldSDK.Wrapper
             MirrorUtils.SetAuthorizationHeader(request, accessToken);
             MirrorUtils.SetXAuthToken(request,authToken);
 
+            LogFlow("apiKey:" + apiKey);
+            LogFlow("accessToken:" + accessToken);
+            LogFlow("authToken:" + authToken);
+
             if (messageBody != null && messageBody != "")
             {
                 LogFlow("Post:"+ messageBody);
@@ -88,14 +143,39 @@ namespace MirrorworldSDK.Wrapper
             }
             
             request.downloadHandler = new DownloadHandlerBuffer();
+            if(outTime != 0 && outTime != -1) request.timeout = outTime;
 
             yield return request.SendWebRequest();
 
-            string rawResponseBody = request.downloadHandler.text;
+            //if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
+            //{
+            //    LogUtils.LogWarn(request.error);
 
-            request.Dispose();
+            //    CommonResponse<string> commonResponse = new CommonResponse<string>();
+            //    commonResponse.code = (long)MirrorResponseCode.LocalFailed;
+            //    commonResponse.data = null;
+            //    commonResponse.error = timeOutMessage;
+            //    commonResponse.http_status_code = (long)MirrorResponseCode.LocalFailed;
+            //    commonResponse.status = "Time out";
+            //    commonResponse.error = timeOutMessage;
 
-            callBack(rawResponseBody);
+            //    string rawResponseBody = JsonUtility.ToJson(commonResponse);
+            //    LogUtils.LogFlow("Time out in client, fake response is:"+ rawResponseBody);
+
+            //    callBack(rawResponseBody);
+
+            //    request.Dispose();
+            //}
+            //else
+            {
+                string rawResponseBody = request.downloadHandler.text;
+
+                LogFlow("post response raw:" + rawResponseBody);
+
+                request.Dispose();
+
+                callBack(rawResponseBody);
+            }
         }
 
         private IEnumerator Get(string url, Dictionary<string,string> requestParams, Action<string> callBack)
@@ -130,6 +210,7 @@ namespace MirrorworldSDK.Wrapper
 
             string rawResponseBody = request.downloadHandler.text;
 
+            LogFlow("get response raw:" + rawResponseBody);
             request.Dispose();
 
             callBack(rawResponseBody);
@@ -197,54 +278,39 @@ namespace MirrorworldSDK.Wrapper
             SaveStringToLocal(localKeyRefreshToken, refreshToken);
         }
 
-        private string GetAPIRoot()
-        {
-            if(environment == MirrorEnv.ProductionMainnet)
-            {
-                return Constant.ApiRootProduction;
-            }
-            else if(environment == MirrorEnv.ProductionDevnet)
-            {
-                return Constant.ApiRootProductionDev;
-            }
-            else if (environment == MirrorEnv.StagingDevNet)
-            {
-                return Constant.ApiRootStagingDevnet;
-            }
-            else if (environment == MirrorEnv.StagingMainNet)
-            {
-                return Constant.ApiRootStagingMainnet;
-            }
-            else
-            {
-                LogFlow("GetAPIRoot failed! env is:" + environment);
-                return Constant.ApiRootStagingDevnet;
-            }
-        }
+        //private string GetAPIRoot()
+        //{
+        //    if(environment == MirrorEnv.Mainnet)
+        //    {
+        //        return "https://api.mirrorworld.fun/v1/mainnet/";
+        //    }
+        //    else if(environment == MirrorEnv.Devnet)
+        //    {
+        //        return "https://api.mirrorworld.fun/v1/devnet/";
+        //    }
+        //    else
+        //    {
+        //        LogFlow("GetAPIRoot failed! env is:" + environment);
+        //        return "https://api-staging.mirrorworld.fun/v1/devnet/";
+        //    }
+        //}
 
         private string GetEntranceRoot()
         {
-            if (environment == MirrorEnv.ProductionMainnet)
-            {
-                return Constant.AuthRootProduction;
-            }
-            else if (environment == MirrorEnv.ProductionDevnet)
-            {
-                return Constant.AuthRootProductionDev;
-            }
-            else if (environment == MirrorEnv.StagingDevNet)
-            {
-                return Constant.AuthRootStagingDevnet;
-            }
-            else if (environment == MirrorEnv.StagingMainNet)
-            {
-                return Constant.AuthRootStagingMainnet;
-            }
-            else
-            {
-                LogFlow("GetAuthRoot failed! env is:" + environment);
-                return Constant.UserRootStagingDevnet;
-            }
+            //if (environment == MirrorEnv.Mainnet)
+            //{
+            //    return "https://auth.mirrorworld.fun/";
+            //}
+            //else if (environment == MirrorEnv.Devnet)
+            //{
+            //    return "https://auth.mirrorworld.fun/";
+            //}
+            //else
+            //{
+            //    LogFlow("GetAuthRoot failed! env is:" + environment);
+            //    return "https://auth.mirrorworld.fun/";
+            //}
+            return UrlUtils.GetAuthRoot();
         }
 
         public string GetMarketUrl(string marketRoot)
@@ -256,84 +322,52 @@ namespace MirrorworldSDK.Wrapper
 
         public string GetWalletUrl()
         {
-            string url = GetEntranceRoot() + "jwt?key=" + accessToken;
-
-            return url;
-        }
-
-        private string GetMarketRoot()
-        {
-            if (environment == MirrorEnv.ProductionMainnet)
+            if (accessToken == null || accessToken == "")
             {
-                return Constant.MarketRootProduction;
-            }
-            else if (environment == MirrorEnv.ProductionDevnet)
-            {
-                return Constant.MarketRootProductionDev;
-            }
-            else if (environment == MirrorEnv.StagingDevNet)
-            {
-                return Constant.MarketRootStagingDevnet;
-            }
-            else if (environment == MirrorEnv.StagingMainNet)
-            {
-                return Constant.MarketRootStagingMainnet;
+                return GetEntranceRoot();
             }
             else
             {
-                LogFlow("GetAuthRoot failed! env is:" + environment);
-                return Constant.MarketRootStagingDevnet;
+                return GetEntranceRoot() + "jwt?key=" + accessToken;
             }
         }
 
         private string GetAuthRoot()
         {
-            if (environment == MirrorEnv.ProductionMainnet)
-            {
-                return Constant.UserRootProduction;
-            }
-            else if (environment == MirrorEnv.ProductionDevnet)
-            {
-                return Constant.UserRootProduction;
-            }
-            else if (environment == MirrorEnv.StagingDevNet)
-            {
-                return Constant.UserRootStagingDevnet;
-            }
-            else if (environment == MirrorEnv.StagingMainNet)
-            {
-                return Constant.UserRootStagingMainnet;
-            }
-            else
-            {
-                LogFlow("GetAuthRoot failed! env is:" + environment);
-                return Constant.UserRootStagingDevnet;
-            }
+            //if (environment == MirrorEnv.Mainnet)
+            //{
+            //    return "https://api.mirrorworld.fun/v1/";
+            //}
+            //else if (environment == MirrorEnv.Devnet)
+            //{
+            //    return "https://api.mirrorworld.fun/v1/";
+            //}
+            //else
+            //{
+            //    LogFlow("GetAuthRoot failed! env is:" + environment);
+            //    return "https://api.mirrorworld.fun/v1/";
+            //}
+            string apiRoot = UrlUtils.GetAPIRoot();
+            return apiRoot + "/" + MWConfig.serverAPIVersion + "/";
         }
 
         private string GetDebugLoginPageRoot()
         {
-            if (environment == MirrorEnv.ProductionMainnet)
-            {
-                return Constant.urlDebugLoginUrlPreProductionMain;
-            }
-            else if (environment == MirrorEnv.ProductionDevnet)
-            {
-                return Constant.urlDebugLoginUrlPreProductionDev;
-            }
-            else if (environment == MirrorEnv.StagingDevNet)
-            {
-                return Constant.urlDebugLoginUrlPreStagingDev;
-            }
-            else if (environment == MirrorEnv.StagingMainNet)
-            {
-                return Constant.urlDebugLoginUrlPreStagingMain;
-            }
-            else
-            {
-                LogFlow("GetAuthRoot failed! env is:" + environment);
-                return Constant.urlDebugLoginUrlPreProductionDev;
-            }
+            //if (environment == MirrorEnv.Mainnet)
+            //{
+            //    return "https://auth.mirrorworld.fun/login?session=";
+            //}
+            //else if (environment == MirrorEnv.Devnet)
+            //{
+            //    return "https://auth.mirrorworld.fun/login?session=";
+            //}
+            //else
+            //{
+            //    LogFlow("GetAuthRoot failed! env is:" + environment);
+            //    return "https://auth.mirrorworld.fun/login?session=";
+            //}
+            string authRoot = UrlUtils.GetAuthRoot();
+            return authRoot + "/login?session=";
         }
     }
 }

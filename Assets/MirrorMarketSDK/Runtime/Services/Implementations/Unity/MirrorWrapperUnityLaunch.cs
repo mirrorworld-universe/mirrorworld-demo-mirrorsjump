@@ -1,8 +1,7 @@
 ﻿
-using System;
+
 using MirrorworldSDK.Models;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace MirrorworldSDK.Wrapper
 {
@@ -11,6 +10,7 @@ namespace MirrorworldSDK.Wrapper
         private string apiKey = "";
         private bool debugMode = false;
         private MirrorEnv environment;
+        private MirrorChain chain;
 
         private string accessToken = "";
         private string refreshToken = "";
@@ -21,7 +21,7 @@ namespace MirrorworldSDK.Wrapper
         private MonoBehaviour monoBehaviour;
         private bool inited = false;
 
-        public void InitSDK(MonoBehaviour monoBehaviour,MirrorEnv environment,string apiKey,bool useDebug)
+        public void InitSDK(MonoBehaviour monoBehaviour,MirrorEnv environment,MirrorChain chain, string apiKey,bool useDebug)
         {
             if (inited)
             {
@@ -31,9 +31,29 @@ namespace MirrorworldSDK.Wrapper
             inited = true;
             this.environment = environment;
             this.monoBehaviour = monoBehaviour;
+            SetChain(chain);
             SetAPIKey(apiKey);
             SetDebug(useDebug);
             LogFlow("Unity wrapper inited.");
+        }
+
+        public void SetChain(MirrorChain chain)
+        {
+            LogFlow("Set chain to " + chain);
+
+            this.chain = chain;
+        }
+
+        public void SetEnvironment(MirrorEnv env)
+        {
+            LogFlow("Set env to " + env);
+
+            this.environment = environment;
+        }
+
+        public MirrorChain GetChain()
+        {
+            return chain;
         }
 
         public void SetDebug(bool debugMode)
@@ -47,9 +67,9 @@ namespace MirrorworldSDK.Wrapper
             this.apiKey = apiKey;
         }
 
-        public MirrorEnvPublic GetEnvironment()
+        public MirrorEnv GetEnvironment()
         {
-            return (MirrorEnvPublic)environment;
+            return environment;
         }
 
         public MonoBehaviour GetMonoBehaviour()

@@ -1,5 +1,6 @@
 
 using System;
+using MirrorWorldResponses;
 
 namespace MirrorworldSDK.Models
 {

@@ -9,7 +9,7 @@ using UnityEngine.Networking;
 
 namespace MirrorworldSDK.Wrapper
 {
-    public partial class MirrorWrapper : IAuthenticationService
+    public partial class MirrorWrapper
     {
         private readonly string urlLoginWithEmail = "auth/login";
         private readonly string urlRefreshToken = "auth/refresh-token";
@@ -60,7 +60,7 @@ namespace MirrorworldSDK.Wrapper
             }));
         }
 
-        public void FetchUser(string email, Action<CommonResponse<UserResponse>> callBack)
+        public void QueryUser(string email, Action<CommonResponse<UserResponse>> callBack)
         {
             string url = GetAuthRoot() + urlQueryUser + "?email=" + email;
             monoBehaviour.StartCoroutine(CheckAndGet(url, null, (response) => {
@@ -71,12 +71,18 @@ namespace MirrorworldSDK.Wrapper
 
         public IEnumerator DoGetAccessToken(Action<bool> action)
         {
+            if (action == null)
+            {
+                LogFlow("DoGetAccessToken action is null. Seems logic is wrong.");
+                yield break;
+            }
+
             if (refreshToken == "")
             {
                 refreshToken = GetStringFromLocal(localKeyRefreshToken);
                 if (refreshToken == "")
                 {
-                    LogFlow("Try to get access token but there is no refresh token local.Seems logic is wrong.");
+                    LogFlow("Try to get access token but there is no refresh token local. Maybe the cache is cleared. Please login again.");
                     action(false);
                     yield break;
                 }
@@ -84,7 +90,7 @@ namespace MirrorworldSDK.Wrapper
 
             if (apiKey == "")
             {
-                LogFlow("Try to get access token but there is no api key.Seems logic is wrong.");
+                LogFlow("Try to get access token but there is no api key, please set it first!");
                 action(false);
                 yield break;
             }
@@ -100,6 +106,7 @@ namespace MirrorworldSDK.Wrapper
             MirrorUtils.SetRefreshToken(request, refreshToken);
 
             request.downloadHandler = new DownloadHandlerBuffer();
+            //request.timeout = MWConfig.MaxHttpTimeout;
 
             yield return request.SendWebRequest();
 
@@ -159,15 +166,15 @@ namespace MirrorworldSDK.Wrapper
         {
             string url = GetAuthRoot() + urlGuestLogin;
 
-            monoBehaviour.StartCoroutine(CheckAndGet(url, null, (response) => {
+            monoBehaviour.StartCoroutine(Get(url, null, (response) => {
 
-                LogFlow("IsLoggedIn result:" + response);
+                LogFlow("GuestLogin result:" + response);
 
                 CommonResponse<LoginResponse> responseBody = JsonUtility.FromJson<CommonResponse<LoginResponse>>(response);
 
                 if (responseBody.code == (long)MirrorResponseCode.Success)
                 {
-                    SaveCurrentUser(responseBody.data.user);
+                    SaveKeyParams(responseBody.data.access_token,responseBody.data.refresh_token,responseBody.data.user);
 
                     action(responseBody.data);
                 }

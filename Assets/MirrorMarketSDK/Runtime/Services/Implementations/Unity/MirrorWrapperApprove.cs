@@ -18,7 +18,27 @@ namespace MirrorworldSDK.Wrapper
         private readonly string urlActionRequest = "auth/actions/request";
         private readonly string urlActionAPPROVE = "approve/";
 
-        public void GetSecurityToken<T>(string type, string message, T request, Action callback)
+        public void StartSecuirtyApprove<T>(string type, string message, T request, Action callback)
+        {
+
+#if (!(UNITY_IOS) || UNITY_EDITOR) && (!(UNITY_ANDROID) || UNITY_EDITOR)
+            callback();
+#else
+            GetSecurityToken(type,"0",message,request,callback);
+#endif
+        }
+
+        public void StartSecuirtyApprove<T>(string type, string value, string message, T request, Action callback)
+        {
+
+#if (!(UNITY_IOS) || UNITY_EDITOR) && (!(UNITY_ANDROID) || UNITY_EDITOR)
+            callback();
+#else
+            GetSecurityToken(type,value,message,request,callback);
+#endif
+        }
+
+        public void GetSecurityToken<T>(string type, string value, string message, T request, Action callback)
         {
             if(apiKey == "" || accessToken == "" || refreshToken == "")
             {
@@ -26,42 +46,44 @@ namespace MirrorworldSDK.Wrapper
                 return;
             }
             approveFinalAction = callback;
-            RequestActionAuthorization<T>(type,message, request);
+            RequestActionAuthorization<T>(type,value,message, request);
         }
 
         public string GetActionRoot()
         {
-            if (environment == MirrorEnv.StagingMainNet)
-            {
-                return "https://api-staging.mirrorworld.fun/v1/";
-            }
-            else if (environment == MirrorEnv.StagingDevNet)
-            {
-                return "https://api-staging.mirrorworld.fun/v1/";
-            }
-            else if (environment == MirrorEnv.ProductionDevnet)
-            {
-                return "https://api.mirrorworld.fun/v1/";
-            }
-            else if (environment == MirrorEnv.ProductionMainnet)
-            {
-                return "https://api.mirrorworld.fun/v1/";
-            }
-            else
-            {
-                LogFlow("Unknown env:" + environment);
-                return "https://api.mirrorworld.fun/v1/";
-            }
+            //if (environment == MirrorEnv.Devnet)
+            //{
+            //    return "https://api.mirrorworld.fun/v1/";
+            //}
+            //else if (environment == MirrorEnv.Mainnet)
+            //{
+            //    return "https://api.mirrorworld.fun/v1/";
+            //}
+            //else
+            //{
+            //    LogFlow("Unknown env:" + environment);
+            //    return "https://api.mirrorworld.fun/v1/";
+            //}
+            string apiRoot = UrlUtils.GetAPIRoot();
+            return apiRoot + "/" + MWConfig.serverAPIVersion + "/";
         }
 
-        public void RequestActionAuthorization<T>(string type, string message, T requestPrams)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="type"></param>Only a few API need this value
+        /// <param name="value"></param>
+        /// <param name="message"></param>
+        /// <param name="requestPrams"></param>
+        public void RequestActionAuthorization<T>(string type, string value, string message, T requestPrams)
         {
             CommonApprove<T> jsonObject = new CommonApprove<T>();
             jsonObject.type = type;
             jsonObject.message = message;
-            jsonObject.value = "0";
+            jsonObject.value = value;
             jsonObject.paramsPlaceHolder = requestPrams;
-            HandleValue<T>(jsonObject, requestPrams);
+            //HandleValue<T>(jsonObject, requestPrams);
 
             string data = JsonUtility.ToJson(jsonObject);
             data = data.Replace("paramsPlaceHolder", "params");
@@ -92,7 +114,7 @@ namespace MirrorworldSDK.Wrapper
             if (apiParams.GetType() == typeof(ApproveListNFT))
             {
                 ApproveListNFT approveListNFT = apiParams as ApproveListNFT;
-                amountObj = PrecisionUtil.StrToDouble(approveListNFT.price);
+                amountObj = PrecisionUtil.StrToFloat(approveListNFT.price);
                 haveAmountParam = true;
                 return;
             }
@@ -131,7 +153,11 @@ namespace MirrorworldSDK.Wrapper
                 return;
             }
 
-            string strNeed = PrecisionUtil.GetNumberDevided(valueValue,decimalsObj);
+            int digit = GetDigit(valueValue);
+            int totalDigit = digit + decimalsObj;
+            double dec = Math.Pow(10, decimalsObj);
+            double v = valueValue / dec;
+            string strNeed = string.Format("{0:F" + totalDigit + "}", v);
 
             approveRequest.value = strNeed;
         }
@@ -144,7 +170,7 @@ namespace MirrorworldSDK.Wrapper
 
                 return;
             }
-            string url = GetActionRootWithoutVersion() + urlActionAPPROVE + actionUUID + "?key=" + accessToken;
+            string url = GetActionRootWithoutVersion() + "/" + urlActionAPPROVE + actionUUID + "?key=" + accessToken;
 
             LogFlow("Unity open approve url:"+url);
 
@@ -170,27 +196,20 @@ namespace MirrorworldSDK.Wrapper
 
         public string GetActionRootWithoutVersion()
         {
-            if (environment == MirrorEnv.StagingMainNet)
-            {
-                return "https://auth-staging.mirrorworld.fun/";
-            }
-            else if (environment == MirrorEnv.StagingDevNet)
-            {
-                return "https://auth-staging.mirrorworld.fun/";
-            }
-            else if (environment == MirrorEnv.ProductionDevnet)
-            {
-                return "https://auth.mirrorworld.fun/";
-            }
-            else if (environment == MirrorEnv.ProductionMainnet)
-            {
-                return "https://auth.mirrorworld.fun/";
-            }
-            else
-            {
-                LogFlow("Unknown env:" + environment);
-                return "https://auth.mirrorworld.fun/";
-            }
+            //if (environment == MirrorEnv.Devnet)
+            //{
+            //    return "https://auth.mirrorworld.fun/";
+            //}
+            //else if (environment == MirrorEnv.Mainnet)
+            //{
+            //    return "https://auth.mirrorworld.fun/";
+            //}
+            //else
+            //{
+            //    LogFlow("Unknown env:" + environment);
+            //    return "https://auth.mirrorworld.fun/";
+            //}
+            return UrlUtils.GetAuthRoot();
         }
 
         private int GetDigit(double number)
