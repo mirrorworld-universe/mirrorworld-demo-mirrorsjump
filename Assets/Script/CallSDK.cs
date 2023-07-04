@@ -50,6 +50,10 @@ public class CallSDK : MonoBehaviour
 
         MWSDK.Solana.Asset.SearchNFTsByOwner(creators, 100, 0, (Mutiple) =>
         {
+            if(Mutiple.data.nfts == null)
+            {
+                Mutiple.data.nfts = new List<SingleNFTResponseObj>();
+            }
             Debug.Log("MirrorSDK fetched count :" + Mutiple.data.nfts.Count);
             List<NFTCellData> datas = new List<NFTCellData>();
             for (int i = 0; i < Mutiple.data.nfts.Count; i++)

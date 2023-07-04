@@ -587,20 +587,12 @@ public class UIManager : MonoBehaviour
         }
         else if (GlobalDef.Env == MirrorEnv.Devnet)
         {
-            return "https://jump-devnet.mirrorworld.fun";
+            return "https://jump-devnet-prod.mirrorworld.fun/";
         }
-        //else if (GlobalDef.Env== MirrorEnv.StagingDevNet)
-        //{
-        //    return "https://jump-devnet.mirrorworld.fun";
-        //}
-        //else if (GlobalDef.Env == MirrorEnv.StagingMainNet)
-        //{
-        //    return "https://jump.mirrorworld.fun";
-        //}
         else
         {
             Debug.Log("Unknwon env in GlobalDef:" + GlobalDef.Env);
-            return "https://jump-devnet.mirrorworld.fun";
+            return "https://jump-devnet-prod.mirrorworld.fun/";
         }
     }
 
