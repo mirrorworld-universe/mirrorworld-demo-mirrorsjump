@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
     public GameObject RankList;
 
 
-    public GoogleMobileAdsManager GoogleMobileAdsManager;
+    //public GoogleMobileAdsManager GoogleMobileAdsManager;
     
     
     // watch Ad for prop reward
@@ -82,10 +82,10 @@ public class UIManager : MonoBehaviour
         SoundManager.Instance.GetAudioSource().Play();
         LoginButton.SetActive(false);
         
-        if (null != GoogleMobileAdsManager)
-        {
-            GoogleMobileAdsManager.InitGoogleMobileAdsSDK();
-        }
+        //if (null != GoogleMobileAdsManager)
+        //{
+        //    GoogleMobileAdsManager.InitGoogleMobileAdsSDK();
+        //}
         
     }
 
