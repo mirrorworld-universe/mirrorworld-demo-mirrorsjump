@@ -28,7 +28,7 @@ public enum SoundName
 
 public class GlobalDef 
 {
-    public static bool AddMintableRoleToPackage = true;
+    public static bool AddMintableRoleToPackage = false;
     public static string isMute = "isMute";
     public static int heightCoefficient = 4;
     // 当得分为最高分并且进行了分享
