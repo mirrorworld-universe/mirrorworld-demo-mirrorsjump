@@ -8,57 +8,24 @@ using Random = UnityEngine.Random;
 
 public class UIManager : MonoBehaviour
 {
-
-
-
     public GameObject LoginPanel;
-    
     public GameObject RankList;
-
-
     //public GoogleMobileAdsManager GoogleMobileAdsManager;
-    
-    
     // watch Ad for prop reward
-
     public Sprite LowRocket;
-
     public Sprite HighRocket;
-
     public Sprite Spring;
-
     public GameObject RewardAdvice;
-
-
     public Image RewardImage;
-
-
     public GameObject RewardPackage;
-
     public TextMeshProUGUI LowRocketNumber;
-    
     public TextMeshProUGUI HighRocketNumber;
-    
     public TextMeshProUGUI SpringNumber;
-
-   
-    
-    
-    
-
     public ThemeManager ThemeManager;
-
     public GameObject LoginButton;
-
-
     public bool IsInitPropPackage = true;
-
-
     public TMP_InputField Account;
-
     public TMP_InputField PassWord;
-
-
     public GameObject Title;
 
     public GameObject GameLoginTitle;
@@ -76,7 +43,8 @@ public class UIManager : MonoBehaviour
     
 
     private void Start()
-    {   GameLoginButton.interactable = false;
+    {
+        GameLoginButton.interactable = false;
         SoundManager.Instance.GetAudioSource().clip = SoundManager.Instance.Clips[6];
         SoundManager.Instance.GetAudioSource().mute = SoundManager.Instance.GetSoundState();
         SoundManager.Instance.GetAudioSource().Play();
@@ -86,7 +54,9 @@ public class UIManager : MonoBehaviour
         //{
         //    GoogleMobileAdsManager.InitGoogleMobileAdsSDK();
         //}
-        
+
+        //Update buttons
+
     }
 
     private void Update()

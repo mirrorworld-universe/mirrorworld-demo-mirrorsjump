@@ -145,7 +145,7 @@ public class GlobalDef
     public static bool IsGoogleEnv = false;
     public static bool IsIOSEnv = false;
     public static string iOSVersion = "1.2.3.2";
-    public static string universalVersion = "02201154";
+    public static string universalVersion = "07101553";
 }
 
 public struct AirDropPostData
