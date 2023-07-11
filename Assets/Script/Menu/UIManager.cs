@@ -534,6 +534,8 @@ public class UIManager : MonoBehaviour
             Debug.Log("MirrorSDK.OpenWalletPage on call back");
             //keep transfersol result, don't clear cache all.
             //PlayerPrefs.DeleteAll();
+            PlayerPrefs.DeleteAll();
+
             SceneManager.LoadScene("Login");
             ApiCallLimit.DeleteAllItem();
 
