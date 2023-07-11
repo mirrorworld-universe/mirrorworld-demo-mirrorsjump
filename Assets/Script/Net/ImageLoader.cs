@@ -14,9 +14,10 @@ public static class ImageLoader
     
 
     public static async Task<Sprite> LoadSprite(string url)
-    {   
-        
-        
+    {
+
+
+        Debug.Log("Start load image:" + url);
         var task = LoadAsyncSprite(url);
         Task<Sprite> t = await Task.WhenAny(task);
         return t.Result;

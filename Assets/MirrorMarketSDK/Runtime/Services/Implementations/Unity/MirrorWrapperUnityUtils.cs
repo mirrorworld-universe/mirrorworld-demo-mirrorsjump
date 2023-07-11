@@ -132,8 +132,8 @@ namespace MirrorworldSDK.Wrapper
             MirrorUtils.SetXAuthToken(request,authToken);
 
             LogFlow("apiKey:" + apiKey);
-            LogFlow("accessToken:" + accessToken);
-            LogFlow("authToken:" + authToken);
+            //LogFlow("accessToken:" + accessToken);
+            //LogFlow("authToken:" + authToken);
 
             if (messageBody != null && messageBody != "")
             {
@@ -278,41 +278,6 @@ namespace MirrorworldSDK.Wrapper
             SaveStringToLocal(localKeyRefreshToken, refreshToken);
         }
 
-        //private string GetAPIRoot()
-        //{
-        //    if(environment == MirrorEnv.Mainnet)
-        //    {
-        //        return "https://api.mirrorworld.fun/v1/mainnet/";
-        //    }
-        //    else if(environment == MirrorEnv.Devnet)
-        //    {
-        //        return "https://api.mirrorworld.fun/v1/devnet/";
-        //    }
-        //    else
-        //    {
-        //        LogFlow("GetAPIRoot failed! env is:" + environment);
-        //        return "https://api-staging.mirrorworld.fun/v1/devnet/";
-        //    }
-        //}
-
-        private string GetEntranceRoot()
-        {
-            //if (environment == MirrorEnv.Mainnet)
-            //{
-            //    return "https://auth.mirrorworld.fun/";
-            //}
-            //else if (environment == MirrorEnv.Devnet)
-            //{
-            //    return "https://auth.mirrorworld.fun/";
-            //}
-            //else
-            //{
-            //    LogFlow("GetAuthRoot failed! env is:" + environment);
-            //    return "https://auth.mirrorworld.fun/";
-            //}
-            return UrlUtils.GetAuthRoot();
-        }
-
         public string GetMarketUrl(string marketRoot)
         {
             string url = marketRoot + "?auth=" + accessToken;
@@ -320,54 +285,10 @@ namespace MirrorworldSDK.Wrapper
             return url;
         }
 
-        public string GetWalletUrl()
-        {
-            if (accessToken == null || accessToken == "")
-            {
-                return GetEntranceRoot();
-            }
-            else
-            {
-                return GetEntranceRoot() + "jwt?key=" + accessToken;
-            }
-        }
-
         private string GetAuthRoot()
         {
-            //if (environment == MirrorEnv.Mainnet)
-            //{
-            //    return "https://api.mirrorworld.fun/v1/";
-            //}
-            //else if (environment == MirrorEnv.Devnet)
-            //{
-            //    return "https://api.mirrorworld.fun/v1/";
-            //}
-            //else
-            //{
-            //    LogFlow("GetAuthRoot failed! env is:" + environment);
-            //    return "https://api.mirrorworld.fun/v1/";
-            //}
             string apiRoot = UrlUtils.GetAPIRoot();
             return apiRoot + "/" + MWConfig.serverAPIVersion + "/";
-        }
-
-        private string GetDebugLoginPageRoot()
-        {
-            //if (environment == MirrorEnv.Mainnet)
-            //{
-            //    return "https://auth.mirrorworld.fun/login?session=";
-            //}
-            //else if (environment == MirrorEnv.Devnet)
-            //{
-            //    return "https://auth.mirrorworld.fun/login?session=";
-            //}
-            //else
-            //{
-            //    LogFlow("GetAuthRoot failed! env is:" + environment);
-            //    return "https://auth.mirrorworld.fun/login?session=";
-            //}
-            string authRoot = UrlUtils.GetAuthRoot();
-            return authRoot + "/login?session=";
         }
     }
 }

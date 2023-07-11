@@ -126,8 +126,7 @@ public class PackageDetailsManager : MonoBehaviour
     }
     
     private async void SetImage(string url,Image header)
-    {  
-        
+    {
         Sprite sprite = await ImageLoader.LoadSprite(url);
         if (null != sprite)
         {

@@ -458,7 +458,7 @@ public class UIManager : MonoBehaviour
             //xxxx/1.json
             LoginState.mintableRoleData.token_url = "http://metadata-assets.mirrorworld.fun/mirror_jump/metadata/101.json";
             LoginState.mintableRoleData.is_default = false;
-            LoginState.mintableRoleData.image = "https://pbs.twimg.com/media/DQp-SHVUMAAEWFs?format=jpg&name=small";
+            LoginState.mintableRoleData.image = "https://metadata-assets.mirrorworld.fun/mirror_jump/images/" + TestNFTGenerator.GenerateRandomNFTImage();
             LoginState.mintableRoleData.token_id = TmpTokenID++;
         }
 

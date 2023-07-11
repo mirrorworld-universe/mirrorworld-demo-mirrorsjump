@@ -210,7 +210,7 @@ namespace MirrorworldSDK
 
         public static void MintNFT(string parentCollection, string nFTName, string nFTSymbol, string nFTJsonUrl, string confirmation, string mint_id, string receiveWallet, double amountSol, Action approveFinished, Action<CommonResponse<SolResMintResponse>> callBack)
         {
-            LogUtils.LogFlow("Mint request:amountSol:" + amountSol + ",nFTJsonUrl:" + nFTJsonUrl);
+            LogUtils.LogFlow("Mint request:amountSol:" + amountSol + ",receiveWallet:" + receiveWallet);
             ApproveMintNFT requestParams = new ApproveMintNFT();
             requestParams.collection_mint = parentCollection;
             requestParams.name = nFTName;
