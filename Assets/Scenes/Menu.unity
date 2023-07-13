@@ -49885,7 +49885,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LoginPanel: {fileID: 0}
   RankList: {fileID: 622293476}
-  GoogleMobileAdsManager: {fileID: 1054705959}
   LowRocket: {fileID: 21300000, guid: 9c99f13e76cd05346bceee9eb26cfac1, type: 3}
   HighRocket: {fileID: 21300000, guid: ec3fb26d38bdd184da1f4a4d4528fe98, type: 3}
   Spring: {fileID: 21300000, guid: ec2b18779c00d1648bd1b2e0fb0a4ef6, type: 3}
@@ -49920,6 +49919,9 @@ MonoBehaviour:
   Wallet: {fileID: 441739187}
   RankList: {fileID: 1748473965}
   BottomRoot: {fileID: 258789738}
+  MarketButton: {fileID: 745288301}
+  ListButton: {fileID: 1760259608}
+  TransferButton: {fileID: 122824672}
 --- !u!1 &2118041829
 GameObject:
   m_ObjectHideFlags: 0

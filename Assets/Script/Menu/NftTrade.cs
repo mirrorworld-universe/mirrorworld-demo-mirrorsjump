@@ -528,7 +528,27 @@ public class NftTrade : MonoBehaviour
         callApiState.State = CallState.Transfer;
 
         StartSDKRequest();
-        MWSDK.Solana.Asset.TransferNFT(CurrentNftCellData.NftData.mintAddress,address,
+        MirrorChain chain = MWSDK.GetChain();
+        if(chain == MirrorChain.SUI)
+        {
+            //MWSDK.SUI.Asset.TransferNFT(CurrentNftCellData.NftData.mintAddress, address,
+            //() =>
+            //{
+            //    StartApproveAction();
+            //    //ApiCallLimit.AddItemState(callApiState.MintAddress, callApiState);
+
+            //    MessageAdvice.OpenWaitPanel("Transfer now");
+            //},
+            //(result) =>
+            //{
+
+            //    ResultAdvice("Transfer Successfully!", result.status == "success", syncLockTransfer);
+
+            //});
+        }
+        else if (chain == MirrorChain.Solana)
+        {
+            MWSDK.Solana.Asset.TransferNFT(CurrentNftCellData.NftData.mintAddress, address,
             () =>
             {
                 StartApproveAction();
@@ -537,11 +557,17 @@ public class NftTrade : MonoBehaviour
                 MessageAdvice.OpenWaitPanel("Transfer now");
             },
             (result) =>
+            {
+
+                ResultAdvice("Transfer Successfully!", result.status == "success", syncLockTransfer);
+
+            });
+        }
+        else
         {
-            
-           ResultAdvice("Transfer Successfully!", result.status == "success", syncLockTransfer);
-           
-        });
+            LogUtils.LogWarn("Unsupported");
+        }
+        
     }
 
 

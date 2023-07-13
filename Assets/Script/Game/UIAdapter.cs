@@ -11,10 +11,11 @@ public class UIAdapter : MonoBehaviour
     //public static bool ShowRewards = false;
 
     public GameObject Wallet;
-
     public GameObject RankList;
-
     public GameObject BottomRoot;
+    public GameObject MarketButton;
+    public GameObject ListButton;
+    public GameObject TransferButton;
 
 
     private void Start()
@@ -26,13 +27,19 @@ public class UIAdapter : MonoBehaviour
             {
                 Wallet.SetActive(false);
                 RankList.SetActive(true);
-                BottomRoot.SetActive(true);//todo
+                BottomRoot.SetActive(true);
+                MarketButton.SetActive(false);
+                ListButton.SetActive(false);
+                TransferButton.SetActive(false);
             }
             else
             {
                 Wallet.SetActive(true);
                 RankList.SetActive(true);
                 BottomRoot.SetActive(true);
+                MarketButton.SetActive(true);
+                ListButton.SetActive(true);
+                TransferButton.SetActive(true);
             }
         }
         else
@@ -40,6 +47,9 @@ public class UIAdapter : MonoBehaviour
             Wallet.SetActive(false);
             RankList.SetActive(false);
             BottomRoot.SetActive(false);
+            MarketButton.SetActive(false);
+            ListButton.SetActive(true);
+            TransferButton.SetActive(true);
         }
     }
     

@@ -215,6 +215,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6236376754683695852, guid: 2ca39d7c5936f436b9cd2d79123ee069, type: 3}
+      propertyPath: chain
+      value: 301
+      objectReference: {fileID: 0}
+    - target: {fileID: 6236376754683695852, guid: 2ca39d7c5936f436b9cd2d79123ee069, type: 3}
       propertyPath: apiKey
       value: mw_tonemRuZ2UvqExDrL2ZuTcaArYlZHGGPPkS
       objectReference: {fileID: 0}
