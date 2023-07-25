@@ -52,7 +52,7 @@ public class CallSDK : MonoBehaviour
         MirrorChain chain = MWSDK.GetChain();
         if (chain == MirrorChain.SUI)
         {
-            MWSDK.SUI.Asset.SearchNFTsByOwner(LoginState.WalletAddress, (Mutiple) =>
+            MWSDK.SUI.Asset.SearchNFTsByOwner(LoginState.SUIWalletAddress, (Mutiple) =>
             {
                 CommonResponse<List<SUIResQueryNFT>> response = Mutiple;
                 if (response.data == null)
@@ -109,7 +109,7 @@ public class CallSDK : MonoBehaviour
 
                 }
 
-                TAManager.Instance.MappingToAddress(datas);
+                //TAManager.Instance.MappingToAddress(datas);
 
                 NftPackageManager.RefreshData(datas);
             });
@@ -167,7 +167,7 @@ public class CallSDK : MonoBehaviour
 
                 }
 
-                TAManager.Instance.MappingToAddress(datas);
+                //TAManager.Instance.MappingToAddress(datas);
 
                 NftPackageManager.RefreshData(datas);
             });
@@ -190,7 +190,7 @@ public class CallSDK : MonoBehaviour
                 return;
             }
             string name = "Mirrors Jump " + "#" + LoginState.mintableRoleData.token_id;
-            TAManager.Instance.MintToNFTStart("random role");
+            //TAManager.Instance.MintToNFTStart("random role");
 
             StartSDKRequest();
             DoMintNFT(name, () => {
@@ -239,12 +239,12 @@ public class CallSDK : MonoBehaviour
             attr2.value = "Pirate Captain";
             attributes.Add(attr2);
             string description = "Mirror Jump is our tribute to Doodle Jump, powered by Mirror World SDK. We hope that this game will help players to better understand the fun aspects of Web3 games and help developers to better understand how to use the Mirror World SDK.";
-            MWSDK.SUI.Asset.MintNFT(collection, name, description, imageUrl, attributes,LoginState.WalletAddress,
+            MWSDK.SUI.Asset.MintNFT(GlobalDef.suiCollection, name, description, imageUrl, attributes,LoginState.SUIWalletAddress,
             (result) =>
             {
                 if (result.status == "success")
                 {
-                    TAManager.Instance.MintToNft(result.data.name, 0.1f);
+                    //TAManager.Instance.MintToNft(result.data.name, 0.1f);
                     MintingFinish(true);
                 }
                 else
@@ -263,7 +263,7 @@ public class CallSDK : MonoBehaviour
             {
                 if (result.status == "success")
                 {
-                    TAManager.Instance.MintToNft(result.data.name, 0.1f);
+                    //TAManager.Instance.MintToNft(result.data.name, 0.1f);
                     MintingFinish(true);
                 }
                 else

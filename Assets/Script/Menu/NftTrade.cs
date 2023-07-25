@@ -392,7 +392,7 @@ public class NftTrade : MonoBehaviour
         callApiState.name = CurrentNftCellData.NftData.name;
         callApiState.State = CallState.Listing;
         
-        TAManager.Instance.ListNFTStart(CurrentNftCellData.NftData.name);
+        //TAManager.Instance.ListNFTStart(CurrentNftCellData.NftData.name);
         
         Debug.Log("MirrorSDK Start Listing:"+CurrentNftCellData.NftData.mintAddress+ " price:"+ price);
         StartSDKRequest();
@@ -408,7 +408,7 @@ public class NftTrade : MonoBehaviour
             {
                 if (result.status == "success")
                 {
-                    TAManager.Instance.ListNft(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),float.Parse(result.data.price),true);
+                    //TAManager.Instance.ListNft(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),float.Parse(result.data.price),true);
                 }
 
                 ResultAdvice("Listing  ",result);
@@ -440,7 +440,7 @@ public class NftTrade : MonoBehaviour
             callApiState.name = CurrentNftCellData.NftData.name;
             callApiState.State = CallState.Update;
             
-            TAManager.Instance.ChangeListPriceStart(CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count - 1].price,CurrentNftCellData.NftData.name);
+            //TAManager.Instance.ChangeListPriceStart(CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count - 1].price,CurrentNftCellData.NftData.name);
             StartSDKRequest();
 
             MWSDK.Solana.Asset.ListNFT(CurrentNftCellData.NftData.mintAddress, price, GlobalDef.marketAuctionHouse, Confirmation.Finalized,
@@ -455,7 +455,7 @@ public class NftTrade : MonoBehaviour
                 {   
                     if (result.status == "success")
                     {
-                        TAManager.Instance.ChangeListPrice(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),float.Parse(result.data.price));
+                        //TAManager.Instance.ChangeListPrice(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),float.Parse(result.data.price));
                     }
 
                     ResultAdvice("Changing New Price  ", result);
@@ -487,7 +487,7 @@ public class NftTrade : MonoBehaviour
             callApiState.name = CurrentNftCellData.NftData.name;
             callApiState.State = CallState.Cancel;
             
-            TAManager.Instance.CancelListStart(CurrentNftCellData.NftData.name);
+            //TAManager.Instance.CancelListStart(CurrentNftCellData.NftData.name);
         StartSDKRequest();
 
             MWSDK.Solana.Asset.CancelListing(CurrentNftCellData.NftData.mintAddress,CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count-1].price, GlobalDef.marketAuctionHouse, Confirmation.Finalized,
@@ -502,7 +502,7 @@ public class NftTrade : MonoBehaviour
                 {     
                     if (result.status == "success")
                     {
-                        TAManager.Instance.CancelList(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),float.Parse(result.data.price));
+                        //TAManager.Instance.CancelList(TAManager.Instance.GetNameByMintAddress(result.data.mint_address),result.data.id.ToString(),float.Parse(result.data.price));
                     }
 
                     ResultAdvice("Canceling List  ", result);

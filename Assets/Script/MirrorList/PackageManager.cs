@@ -63,7 +63,7 @@ public class PackageManager : MonoBehaviour
         ListViewDataProvider.NFTListView.OnDataSourceChange();
         PageTurningStateUpdate(true);
         Package.SetActive(true);
-        TAManager.Instance.OpenPackage();
+        //TAManager.Instance.OpenPackage();
         
     }
 

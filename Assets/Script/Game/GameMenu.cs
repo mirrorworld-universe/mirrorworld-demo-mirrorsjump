@@ -253,14 +253,14 @@ public class GameMenu : MonoBehaviour
 
     public void UserExitGame()
     {   
-        TAManager.Instance.EndGame("user_end",GlobalDef.CurrentScore);
+        //TAManager.Instance.EndGame("user_end",GlobalDef.CurrentScore);
         SoundManager.Instance.PlaySound(SoundName.Close);
         SceneManager.LoadScene("Menu");
     }
     
     public void GameOverExitGame()
     {   
-        TAManager.Instance.EndGame("game_over",GlobalDef.CurrentScore);
+        //TAManager.Instance.EndGame("game_over",GlobalDef.CurrentScore);
         SoundManager.Instance.PlaySound(SoundName.Close);
         SceneManager.LoadScene("Menu");
     }

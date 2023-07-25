@@ -90,7 +90,7 @@ public class Options : MonoBehaviour
     private void OnSoundOff()
     {  
         
-        TAManager.Instance.ChangeSound("off");
+        //TAManager.Instance.ChangeSound("off");
         SoundManager.Instance.SetSoundState(true);
 
         SetButtonSelected(soundOff , true);
@@ -103,7 +103,7 @@ public class Options : MonoBehaviour
 
     private void OnSoundOn()
     {   
-        TAManager.Instance.ChangeSound("on");
+        //TAManager.Instance.ChangeSound("on");
         
         SoundManager.Instance.SetSoundState(false);
 
@@ -149,7 +149,7 @@ public class Options : MonoBehaviour
 
     public void AboutMirrorJump()
     {   
-        TAManager.Instance.AboutMirrorjump();
+        //TAManager.Instance.AboutMirrorjump();
         SoundManager.Instance.PlaySound(SoundName.Button);
         OptionMenu.SetActive(false);
         OptionMenuDetails.SetActive(true);
@@ -157,19 +157,22 @@ public class Options : MonoBehaviour
     }
 
     public void OpenFeedback()
-    {   TAManager.Instance.GiveFeedback();
+    {
+        //TAManager.Instance.GiveFeedback();
         SoundManager.Instance.PlaySound(SoundName.OpenUrl);
         Application.OpenURL("https://market-assets.mirrorworld.fun/game/researchjump2.html");
     }
     
     public void OpenFAQ()
-    {   TAManager.Instance.ViewFAQ();
+    {
+        //TAManager.Instance.ViewFAQ();
         SoundManager.Instance.PlaySound(SoundName.OpenUrl);
         Application.OpenURL("https://blog.mirrorworld.fun/p/mirrors-jump-faq");
     }
     
     public void OpenMirrorSDKLink()
-    {   TAManager.Instance.ExploreSDK();
+    {
+        //TAManager.Instance.ExploreSDK();
         SoundManager.Instance.PlaySound(SoundName.OpenUrl);
         Application.OpenURL("https://mirrorworld.fun/");
     }

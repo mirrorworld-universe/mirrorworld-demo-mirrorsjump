@@ -198,6 +198,8 @@ namespace MirrorworldSDK.Wrapper
 
             mirrorSDKInstance.Call("setConstantLoginStringCallback", new MirrorCallback((resultString) => {
 
+                LogUtils.LogFlow("Constant login callback result:"+ resultString);
+
                 LoginResponse responseBody = JsonUtility.FromJson<LoginResponse>(resultString);
 
                 SaveKeyParams(responseBody.access_token, responseBody.refresh_token, responseBody.user);

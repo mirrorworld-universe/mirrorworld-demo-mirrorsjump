@@ -202,12 +202,12 @@ public class TokenGuidance : MonoBehaviour
                 NetworkManager.Instance.UpdateAirdropSolReq(LoginState.WalletAddress);
                 PlayerPrefs.SetString("HasReceiveToken", "true");
                 OnFourthStep();
-                TAManager.Instance.RecieveToken(true);
+                //TAManager.Instance.RecieveToken(true);
             }
             else
             {
                 Debug.LogError("发起网络请求失败");
-                TAManager.Instance.RecieveToken(false);
+                //TAManager.Instance.RecieveToken(false);
             }
         }));
     }

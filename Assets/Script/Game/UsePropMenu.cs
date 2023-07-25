@@ -160,7 +160,7 @@ public class UsePropMenu : MonoBehaviour
             return;
         }
         
-        TAManager.Instance.UseProp(GlobalDef.CurrentScore,"high_rocket");
+        //TAManager.Instance.UseProp(GlobalDef.CurrentScore,"high_rocket");
         
         // use prop
         NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,-1,0,0);
@@ -201,7 +201,7 @@ public class UsePropMenu : MonoBehaviour
             return;
         }
         
-        TAManager.Instance.UseProp(GlobalDef.CurrentScore,"low_rocket");
+        //TAManager.Instance.UseProp(GlobalDef.CurrentScore,"low_rocket");
         // use prop
         NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,0,-1,0);
         PickupItem();
@@ -230,7 +230,7 @@ public class UsePropMenu : MonoBehaviour
         
         
         // use prop
-        TAManager.Instance.UseProp(GlobalDef.CurrentScore,"spring");
+        //TAManager.Instance.UseProp(GlobalDef.CurrentScore,"spring");
         NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,0,0,-1);
         
         if (GameController.GetGameState() == GameState.GameOver)

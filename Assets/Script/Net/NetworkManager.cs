@@ -10,13 +10,87 @@ using static UnityEngine.Networking.UnityWebRequest;
 
 public class NetworkManager : MonoSingleton<NetworkManager>
 {
+    private float retryTime = 6.0f;
+
+    public void DoAfterTime(float time,Action action)
+    {
+        StartCoroutine(DelayMethod(time,action));
+    }
+
+    IEnumerator DelayMethod(float time, Action action)
+    {
+        yield return new WaitForSeconds(time);
+
+        action();
+    }
+
+
+    private RetryObj reqBaseInfoObj;
     public void SendUserBasicInfoReq(string user_id)
     {
-        Debug.Log("开始连接游戏服务器...");
+        Debug.Log("开始获取基础属性...");
+        if (reqBaseInfoObj != null)
+        {
+            if (reqBaseInfoObj.dialog != null)
+            {
+                Destroy(reqBaseInfoObj.dialog);
+            }
+        }
+        reqBaseInfoObj = new RetryObj();
+        reqBaseInfoObj.reqTimes = 0;
+        reqBaseInfoObj.success = false;
+        AutoReqBasicInfo(user_id, reqBaseInfoObj);
+    }
+
+    private void AutoReqBasicInfo(string user_id,RetryObj retryObj)
+    {
+        DoReqBasicInfo(user_id,retryObj);
+        DoAfterTime(6, () => {
+            if (!retryObj.success)
+            {
+                if (retryObj.reqTimes < 3)
+                {
+                    if (retryObj.dialog != null)
+                    {
+                        retryObj.dialog.ShowWaiting(true, "Network retrying...(" + retryObj.reqTimes + " times)");
+                    }
+                    else
+                    {
+                        retryObj.dialog = NewDialog();
+                        retryObj.dialog.Init(() =>
+                        {
+                            Destroy(retryObj.dialog.gameObject);
+                            SendUserBasicInfoReq(user_id);
+                        });
+                        retryObj.dialog.ShowWaiting(true, "Network retrying...(" + retryObj.reqTimes + " times)");
+                    }
+                    DoReqBasicInfo(user_id, retryObj);
+                }
+                else
+                {
+                    retryObj.dialog.ShowWaiting(false, "");
+                }
+            }
+            else
+            {
+                if (retryObj.dialog != null)
+                {
+                    Destroy(retryObj.dialog.gameObject);
+                }
+                else
+                {
+                    LogUtils.LogFlow("Get base info success, let logic continue.");
+                }
+            }
+        });
+    }
+
+    private void DoReqBasicInfo(string user_id,RetryObj retryObj)
+    {
+        retryObj.reqTimes++;
         string path = GlobalDef.server + "api/v1/user?user_id=" + user_id;
         StartCoroutine(Get(path, "", (result, json) =>
         {
-
             var res = JsonMapper.ToObject<UserBasicInfoRes>(json);
 
             if (res.status != "success")
@@ -25,16 +99,18 @@ public class NetworkManager : MonoSingleton<NetworkManager>
                 return;
             }
 
+            retryObj.success = true;
             Debug.Log("连接游戏服务器成功！");
             Debug.Log(json);
             EventDispatcher.Instance.userInfoDataReceived?.Invoke(res.data);
+        },
+        ()=> {
+            LogUtils.LogFlow("No network!");
         }));
-
     }
 
     public void SendUserScoreReq(UserScoreUpdateReq req)
     {
-        
         Debug.Log("发送游戏得分...");
         string path = GlobalDef.server + "api/v1/user/score";
         var data = JsonMapper.ToJson(req);
@@ -103,14 +179,12 @@ public class NetworkManager : MonoSingleton<NetworkManager>
 
     }
 
-    private IEnumerator Get(string url, string messageBody, Action<Result, string> callBack)
-    {   
-      
+    private IEnumerator Get(string url, string messageBody, Action<Result, string> callBack, Action failedAction)
+    {
         UnityWebRequest request = UnityWebRequest.Get(url);
 
+        EncrypoUtils.DecorateWithMD5(request, PlayerPrefs.GetString("walletAddress"));
 
-       EncrypoUtils.DecorateWithMD5( request, PlayerPrefs.GetString("walletAddress"));
-        
         if (!string.IsNullOrEmpty(messageBody))
         {
             byte[] rawRequestBodyToSend = new System.Text.UTF8Encoding().GetBytes(messageBody);
@@ -119,23 +193,26 @@ public class NetworkManager : MonoSingleton<NetworkManager>
         }
         request.timeout = 5000;
 
-        bool isFailed = false;
-        do
+        yield return request.SendWebRequest();
+
+        if(request == null)
         {
-            yield return request.SendWebRequest();
-
-            if (request.result != Result.Success)
+            failedAction();
+        }
+        else
+        {
+            string rawResponseBody = request.downloadHandler.text;
+            if (string.IsNullOrEmpty(rawResponseBody))
             {
-                //isFailed = true;
-                LoadingPanel.Instance.SetRetryPanelEnable();
-                Debug.Log("Network error " + request.result);
+                failedAction();
             }
-        } while (isFailed);
+            else
+            {
+                callBack(request.result, rawResponseBody);
+            }
 
-        string rawResponseBody = request.downloadHandler.text;
-        callBack(request.result, rawResponseBody);
+        }
         request.Dispose();
-
     }
 
     private IEnumerator Post(string url, string messageBody, Action<Result, string> callBack)
@@ -175,12 +252,9 @@ public class NetworkManager : MonoSingleton<NetworkManager>
         request.Dispose();
     }
     
-    
-    
     // RankList
     public void GetHistoryRank(string user_id,int limit)
     {
-       
         string path = GlobalDef.server + "api/v1/user/ranking/alltime";
         RankListReq req = new RankListReq();
         req.user_id = user_id;
@@ -195,14 +269,11 @@ public class NetworkManager : MonoSingleton<NetworkManager>
             }
             
             EventDispatcher.Instance.OnRankListResponse?.Invoke(res);
-            
         }));
-
     }
     
     public void GetDailyRank(string user_id,int limit)
     {
-       
         string path = GlobalDef.server + "api/v1/user/ranking/daily";
         RankListReq req = new RankListReq();
         req.user_id = user_id;
@@ -220,12 +291,10 @@ public class NetworkManager : MonoSingleton<NetworkManager>
             EventDispatcher.Instance.OnRankListResponse?.Invoke(res);
             
         }));
-
     }
     
     public void GetWeeklyRank(string user_id,int limit)
     {
-       
         string path = GlobalDef.server + "api/v1/user/ranking/weekly";
         RankListReq req = new RankListReq();
         req.user_id = user_id;
@@ -242,12 +311,10 @@ public class NetworkManager : MonoSingleton<NetworkManager>
             EventDispatcher.Instance.OnRankListResponse?.Invoke(res);
             
         }));
-
     }
     
     public void UpdateUserName(string user_id,string userName)
     {
-       
         string path = GlobalDef.server + "api/v1/user/username";
         UpdateUserNameReq req = new UpdateUserNameReq();
         req.user_id = user_id;
@@ -262,31 +329,96 @@ public class NetworkManager : MonoSingleton<NetworkManager>
             }
             
             EventDispatcher.Instance.OnUpdateUserName?.Invoke(res);
-            
         }));
-
     }
 
 
+    private RetryObj reqPropInfoObj;
     public void GetPropInfo(string user_id)
     {
+        Debug.Log("开始获取人物属性...");
+        if (reqPropInfoObj != null)
+        {
+            if(reqPropInfoObj.dialog != null)
+            {
+                Destroy(reqPropInfoObj.dialog.gameObject);
+            }
+        }
+        reqPropInfoObj = new RetryObj();
+        reqPropInfoObj.reqTimes = 0;
+        reqPropInfoObj.success = false;
+        AutoGetPropInfo(user_id, reqPropInfoObj);
+    }
+
+    private void AutoGetPropInfo(string user_id, RetryObj retryObj)
+    {
+        Debug.Log("尝试获取人物属性...");
+        DoGetPropInfo(user_id,()=> {
+            GameObject.Destroy(retryObj.dialog.gameObject);
+        },
+        ()=> {
+            LogUtils.LogFlow("Get prop info failed, waiting for next retry.");
+        }, retryObj);
+        DoAfterTime(6, () => {
+            if (!retryObj.success)
+            {
+                if(retryObj.reqTimes < 3)
+                {
+                    string waitingText = "Network retrying...(" + (retryObj.reqTimes) + " times)";
+                    if (retryObj.dialog != null)
+                    {
+                        retryObj.dialog.ShowWaiting(true, waitingText);
+                    }
+                    else
+                    {
+                        retryObj.dialog = NewDialog();
+                        retryObj.dialog.Init(() => {
+                            GetPropInfo(user_id);
+                            Destroy(retryObj.dialog.gameObject);
+                        });
+                        retryObj.dialog.ShowWaiting(true, waitingText);
+                    }
+                    AutoGetPropInfo(user_id, retryObj);
+                }
+                else
+                {
+                    retryObj.dialog.ShowWaiting(false, "");
+                }
+            }
+            else
+            {
+                if (retryObj.dialog != null)
+                {
+                    GameObject.Destroy(retryObj.dialog.gameObject);
+                }
+                else
+                {
+                    //let the logic continue
+                }
+            }
+        });
+    }
+
+    private void DoGetPropInfo(string user_id, Action successAction, Action failedAction, RetryObj retryObj)
+    {
+        retryObj.reqTimes++;
         //api/v1/user/prop?user_id=xxx
+        Debug.Log("DoGetPropInfo user_id:" + user_id);
         string path = GlobalDef.server + "api/v1/user/prop?user_id=" + user_id;
         StartCoroutine(Get(path, "", (result, json) =>
         {
-
-            var res = JsonMapper.ToObject<PropResponse>(json);
+            Debug.Log("DoGetPropInfo result:"+json);
+            PropResponse res = JsonMapper.ToObject<PropResponse>(json);
 
             if (res.status != "success")
             {
                 Debug.Log("SendUserBasicInfoReq error " + res.status);
                 return;
             }
-            
+            retryObj.success = true;
             EventDispatcher.Instance.OnPropResponse?.Invoke(res);
-            
-        }));
-
+            successAction();
+        }, failedAction));
     }
     
     
@@ -319,8 +451,23 @@ public class NetworkManager : MonoSingleton<NetworkManager>
         }));
 
     }
+
+    private LoadingDialog NewDialog()
+    {
+        GameObject canvas = GameObject.Find("Canvas");
+        GameObject prefab = Resources.Load<GameObject>("Prefab/LoadingDialog");
+        GameObject dialogGO = GameObject.Instantiate(prefab, canvas.transform);
+        return dialogGO.GetComponent<LoadingDialog>();
+    }
     
     
+}
+
+public class RetryObj
+{
+    public bool success = false;
+    public int reqTimes = 0;
+    public LoadingDialog dialog = null;
 }
 
 // Get User Basic Info 返回数据

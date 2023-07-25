@@ -204,6 +204,7 @@ public class UIManager : MonoBehaviour
                         LoginState.HasLogin = true;
                         LoginState.Name = LoginResponse.user.username;
                         LoginState.WalletAddress = LoginResponse.user.wallet.sol_address;
+                        LoginState.SUIWalletAddress = LoginResponse.user.wallet.sui_address;
                         PlayerPrefs.SetString("walletAddress", LoginResponse.user.wallet.sol_address);
                     
                     
@@ -270,11 +271,9 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-      
-            EventDispatcher.Instance.userInfoDataReceived += OnUserDataReceived;
-            EventDispatcher.Instance.OnPropResponse += OnPropCountReceived;
-            NetworkManager.Instance.GetPropInfo(LoginState.WalletAddress);
-            
+        EventDispatcher.Instance.userInfoDataReceived += OnUserDataReceived;
+        EventDispatcher.Instance.OnPropResponse += OnPropCountReceived;
+        //NetworkManager.Instance.GetPropInfo(LoginState.WalletAddress);
     }
 
     private void OnDestroy()
@@ -331,38 +330,6 @@ public class UIManager : MonoBehaviour
     
     public void OpenRewardPackage()
     {
-        //
-        // if (GlobalDef.HighRocketCount <= 0)
-        // {
-        //     HighRocketNumber.text = "x0";
-        //    
-        // }else
-        // {
-        //     HighRocketNumber.text = "x"+GlobalDef.HighRocketCount;
-        // }
-       
-       
-        // if (GlobalDef.LowRocketCount <= 0)
-        // {
-        //     LowRocketNumber.text = "x0";
-        //    
-        // }else
-        // {
-        //     LowRocketNumber.text = "x"+GlobalDef.LowRocketCount;
-        // }
-
-       
-        // if (GlobalDef.SpringCount <= 0)
-        // {
-        //     SpringNumber.text = "x0";
-        //    
-        // }else
-        // {
-        //     SpringNumber.text = "x"+GlobalDef.SpringCount;
-        // }
-       
-        // RewardPackage.SetActive(true);
-        
         NetworkManager.Instance.GetPropInfo(LoginState.WalletAddress);
         LoadingPanel.Instance.SetLoadingPanelEnable(true);
        
@@ -476,17 +443,17 @@ public class UIManager : MonoBehaviour
             PlayerCacheMgr.FinishGuild();
         }
         
-        TAManager.Instance.AccountLogin(LoginState.WalletAddress);
+        //TAManager.Instance.AccountLogin(LoginState.WalletAddress);
 
         if (null != LoginState.Email)
         {
-            TAManager.Instance.LoginEvent(LoginState.Email);   
-            TAManager.Instance.UserSet(LoginState.Email);
+            //TAManager.Instance.LoginEvent(LoginState.Email);   
+            //TAManager.Instance.UserSet(LoginState.Email);
         }
         else
         {
-            TAManager.Instance.LoginEvent();   
-            TAManager.Instance.UserSet();
+            //TAManager.Instance.LoginEvent();   
+            //TAManager.Instance.UserSet();
         }
 
         SceneManager.LoadScene("Menu");
@@ -510,7 +477,7 @@ public class UIManager : MonoBehaviour
             return;
         }
         
-        TAManager.Instance.StartGame();
+        //TAManager.Instance.StartGame();
         
         SoundManager.Instance.PlaySound(SoundName.Button);
         
@@ -528,7 +495,7 @@ public class UIManager : MonoBehaviour
     {
         Debug.Log("Wallet is:"+MirrorSDK.GetWallet());
         SoundManager.Instance.PlaySound(SoundName.Button);
-        TAManager.Instance.OpenWallet();
+        //TAManager.Instance.OpenWallet();
         Debug.Log("MirrorSDK.OpenWalletPage on call");
         MirrorSDK.OpenWalletPage(()=> {
             Debug.Log("MirrorSDK.OpenWalletPage on call back");
@@ -547,7 +514,7 @@ public class UIManager : MonoBehaviour
     public void OpenMarket()
     {   
         SoundManager.Instance.PlaySound(SoundName.Button);
-        TAManager.Instance.OpenMarketPlace();
+        //TAManager.Instance.OpenMarketPlace();
         MirrorSDK.OpenMarketPage(GetMarketRoot());
     }
     

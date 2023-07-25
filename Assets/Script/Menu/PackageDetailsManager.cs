@@ -175,7 +175,7 @@ public class PackageDetailsManager : MonoBehaviour
             }
             
         }
-        TAManager.Instance.SelectToBattle("random nft");
+        //TAManager.Instance.SelectToBattle("random nft");
         
         EventDispatcher.Instance.roleChanged?.Invoke();
         
@@ -219,7 +219,7 @@ public class PackageDetailsManager : MonoBehaviour
             
         }
         
-        TAManager.Instance.SelectToBattle("default nft");
+        //TAManager.Instance.SelectToBattle("default nft");
       
         EventDispatcher.Instance.roleChanged?.Invoke();
 

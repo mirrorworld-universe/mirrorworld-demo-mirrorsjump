@@ -28,7 +28,7 @@ public enum SoundName
 
 public class GlobalDef 
 {
-    public static bool AddMintableRoleToPackage = false;
+    public static bool AddMintableRoleToPackage = true;
     public static string isMute = "isMute";
     public static int heightCoefficient = 4;
     // 当得分为最高分并且进行了分享
@@ -146,6 +146,8 @@ public class GlobalDef
     public static bool IsIOSEnv = false;
     public static string iOSVersion = "1.2.3.2";
     public static string universalVersion = "07101553";
+
+    public static string suiCollection = "0x8174698832d193cc63d381bd78be85b2745dff363cf54aa76abea4d672a52b49";
 }
 
 public struct AirDropPostData

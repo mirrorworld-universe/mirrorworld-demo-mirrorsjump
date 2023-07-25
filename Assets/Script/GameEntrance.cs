@@ -53,7 +53,7 @@ public class GameEntrance : MonoBehaviour
         
         if (useShuShuAnalysis)
         {
-            TAManager.Instance.InitShuShuSDK();
+            //TAManager.Instance.InitShuShuSDK();
         }
         
         GlobalDef.CanUserGoogleAdMob = true;

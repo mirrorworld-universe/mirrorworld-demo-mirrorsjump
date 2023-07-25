@@ -55,12 +55,14 @@ public class ThemeManager : MonoBehaviour
         SoundManager.Instance.PlaySound(SoundName.Button);
         if (GlobalDef.IsShowPackage && PlayerCacheMgr.GuildNotFinish())
         {
+            LogUtils.LogWarn("Guild not finished, can't click this now.");
             return;
         }
         
         if (CurrentThemeIndex - 1 < 0)
         {
             //  do some advice
+            LogUtils.LogFlow("CurrentThemeIndex is "+ CurrentThemeIndex);
             return;
         }
         
