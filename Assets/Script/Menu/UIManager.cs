@@ -61,17 +61,17 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (!GlobalDef.IsShowPackage)
-        {
-            if (Account.text.Length >0 && PassWord.text.Length > 0)
-            {
-                GameLoginButton.interactable = true;
-            }
-            else
-            {
-                GameLoginButton.interactable = false;
-            }
-        }
+        //if (!GlobalDef.IsShowPackage)
+        //{
+        //    if (Account.text.Length >0 && PassWord.text.Length > 0)
+        //    {
+        //        GameLoginButton.interactable = true;
+        //    }
+        //    else
+        //    {
+        //        GameLoginButton.interactable = false;
+        //    }
+        //}
     }
 
 
@@ -330,6 +330,43 @@ public class UIManager : MonoBehaviour
     
     public void OpenRewardPackage()
     {
+
+        if (GlobalDef.HighRocketCount <= 0)
+        {
+            HighRocketNumber.text = "x0";
+
+        }
+        else
+        {
+            HighRocketNumber.text = "x" + GlobalDef.HighRocketCount;
+        }
+
+
+        if (GlobalDef.LowRocketCount <= 0)
+        {
+            LowRocketNumber.text = "x0";
+
+        }
+        else
+        {
+            LowRocketNumber.text = "x" + GlobalDef.LowRocketCount;
+        }
+
+
+        if (GlobalDef.SpringCount <= 0)
+        {
+            SpringNumber.text = "x0";
+
+        }
+        else
+        {
+            SpringNumber.text = "x" + GlobalDef.SpringCount;
+        }
+
+        RewardPackage.SetActive(true);
+
+
+
         NetworkManager.Instance.GetPropInfo(LoginState.WalletAddress);
         LoadingPanel.Instance.SetLoadingPanelEnable(true);
        

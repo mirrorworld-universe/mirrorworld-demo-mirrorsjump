@@ -354,7 +354,10 @@ public class NetworkManager : MonoSingleton<NetworkManager>
     {
         Debug.Log("尝试获取人物属性...");
         DoGetPropInfo(user_id,()=> {
-            GameObject.Destroy(retryObj.dialog.gameObject);
+            if(retryObj.dialog != null)
+            {
+                GameObject.Destroy(retryObj.dialog.gameObject);
+            }
         },
         ()=> {
             LogUtils.LogFlow("Get prop info failed, waiting for next retry.");

@@ -31,7 +31,7 @@ public class GlobalDef
     //测试时，强行给自己的背包加一个可Mint的Item，但图片可能会在market无法显示
     public static bool AddMintableRoleToPackage = false;
     //测试时，强行使游戏变为iOS审核模式
-    public static bool ForceIOSReview = true;
+    public static bool ForceIOSReview = false;
 
     public static string isMute = "isMute";
     public static int heightCoefficient = 4;
@@ -147,7 +147,7 @@ public class GlobalDef
     public static string server = "https://mirror-jump-staging.mirrorworld.fun/";
     // 是否为 IOS 环境
     public static bool IsGoogleEnv = false;
-    public static bool IsIOSEnv = true;
+    public static bool IsIOSEnv = false;
     public static string iOSVersion = "1.2.3.2";
     public static string universalVersion = "07101553";
 
