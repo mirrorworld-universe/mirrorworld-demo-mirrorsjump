@@ -33,7 +33,6 @@ public class ReviewCheck : MonoBehaviour
             yield return request.SendWebRequest();
             if (request.result == UnityWebRequest.Result.Success)
             {
-
                 ReviewData data = JsonConvert.DeserializeObject<ReviewData>(request.downloadHandler.text);
                 Debug.Log("ReviewResult:" + request.downloadHandler.text);
                 if (data.IsReview)
@@ -42,7 +41,7 @@ public class ReviewCheck : MonoBehaviour
                     if (GlobalDef.ReviewVersionCode < data.ReviewVersionCode)
                     {
                         // 已经通过审核的版本    
-                        GlobalDef.IsShowPackage = true;
+                        GlobalDef.IsShowPackage = true && !GlobalDef.ForceIOSReview;
                     }
                     else
                     {
@@ -53,9 +52,13 @@ public class ReviewCheck : MonoBehaviour
                 else
                 {
                     // 非审核期无限制
-                    GlobalDef.IsShowPackage = true;
+                    GlobalDef.IsShowPackage = true && !GlobalDef.ForceIOSReview;
                 }
-
+            }
+            else
+            {
+                LogUtils.LogWarn("Download version file failed:" + path);
+                GlobalDef.IsShowPackage = false;
             }
         }
     }
