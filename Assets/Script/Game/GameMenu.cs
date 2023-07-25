@@ -6,10 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameMenu : MonoBehaviour
 {
-
-
-    public GameObject Respawn;
-    
     public GameOverPanel GameOverWindow;
 
     public GameObject GamePauseWindow;
@@ -172,15 +168,6 @@ public class GameMenu : MonoBehaviour
     {
         LoadingPanel.Instance.SetLoadingPanelEnable(true);
         
-        if (!GlobalDef.IsUseRespawn)
-        {
-            Respawn.SetActive(true);
-        }
-        else
-        {
-            Respawn.SetActive(false);
-        }
-        
         
         GameOverWindow.gameObject.SetActive(true);
         GameController.OnGamePause();
@@ -209,8 +196,6 @@ public class GameMenu : MonoBehaviour
     {
         GameController.OnGameRespawn();
         GameOverWindow.gameObject.SetActive(false);
-        Respawn.SetActive(false);
-        
     }
     
     

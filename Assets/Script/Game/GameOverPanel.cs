@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameOverPanel : MonoBehaviour
@@ -96,5 +97,10 @@ public class GameOverPanel : MonoBehaviour
 
         // 设置解锁状态
         PlayerPrefs.SetInt(Constant.Theme_Pre + lockIndex, 1);
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
