@@ -25,7 +25,7 @@ public class PlayerCacheMgr
         }
         PlayerPrefs.SetInt("mint_id", mintID);
 
-        string newMintID = WalletAddress + "_" + (unixTime + mintID);
+        string newMintID = LoginState.WalletAddress + "_" + (unixTime + mintID);
         Debug.Log("newMintID: " + newMintID);
         return newMintID;
     }

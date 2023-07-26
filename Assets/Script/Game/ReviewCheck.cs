@@ -41,7 +41,7 @@ public class ReviewCheck : MonoBehaviour
                     if (GlobalDef.ReviewVersionCode < data.ReviewVersionCode)
                     {
                         // 已经通过审核的版本    
-                        GlobalDef.IsShowPackage = true && !GlobalDef.ForceIOSReview;
+                        GlobalDef.IsShowPackage = GlobalDef.ForceIOSReview?false:true;
                     }
                     else
                     {
@@ -52,7 +52,7 @@ public class ReviewCheck : MonoBehaviour
                 else
                 {
                     // 非审核期无限制
-                    GlobalDef.IsShowPackage = true && !GlobalDef.ForceIOSReview;
+                    GlobalDef.IsShowPackage = GlobalDef.ForceIOSReview?false:true;
                 }
             }
             else

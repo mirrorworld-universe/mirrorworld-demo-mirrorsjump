@@ -95,11 +95,13 @@ public class VersionCheck : MonoBehaviour
     private void CheckVersion()
     {
         string url = "https://games.mirrorworld.fun/game/mirror_jump/Config/config.json";
+
+        if (GlobalDef.IsIOSEnv)
+        {
+            url = "https://games.mirrorworld.fun/game/mirror_jump/IOSConfig/config.json";
+        }
 #if UNITY_ANDROID
            url = "https://games.mirrorworld.fun/game/mirror_jump/Config/config.json";
-           
-#elif UNITY_IPHONE
-        url = "https://games.mirrorworld.fun/game/mirror_jump/IOSConfig/config.json";
 #endif
         StartCoroutine(Get(url));
     }
