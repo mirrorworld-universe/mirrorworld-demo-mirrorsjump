@@ -132,7 +132,7 @@ namespace MirrorworldSDK.Wrapper
             MirrorUtils.SetXAuthToken(request,authToken);
 
             LogFlow("apiKey:" + apiKey);
-            //LogFlow("accessToken:" + accessToken);
+            LogFlow("accessToken:" + accessToken);
             //LogFlow("authToken:" + authToken);
 
             if (messageBody != null && messageBody != "")
@@ -245,7 +245,7 @@ namespace MirrorworldSDK.Wrapper
         {
             this.accessToken = accessToken;
 
-            if (!string.IsNullOrEmpty(refreshToken)) UpdateRefreshToken(refreshToken);
+            UpdateRefreshToken(refreshToken);
 
             SaveCurrentUser(userResponse);
         }

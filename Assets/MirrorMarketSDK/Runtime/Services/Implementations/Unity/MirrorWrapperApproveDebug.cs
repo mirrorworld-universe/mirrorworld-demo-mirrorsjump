@@ -35,7 +35,7 @@ namespace MirrorworldSDK.Wrapper
                     string secreteToken = response.data.secret_access_key;
                     GetCurrentUserInfo((response)=> {
                         UserResponse user = response.data;
-                        SaveKeyParams(secreteToken,"",user);
+                        SaveKeyParams(secreteToken,null,user);
                         action(true);
                     });
                 }
