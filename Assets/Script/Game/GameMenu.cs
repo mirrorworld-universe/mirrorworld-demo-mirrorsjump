@@ -44,7 +44,6 @@ public class GameMenu : MonoBehaviour
         //Respawn.SetActive(true);
 
         GlobalDef.IsUseRespawn = false;
-
     }
 
     private void OnDestroy()

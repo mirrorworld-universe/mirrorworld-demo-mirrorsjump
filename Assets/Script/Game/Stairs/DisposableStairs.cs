@@ -15,7 +15,7 @@ public class DisposableStairs : MonoBehaviour
 
     public SpriteRenderer SpriteRenderer;
 
-    private float AlphaChangeDelta = 0.1f;
+    //private float AlphaChangeDelta = 0.1f;
 
     private bool IsStartDisappear = false;
 

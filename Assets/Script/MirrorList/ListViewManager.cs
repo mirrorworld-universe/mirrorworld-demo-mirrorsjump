@@ -17,7 +17,7 @@ public class ListViewManager
 
     private int CurrentPage = 0;
 
-    private int PageNumber = 0;
+    //private int PageNumber = 0;
 
     private Queue<GameObject> CurrentItems = new Queue<GameObject>();
 

@@ -11,7 +11,7 @@
         public static void AddItemState(string mintAddress, CallApiState callApiState)
         {
             return;
-            CallStates.Add(mintAddress,callApiState);
+            //CallStates.Add(mintAddress,callApiState);
         }
 
         public static string GetStateByAddress(string mintAddress)

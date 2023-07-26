@@ -231,6 +231,7 @@ namespace MirrorworldSDK.Wrapper
 
         private void SaveStringToLocal(string key, string value)
         {
+            LogUtils.LogFlow("SDK Save value:"+key+" "+value);
             PlayerPrefs.SetString(key, value);
         }
 
@@ -244,7 +245,7 @@ namespace MirrorworldSDK.Wrapper
         {
             this.accessToken = accessToken;
 
-            UpdateRefreshToken(refreshToken);
+            if (!string.IsNullOrEmpty(refreshToken)) UpdateRefreshToken(refreshToken);
 
             SaveCurrentUser(userResponse);
         }
@@ -252,7 +253,7 @@ namespace MirrorworldSDK.Wrapper
         {
             this.accessToken = accessToken;
 
-            UpdateRefreshToken(refreshToken);
+            if (!string.IsNullOrEmpty(refreshToken)) UpdateRefreshToken(refreshToken);
         }
 
         private void SaveCurrentUser(UserResponse userResponse)

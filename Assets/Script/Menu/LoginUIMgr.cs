@@ -6,24 +6,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class UIManager : MonoBehaviour
+public class LoginUIMgr : MonoBehaviour
 {
     public GameObject LoginPanel;
-    public GameObject RankList;
-    //public GoogleMobileAdsManager GoogleMobileAdsManager;
-    // watch Ad for prop reward
-    public Sprite LowRocket;
-    public Sprite HighRocket;
-    public Sprite Spring;
-    public GameObject RewardAdvice;
-    public Image RewardImage;
-    public GameObject RewardPackage;
-    public TextMeshProUGUI LowRocketNumber;
-    public TextMeshProUGUI HighRocketNumber;
-    public TextMeshProUGUI SpringNumber;
-    public ThemeManager ThemeManager;
     public GameObject LoginButton;
-    public bool WantOpenItemPackage = false;
+    public bool IsInitPropPackage = true;
     public TMP_InputField Account;
     public TMP_InputField PassWord;
     public GameObject Title;
@@ -35,28 +22,12 @@ public class UIManager : MonoBehaviour
     public GameObject FailurePanel;
 
 
-    //public Button GameLoginButton;
-    
-    
-    
-
-    
-
     private void Start()
     {
-        //GameLoginButton.interactable = false;
         SoundManager.Instance.GetAudioSource().clip = SoundManager.Instance.Clips[6];
         SoundManager.Instance.GetAudioSource().mute = SoundManager.Instance.GetSoundState();
         SoundManager.Instance.GetAudioSource().Play();
         LoginButton.SetActive(false);
-        
-        //if (null != GoogleMobileAdsManager)
-        //{
-        //    GoogleMobileAdsManager.InitGoogleMobileAdsSDK();
-        //}
-
-        //Update buttons
-
     }
 
     private void Update()
@@ -274,99 +245,11 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         EventDispatcher.Instance.userInfoDataReceived += OnUserDataReceived;
-        EventDispatcher.Instance.OnPropResponse += OnPropCountReceived;
-        //NetworkManager.Instance.GetPropInfo(LoginState.WalletAddress);
     }
 
     private void OnDestroy()
     {
         EventDispatcher.Instance.userInfoDataReceived -= OnUserDataReceived;
-        EventDispatcher.Instance.OnPropResponse -= OnPropCountReceived;
-    }
-
-
-    public void OnPropCountReceived(PropResponse propResponse)
-    {
-        if (propResponse.data.props.high_rocket <= 0)
-        {
-            HighRocketNumber.text = "x0";
-        }
-        else
-        {
-            HighRocketNumber.text = "x"+propResponse.data.props.high_rocket;
-        }
-        
-        if (propResponse.data.props.low_rocket <= 0)
-        {
-            LowRocketNumber.text = "x0";
-           
-        }else
-        {
-            LowRocketNumber.text = "x"+propResponse.data.props.low_rocket;
-        }
-        
-        
-        if (propResponse.data.props.spring <= 0)
-        {
-            SpringNumber.text = "x0";
-           
-        }else
-        {
-            SpringNumber.text = "x"+propResponse.data.props.spring;
-        }
-
-        GlobalDef.HighRocketCount = propResponse.data.props.high_rocket;
-        GlobalDef.LowRocketCount = propResponse.data.props.low_rocket;
-        GlobalDef.SpringCount = propResponse.data.props.spring;
-
-        if (WantOpenItemPackage)
-        {
-            WantOpenItemPackage = false;
-            LoadingPanel.Instance.SetLoadingPanelEnable(false);
-            RewardPackage.SetActive(true);
-        }
-    }
-    
-    
-    public void OpenRewardPackage()
-    {
-        if (GlobalDef.HighRocketCount <= 0)
-        {
-            HighRocketNumber.text = "x0";
-
-        }
-        else
-        {
-            HighRocketNumber.text = "x" + GlobalDef.HighRocketCount;
-        }
-
-
-        if (GlobalDef.LowRocketCount <= 0)
-        {
-            LowRocketNumber.text = "x0";
-
-        }
-        else
-        {
-            LowRocketNumber.text = "x" + GlobalDef.LowRocketCount;
-        }
-
-
-        if (GlobalDef.SpringCount <= 0)
-        {
-            SpringNumber.text = "x0";
-
-        }
-        else
-        {
-            SpringNumber.text = "x" + GlobalDef.SpringCount;
-        }
-
-        RewardPackage.SetActive(true);
-
-        NetworkManager.Instance.GetPropInfo(LoginState.WalletAddress);
-        WantOpenItemPackage = true;
-        LoadingPanel.Instance.SetLoadingPanelEnable(true);
     }
 
     private void OnUserDataReceived(UserInfoData userInfoData)
@@ -501,146 +384,4 @@ public class UIManager : MonoBehaviour
         IsDebug = true;
         
     }
-    
-    public void PlayGame()
-    {    
-        if (ThemeManager.GetCurrentLockState())
-        {   
-            // add some tips 
-            return;
-        }
-        
-        //TAManager.Instance.StartGame();
-        
-        SoundManager.Instance.PlaySound(SoundName.Button);
-        
-        SoundManager.Instance.GetAudioSource().mute = true;
-        SoundManager.Instance.GetAudioSource().clip = null;
-        
-        SoundManager.Instance.GetAudioSource().mute = SoundManager.Instance.GetSoundState();
-        
-        SceneManager.LoadScene("Game");
-    }
-
-   
-
-    public void OpenWallet()
-    {
-        Debug.Log("Wallet is:"+MirrorSDK.GetWallet());
-        SoundManager.Instance.PlaySound(SoundName.Button);
-        //TAManager.Instance.OpenWallet();
-        Debug.Log("MirrorSDK.OpenWalletPage on call");
-        MirrorSDK.OpenWalletPage(()=> {
-            Debug.Log("MirrorSDK.OpenWalletPage on call back");
-            //keep transfersol result, don't clear cache all.
-            //PlayerPrefs.DeleteAll();
-            PlayerPrefs.DeleteAll();
-
-            SceneManager.LoadScene("Login");
-            ApiCallLimit.DeleteAllItem();
-
-            //clear Mint apiCallLimit
-            PlayerCacheMgr.StopMinting();
-        });
-    }
-    
-    public void OpenMarket()
-    {   
-        SoundManager.Instance.PlaySound(SoundName.Button);
-        //TAManager.Instance.OpenMarketPlace();
-        MirrorSDK.OpenMarketPage(GetMarketRoot());
-    }
-    
-    private string GetMarketRoot()
-    {     
-        if (GlobalDef.Env == MirrorEnv.Mainnet)
-        {
-            return "https://jump.mirrorworld.fun";
-        }
-        else if (GlobalDef.Env == MirrorEnv.Devnet)
-        {
-            return "https://jump-devnet-prod.mirrorworld.fun/";
-        }
-        else
-        {
-            Debug.Log("Unknwon env in GlobalDef:" + GlobalDef.Env);
-            return "https://jump-devnet-prod.mirrorworld.fun/";
-        }
-    }
-
-
-    public void ClearAllPersistingData()
-    {
-        PlayerPrefs.DeleteAll();
-    }
-    
-    
-    
-    
-    // todo Reward Advice & Reward Package
-    
-    // Google AdMob Watch Ad for Reward
-    public void OpenRewardAdvice()
-    {
-        RewardImage.sprite = GenerateRewardProp();
-        RewardAdvice.SetActive(true);
-        
-    }
-    
-    // just mock data
-    private Sprite GenerateRewardProp()
-    {
-        int seed = Random.Range(1, 30);
-
-        if (seed <= 10)
-        {
-            GlobalDef.SpringCount++;
-            
-            
-            Debug.Log("UpdatePropParams:"+LoginState.WalletAddress+"  "+0+"  "+0+"   "+1);
-            
-            NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,0,0,1);
-            return Spring;
-            
-        }else if (seed <= 20)
-        {
-            GlobalDef.LowRocketCount++;
-            Debug.Log("UpdatePropParams:"+LoginState.WalletAddress+"  "+0+"  "+0+"   "+1);
-            
-            NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,0,1,0);
-            return LowRocket;
-        }
-
-        GlobalDef.HighRocketCount++;
-        Debug.Log("UpdatePropParams:"+LoginState.WalletAddress+"  "+0+"  "+0+"   "+1);
-        NetworkManager.Instance.UpdateProp(LoginState.WalletAddress,1,0,0);
-        return HighRocket;
-    }
-
-
-
-    public void CloseRewardAdvice()
-    {
-      
-        RewardAdvice.SetActive(false);
-        RewardImage.sprite = null;
-    }
-
-    public void CloseRewardPackage()
-    {
-        RewardPackage.SetActive(false);
-    }
-
-
-    public void OpenRankList()
-    {
-        RankList.SetActive(true);
-        RankList.GetComponent<RankListManager>().OpenDayRank();
-    }
-    
-    public void CloseRankList()
-    {
-        RankList.SetActive(false);
-    }
-    
 }

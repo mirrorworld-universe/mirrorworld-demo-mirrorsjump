@@ -36,7 +36,7 @@ public class StairsFactory : MonoBehaviour
     
     public GameController GameController;
 
-    private float DifficultyInterval = 50f;
+    //private float DifficultyInterval = 50f;
 
     public PropsFactory PropsFactory;
 
@@ -47,7 +47,7 @@ public class StairsFactory : MonoBehaviour
     
     
     // just test 对 brakable stairs 临时限制
-    private bool Limit = false;
+    //private bool Limit = false;
     
     
     // theme change

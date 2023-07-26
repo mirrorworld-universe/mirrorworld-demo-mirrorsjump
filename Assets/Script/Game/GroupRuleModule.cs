@@ -24,9 +24,9 @@ public class GroupRuleModule : MonoBehaviour
      private List<StairsRuleItem> currentItems = new List<StairsRuleItem>(3);
 
 
-     private float TheLeftBlackRoleX = -3.96f;
+     //private float TheLeftBlackRoleX = -3.96f;
      
-     private float TheRightBlackRoleX = 3.96f;
+     //private float TheRightBlackRoleX = 3.96f;
      
      
 

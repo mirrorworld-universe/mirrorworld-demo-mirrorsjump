@@ -35,7 +35,7 @@ public class MovingStairs : MonoBehaviour
     private float SlowMoveDistance;
 
 
-    private float WidthOffset = 0.8f;
+    //private float WidthOffset = 0.8f;
 
 
     private float ReferenceX = 0f;

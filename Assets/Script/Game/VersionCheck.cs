@@ -8,7 +8,7 @@ public class VersionCheck : MonoBehaviour
     private int ReviewVersion;
 
 
-    public UIManager UIManager;
+    public LoginUIMgr loginUIMgr;
     public struct VersionData
     {
         public string version;
@@ -54,7 +54,7 @@ public class VersionCheck : MonoBehaviour
     {
         dialog.gameObject.SetActive(false);
         // todo Start Auto Login
-        UIManager.AutoLogin();
+        loginUIMgr.AutoLogin();
     }
 
     private void OnConfirmClicked()
@@ -83,7 +83,7 @@ public class VersionCheck : MonoBehaviour
             {
                 dialog.gameObject.SetActive(false);
                 // todo Start Auto Login
-                UIManager.AutoLogin();
+                loginUIMgr.AutoLogin();
             }
             else
             {
@@ -119,7 +119,6 @@ public class VersionCheck : MonoBehaviour
 
             if (request.result == UnityWebRequest.Result.Success)
             {
-
                 Debug.Log("VersionText  " + request.downloadHandler.text);
                 VersionData data = JsonConvert.DeserializeObject<VersionData>(request.downloadHandler.text);
                 versionData = data;
@@ -136,7 +135,7 @@ public class VersionCheck : MonoBehaviour
                     }
                     else
                     {
-                        UIManager.AutoLogin();
+                        loginUIMgr.AutoLogin();
                     }
                 }
                 else
@@ -159,7 +158,7 @@ public class VersionCheck : MonoBehaviour
 
                     if (!NeedForceUpdate(data) && !HasNewVersion(data))
                     {
-                        UIManager.AutoLogin();
+                        loginUIMgr.AutoLogin();
                     }
                 }
             }

@@ -829,7 +829,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1924108959}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: LoginUIMgr, Assembly-CSharp
         m_MethodName: Login
         m_Mode: 1
         m_Arguments:
@@ -923,7 +923,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1924108959}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: CloseFailure
         m_Mode: 1
@@ -2085,6 +2085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -2493,7 +2494,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -50, y: -48.99884}
+  m_AnchoredPosition: {x: -50, y: -48.9989}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1079994050
@@ -3576,7 +3577,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1924108959}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: GameLogin
         m_Mode: 1
@@ -3677,7 +3678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06da8b4910ed9e4491db887614b8f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 1924108959}
+  loginUIMgr: {fileID: 1924108959}
   dialog: {fileID: 363659335}
   versionCheckPanel: {fileID: 1411531902}
 --- !u!1 &1924108954
@@ -3797,22 +3798,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1924108954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afc04748b81c34543a14c2813e8a870f, type: 3}
+  m_Script: {fileID: 11500000, guid: 935386da4046f439da60f23176157d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LoginPanel: {fileID: 676685807}
-  RankList: {fileID: 0}
-  GoogleMobileAdsManager: {fileID: 0}
-  LowRocket: {fileID: 0}
-  HighRocket: {fileID: 0}
-  Spring: {fileID: 0}
-  RewardAdvice: {fileID: 0}
-  RewardImage: {fileID: 0}
-  RewardPackage: {fileID: 0}
-  LowRocketNumber: {fileID: 0}
-  HighRocketNumber: {fileID: 0}
-  SpringNumber: {fileID: 0}
-  ThemeManager: {fileID: 0}
   LoginButton: {fileID: 254729433}
   IsInitPropPackage: 1
   Account: {fileID: 2064815134}
@@ -3821,7 +3810,6 @@ MonoBehaviour:
   GameLoginTitle: {fileID: 500178800}
   Back: {fileID: 676685807}
   FailurePanel: {fileID: 2004520695}
-  GameLoginButton: {fileID: 1694875957}
 --- !u!1 &1980259266
 GameObject:
   m_ObjectHideFlags: 0

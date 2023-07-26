@@ -10,7 +10,7 @@ using static UnityEngine.Networking.UnityWebRequest;
 
 public class NetworkManager : MonoSingleton<NetworkManager>
 {
-    private float retryTime = 6.0f;
+    //private float retryTime = 6.0f;
 
     public void DoAfterTime(float time,Action action)
     {
@@ -427,17 +427,13 @@ public class NetworkManager : MonoSingleton<NetworkManager>
     
     public void UpdateProp(string user_id,int deltaHightRocket,int deltaLowRocket,int deltaSpring)
     {
-        Debug.Log("Start.....");
-       
         string path = GlobalDef.server + "api/v1/user/prop/update_info";
-        Debug.Log("UpdatePropUrl:"+GlobalDef.server+"api/v1/user/prop/update_info");
         UpdatePropReq req = new UpdatePropReq();
         req.props = new Props();
         req.user_id = user_id;
         req.props.high_rocket = deltaHightRocket;
         req.props.low_rocket = deltaLowRocket;
         req.props.spring = deltaSpring;
-        Debug.Log("StartCoroutine"+path);
         StartCoroutine(Post(path, JsonMapper.ToJson(req), (result, json) =>
         {
             var res = JsonMapper.ToObject<PropResponse>(json);
@@ -448,11 +444,8 @@ public class NetworkManager : MonoSingleton<NetworkManager>
                 return;
             }
             
-            Debug.Log("UpdatePropResponseStatus " + res.status);
             EventDispatcher.Instance.OnUpdatePropResponse?.Invoke(res);
-            
         }));
-
     }
 
     private LoadingDialog NewDialog()
@@ -462,8 +455,6 @@ public class NetworkManager : MonoSingleton<NetworkManager>
         GameObject dialogGO = GameObject.Instantiate(prefab, canvas.transform);
         return dialogGO.GetComponent<LoadingDialog>();
     }
-    
-    
 }
 
 public class RetryObj

@@ -25,7 +25,7 @@ public class RankListViewManager
 
         private bool _isVertical = true;
 
-        private bool _isGrid = false;
+        //private bool _isGrid = false;
         
         
         private RankListDataProvider _dataProvider => _rankListView._dataProvider;

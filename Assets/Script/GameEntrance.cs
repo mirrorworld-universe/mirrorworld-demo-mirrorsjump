@@ -11,10 +11,9 @@ public class GameEntrance : MonoBehaviour
     [SerializeField] bool useShuShuAnalysis = true;
     [SerializeField] bool IsTestEnv = true;
   
-    
-
     private void Start()
     {
+        //PlayerPrefs.DeleteAll();
         //    double oriD = 123.45;
         //    string numStr = oriD.ToString();
         //    double testF = PrecisionUtil.StrToFloat(numStr);
