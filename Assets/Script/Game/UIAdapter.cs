@@ -16,6 +16,7 @@ public class UIAdapter : MonoBehaviour
     public GameObject MarketButton;
     public GameObject ListButton;
     public GameObject TransferButton;
+    public GameObject VersionInfo;
 
 
     private void Start()
@@ -50,6 +51,7 @@ public class UIAdapter : MonoBehaviour
             MarketButton.SetActive(false);
             ListButton.SetActive(true);
             TransferButton.SetActive(true);
+            VersionInfo.SetActive(false);
         }
     }
     

@@ -37,16 +37,14 @@ public class ReviewCheck : MonoBehaviour
                 Debug.Log("ReviewResult:" + request.downloadHandler.text);
                 if (data.IsReview)
                 {
-                    // 审核期
-                    if (GlobalDef.ReviewVersionCode < data.ReviewVersionCode)
+                    // 只隐藏某一个版本的敏感按钮
+                    if (GlobalDef.ReviewVersionCode == data.ReviewVersionCode)
                     {
-                        // 已经通过审核的版本    
-                        GlobalDef.IsShowPackage = GlobalDef.ForceIOSReview?false:true;
+                        GlobalDef.IsShowPackage = false;
                     }
                     else
                     {
-                        // 限制版本
-                        GlobalDef.IsShowPackage = false;
+                        GlobalDef.IsShowPackage = GlobalDef.ForceIOSReview ? false : true;
                     }
                 }
                 else

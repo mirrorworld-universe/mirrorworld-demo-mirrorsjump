@@ -49896,14 +49896,13 @@ MonoBehaviour:
   SpringNumber: {fileID: 1112253391}
   ThemeManager: {fileID: 1371097675}
   LoginButton: {fileID: 372886247}
-  IsInitPropPackage: 1
+  WantOpenItemPackage: 0
   Account: {fileID: 0}
   PassWord: {fileID: 0}
   Title: {fileID: 0}
   GameLoginTitle: {fileID: 0}
   Back: {fileID: 0}
   FailurePanel: {fileID: 0}
-  GameLoginButton: {fileID: 0}
 --- !u!114 &2117460476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49922,6 +49921,7 @@ MonoBehaviour:
   MarketButton: {fileID: 745288301}
   ListButton: {fileID: 1760259608}
   TransferButton: {fileID: 122824672}
+  VersionInfo: {fileID: 1240655216}
 --- !u!1 &2118041829
 GameObject:
   m_ObjectHideFlags: 0

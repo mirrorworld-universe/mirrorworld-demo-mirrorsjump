@@ -79,9 +79,9 @@ public class GlobalDef
     }
 
     public static string ReceiveWallet = "qS6JW1CKQgpwZU6jG5JpXL3Q4EDMoDD5DWacPEsNZoe";
-    public static int ReviewVersionCode = 1;
+    public static int ReviewVersionCode = 2;//这里要对比AWS上的配置文件的ReviewCode来写，规则是每次发布自增1
 
-    //iOS审核时，关闭所有背包
+    //iOS审核时，关闭所有背包，这里只是个临时变量
     public static bool IsShowPackage;
 
     //Main!!!
@@ -102,8 +102,8 @@ public class GlobalDef
     // 是否为 IOS 环境
     public static bool IsGoogleEnv = false;
     public static bool IsIOSEnv = true;
-    public static string iOSVersion = "1.2.3.2";
-    public static string universalVersion = "02201154";
+    public static string iOSVersion = "1.3.0.0";
+    public static string universalVersion = "07281614";
     public static string suiCollection = "0x8174698832d193cc63d381bd78be85b2745dff363cf54aa76abea4d672a52b49";
 
 
