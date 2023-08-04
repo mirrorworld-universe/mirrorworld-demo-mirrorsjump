@@ -396,7 +396,7 @@ public class NftTrade : MonoBehaviour
         
         Debug.Log("MirrorSDK Start Listing:"+CurrentNftCellData.NftData.mintAddress+ " price:"+ price);
         StartSDKRequest();
-        MWSDK.Solana.Asset.ListNFT(CurrentNftCellData.NftData.mintAddress,price, GlobalDef.marketAuctionHouse, Confirmation.Finalized,
+        MWSDK.Solana.Asset.ListNFT(CurrentNftCellData.NftData.mintAddress,price, GlobalDef.marketAuctionHouse, Confirmation.Confirmed,
             () =>
             {
                 StartApproveAction();
@@ -443,7 +443,7 @@ public class NftTrade : MonoBehaviour
             //TAManager.Instance.ChangeListPriceStart(CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count - 1].price,CurrentNftCellData.NftData.name);
             StartSDKRequest();
 
-            MWSDK.Solana.Asset.ListNFT(CurrentNftCellData.NftData.mintAddress, price, GlobalDef.marketAuctionHouse, Confirmation.Finalized,
+            MWSDK.Solana.Asset.ListNFT(CurrentNftCellData.NftData.mintAddress, price, GlobalDef.marketAuctionHouse, Confirmation.Confirmed,
                 () =>
                 {
                     StartApproveAction();
@@ -490,7 +490,7 @@ public class NftTrade : MonoBehaviour
             //TAManager.Instance.CancelListStart(CurrentNftCellData.NftData.name);
         StartSDKRequest();
 
-            MWSDK.Solana.Asset.CancelListing(CurrentNftCellData.NftData.mintAddress,CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count-1].price, GlobalDef.marketAuctionHouse, Confirmation.Finalized,
+            MWSDK.Solana.Asset.CancelListing(CurrentNftCellData.NftData.mintAddress,CurrentNftCellData.NftData.listings[CurrentNftCellData.NftData.listings.Count-1].price, GlobalDef.marketAuctionHouse, Confirmation.Confirmed,
                 () =>
                 {
                     StartApproveAction();

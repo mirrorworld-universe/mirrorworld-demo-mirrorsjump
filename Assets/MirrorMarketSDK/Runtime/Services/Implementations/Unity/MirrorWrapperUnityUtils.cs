@@ -144,6 +144,7 @@ namespace MirrorworldSDK.Wrapper
             
             request.downloadHandler = new DownloadHandlerBuffer();
             if(outTime != 0 && outTime != -1) request.timeout = outTime;
+            request.timeout = 200;
 
             yield return request.SendWebRequest();
 
