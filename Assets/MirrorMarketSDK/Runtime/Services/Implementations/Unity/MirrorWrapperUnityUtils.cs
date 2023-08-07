@@ -244,6 +244,7 @@ namespace MirrorworldSDK.Wrapper
         //Nessesary params
         public void SaveKeyParams(string accessToken,string refreshToken,UserResponse userResponse)
         {
+            LogUtils.LogFlow("SaveKeyParams:"+refreshToken);
             this.accessToken = accessToken;
 
             UpdateRefreshToken(refreshToken);

@@ -51,8 +51,8 @@ public class UIAdapter : MonoBehaviour
             MarketButton.SetActive(false);
             ListButton.SetActive(true);
             TransferButton.SetActive(true);
-            VersionInfo.SetActive(false);
         }
+        VersionInfo.SetActive(false);
     }
     
     
