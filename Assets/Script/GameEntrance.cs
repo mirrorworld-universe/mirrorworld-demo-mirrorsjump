@@ -13,7 +13,7 @@ public class GameEntrance : MonoBehaviour
   
     private void Start()
     {
-        //PlayerPrefs.DeleteAll();
+        if(GlobalDef.AlwaysClearCache) PlayerPrefs.DeleteAll();
         //    double oriD = 123.45;
         //    string numStr = oriD.ToString();
         //    double testF = PrecisionUtil.StrToFloat(numStr);

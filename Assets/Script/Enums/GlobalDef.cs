@@ -32,6 +32,8 @@ public class GlobalDef
     public static bool AddMintableRoleToPackage = false;
     //测试时，强行使游戏变为iOS审核模式
     public static bool ForceIOSReview = false;
+    //是否每次都清理缓存
+    public static bool AlwaysClearCache = false;
 
     public static string isMute = "isMute";
     public static int heightCoefficient = 4;
@@ -84,8 +86,6 @@ public class GlobalDef
     //iOS审核时，关闭所有背包，这里只是个临时变量
     public static bool IsShowPackage;
 
-    //Main!!!
-    // Global  Parent Collection  &  Action House
     //MainNet
     public static string marketAuctionHouse = "6gysn49dh2tfwbqvLqWpJNwisjkZCJoX3AyjuyFUn89C";
     //MainetCollection
@@ -100,40 +100,14 @@ public class GlobalDef
     // 生产环境
     public static string server = "https://mirror-jump.mirrorworld.fun/";
     // 是否为 IOS 环境
-    public static bool IsGoogleEnv = false;
-    public static bool IsIOSEnv = true;
+    public static bool IsGoogleEnv = true;
+    public static bool IsIOSEnv = false;
     public static string iOSVersion = "1.3.0.1";
     public static string universalVersion = "07281614";
     public static string suiCollection = "0x8174698832d193cc63d381bd78be85b2745dff363cf54aa76abea4d672a52b49";
 
-
-
-    ////Staging Dev!!!
-    //// Global Parent Collection  &  Action House
-    ////DevNet
-    //public static string marketAuctionHouse = "AiEqGqMDMa7G6sDF484pqfgsxRGuCcjgxv43MxoiVCsz";
-    ////MainNet
-    ////public static string marketAuctionHouse = "6gysn49dh2tfwbqvLqWpJNwisjkZCJoX3AyjuyFUn89C";
-    ////MainetCollection
-    //public static string ParentCollectionMainNet = "7Vv68CarFpqn291aTeeUz65Uxk1tp8X7gfR8CDMZo2gw";
-    ////DevnetCollection
-    //public static string ParentCollectionDevNet = "DUuMbpmH3oiREntViXfGZhrLMbVcYBwGeBa4Wn9X8QfM";
-    //public static bool IsMainNet = false;
-    ////market 路径标识枚举
-    //public static MirrorEnv Env = MirrorEnv.StagingDevNet;
-    //public static string UserCollection = ParentCollectionDevNet;
-    ////除了这个还有MirrorSDK的手动指定环境，Unity面板上的环境和APIKey
-    //// 非生产环境
-    //public static string server = "https://mirror-jump-staging.mirrorworld.fun/";
-    //// 是否为 IOS 环境
-    //public static bool IsGoogleEnv = false;
-    //public static bool IsIOSEnv = false;
-    //public static string iOSVersion = "1.2.3.2";
-    //public static string universalVersion = "02201154";
-
-
-    //Production Dev
-    //Market auction house
+    ////Production Dev
+    ////Market auction house
     //public static string marketAuctionHouse = "EggpsxeiCoahWgk2KQ7CmSn7Txcb19dzGggpqEr4qErU";
     ////MainetCollection
     //public static string ParentCollectionMainNet = "7Vv68CarFpqn291aTeeUz65Uxk1tp8X7gfR8CDMZo2gw";
@@ -149,9 +123,8 @@ public class GlobalDef
     //// 是否为 IOS 环境
     //public static bool IsGoogleEnv = false;
     //public static bool IsIOSEnv = true;
-    //public static string iOSVersion = "1.2.3.1";
+    //public static string iOSVersion = "1.3.0.1";
     //public static string universalVersion = "07261455";
-
     //public static string suiCollection = "0x8174698832d193cc63d381bd78be85b2745dff363cf54aa76abea4d672a52b49";
 }
 
